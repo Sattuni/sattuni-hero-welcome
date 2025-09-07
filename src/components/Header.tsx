@@ -10,19 +10,42 @@ const Header = () => {
   const location = useLocation();
   
   const navigation = [
-    { name: "Home", href: "/", current: location.pathname === "/" },
-    { name: "Spezialitäten", href: "/spezialitaeten", current: location.pathname === "/spezialitaeten" },
-    { name: "Catering", href: "/catering", current: location.pathname === "/catering" },
+    { 
+      name: "Home", 
+      href: "/", 
+      current: location.pathname === "/",
+      title: "Zur Startseite - Arabische Küche Düsseldorf"
+    },
+    { 
+      name: "Spezialitäten", 
+      href: "/spezialitaeten", 
+      current: location.pathname === "/spezialitaeten",
+      title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
+    },
+    { 
+      name: "Catering", 
+      href: "/catering", 
+      current: location.pathname === "/catering",
+      title: "Catering Service Düsseldorf - Arabische Küche für Events"
+    },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm">
+    <header 
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm"
+      role="banner"
+      itemScope 
+      itemType="https://schema.org/WPHeader"
+    >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
             to="/" 
             className="flex items-center space-x-3 group"
+            title="Sattuni - Arabische Küche Düsseldorf"
+            aria-label="Zur Startseite von Sattuni"
+            itemProp="url"
             onClick={() => {
               if (location.pathname === '/') {
                 // Already on homepage, scroll to top
@@ -32,17 +55,37 @@ const Header = () => {
           >
             <img 
               src={sattunIcon} 
-              alt="Sattuni Icon" 
+              alt="Sattuni Logo - Arabische Küche Düsseldorf" 
               className="h-10 w-10 drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+              width="40"
+              height="40"
+              loading="eager"
+              itemProp="logo"
             />
-            <div className="hidden sm:block">
-              <span className="text-lg font-semibold text-foreground font-display">sattuni</span>
-              <p className="text-xs text-muted-foreground uppercase tracking-wide font-body">Oriental Bowls & More</p>
+            <div className="hidden sm:block" itemScope itemType="https://schema.org/Organization">
+              <span 
+                className="text-lg font-semibold text-foreground font-display"
+                itemProp="name"
+              >
+                sattuni
+              </span>
+              <p 
+                className="text-xs text-muted-foreground uppercase tracking-wide font-body"
+                itemProp="description"
+              >
+                Oriental Bowls & More
+              </p>
             </div>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav 
+            className="hidden md:flex items-center space-x-6"
+            role="navigation"
+            aria-label="Hauptnavigation"
+            itemScope 
+            itemType="https://schema.org/SiteNavigationElement"
+          >
             {navigation.map((item) => (
               <Link
                 key={item.name}

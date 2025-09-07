@@ -1,0 +1,26 @@
+{
+  "name": "Sattuni - Arabische Küche Düsseldorf",
+  "short_name": "Sattuni",
+  "description": "Authentische arabische Küche, Lieferservice und Catering in Düsseldorf",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#B8860B",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/sattuni-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["food", "restaurant", "delivery"],
+  "lang": "de",
+  "dir": "ltr"
+}

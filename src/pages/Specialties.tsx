@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import FOMOElements from "@/components/FOMOElements";
 import { Utensils, Leaf, Truck, Calendar, ArrowUp } from "lucide-react";
@@ -22,7 +23,7 @@ import bowlsHauptgerichte4 from "@/assets/bowls-hauptgerichte-4.jpg";
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // SEO Meta Tags
+  // SEO Meta Tags and Structured Data
   useEffect(() => {
     document.title = "Arabische Spezialitäten Düsseldorf | Sattuni - Hummus, Falafel & mehr";
     
@@ -37,6 +38,133 @@ const Specialties = () => {
       'Entdecke authentische arabische Küche in Düsseldorf ✓ Hausgemachte Dips ✓ Knusprige Falafel ✓ Frische Bowls ✓ Catering verfügbar - Jetzt bestellen!'
     );
 
+    // Add comprehensive structured data for specialties page
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://sattuni.de/spezialitaeten#webpage",
+          "url": "https://sattuni.de/spezialitaeten",
+          "name": "Arabische Spezialitäten - Sattuni",
+          "description": "Entdecke authentische arabische Spezialitäten: Hummus, Falafel, Couscous Bowls und mehr. Hausgemacht und frisch in Düsseldorf.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Startseite",
+                "item": "https://sattuni.de"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Spezialitäten",
+                "item": "https://sattuni.de/spezialitaeten"
+              }
+            ]
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "Arabische Spezialitäten",
+            "description": "Authentische arabische Gerichte aus Düsseldorf",
+            "itemListElement": [
+              {
+                "@type": "Recipe",
+                "position": 1,
+                "name": "Hummus",
+                "description": "Cremiger Kichererbsendip mit Tahini, Olivenöl und Gewürzen",
+                "image": "https://sattuni.de/dips-vorspeisen.jpg",
+                "cuisine": "Arabisch",
+                "keywords": "hummus, kichererbsen, tahini, vegan, glutenfrei",
+                "nutrition": {
+                  "@type": "NutritionInformation",
+                  "calories": "150",
+                  "proteinContent": "6g",
+                  "fiberContent": "5g"
+                }
+              },
+              {
+                "@type": "Recipe",
+                "position": 2,
+                "name": "Falafel",
+                "description": "Knusprige Kichererbsenbällchen, hausgemacht und traditionell gewürzt",
+                "image": "https://sattuni.de/falafel-teigtaschen.jpg",
+                "cuisine": "Arabisch",
+                "keywords": "falafel, kichererbsen, vegan, protein, hausgemacht"
+              },
+              {
+                "@type": "Recipe",
+                "position": 3,
+                "name": "Couscous Bowl",
+                "description": "Sättigende Bowl mit Couscous, gegrilltem Gemüse und frischen Kräutern",
+                "image": "https://sattuni.de/bowls-hauptgerichte.jpg",
+                "cuisine": "Arabisch",
+                "keywords": "couscous, bowl, gemüse, vegetarisch, vollwertig"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Was sind arabische Spezialitäten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arabische Spezialitäten umfassen traditionelle Gerichte wie Hummus, Falafel, Tabouleh und Couscous. Diese Gerichte zeichnen sich durch frische Zutaten, mediterrane Gewürze und jahrhundertealte Zubereitungsarten aus."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Sind arabische Gerichte vegan und vegetarisch?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, viele arabische Spezialitäten sind natürlicherweise vegan oder vegetarisch. Hummus, Falafel, Tabouleh und viele Dips basieren auf pflanzlichen Zutaten wie Kichererbsen, Gemüse und Kräutern."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Liefert Sattuni arabische Spezialitäten in Düsseldorf?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, Sattuni liefert frische arabische Spezialitäten in ganz Düsseldorf. Alle Gerichte werden täglich hausgemacht und können bequem online bestellt werden."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Restaurant",
+          "@id": "https://sattuni.de/#restaurant",
+          "name": "Sattuni",
+          "servesCuisine": "Arabische Küche",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Düsseldorf",
+            "addressCountry": "DE"
+          }
+        }
+      ]
+    };
+
+    // Create and append structured data script
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-specialties', 'true');
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Add canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://sattuni.de/spezialitaeten');
+
     // Scroll to top functionality
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 800);
@@ -45,6 +173,11 @@ const Specialties = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      // Cleanup structured data
+      const scriptToRemove = document.querySelector('script[data-specialties]');
+      if (scriptToRemove) {
+        document.head.removeChild(scriptToRemove);
+      }
       // Reset title on unmount
       document.title = "Sattuni - Oriental Bowls & More";
     };
@@ -59,6 +192,19 @@ const Specialties = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Arabische Spezialitäten Düsseldorf | Sattuni - Hummus, Falafel & mehr</title>
+        <meta name="description" content="Entdecke authentische arabische Küche in Düsseldorf ✓ Hausgemachte Dips ✓ Knusprige Falafel ✓ Frische Bowls ✓ Catering verfügbar - Jetzt bestellen!" />
+        <meta name="keywords" content="arabische spezialitäten düsseldorf, hummus düsseldorf, falafel düsseldorf, orientalische küche, vegan düsseldorf, couscous bowl" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Arabische Spezialitäten in Düsseldorf - Sattuni" />
+        <meta property="og:description" content="Authentische arabische Küche: Hummus, Falafel, Couscous Bowls und mehr. Hausgemacht und frisch in Düsseldorf." />
+        <meta property="og:url" content="https://sattuni.de/spezialitaeten" />
+        <meta property="og:image" content="https://sattuni.de/hero-specialties.jpg" />
+        <link rel="canonical" href="https://sattuni.de/spezialitaeten" />
+      </Helmet>
+      
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
         {/* Breadcrumb Navigation */}

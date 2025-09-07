@@ -6,13 +6,24 @@ import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[50vh] flex items-start overflow-hidden">
+    <section 
+      className="relative min-h-[50vh] flex items-start overflow-hidden"
+      itemScope
+      itemType="https://schema.org/Restaurant"
+      role="banner"
+      aria-label="Sattuni Hauptbereich"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Authentische arabische Küche - Pita, Hummus und Buffet" 
+          alt="Authentische arabische Küche - Frische Pita, hausgemachter Hummus und Buffet-Catering von Sattuni in Düsseldorf" 
           className="w-full h-full object-cover"
+          width="1920"
+          height="800"
+          loading="eager"
+          fetchPriority="high"
+          itemProp="image"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/75"></div>
       </div>
@@ -25,18 +36,28 @@ const Hero = () => {
             <div className="flex justify-center lg:justify-start mb-3">
               <img 
                 src={sattunLogo} 
-                alt="Sattuni - Oriental Bowls & More Logo" 
+                alt="Sattuni Logo - Oriental Bowls & More - Arabische Küche Düsseldorf" 
                 className="h-16 lg:h-20 w-auto drop-shadow-lg"
+                width="200"
+                height="80"
+                loading="eager"
+                itemProp="logo"
               />
             </div>
             
             {/* Headline */}
-            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight">
+            <h1 
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight"
+              itemProp="name"
+            >
               Von Pita bis Party – wir liefern.
             </h1>
             
             {/* Subline */}
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body">
+            <p 
+              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body"
+              itemProp="description"
+            >
               Egal ob Alltag oder Event: Bei uns gibt's frische arabische Küche – 
               mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
             </p>
@@ -44,7 +65,7 @@ const Hero = () => {
             {/* Urgency Badge */}
             <div className="flex justify-center lg:justify-start mb-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
-                <span className="w-2 h-2 bg-primary rounded-full"></span>
+                <span className="w-2 h-2 bg-primary rounded-full" aria-hidden="true"></span>
                 <span className="text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
               </div>
             </div>

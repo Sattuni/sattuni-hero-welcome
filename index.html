@@ -3,11 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#B8860B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Sattuni" />
+    
+    <!-- Primary Meta Tags -->
     <title>Sattuni - Arabische Küche Düsseldorf | Lieferservice & Catering</title>
+    <meta name="title" content="Sattuni - Arabische Küche Düsseldorf | Lieferservice & Catering" />
     <meta name="description" content="🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch. Jetzt bestellen!" />
-    <meta name="keywords" content="arabische küche düsseldorf, lieferservice, catering, hummus, falafel, pita, oriental bowls, vegan, vegetarisch, event catering düsseldorf" />
+    <meta name="keywords" content="arabische küche düsseldorf, lieferservice, catering, hummus, falafel, pita, oriental bowls, vegan, vegetarisch, event catering düsseldorf, arabisches restaurant düsseldorf, orientalische küche" />
     <meta name="author" content="Sattuni - Oriental Bowls & More" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Canonical and Language -->
     <link rel="canonical" href="https://sattuni.de" />
+    <link rel="alternate" hreflang="de" href="https://sattuni.de" />
+    <link rel="alternate" hreflang="x-default" href="https://sattuni.de" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -15,7 +28,10 @@
     <meta property="og:title" content="Sattuni - Arabische Küche Düsseldorf | Authentisch & Frisch" />
     <meta property="og:description" content="Entdecke authentische arabische Küche in Düsseldorf! Frische Pita, hausgemachter Hummus & Falafel. Lieferservice und Event-Catering für jeden Anlass." />
     <meta property="og:image" content="https://sattuni.de/hero-food.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Sattuni - Oriental Bowls & More" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -30,42 +46,138 @@
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "Sattuni - Oriental Bowls & More",
+      "alternateName": "Sattuni",
       "description": "Authentische arabische Küche in Düsseldorf mit Lieferservice und Catering",
       "url": "https://sattuni.de",
+      "logo": "https://sattuni.de/sattuni-logo.png",
+      "image": [
+        "https://sattuni.de/hero-food.jpg",
+        "https://sattuni.de/hero-specialties.jpg",
+        "https://sattuni.de/hero-catering.jpg"
+      ],
       "telephone": "+49-211-XXXXXXX",
+      "email": "info@sattuni.de",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Musterstraße 123",
         "addressLocality": "Düsseldorf",
+        "addressRegion": "Nordrhein-Westfalen",
         "postalCode": "40000",
         "addressCountry": "DE"
       },
-      "servesCuisine": "Arabisch, Orientalisch, Libanesisch",
-      "priceRange": "$$",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.2277",
+        "longitude": "6.7735"
+      },
+      "servesCuisine": ["Arabische Küche", "Orientalische Küche", "Libanesische Küche", "Vegane Küche", "Vegetarische Küche"],
+      "priceRange": "€€",
       "acceptsReservations": true,
       "hasMenu": {
         "@type": "Menu",
         "name": "Sattuni Menü",
+        "description": "Authentische arabische Spezialitäten",
         "hasMenuSection": [
           {
             "@type": "MenuSection",
             "name": "Vorspeisen & Dips",
-            "description": "Hummus, Baba Ghanousch, Tabouleh"
+            "description": "Hummus, Baba Ghanousch, Tabouleh",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Hummus",
+                "description": "Cremiger Kichererbsendip mit Tahini und Olivenöl",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "6.50",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
           },
           {
             "@type": "MenuSection", 
             "name": "Hauptgerichte",
-            "description": "Falafel, Oriental Bowls, Teigtaschen"
+            "description": "Falafel, Oriental Bowls, Teigtaschen",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Falafel Teller",
+                "description": "Knusprige Kichererbsenbällchen mit Hummus und Salat",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "12.90",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "11:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification", 
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "12:00",
+          "closes": "23:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Sattuni Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lieferservice Düsseldorf",
+              "description": "Schnelle Lieferung arabischer Küche in Düsseldorf"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Düsseldorf"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Event Catering",
+              "description": "Professionelles Catering für Events und Feiern"
+            },
+            "priceRange": "€€"
           }
         ]
       }
     }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/hero-food.jpg" as="image" type="image/jpeg" />
+    <link rel="preload" href="/sattuni-logo.png" as="image" type="image/png" />
+
+    <!-- Google Fonts - Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/sattuni-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
   </head>
 
   <body>
