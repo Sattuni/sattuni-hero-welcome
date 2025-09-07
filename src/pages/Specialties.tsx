@@ -1,13 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Header from "@/components/Header";
 import heroSpecialties from "@/assets/hero-specialties.jpg";
 import dipsVorspeisen from "@/assets/dips-vorspeisen.jpg";
+import dipsVorspeisen2 from "@/assets/dips-vorspeisen-2.jpg";
+import dipsVorspeisen3 from "@/assets/dips-vorspeisen-3.jpg";
+import dipsVorspeisen4 from "@/assets/dips-vorspeisen-4.jpg";
 import falafelTeigtaschen from "@/assets/falafel-teigtaschen.jpg";
+import falafelTeigtaschen2 from "@/assets/falafel-teigtaschen-2.jpg";
+import falafelTeigtaschen3 from "@/assets/falafel-teigtaschen-3.jpg";
+import falafelTeigtaschen4 from "@/assets/falafel-teigtaschen-4.jpg";
 import bowlsHauptgerichte from "@/assets/bowls-hauptgerichte.jpg";
+import bowlsHauptgerichte2 from "@/assets/bowls-hauptgerichte-2.jpg";
+import bowlsHauptgerichte3 from "@/assets/bowls-hauptgerichte-3.jpg";
+import bowlsHauptgerichte4 from "@/assets/bowls-hauptgerichte-4.jpg";
 import { Utensils, Leaf, Truck, Calendar } from "lucide-react";
 
 const Specialties = () => {
+  const dipsImages = [dipsVorspeisen, dipsVorspeisen2, dipsVorspeisen3, dipsVorspeisen4];
+  const falafelImages = [falafelTeigtaschen, falafelTeigtaschen2, falafelTeigtaschen3, falafelTeigtaschen4];
+  const bowlsImages = [bowlsHauptgerichte, bowlsHauptgerichte2, bowlsHauptgerichte3, bowlsHauptgerichte4];
+
   return (
     <>
       <Header />
@@ -82,11 +96,21 @@ const Specialties = () => {
                 </Button>
               </div>
               <div className="order-first md:order-last">
-                <img 
-                  src={dipsVorspeisen} 
-                  alt="Arabische Dips und Vorspeisen - Hummus, Baba Ghanousch, Tabouleh"
-                  className="rounded-lg shadow-soft w-full h-80 object-cover"
-                />
+                <Carousel className="w-full max-w-md mx-auto">
+                  <CarouselContent>
+                    {dipsImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <img 
+                          src={image} 
+                          alt={`Arabische Dips und Vorspeisen ${index + 1}`}
+                          className="rounded-lg shadow-soft w-full h-80 object-cover"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
               </div>
             </div>
           </div>
@@ -97,11 +121,21 @@ const Specialties = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <img 
-                  src={falafelTeigtaschen} 
-                  alt="Knusprige Falafel und hausgemachte arabische Teigtaschen"
-                  className="rounded-lg shadow-soft w-full h-80 object-cover"
-                />
+                <Carousel className="w-full max-w-md mx-auto">
+                  <CarouselContent>
+                    {falafelImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <img 
+                          src={image} 
+                          alt={`Knusprige Falafel und Teigtaschen ${index + 1}`}
+                          className="rounded-lg shadow-soft w-full h-80 object-cover"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
               </div>
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
@@ -140,11 +174,21 @@ const Specialties = () => {
                 </Button>
               </div>
               <div className="order-first md:order-last">
-                <img 
-                  src={bowlsHauptgerichte} 
-                  alt="Couscous Bowls und arabische Hauptgerichte"
-                  className="rounded-lg shadow-soft w-full h-80 object-cover"
-                />
+                <Carousel className="w-full max-w-md mx-auto">
+                  <CarouselContent>
+                    {bowlsImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <img 
+                          src={image} 
+                          alt={`Couscous Bowls und Hauptgerichte ${index + 1}`}
+                          className="rounded-lg shadow-soft w-full h-80 object-cover"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
               </div>
             </div>
           </div>
