@@ -6,12 +6,21 @@ import { useMobileDetection } from '@/hooks/useMobileDetection';
 
 const CateringFOMO = () => {
   const [showFOMO, setShowFOMO] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
 
+  // Check if user has already dismissed this FOMO
+  useEffect(() => {
+    const dismissed = localStorage.getItem('catering-fomo-dismissed');
+    if (dismissed) {
+      setIsDismissed(true);
+    }
+  }, []);
+
   // Show FOMO at 60% scroll
   useEffect(() => {
-    if (scrollProgress >= 60 && !showFOMO) {
+    if (scrollProgress >= 60 && !showFOMO && !isDismissed) {
       setShowFOMO(true);
       // Auto-hide after 10 seconds
       const timer = setTimeout(() => {
@@ -19,7 +28,13 @@ const CateringFOMO = () => {
       }, 10000);
       return () => clearTimeout(timer);
     }
-  }, [scrollProgress, showFOMO]);
+  }, [scrollProgress, showFOMO, isDismissed]);
+
+  const handleDismiss = () => {
+    setShowFOMO(false);
+    setIsDismissed(true);
+    localStorage.setItem('catering-fomo-dismissed', 'true');
+  };
 
   const handleProbeMenuClick = () => {
     const element = document.getElementById('catering-kontakt');
@@ -34,7 +49,7 @@ const CateringFOMO = () => {
         }
       }, 500);
     }
-    setShowFOMO(false);
+    handleDismiss();
   };
 
   if (!showFOMO) return null;
@@ -47,7 +62,7 @@ const CateringFOMO = () => {
     `}>
       <div className="bg-white text-foreground p-4 rounded-lg shadow-xl max-w-xs border border-border backdrop-blur-sm">
         <button
-          onClick={() => setShowFOMO(false)}
+          onClick={handleDismiss}
           className="absolute top-2 right-2 text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Schließen"
         >

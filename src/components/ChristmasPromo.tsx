@@ -5,10 +5,22 @@ import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const ChristmasPromo = () => {
   const [showPromo, setShowPromo] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
+
+  // Check if user has already dismissed this promo
+  useEffect(() => {
+    const dismissed = localStorage.getItem('christmas-promo-dismissed');
+    if (dismissed) {
+      setIsDismissed(true);
+      return;
+    }
+  }, []);
 
   // Show promo after 20% scroll or 3 seconds delay
   useEffect(() => {
+    if (isDismissed) return;
+
     const timer = setTimeout(() => {
       setShowPromo(true);
     }, 3000);
@@ -19,11 +31,17 @@ const ChristmasPromo = () => {
     }
 
     return () => clearTimeout(timer);
-  }, [scrollProgress]);
+  }, [scrollProgress, isDismissed]);
+
+  const handleDismiss = () => {
+    setShowPromo(false);
+    setIsDismissed(true);
+    localStorage.setItem('christmas-promo-dismissed', 'true');
+  };
 
   const handleCateringClick = () => {
     window.location.href = '/catering';
-    setShowPromo(false);
+    handleDismiss();
   };
 
   if (!showPromo) return null;
@@ -42,7 +60,7 @@ const ChristmasPromo = () => {
       <div className="bg-gradient-to-r from-emerald-700 via-red-700 to-emerald-700 text-white 
                       p-3 sm:p-4 rounded-xl shadow-xl border border-white/20 backdrop-blur-sm">
         <button
-          onClick={() => setShowPromo(false)}
+          onClick={handleDismiss}
           className="absolute top-2 right-2 text-white/80 hover:text-white transition-colors"
           aria-label="Schließen"
         >

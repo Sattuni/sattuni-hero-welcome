@@ -6,12 +6,21 @@ import { useMobileDetection } from '@/hooks/useMobileDetection';
 
 const FOMOElements = () => {
   const [showScrollFOMO, setShowScrollFOMO] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
 
+  // Check if user has already dismissed this FOMO
+  useEffect(() => {
+    const dismissed = localStorage.getItem('scroll-fomo-dismissed');
+    if (dismissed) {
+      setIsDismissed(true);
+    }
+  }, []);
+
   // Show scroll FOMO at 70% scroll
   useEffect(() => {
-    if (scrollProgress >= 70 && !showScrollFOMO) {
+    if (scrollProgress >= 70 && !showScrollFOMO && !isDismissed) {
       setShowScrollFOMO(true);
       // Auto-hide after 8 seconds
       const timer = setTimeout(() => {
@@ -19,11 +28,17 @@ const FOMOElements = () => {
       }, 8000);
       return () => clearTimeout(timer);
     }
-  }, [scrollProgress, showScrollFOMO]);
+  }, [scrollProgress, showScrollFOMO, isDismissed]);
+
+  const handleDismiss = () => {
+    setShowScrollFOMO(false);
+    setIsDismissed(true);
+    localStorage.setItem('scroll-fomo-dismissed', 'true');
+  };
 
   const handleOrder = () => {
     window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
-    setShowScrollFOMO(false);
+    handleDismiss();
   };
 
   return (
@@ -37,7 +52,7 @@ const FOMOElements = () => {
         `}>
           <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow-lg max-w-xs border border-primary/20">
             <button
-              onClick={() => setShowScrollFOMO(false)}
+              onClick={handleDismiss}
               className="absolute top-2 right-2 text-primary-foreground/80 hover:text-primary-foreground"
               aria-label="Schließen"
             >
