@@ -104,7 +104,17 @@ const Catering = () => {
               <Button 
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
-                onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const element = document.getElementById('catering-kontakt');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Focus the first input after scrolling
+                    setTimeout(() => {
+                      const nameInput = document.getElementById('name');
+                      nameInput?.focus();
+                    }, 500);
+                  }
+                }}
               >
                 Catering anfragen
               </Button>
@@ -347,7 +357,17 @@ const Catering = () => {
               <Button 
                 size="lg" 
                 className="text-lg px-8"
-                onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const element = document.getElementById('catering-kontakt');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Focus the first input after scrolling
+                    setTimeout(() => {
+                      const nameInput = document.getElementById('name');
+                      nameInput?.focus();
+                    }, 500);
+                  }
+                }}
               >
                 Catering anfragen
               </Button>
