@@ -20,6 +20,9 @@ const Header = () => {
           
           {/* Navigation - Simple for now */}
           <nav className="hidden md:flex items-center space-x-6">
+            <a href="/spezialitaeten" className="text-muted-foreground hover:text-primary transition-colors">
+              Spezialitäten
+            </a>
             <a href="#bestellen" className="text-muted-foreground hover:text-primary transition-colors">
               Bestellen
             </a>
