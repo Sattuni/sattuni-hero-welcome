@@ -4,7 +4,7 @@ import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -16,28 +16,28 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="container relative z-10 px-4 py-16 lg:py-20">
-        <div className="max-w-5xl mx-auto text-center lg:text-left">
-          <div className="space-y-6 lg:space-y-8">
+      <div className="container relative z-10 px-4 py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto text-center lg:text-left">
+          <div className="space-y-6">
             {/* Logo */}
-            <div className="flex justify-center lg:justify-start mb-8">
+            <div className="flex justify-center lg:justify-start mb-6">
               <img 
                 src={sattunLogo} 
                 alt="Sattuni - Oriental Bowls & More Logo" 
-                className="h-32 w-auto drop-shadow-lg"
+                className="h-24 lg:h-28 w-auto drop-shadow-lg"
               />
             </div>
             
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] tracking-tight">
-              <span className="block text-foreground">Von Pita bis Party –</span>
-              <span className="block bg-gradient-primary bg-clip-text text-transparent mt-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-[1.2] tracking-tight">
+              <span className="block text-foreground mb-2">Von Pita bis Party –</span>
+              <span className="block bg-gradient-primary bg-clip-text text-transparent">
                 wir liefern.
               </span>
             </h1>
             
             {/* Subline */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto lg:mx-0 leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto lg:mx-0 leading-relaxed font-body mt-4">
               Egal ob Alltag oder Event: Bei uns gibt's frische arabische Küche – 
               mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
             </p>
