@@ -3,6 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Header from "@/components/Header";
 import FOMOElements from "@/components/FOMOElements";
+import { Utensils, Leaf, Truck, Calendar, ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroSpecialties from "@/assets/hero-specialties.jpg";
 import dipsVorspeisen from "@/assets/dips-vorspeisen.jpg";
 import dipsVorspeisen2 from "@/assets/dips-vorspeisen-2.jpg";
@@ -16,9 +18,41 @@ import bowlsHauptgerichte from "@/assets/bowls-hauptgerichte.jpg";
 import bowlsHauptgerichte2 from "@/assets/bowls-hauptgerichte-2.jpg";
 import bowlsHauptgerichte3 from "@/assets/bowls-hauptgerichte-3.jpg";
 import bowlsHauptgerichte4 from "@/assets/bowls-hauptgerichte-4.jpg";
-import { Utensils, Leaf, Truck, Calendar } from "lucide-react";
 
 const Specialties = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // SEO Meta Tags
+  useEffect(() => {
+    document.title = "Arabische Spezialitäten Düsseldorf | Sattuni - Hummus, Falafel & mehr";
+    
+    // Create or update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 
+      'Entdecke authentische arabische Küche in Düsseldorf ✓ Hausgemachte Dips ✓ Knusprige Falafel ✓ Frische Bowls ✓ Catering verfügbar - Jetzt bestellen!'
+    );
+
+    // Scroll to top functionality
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 800);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      // Reset title on unmount
+      document.title = "Sattuni - Oriental Bowls & More";
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const dipsImages = [dipsVorspeisen, dipsVorspeisen2, dipsVorspeisen3, dipsVorspeisen4];
   const falafelImages = [falafelTeigtaschen, falafelTeigtaschen2, falafelTeigtaschen3, falafelTeigtaschen4];
   const bowlsImages = [bowlsHauptgerichte, bowlsHauptgerichte2, bowlsHauptgerichte3, bowlsHauptgerichte4];
@@ -27,9 +61,24 @@ const Specialties = () => {
     <>
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
-        {/* Hero Section */}
+        {/* Breadcrumb Navigation */}
+        <nav className="bg-muted/30 py-3 px-4">
+          <div className="container mx-auto">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <button 
+                onClick={() => window.location.href = '/'}
+                className="hover:text-primary transition-colors"
+              >
+                Startseite
+              </button>
+              <span>/</span>
+              <span className="text-foreground font-medium">Spezialitäten</span>
+            </div>
+          </div>
+        </nav>
+        {/* Hero Section - Optimized Height */}
         <section 
-          className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
+          className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${heroSpecialties})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
@@ -54,7 +103,12 @@ const Specialties = () => {
               >
                 Jetzt bestellen
               </Button>
-              <Button size="xl" variant="hero-secondary" className="font-display">
+              <Button 
+                size="xl" 
+                variant="hero-secondary" 
+                className="font-display"
+                onClick={() => window.location.href = '/catering'}
+              >
                 Catering anfragen
               </Button>
             </div>
@@ -97,25 +151,32 @@ const Specialties = () => {
                     arabische Geschmackswelt.
                   </p>
                 </div>
-                <Button className="mt-8 font-display" size="lg">
+                <Button 
+                  className="mt-8 font-display" 
+                  size="lg"
+                  onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                >
                   Jetzt probieren
                 </Button>
               </div>
               <div className="order-first md:order-last">
                 <Carousel className="w-full max-w-md mx-auto">
-                  <CarouselContent>
+                  <CarouselContent className="-ml-1">
                     {dipsImages.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <img 
-                          src={image} 
-                          alt={`Arabische Dips und Vorspeisen ${index + 1}`}
-                          className="rounded-lg shadow-soft w-full h-80 object-cover"
-                        />
+                      <CarouselItem key={index} className="pl-1">
+                        <div className="p-1">
+                          <img 
+                            src={image} 
+                            alt={`Arabische Dips und Vorspeisen ${index + 1}`}
+                            className="rounded-lg shadow-soft w-full h-80 object-cover"
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        </div>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
                 </Carousel>
               </div>
             </div>
@@ -128,19 +189,22 @@ const Specialties = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <Carousel className="w-full max-w-md mx-auto">
-                  <CarouselContent>
+                  <CarouselContent className="-ml-1">
                     {falafelImages.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <img 
-                          src={image} 
-                          alt={`Knusprige Falafel und Teigtaschen ${index + 1}`}
-                          className="rounded-lg shadow-soft w-full h-80 object-cover"
-                        />
+                      <CarouselItem key={index} className="pl-1">
+                        <div className="p-1">
+                          <img 
+                            src={image} 
+                            alt={`Knusprige Falafel und Teigtaschen ${index + 1}`}
+                            className="rounded-lg shadow-soft w-full h-80 object-cover"
+                            loading="lazy"
+                          />
+                        </div>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
                 </Carousel>
               </div>
               <div>
@@ -153,7 +217,11 @@ const Specialties = () => {
                     Dazu hausgemachte Teigtaschen mit traditionellen Füllungen, täglich frisch zubereitet.
                   </p>
                 </div>
-                <Button className="mt-8 font-display" size="lg">
+                <Button 
+                  className="mt-8 font-display" 
+                  size="lg"
+                  onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                >
                   Zum Menü
                 </Button>
               </div>
@@ -175,25 +243,32 @@ const Specialties = () => {
                     Plus traditionelle Hauptgerichte – individuell anpassbar für dein Catering-Event.
                   </p>
                 </div>
-                <Button className="mt-8 font-display" size="lg">
+                <Button 
+                  className="mt-8 font-display" 
+                  size="lg"
+                  onClick={() => window.location.href = '/catering'}
+                >
                   Für dein Catering anfragen
                 </Button>
               </div>
               <div className="order-first md:order-last">
                 <Carousel className="w-full max-w-md mx-auto">
-                  <CarouselContent>
+                  <CarouselContent className="-ml-1">
                     {bowlsImages.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <img 
-                          src={image} 
-                          alt={`Couscous Bowls und Hauptgerichte ${index + 1}`}
-                          className="rounded-lg shadow-soft w-full h-80 object-cover"
-                        />
+                      <CarouselItem key={index} className="pl-1">
+                        <div className="p-1">
+                          <img 
+                            src={image} 
+                            alt={`Couscous Bowls und Hauptgerichte ${index + 1}`}
+                            className="rounded-lg shadow-soft w-full h-80 object-cover"
+                            loading="lazy"
+                          />
+                        </div>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
                 </Carousel>
               </div>
             </div>
@@ -271,13 +346,30 @@ const Specialties = () => {
               >
                 Jetzt bestellen
               </Button>
-              <Button size="xl" variant="hero-secondary" className="font-display">
+              <Button 
+                size="xl" 
+                variant="hero-secondary" 
+                className="font-display"
+                onClick={() => window.location.href = '/catering'}
+              >
                 Catering anfragen
               </Button>
             </div>
           </div>
         </section>
       </main>
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          aria-label="Nach oben scrollen"
+        >
+          <ArrowUp className="w-5 h-5 mx-auto" />
+        </button>
+      )}
+      
       <FOMOElements />
     </>
   );
