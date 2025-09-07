@@ -62,7 +62,7 @@ const Catering = () => {
             "itemOffered": {
               "@type": "Service",
               "name": "Leichte Mahlzeit Catering",
-              "description": "Fattoush, Hummus, Teigtaschen, Hähnchen Shawarma"
+              "description": "Fattoush, Hummus, Teigtaschen, Hähnchenbruststreifen"
             },
             "price": "27",
             "priceCurrency": "EUR",
@@ -474,11 +474,11 @@ const Catering = () => {
                 
                 <div className="space-y-3">
                   {[
-                    "Fattoush & Tabouleh Salate",
-                    "Hummus & Mutabal Dips", 
+                    "Fattoush & Tabouleh Salate und andere Salate",
+                    "Hummus & Baba Ghanousch Dips", 
                     "Fatayer Teigtaschen",
                     "Kibbeh Bällchen",
-                    "Hähnchen Shawarma",
+                    "Hähnchenbruststreifen",
                     "Orientalischer Couscous"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
@@ -500,8 +500,8 @@ const Catering = () => {
                 
                 <div className="space-y-3">
                   {[
-                    "Fattoush & Tabouleh Salate",
-                    "Hummus, Mutabal & Muhammara",
+                    "Fattoush & Tabouleh Salate und andere Salate",
+                    "Hummus, Baba Ghanousch & Muhammara",
                     "Fatayer & Sambousek", 
                     "Kibbeh & Falafel",
                     "Bulgur & Reis Beilagen",
