@@ -87,7 +87,6 @@ const Hero = () => {
       <div className="absolute bottom-32 left-10 w-24 h-24 bg-primary/30 rounded-full opacity-40 blur-2xl animate-pulse delay-1000"></div>
       
       {/* Ornate Corner Decorations */}
-      <div className="absolute top-10 left-10 w-16 h-16 border-2 border-accent/30 rounded-full opacity-60"></div>
       <div className="absolute bottom-20 right-20 w-12 h-12 border border-primary/40 rounded-full opacity-50"></div>
       
       {/* Arabic Pattern Inspired Elements */}
