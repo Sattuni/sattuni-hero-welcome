@@ -9,53 +9,53 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Sattuni CI Color Palette */
-    --background: 30 15% 97%;
-    --foreground: 25 15% 20%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
 
-    --card: 30 10% 95%;
-    --card-foreground: 25 15% 20%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 30 10% 95%;
-    --popover-foreground: 25 15% 20%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 15%;
 
     /* Sattuni Green Primary - CI Color #99b48d */
     --primary: 100 21% 63%;
-    --primary-foreground: 30 15% 97%;
+    --primary-foreground: 0 0% 98%;
     
     /* Warm Natural Secondary */
-    --secondary: 30 25% 88%;
-    --secondary-foreground: 25 15% 25%;
+    --secondary: 30 25% 92%;
+    --secondary-foreground: 0 0% 25%;
 
     /* Soft Natural Muted */
-    --muted: 30 12% 90%;
-    --muted-foreground: 25 15% 50%;
+    --muted: 30 12% 95%;
+    --muted-foreground: 0 0% 45%;
 
     /* Darker Green Accent - Restaurant Services */
-    --accent: 100 25% 45%;
-    --accent-foreground: 30 15% 97%;
+    --accent: 100 30% 35%;
+    --accent-foreground: 0 0% 98%;
 
     /* Warm Terracotta - Catering Services */
-    --catering: 15 55% 55%;
-    --catering-foreground: 30 15% 97%;
+    --catering: 15 55% 45%;
+    --catering-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 42 25% 95%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 15% 82%;
-    --input: 30 15% 85%;
+    --border: 0 0% 85%;
+    --input: 0 0% 92%;
     --ring: 100 21% 63%;
 
     --radius: 0.75rem;
     
     /* Custom Design Tokens - Sattuni CI Style */
-    --gradient-primary: linear-gradient(135deg, hsl(100 21% 63%), hsl(100 25% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(30 15% 97%), hsl(30 12% 90%));
-    --gradient-accent: linear-gradient(45deg, hsl(100 25% 45%), hsl(100 21% 55%));
-    --gradient-catering: linear-gradient(45deg, hsl(15 55% 55%), hsl(15 50% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(100 21% 63%), hsl(100 25% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 96%));
+    --gradient-accent: linear-gradient(45deg, hsl(100 30% 35%), hsl(100 25% 45%));
+    --gradient-catering: linear-gradient(45deg, hsl(15 55% 45%), hsl(15 50% 50%));
     --shadow-primary: 0 10px 30px -10px hsl(100 21% 63% / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(25 15% 20% / 0.08);
-    --shadow-elegant: 0 8px 32px -8px hsl(100 25% 45% / 0.2);
-    --shadow-warm: 0 6px 24px -6px hsl(15 55% 55% / 0.25);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 15% / 0.08);
+    --shadow-elegant: 0 8px 32px -8px hsl(100 30% 35% / 0.2);
+    --shadow-warm: 0 6px 24px -6px hsl(15 55% 45% / 0.25);
     
     /* Typography - Sattuni CI Fonts */
     --font-display: 'Comfortaa', cursive;
