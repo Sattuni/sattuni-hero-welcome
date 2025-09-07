@@ -4,7 +4,6 @@ import WhySattuni from "@/components/WhySattuni";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -15,7 +14,6 @@ const Index = () => {
       <HowItWorks />
       <Testimonials />
       <Contact />
-      <Footer />
     </main>
   );
 };
