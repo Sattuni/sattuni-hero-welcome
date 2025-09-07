@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export const useTimeContext = () => {
   const [timeContext, setTimeContext] = useState<{
-    period: 'lunch' | 'dinner' | 'other';
+    period: 'dinner' | 'other';
     ctaText: string;
   }>({
     period: 'other',
@@ -14,15 +14,10 @@ export const useTimeContext = () => {
       const now = new Date();
       const hour = now.getHours();
       
-      if (hour >= 11 && hour < 14) {
-        setTimeContext({
-          period: 'lunch',
-          ctaText: 'Jetzt zum Lunch bestellen'
-        });
-      } else if (hour >= 18 && hour < 21) {
+      if (hour >= 17 && hour < 22) {
         setTimeContext({
           period: 'dinner',
-          ctaText: 'Dinner jetzt bestellen'
+          ctaText: 'Heute noch bestellen'
         });
       } else {
         setTimeContext({

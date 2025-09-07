@@ -30,8 +30,7 @@ const SmartCTA = ({
   const displayText = showTimeContext && isMobile ? ctaText : (children || 'Jetzt bestellen');
   
   // Add time-based styling
-  const timeContextClass = period === 'lunch' ? 'shadow-warm' : 
-                          period === 'dinner' ? 'shadow-ornate' : '';
+  const timeContextClass = period === 'dinner' ? 'shadow-ornate' : '';
 
   return (
     <Button
