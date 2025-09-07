@@ -54,6 +54,48 @@ const Testimonials = () => {
       rating: 5,
       text: "Perfekt für Catering! Haben für unser Büro bestellt - alles war frisch und lecker.",
       timeAgo: "vor 5 Monaten"
+    },
+    {
+      name: "Lisa M.",
+      rating: 5,
+      text: "Als Vegetarierin bin ich begeistert von der Auswahl! Die Falafel sind hausgemacht und die Soßen fantastisch.",
+      timeAgo: "vor 1 Monat"
+    },
+    {
+      name: "Michael K.",
+      rating: 5,
+      text: "Beste arabische Küche in Düsseldorf! Portionen sind großzügig und der Service sehr freundlich.",
+      timeAgo: "vor 3 Wochen"
+    },
+    {
+      name: "Anna B.",
+      rating: 5,
+      text: "Haben für unsere Hochzeitsfeier das Catering bestellt - alle Gäste waren begeistert. Top Service!",
+      timeAgo: "vor 7 Monaten"
+    },
+    {
+      name: "Frank H.",
+      rating: 5,
+      text: "Immer wieder gerne! Die Qualität stimmt einfach und die Lieferung ist zuverlässig.",
+      timeAgo: "vor 2 Wochen"
+    },
+    {
+      name: "Jasmin A.",
+      rating: 5,
+      text: "Endlich authentische orientalische Küche in Düsseldorf! Die Gewürzmischungen sind perfekt.",
+      timeAgo: "vor 6 Wochen"
+    },
+    {
+      name: "Stefan W.",
+      rating: 5,
+      text: "Regelmäßig für das Team bestellt - nie enttäuscht worden. Frische Zubereitung und faire Preise.",
+      timeAgo: "vor 1 Monat"
+    },
+    {
+      name: "Melanie D.",
+      rating: 5,
+      text: "Das Fattoush ist der Hammer! Alles schmeckt frisch und hausgemacht. Absolute Empfehlung!",
+      timeAgo: "vor 4 Wochen"
     }
   ];
 
