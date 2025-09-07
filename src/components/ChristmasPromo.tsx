@@ -30,11 +30,17 @@ const ChristmasPromo = () => {
 
   return (
     <div className={`
-      fixed bottom-6 left-6 z-40 max-w-sm
-      transform transition-all duration-500 ease-out
+      fixed z-40 transform transition-all duration-500 ease-out
       ${showPromo ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}
+      
+      /* Mobile positioning - bottom center, above mobile nav */
+      bottom-20 left-1/2 -translate-x-1/2 max-w-[280px] mx-4
+      
+      /* Desktop positioning - bottom left */
+      sm:bottom-6 sm:left-6 sm:translate-x-0 sm:max-w-sm sm:mx-0
     `}>
-      <div className="bg-gradient-to-r from-emerald-700 via-red-700 to-emerald-700 text-white p-4 rounded-xl shadow-xl border border-white/20 backdrop-blur-sm">
+      <div className="bg-gradient-to-r from-emerald-700 via-red-700 to-emerald-700 text-white 
+                      p-3 sm:p-4 rounded-xl shadow-xl border border-white/20 backdrop-blur-sm">
         <button
           onClick={() => setShowPromo(false)}
           className="absolute top-2 right-2 text-white/80 hover:text-white transition-colors"
@@ -44,22 +50,23 @@ const ChristmasPromo = () => {
         </button>
         <div className="pr-6">
           <div className="flex items-center gap-2 mb-2">
-            <Gift className="w-5 h-5" />
-            <span className="font-bold">Weihnachts-Special</span>
-            <Sparkles className="w-4 h-4" />
+            <Gift className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="font-bold text-sm sm:text-base">Weihnachts-Special</span>
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
           </div>
-          <p className="text-sm opacity-95 mb-3 leading-relaxed">
+          <p className="text-xs sm:text-sm opacity-95 mb-3 leading-relaxed">
             <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern Catering</span> mit Code{' '}
-            <span className="font-bold bg-white/25 px-1.5 py-0.5 rounded text-emerald-100">
+            <span className="font-bold bg-white/25 px-1.5 py-0.5 rounded text-emerald-100 text-xs">
               SATT25
             </span>
           </p>
           <Button
             onClick={handleCateringClick}
             size="sm"
-            className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold shadow-lg hover:shadow-xl transition-all w-full"
+            className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold shadow-lg hover:shadow-xl transition-all w-full 
+                       text-xs sm:text-sm h-8 sm:h-auto"
           >
-            <Gift className="w-4 h-4 mr-2" />
+            <Gift className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
             Catering anfragen
           </Button>
         </div>
