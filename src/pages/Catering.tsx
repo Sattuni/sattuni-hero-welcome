@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift } from "lucide-react";
+import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp } from "lucide-react";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
@@ -10,6 +10,117 @@ import CateringFOMO from "@/components/CateringFOMO";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // SEO Meta Tags
+  useEffect(() => {
+    document.title = "Catering Düsseldorf | Sattuni - Arabisches Event-Catering ab 27€";
+    
+    // Create or update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 
+      'Professionelles Catering in Düsseldorf ✓ Arabische Küche für Events ✓ Ab 27€ pro Person ✓ Fingerfood & Buffets ✓ 20-500+ Personen ✓ Jetzt anfragen!'
+    );
+
+    // Add structured JSON-LD data for SEO
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "CateringBusiness",
+      "name": "Sattuni Catering - Arabische Küche Düsseldorf",
+      "description": "Professionelles Catering mit arabischer Küche für Events in Düsseldorf und Umgebung",
+      "url": "https://sattuni.de/catering",
+      "telephone": "+49-211-36180115",
+      "email": "catering@sattuni.de",
+      "address": {
+        "@type": "PostalAddress", 
+        "addressLocality": "Düsseldorf",
+        "addressCountry": "DE"
+      },
+      "servesCuisine": "Arabisch, Orientalisch, Libanesisch",
+      "priceRange": "27€-50€",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.2277",
+          "longitude": "6.7735"
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catering Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Leichte Mahlzeit Catering",
+              "description": "Fattoush, Hummus, Teigtaschen, Hähnchen Shawarma"
+            },
+            "price": "27",
+            "priceCurrency": "EUR",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "unitText": "Person",
+              "minValue": "20"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Große Feiern Catering",
+              "description": "Komplettes Buffet mit Vorspeisen, Hauptgerichten und Dessert"
+            },
+            "price": "37",
+            "priceCurrency": "EUR",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "unitText": "Person",
+              "minValue": "50"
+            }
+          }
+        ]
+      }
+    };
+
+    let jsonLdScript = document.querySelector('script[type="application/ld+json"][data-catering]') as HTMLScriptElement;
+    if (!jsonLdScript) {
+      jsonLdScript = document.createElement('script') as HTMLScriptElement;
+      jsonLdScript.type = 'application/ld+json';
+      jsonLdScript.setAttribute('data-catering', 'true');
+      document.head.appendChild(jsonLdScript);
+    }
+    jsonLdScript.textContent = JSON.stringify(structuredData);
+
+    // Scroll to top functionality
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 800);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      // Reset title on unmount
+      document.title = "Sattuni - Oriental Bowls & More";
+      // Remove structured data
+      const scriptToRemove = document.querySelector('script[data-catering]');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Scroll to contact form if URL parameter is present
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -97,8 +208,24 @@ const Catering = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
+      {/* Breadcrumb Navigation */}
+      <nav className="bg-muted/30 py-3 px-4 pt-20">
+        <div className="container mx-auto">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <button 
+              onClick={() => window.location.href = '/'}
+              className="hover:text-primary transition-colors"
+            >
+              Startseite
+            </button>
+            <span>/</span>
+            <span className="text-foreground font-medium">Catering</span>
+          </div>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-8 pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={heroCatering} 
@@ -168,6 +295,38 @@ const Catering = () => {
           </div>
         </div>
       </section>
+      
+      {/* Quick Navigation */}
+      <section className="py-6 bg-muted/20 border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap gap-4 justify-center text-sm">
+            <button 
+              onClick={() => document.getElementById('catering-services')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Services
+            </button>
+            <button 
+              onClick={() => document.getElementById('beispielmenus')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Beispielmenüs
+            </button>
+            <button 
+              onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              So geht's
+            </button>
+            <button 
+              onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3 py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+            >
+              Anfragen
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* Kurz-Intro */}
       <section className="py-16 bg-gradient-subtle">
@@ -182,7 +341,7 @@ const Catering = () => {
       </section>
 
       {/* Catering Services */}
-      <section className="py-16">
+      <section className="py-16" id="catering-services">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -289,7 +448,7 @@ const Catering = () => {
       </section>
 
       {/* Example Menus */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-20 bg-gradient-subtle" id="beispielmenus">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -361,7 +520,7 @@ const Catering = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="py-20">
+      <section className="py-20" id="prozess">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -435,6 +594,17 @@ const Catering = () => {
           </div>
         </div>
       </section>
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          aria-label="Nach oben scrollen"
+        >
+          <ArrowUp className="w-5 h-5 mx-auto" />
+        </button>
+      )}
       
       <CateringFOMO />
     </div>
