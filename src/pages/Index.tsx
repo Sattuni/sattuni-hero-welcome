@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Services from "@/components/Services";
@@ -8,6 +9,20 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  // Scroll to contact form if URL parameter is present
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollTo = urlParams.get('scrollTo');
+    
+    if (scrollTo === 'kontakt') {
+      setTimeout(() => {
+        const element = document.getElementById('kontakt');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
   return (
     <>
       <Header />

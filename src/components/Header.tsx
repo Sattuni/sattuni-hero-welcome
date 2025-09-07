@@ -47,9 +47,23 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <a href="#kontakt" className="text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+            <button
+              onClick={() => {
+                if (location.pathname === '/') {
+                  // Already on homepage, just scroll
+                  const element = document.getElementById('kontakt');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                } else {
+                  // Navigate to homepage with scroll parameter
+                  window.location.href = '/?scrollTo=kontakt';
+                }
+              }}
+              className="text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
               Kontakt
-            </a>
+            </button>
           </nav>
           
           {/* CTA Button Desktop */}
@@ -93,13 +107,24 @@ const Header = () => {
                       {item.name}
                     </Link>
                   ))}
-                  <a 
-                    href="#kontakt" 
-                    className="text-foreground hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200"
-                    onClick={() => setIsOpen(false)}
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                      if (location.pathname === '/') {
+                        // Already on homepage, just scroll
+                        const element = document.getElementById('kontakt');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      } else {
+                        // Navigate to homepage with scroll parameter
+                        window.location.href = '/?scrollTo=kontakt';
+                      }
+                    }}
+                    className="text-foreground hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 text-left w-full"
                   >
                     Kontakt
-                  </a>
+                  </button>
                 </nav>
                 
                 <div className="pt-6 border-t border-border">
