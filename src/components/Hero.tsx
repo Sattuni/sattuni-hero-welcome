@@ -4,7 +4,7 @@ import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[65vh] flex items-center justify-start overflow-hidden pt-4">
+    <section className="relative min-h-[50vh] flex items-start overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -16,38 +16,35 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="container relative z-10 px-4 py-8 lg:py-12">
+      <div className="container relative z-10 px-4 py-6">
         <div className="max-w-4xl mx-auto text-center lg:text-left">
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Logo */}
-            <div className="flex justify-center lg:justify-start mb-4">
+            <div className="flex justify-center lg:justify-start mb-3">
               <img 
                 src={sattunLogo} 
                 alt="Sattuni - Oriental Bowls & More Logo" 
-                className="h-20 lg:h-24 w-auto drop-shadow-lg"
+                className="h-16 lg:h-20 w-auto drop-shadow-lg"
               />
             </div>
             
             {/* Headline */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold leading-tight tracking-tight">
-              <span className="block text-foreground">Von Pita bis Party –</span>
-              <span className="block bg-gradient-primary bg-clip-text text-transparent">
-                wir liefern.
-              </span>
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight">
+              Von Pita bis Party – wir liefern.
             </h1>
             
             {/* Subline */}
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body mt-3">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body">
               Egal ob Alltag oder Event: Bei uns gibt's frische arabische Küche – 
               mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
             </p>
             
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-4">
               <Button 
                 variant="hero" 
-                size="xl"
-                className="min-w-[200px] text-base font-medium shadow-elegant hover:shadow-glow transition-all duration-300"
+                size="lg"
+                className="min-w-[180px] text-sm font-medium shadow-elegant hover:shadow-glow transition-all duration-300"
                 onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
               >
                 Jetzt bestellen
@@ -55,8 +52,8 @@ const Hero = () => {
               
               <Button 
                 variant="outline" 
-                size="xl"
-                className="min-w-[200px] text-base font-medium border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                size="lg"
+                className="min-w-[180px] text-sm font-medium border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 onClick={() => window.location.href = '/catering'}
               >
                 Catering anfragen
@@ -64,17 +61,17 @@ const Hero = () => {
             </div>
             
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-8 text-sm font-body">
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
                 <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse delay-500"></span>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse delay-500"></span>
                 <span className="text-foreground font-medium">30-45 Min Lieferung</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse delay-1000"></span>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse delay-1000"></span>
                 <span className="text-foreground font-medium">Event-Catering</span>
               </div>
             </div>
