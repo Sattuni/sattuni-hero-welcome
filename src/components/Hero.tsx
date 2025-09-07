@@ -39,27 +39,50 @@ const Hero = () => {
               mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
             </p>
             
+            {/* Urgency Badge */}
+            <div className="flex justify-center lg:justify-start mb-2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span className="text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
+              </div>
+            </div>
+
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
               <Button 
                 variant="hero" 
-                size="lg"
-                className="min-w-[180px] text-sm font-medium shadow-elegant hover:shadow-glow transition-all duration-300"
+                size="xl"
+                className="min-w-[200px] text-base font-bold shadow-elegant hover:shadow-glow transition-all duration-300 relative overflow-hidden"
                 onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
               >
-                Jetzt bestellen
+                <span className="relative z-10">🍽️ Jetzt bestellen</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </Button>
               
               <Button 
-                variant="outline" 
+                variant="hero-secondary" 
                 size="lg"
-                className="min-w-[180px] text-sm font-medium border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="min-w-[180px] text-sm font-medium"
                 onClick={() => {
                   window.location.href = '/catering?scrollTo=contact';
                 }}
               >
                 Catering anfragen
               </Button>
+            </div>
+
+            {/* Trust Signal */}
+            <div className="flex justify-center lg:justify-start pt-3">
+              <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-1">
+                  <span className="text-yellow-500">★★★★★</span>
+                  <span className="font-medium text-foreground">4.8</span>
+                </div>
+                <span className="text-muted-foreground">|</span>
+                <span className="text-muted-foreground">Über 1000 zufriedene Kunden</span>
+                <span className="text-muted-foreground">|</span>
+                <span className="text-primary font-medium">12 Bestellungen in der letzten Stunde</span>
+              </div>
             </div>
             
             {/* Trust Indicators */}
