@@ -4,7 +4,7 @@ import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[65vh] flex items-center justify-start overflow-hidden pt-4">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
