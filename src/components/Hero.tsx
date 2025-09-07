@@ -31,7 +31,7 @@ const Hero = () => {
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className="block text-foreground">Von Pita bis Party –</span>
-              <span className="block bg-gradient-sage bg-clip-text text-transparent">
+              <span className="block text-accent font-bold">
                 wir liefern.
               </span>
             </h1>
