@@ -564,9 +564,6 @@ const Catering = () => {
                 Häufige Fragen zum Catering
               </h2>
             </div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Alles was Sie über unser Catering-Service wissen müssen
-            </p>
           </div>
           
           <div className="max-w-4xl mx-auto">
