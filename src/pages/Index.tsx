@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import WhatsAppFloat from "@/components/mobile/WhatsAppFloat";
+import ChristmasPromo from "@/components/ChristmasPromo";
 
 const Index = () => {
   // Scroll to contact form if URL parameter is present
@@ -39,6 +40,7 @@ const Index = () => {
       <Footer />
       <MobileCTABar />
       <WhatsAppFloat />
+      <ChristmasPromo />
     </>
   );
 };

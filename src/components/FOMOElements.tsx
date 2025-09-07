@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ShoppingBag, X, Gift } from 'lucide-react';
+import { ShoppingBag, X } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 
 const FOMOElements = () => {
   const [showScrollFOMO, setShowScrollFOMO] = useState(false);
-  const [showCateringPromo, setShowCateringPromo] = useState(true);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
 
@@ -27,44 +26,8 @@ const FOMOElements = () => {
     setShowScrollFOMO(false);
   };
 
-  const handleCateringClick = () => {
-    window.location.href = '/catering';
-    setShowCateringPromo(false);
-  };
-
   return (
     <>
-      {/* Catering Christmas Promo Banner */}
-      {showCateringPromo && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 max-w-md mx-4">
-          <div className="bg-gradient-to-r from-red-600 to-green-600 text-white p-4 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm">
-            <button
-              onClick={() => setShowCateringPromo(false)}
-              className="absolute top-2 right-2 text-white/80 hover:text-white"
-              aria-label="Schließen"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <div className="flex items-center gap-3">
-              <Gift className="w-6 h-6 flex-shrink-0" />
-              <div>
-                <div className="font-bold text-sm">🎄 Weihnachts-Special!</div>
-                <div className="text-xs opacity-90 mb-2">
-                  Mit dem Code <span className="font-bold bg-white/20 px-1 rounded">satt25</span> 10% Rabatt auf Weihnachtsfeiern Caterings
-                </div>
-                <Button
-                  onClick={handleCateringClick}
-                  size="sm"
-                  className="bg-white text-red-600 hover:bg-white/90 h-7 text-xs font-semibold"
-                >
-                  Jetzt Catering anfragen
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Scroll-triggered FOMO */}
       {showScrollFOMO && (
         <div className={`
