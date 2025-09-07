@@ -1,45 +1,111 @@
+import { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, X } from "lucide-react";
 import sattunIcon from "@/assets/sattuni-icon.png";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  
+  const navigation = [
+    { name: "Home", href: "/", current: location.pathname === "/" },
+    { name: "Spezialitäten", href: "/spezialitaeten", current: location.pathname === "/spezialitaeten" },
+    { name: "Catering", href: "/catering", current: location.pathname === "/catering" },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3 group">
             <img 
               src={sattunIcon} 
               alt="Sattuni Icon" 
-              className="h-10 w-10 drop-shadow-sm"
+              className="h-10 w-10 drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
             />
             <div className="hidden sm:block">
-              <span className="text-lg font-semibold text-foreground">sattuni</span>
-              <p className="text-xs text-muted-foreground uppercase tracking-wide">Oriental Bowls & More</p>
+              <span className="text-lg font-semibold text-foreground font-display">sattuni</span>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide font-body">Oriental Bowls & More</p>
             </div>
-          </div>
+          </Link>
           
-          {/* Navigation - Simple for now */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="/spezialitaeten" className="text-muted-foreground hover:text-primary transition-colors">
-              Spezialitäten
-            </a>
-            <a href="#bestellen" className="text-muted-foreground hover:text-primary transition-colors">
-              Bestellen
-            </a>
-            <a href="/catering" className="text-muted-foreground hover:text-primary transition-colors">
-              Catering
-            </a>
-            <a href="#kontakt" className="text-muted-foreground hover:text-primary transition-colors">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  item.current
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <a href="#kontakt" className="text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
               Kontakt
             </a>
           </nav>
           
-          {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 text-muted-foreground hover:text-primary">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* CTA Button Desktop */}
+          <div className="hidden md:block">
+            <Button size="sm" className="font-medium">
+              Jetzt bestellen
+            </Button>
+          </div>
+          
+          {/* Mobile Menu */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="sm" className="p-2">
+                <Menu className="w-5 h-5" />
+                <span className="sr-only">Menü öffnen</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col space-y-6 mt-8">
+                <div className="flex items-center space-x-3">
+                  <img src={sattunIcon} alt="Sattuni" className="h-8 w-8" />
+                  <span className="text-lg font-semibold font-display">sattuni</span>
+                </div>
+                
+                <nav className="flex flex-col space-y-4">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 ${
+                        item.current
+                          ? "text-primary bg-primary/10"
+                          : "text-foreground hover:text-primary hover:bg-primary/5"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                  <a 
+                    href="#kontakt" 
+                    className="text-foreground hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Kontakt
+                  </a>
+                </nav>
+                
+                <div className="pt-6 border-t border-border">
+                  <Button className="w-full" size="lg">
+                    Jetzt bestellen
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

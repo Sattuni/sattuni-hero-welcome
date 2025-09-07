@@ -29,70 +29,69 @@ const Hero = () => {
             </div>
             
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.9] tracking-tight">
               <span className="block text-foreground">Von Pita bis Party –</span>
-              <span className="block text-accent font-bold">
+              <span className="block bg-gradient-primary bg-clip-text text-transparent">
                 wir liefern.
               </span>
             </h1>
             
             {/* Subline */}
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body">
               Egal ob Alltag oder Event: Bei uns gibt's frische arabische Küche – 
               mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
             </p>
             
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
               <Button 
                 variant="hero" 
                 size="xl"
-                className="min-w-[220px]"
-                onClick={() => window.open('#bestellen', '_self')}
+                className="min-w-[200px] text-base font-medium shadow-elegant hover:shadow-glow transition-all duration-300"
+                onClick={() => window.location.href = '#bestellen'}
               >
                 Jetzt bestellen
               </Button>
               
               <Button 
-                variant="hero-secondary" 
+                variant="outline" 
                 size="xl"
-                className="min-w-[220px]"
-                onClick={() => window.open('#catering', '_self')}
+                className="min-w-[200px] text-base font-medium border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                onClick={() => window.location.href = '/catering'}
               >
                 Catering anfragen
               </Button>
             </div>
             
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-8 justify-center lg:justify-start pt-8 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-accent rounded-full"></span>
-                Frisch zubereitet
+            <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-8 text-sm font-body">
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span className="text-muted-foreground">Frisch zubereitet</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-accent rounded-full"></span>
-                Schnelle Lieferung
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-2 h-2 bg-accent rounded-full animate-pulse delay-500"></span>
+                <span className="text-muted-foreground">30-45 Min Lieferung</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-accent rounded-full"></span>
-                Event-Catering
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse delay-1000"></span>
+                <span className="text-muted-foreground">Event-Catering</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Decorative Elements - Ornate Arabic Style */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-sage rounded-full opacity-20 blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-32 left-10 w-24 h-24 bg-primary/30 rounded-full opacity-40 blur-2xl animate-pulse delay-1000"></div>
+      {/* Decorative Elements - Enhanced Arabic Style */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-32 left-10 w-24 h-24 bg-accent/30 rounded-full opacity-30 blur-2xl animate-pulse delay-1000"></div>
       
-      {/* Ornate Corner Decorations */}
-      <div className="absolute bottom-20 right-20 w-12 h-12 border border-primary/40 rounded-full opacity-50"></div>
-      
-      {/* Arabic Pattern Inspired Elements */}
-      <div className="absolute top-1/3 right-5 w-20 h-20 opacity-10">
-        <div className="w-full h-full bg-accent transform rotate-45 rounded-lg"></div>
-        <div className="absolute inset-2 bg-background rounded-full"></div>
+      {/* Geometric Pattern Elements */}
+      <div className="absolute top-1/4 right-5 w-16 h-16 opacity-5">
+        <div className="w-full h-full bg-primary transform rotate-45 rounded-lg"></div>
+      </div>
+      <div className="absolute bottom-1/3 left-5 w-12 h-12 opacity-5">
+        <div className="w-full h-full border-2 border-accent transform rotate-12 rounded-full"></div>
       </div>
     </section>
   );

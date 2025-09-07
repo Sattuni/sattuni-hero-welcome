@@ -23,20 +23,20 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-background">
+    <section className="py-16 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            So funktioniert&apos;s
+        <div className="text-center mb-12 space-y-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
+            So funktioniert's
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ob Bestellung oder Catering – bei uns geht&apos;s easy in drei Schritten.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body">
+            Ob Bestellung oder Catering – bei uns geht's easy in drei Schritten.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
@@ -52,13 +52,13 @@ const HowItWorks = () => {
                 {/* Step Number & Icon */}
                 <div className="relative z-10 flex flex-col items-center space-y-4">
                   <div className="flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-warm rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-warm">
+                    <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
                       <IconComponent className="w-10 h-10 text-primary-foreground" />
                     </div>
                   </div>
                   
-                  <div className="inline-flex items-center px-4 py-2 bg-accent/20 rounded-full">
-                    <span className="text-sm font-semibold text-accent-foreground">
+                  <div className="inline-flex items-center px-4 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+                    <span className="text-sm font-semibold text-foreground font-body">
                       {step.step}
                     </span>
                   </div>
@@ -66,10 +66,10 @@ const HowItWorks = () => {
                 
                 {/* Content */}
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-bold text-foreground">
+                  <h3 className="text-2xl font-display font-bold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed max-w-sm mx-auto">
+                  <p className="text-muted-foreground text-lg leading-relaxed max-w-sm mx-auto font-body">
                     {step.description}
                   </p>
                 </div>
@@ -79,9 +79,9 @@ const HowItWorks = () => {
         </div>
 
         {/* Bottom Message */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-8 py-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 shadow-soft">
-            <span className="text-lg font-medium text-foreground">
+        <div className="text-center mt-12">
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-elegant">
+            <span className="text-lg font-medium text-foreground font-display">
               Ready? Lass uns loslegen!
             </span>
           </div>
