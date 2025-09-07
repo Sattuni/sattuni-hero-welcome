@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail } from "lucide-react";
+import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import heroCatering from "@/assets/hero-catering.jpg";
@@ -9,22 +9,22 @@ import heroCatering from "@/assets/hero-catering.jpg";
 const Catering = () => {
   const cateringServices = [
     {
-      icon: "🍢",
+      icon: UtensilsCrossed,
       title: "Fingerfood",
       description: "Perfekt für Events & Empfänge – kleine Häppchen, große Wirkung.",
     },
     {
-      icon: "🍽️", 
+      icon: Utensils, 
       title: "Buffets",
       description: "Vielfalt für alle – vom kleinen Lunch bis zum großen Fest.",
     },
     {
-      icon: "🌱",
+      icon: Salad,
       title: "Veggie & Vegan", 
       description: "Pflanzliche Köstlichkeiten, die jeden überzeugen.",
     },
     {
-      icon: "✨",
+      icon: Zap,
       title: "Individuelle Menüs",
       description: "Maßgeschneidert für deinen Anlass und dein Budget.",
     },
@@ -133,18 +133,25 @@ const Catering = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {cateringServices.map((service, index) => (
-              <Card key={index} className="group hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-6 text-center space-y-4">
-                  <div className="text-5xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    Anfragen
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {cateringServices.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={index} className="group hover:shadow-elegant transition-all duration-300">
+                  <CardContent className="p-6 text-center space-y-4">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      Anfragen
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
