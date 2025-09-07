@@ -39,10 +39,6 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        catering: {
-          DEFAULT: "hsl(var(--catering))",
-          foreground: "hsl(var(--catering-foreground))",
-        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -63,22 +59,16 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-warm': 'var(--gradient-warm)',
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-accent': 'var(--gradient-accent)',
-        'gradient-catering': 'var(--gradient-catering)',
       },
       boxShadow: {
-        'primary': 'var(--shadow-primary)',
-        'soft': 'var(--shadow-soft)',
-        'elegant': 'var(--shadow-elegant)',
         'warm': 'var(--shadow-warm)',
+        'soft': 'var(--shadow-soft)',
       },
       fontFamily: {
-        'display': ['Comfortaa', 'cursive'],
-        'body': ['Montserrat', 'sans-serif'],
-        'logo': ['Comfortaa', 'cursive'],
-        'text': ['Montserrat', 'sans-serif'],
+        'display': 'var(--font-display)',
+        'body': 'var(--font-body)',
       },
       borderRadius: {
         lg: "var(--radius)",
