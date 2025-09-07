@@ -11,7 +11,6 @@ import Contact from "@/components/Contact";
 import OpeningHours from "@/components/OpeningHours";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
-import WhatsAppFloat from "@/components/mobile/WhatsAppFloat";
 import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/ChristmasPromo";
 import { Settings, Star, MessageCircle, Clock } from "lucide-react";
@@ -307,7 +306,6 @@ const Index = () => {
       </main>
       <Footer />
       <MobileCTABar />
-      <WhatsAppFloat />
       <ChristmasPromo />
     </>
   );
