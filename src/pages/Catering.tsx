@@ -6,6 +6,7 @@ import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
+import CateringFOMO from "@/components/CateringFOMO";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
@@ -434,6 +435,8 @@ const Catering = () => {
           </div>
         </div>
       </section>
+      
+      <CateringFOMO />
     </div>
   );
 };
