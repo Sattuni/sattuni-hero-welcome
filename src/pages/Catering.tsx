@@ -580,13 +580,13 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Ja, kostenlos ab 30 Personen!</span> 
-                    Wir liefern professionelle Wärmebehälter mit, damit Ihr Essen auch nach 
+                    <span className="font-semibold text-primary">Ja, kostenlos ab 30 Personen!</span>
+                    {" "}Wir liefern professionelle Wärmebehälter mit, damit euer Essen auch nach 
                     Stunden noch perfekt temperiert ist.
                   </p>
                   <p>
                     <strong>Service inklusive:</strong> Nach dem Event holen wir die Wärmebehälter 
-                    wieder ab – Sie müssen sich um nichts kümmern.
+                    wieder ab – ihr müsst euch um nichts kümmern.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -600,9 +600,9 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Ja, wir kümmern uns darum!</span> 
-                    Hochwertiges Geschirr, Besteck, Gläser und Servietten – 
-                    alles aus einer Hand für Ihr perfektes Event.
+                    <span className="font-semibold text-primary">Ja, wir kümmern uns darum!</span>
+                    {" "}Hochwertiges Geschirr, Besteck, Gläser und Servietten – 
+                    alles aus einer Hand für euer perfektes Event.
                   </p>
                   <div className="grid md:grid-cols-2 gap-3 mt-4">
                     <div className="flex items-center gap-2">
@@ -617,10 +617,6 @@ const Catering = () => {
                       <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-sm">Gläser & Getränke</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Komplette Tischdeko</span>
-                    </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -634,8 +630,8 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Wir kommen eine Stunde vor Eventbeginn</span> 
-                    und bauen in Ruhe alles auf. So können Sie entspannt Ihre Gäste empfangen.
+                    <span className="font-semibold text-primary">Wir kommen eine Stunde vor Eventbeginn</span>
+                    {" "}und bauen in Ruhe alles auf. So könnt ihr entspannt eure Gäste empfangen.
                   </p>
                   <p>
                     <strong>Ablauf:</strong> Buffet-Aufbau, Wärmebehälter installieren, 
@@ -653,13 +649,9 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Bis eine Woche vor dem Liefertag</span> 
-                    können Sie die Personenanzahl noch anpassen. Perfekt für Events mit 
+                    <span className="font-semibold text-primary">Bis eine Woche vor dem Liefertag</span>
+                    {" "}könnt ihr die Personenanzahl noch anpassen. Perfekt für Events mit 
                     ungewisser Teilnehmerzahl.
-                  </p>
-                  <p>
-                    <strong>Praktisch:</strong> Ob 5 Personen mehr oder weniger – 
-                    wir passen Mengen und Preise entsprechend an.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -726,13 +718,51 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Düsseldorf und Umgebung</span> – 
-                    bis zu 50km Radius von unserem Standort aus. Perfekt für 
+                    <span className="font-semibold text-primary">Düsseldorf und Umgebung</span>
+                    {" "}– bis zu 50km Radius von unserem Standort aus. Perfekt für 
                     Firmenfeiern in der Region.
                   </p>
                   <p>
                     <strong>Kostenlos:</strong> Innerhalb Düsseldorf ist die Anlieferung 
                     bereits im Preis enthalten.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="anlass-wichtig" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Warum ist es wichtig zu wissen, welchen Anlass das Buffet hat?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Weil wir das Essen passend zum Anlass dekorieren und portionieren.</span>
+                    {" "}Für eine Hochzeit wird das Buffet anders präsentiert als für ein Team-Event.
+                  </p>
+                  <p>
+                    <strong>Beispiel:</strong> Bei einer Hochzeit dekorieren wir eleganter mit besonderen Tellern, 
+                    während ein Business-Event eher funktional und praktisch aufgebaut wird.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="catering-vs-lieferservice" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Ist euer Catering-Angebot anders als die normale Speisekarte?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Ja, unser Catering ist vielfältiger!</span>
+                    {" "}Beim Catering bieten wir das Essen in Buffet-Form und saisonabhängig an.
+                  </p>
+                  <p>
+                    <strong>Catering-Vorteile:</strong> Größere Auswahl, spezielle Buffet-Gerichte, 
+                    saisonale Spezialitäten und auf Gruppengrößen angepasste Portionen.
                   </p>
                 </AccordionContent>
               </AccordionItem>
