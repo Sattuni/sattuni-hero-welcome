@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import SmartCTA from "@/components/mobile/SmartCTA";
-import LocationPersonalization from "@/components/LocationPersonalization";
 import heroImage from "@/assets/hero-food.jpg";
 import sattunLogo from "@/assets/sattuni-logo.png";
 
@@ -86,11 +85,6 @@ const Hero = () => {
                 <span className="text-muted-foreground hidden sm:inline">|</span>
                 <span className="text-primary font-medium">Mehr als 100 Caterings erfolgreich beliefert</span>
               </div>
-            </div>
-            
-            {/* Location Personalization */}
-            <div className="flex justify-center lg:justify-start pt-2">
-              <LocationPersonalization type="delivery" />
             </div>
             
             {/* Trust Indicators */}
