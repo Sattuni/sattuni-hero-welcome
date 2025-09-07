@@ -7,6 +7,8 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/mobile/MobileCTABar";
+import WhatsAppFloat from "@/components/mobile/WhatsAppFloat";
 
 const Index = () => {
   // Scroll to contact form if URL parameter is present
@@ -26,7 +28,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-16">
+      <main className="min-h-screen pt-16 pb-safe-mobile">
         <Hero />
         <Services />
         <WhySattuni />
@@ -35,6 +37,8 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <MobileCTABar />
+      <WhatsAppFloat />
     </>
   );
 };

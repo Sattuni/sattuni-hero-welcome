@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SmartCTA from "@/components/mobile/SmartCTA";
 import heroImage from "@/assets/hero-food.jpg";
 import sattunLogo from "@/assets/sattuni-logo.png";
 
@@ -49,15 +50,15 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
-              <Button 
+              <SmartCTA 
                 variant="hero" 
                 size="xl"
                 className="min-w-[200px] text-base font-bold shadow-elegant hover:shadow-glow transition-all duration-300 relative overflow-hidden"
-                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                showTimeContext={true}
               >
                 <span className="relative z-10">🍽️ Jetzt bestellen</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </Button>
+              </SmartCTA>
               
               <Button 
                 variant="hero-secondary" 
