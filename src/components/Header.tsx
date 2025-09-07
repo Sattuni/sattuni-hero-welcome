@@ -23,9 +23,6 @@ const Header = () => {
             <a href="/spezialitaeten" className="text-muted-foreground hover:text-primary transition-colors">
               Spezialitäten
             </a>
-            <a href="/ueber-uns" className="text-muted-foreground hover:text-primary transition-colors">
-              Über uns
-            </a>
             <a href="#bestellen" className="text-muted-foreground hover:text-primary transition-colors">
               Bestellen
             </a>
