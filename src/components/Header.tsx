@@ -20,7 +20,16 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link 
+            to="/" 
+            className="flex items-center space-x-3 group"
+            onClick={() => {
+              if (location.pathname === '/') {
+                // Already on homepage, scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
             <img 
               src={sattunIcon} 
               alt="Sattuni Icon" 
