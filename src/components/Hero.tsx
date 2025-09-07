@@ -112,7 +112,7 @@ const Hero = () => {
                   <span className="text-muted-foreground text-xs hidden md:inline">bei Google</span>
                 </div>
                 <span className="text-muted-foreground hidden md:inline">|</span>
-                <span className="text-muted-foreground text-center">1000+ Kunden • 100+ Caterings</span>
+                <span className="text-muted-foreground text-center">seit 2022 • 100+ Caterings</span>
               </div>
             </div>
             
