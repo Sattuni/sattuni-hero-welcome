@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
+import CateringContact from "@/components/CateringContact";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
@@ -100,10 +101,19 @@ const Catering = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
+                onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Catering anfragen
               </Button>
-              <Button variant="outline" size="lg" className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg"
+                onClick={() => window.location.href = '/spezialitaeten'}
+              >
                 Unsere Spezialitäten ansehen
               </Button>
             </div>
@@ -316,6 +326,9 @@ const Catering = () => {
         </div>
       </section>
 
+      {/* Catering Contact Form */}
+      <CateringContact />
+      
       {/* Testimonials */}
       <section className="py-20 bg-gradient-subtle">
         <Testimonials />
@@ -331,10 +344,19 @@ const Catering = () => {
             </h2>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
+              <Button 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Catering anfragen
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => window.location.href = '/spezialitaeten'}
+              >
                 Unsere Spezialitäten ansehen
               </Button>
             </div>
