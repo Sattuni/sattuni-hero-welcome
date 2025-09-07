@@ -164,28 +164,42 @@ const Catering = () => {
       </section>
 
       {/* Catering Services */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Unsere Catering-Angebote
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {cateringServices.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Card key={index} className="group hover:shadow-elegant transition-all duration-300">
-                  <CardContent className="p-6 text-center space-y-4">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
-                        <IconComponent className="w-8 h-8 text-white" />
+                <Card key={index} className="group hover:shadow-elegant transition-all duration-300 h-full">
+                  <CardContent className="p-4 text-center space-y-3 flex flex-col h-full">
+                    <div className="flex justify-center">
+                      <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors mt-auto"
+                      onClick={() => {
+                        const element = document.getElementById('catering-kontakt');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          setTimeout(() => {
+                            const nameInput = document.getElementById('name');
+                            nameInput?.focus();
+                          }, 500);
+                        }
+                      }}
+                    >
                       Anfragen
                     </Button>
                   </CardContent>
