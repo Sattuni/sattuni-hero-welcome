@@ -45,8 +45,11 @@ const FOMOElements = () => {
             </button>
             <div className="pr-6">
               <div className="font-semibold text-sm mb-2">🤤 Hunger bekommen?</div>
-              <div className="text-xs opacity-90 mb-3">
+              <div className="text-xs opacity-90 mb-1">
                 Leckere arabische Küche in 30-45 Min bei dir!
+              </div>
+              <div className="text-xs font-semibold text-primary-foreground/95 mb-3">
+                🎉 15% Nachlass auf Deine Gesamtrechnung
               </div>
               <Button
                 onClick={handleOrder}
