@@ -8,12 +8,13 @@ import WhySattuni from "@/components/WhySattuni";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import OpeningHours from "@/components/OpeningHours";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import WhatsAppFloat from "@/components/mobile/WhatsAppFloat";
 import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/ChristmasPromo";
-import { Settings, Star, MessageCircle } from "lucide-react";
+import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
 const Index = () => {
   // SEO Meta Tags and Structured Data
@@ -272,6 +273,14 @@ const Index = () => {
         <WhySattuni />
         
         {/* Mobile Expandable Sections */}
+        <MobileSectionExpander
+          title="Öffnungszeiten"
+          icon={Clock}
+          className="bg-gradient-to-b from-muted/30 to-background"
+        >
+          <OpeningHours />
+        </MobileSectionExpander>
+        
         <MobileSectionExpander
           title="So funktioniert's"
           icon={Settings}
