@@ -8,58 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Sattuni Oriental Luxury Color Palette */
-    --background: 42 25% 97%;
+    /* Sattuni CI Color Palette */
+    --background: 30 15% 97%;
     --foreground: 25 15% 20%;
 
-    --card: 42 20% 95%;
+    --card: 30 10% 95%;
     --card-foreground: 25 15% 20%;
 
-    --popover: 42 20% 95%;
+    --popover: 30 10% 95%;
     --popover-foreground: 25 15% 20%;
 
-    /* Rich Amber Gold Primary - Oriental Luxury */
-    --primary: 42 85% 55%;
-    --primary-foreground: 25 15% 15%;
+    /* Sattuni Green Primary - CI Color #99b48d */
+    --primary: 100 21% 63%;
+    --primary-foreground: 30 15% 97%;
     
-    /* Warm Cream Secondary */
-    --secondary: 42 30% 88%;
+    /* Warm Natural Secondary */
+    --secondary: 30 25% 88%;
     --secondary-foreground: 25 15% 25%;
 
-    /* Soft Champagne Muted */
-    --muted: 42 15% 90%;
+    /* Soft Natural Muted */
+    --muted: 30 12% 90%;
     --muted-foreground: 25 15% 50%;
 
-    /* Deep Forest Green Accent - Restaurant Services */
-    --accent: 145 40% 35%;
-    --accent-foreground: 42 25% 97%;
+    /* Darker Green Accent - Restaurant Services */
+    --accent: 100 25% 45%;
+    --accent-foreground: 30 15% 97%;
 
-    /* Rich Burgundy - Catering Services */
-    --catering: 350 65% 45%;
-    --catering-foreground: 42 25% 97%;
+    /* Warm Terracotta - Catering Services */
+    --catering: 15 55% 55%;
+    --catering-foreground: 30 15% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 42 25% 95%;
 
-    --border: 42 15% 82%;
-    --input: 42 15% 85%;
-    --ring: 42 85% 55%;
+    --border: 30 15% 82%;
+    --input: 30 15% 85%;
+    --ring: 100 21% 63%;
 
     --radius: 0.75rem;
     
-    /* Custom Design Tokens - Elegant Oriental Style */
-    --gradient-luxury: linear-gradient(135deg, hsl(42 85% 55%), hsl(42 75% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(42 25% 97%), hsl(42 30% 88%));
-    --gradient-accent: linear-gradient(45deg, hsl(145 40% 35%), hsl(145 35% 45%));
-    --gradient-catering: linear-gradient(45deg, hsl(350 65% 45%), hsl(350 55% 55%));
-    --shadow-luxury: 0 10px 30px -10px hsl(42 85% 55% / 0.3);
+    /* Custom Design Tokens - Sattuni CI Style */
+    --gradient-primary: linear-gradient(135deg, hsl(100 21% 63%), hsl(100 25% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(30 15% 97%), hsl(30 12% 90%));
+    --gradient-accent: linear-gradient(45deg, hsl(100 25% 45%), hsl(100 21% 55%));
+    --gradient-catering: linear-gradient(45deg, hsl(15 55% 55%), hsl(15 50% 60%));
+    --shadow-primary: 0 10px 30px -10px hsl(100 21% 63% / 0.3);
     --shadow-soft: 0 4px 20px -4px hsl(25 15% 20% / 0.08);
-    --shadow-elegant: 0 8px 32px -8px hsl(145 40% 35% / 0.2);
-    --shadow-warm: 0 6px 24px -6px hsl(350 65% 45% / 0.25);
+    --shadow-elegant: 0 8px 32px -8px hsl(100 25% 45% / 0.2);
+    --shadow-warm: 0 6px 24px -6px hsl(15 55% 55% / 0.25);
     
-    /* Typography */
-    --font-display: 'Inter', system-ui, sans-serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    /* Typography - Sattuni CI Fonts */
+    --font-display: 'Comfortaa', cursive;
+    --font-body: 'Montserrat', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 

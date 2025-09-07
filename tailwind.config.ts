@@ -63,20 +63,22 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-luxury': 'var(--gradient-luxury)',
+        'gradient-primary': 'var(--gradient-primary)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-accent': 'var(--gradient-accent)',
         'gradient-catering': 'var(--gradient-catering)',
       },
       boxShadow: {
-        'luxury': 'var(--shadow-luxury)',
+        'primary': 'var(--shadow-primary)',
         'soft': 'var(--shadow-soft)',
         'elegant': 'var(--shadow-elegant)',
         'warm': 'var(--shadow-warm)',
       },
       fontFamily: {
-        'display': 'var(--font-display)',
-        'body': 'var(--font-body)',
+        'display': ['Comfortaa', 'cursive'],
+        'body': ['Montserrat', 'sans-serif'],
+        'logo': ['Comfortaa', 'cursive'],
+        'text': ['Montserrat', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
