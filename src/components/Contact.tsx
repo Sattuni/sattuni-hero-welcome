@@ -5,16 +5,33 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Mail, User, MessageCircle, Phone, Clock } from "lucide-react";
+import { Send, Mail, User, MessageCircle, Phone, Clock, CheckCircle } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  // Calculate form completion progress
+  const getFormProgress = () => {
+    const requiredFields = ['email', 'message'];
+    const optionalFields = ['name', 'phone'];
+    
+    const requiredComplete = requiredFields.filter(field => formData[field as keyof typeof formData].trim()).length;
+    const optionalComplete = optionalFields.filter(field => formData[field as keyof typeof formData].trim()).length;
+    
+    const requiredProgress = (requiredComplete / requiredFields.length) * 70; // 70% for required
+    const optionalProgress = (optionalComplete / optionalFields.length) * 30; // 30% for optional
+    
+    return Math.round(requiredProgress + optionalProgress);
+  };
+
+  const progress = getFormProgress();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,10 +44,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.email || !formData.message) {
       toast({
-        title: "Bitte alle Felder ausfüllen",
-        description: "Name, E-Mail und Nachricht sind erforderlich.",
+        title: "Bitte Pflichtfelder ausfüllen",
+        description: "E-Mail und Nachricht sind erforderlich.",
         variant: "destructive"
       });
       return;
@@ -50,6 +67,7 @@ const Contact = () => {
       setFormData({
         name: "",
         email: "",
+        phone: "",
         message: ""
       });
       setIsSubmitting(false);
@@ -72,30 +90,32 @@ const Contact = () => {
         {/* Contact Form */}
         <Card className="border-border/50 bg-card/80 backdrop-blur-sm shadow-soft">
           <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div className="space-y-3">
-                <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2">
-                  <User className="w-4 h-4 text-primary" />
-                  Name
-                </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Wie heißt du?"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
-                  disabled={isSubmitting}
-                />
+            {/* Progress Bar */}
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-foreground">Formular ausfüllen</span>
+                <span className="text-sm text-muted-foreground">{progress}%</span>
               </div>
+              <div className="w-full bg-muted rounded-full h-2">
+                <div 
+                  className="bg-gradient-warm h-2 rounded-full transition-all duration-300 ease-out"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+              {progress === 100 && (
+                <div className="flex items-center gap-2 mt-2 text-primary">
+                  <CheckCircle className="w-4 h-4" />
+                  <span className="text-sm font-medium">Bereit zum Absenden!</span>
+                </div>
+              )}
+            </div>
 
-              {/* Email Field */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Email Field - Required */}
               <div className="space-y-3">
                 <Label htmlFor="email" className="text-foreground font-medium flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
-                  E-Mail
+                  E-Mail <span className="text-destructive">*</span>
                 </Label>
                 <Input
                   id="email"
@@ -106,14 +126,16 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
                   disabled={isSubmitting}
+                  autoComplete="email"
+                  required
                 />
               </div>
 
-              {/* Message Field */}
+              {/* Message Field - Required */}
               <div className="space-y-3">
                 <Label htmlFor="message" className="text-foreground font-medium flex items-center gap-2">
                   <MessageCircle className="w-4 h-4 text-primary" />
-                  Nachricht
+                  Nachricht <span className="text-destructive">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -123,7 +145,53 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="min-h-[120px] text-lg border-border/50 focus:border-primary transition-colors resize-none"
                   disabled={isSubmitting}
+                  required
                 />
+              </div>
+
+              {/* Optional Fields Section */}
+              <div className="border-t border-border/30 pt-6">
+                <div className="mb-4">
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Optional (hilft uns, besser zu helfen)</h4>
+                </div>
+
+                {/* Name Field - Optional */}
+                <div className="space-y-3 mb-4">
+                  <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2">
+                    <User className="w-4 h-4 text-muted-foreground" />
+                    Name <span className="text-xs text-muted-foreground">(optional)</span>
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Wie heißt du?"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    disabled={isSubmitting}
+                    autoComplete="name"
+                  />
+                </div>
+
+                {/* Phone Field - Optional */}
+                <div className="space-y-3">
+                  <Label htmlFor="phone" className="text-foreground font-medium flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-muted-foreground" />
+                    Telefon <span className="text-xs text-muted-foreground">(für Rückrufe)</span>
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+49 xxx xxx xxxx"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    disabled={isSubmitting}
+                    autoComplete="tel"
+                  />
+                </div>
               </div>
 
               {/* Submit Button */}
@@ -133,7 +201,7 @@ const Contact = () => {
                   variant="hero"
                   size="xl"
                   className="w-full gap-3"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !formData.email || !formData.message}
                 >
                   {isSubmitting ? (
                     <>
@@ -147,6 +215,9 @@ const Contact = () => {
                     </>
                   )}
                 </Button>
+                <p className="text-xs text-muted-foreground mt-2 text-center">
+                  <span className="text-destructive">*</span> Pflichtfelder
+                </p>
               </div>
             </form>
           </CardContent>
