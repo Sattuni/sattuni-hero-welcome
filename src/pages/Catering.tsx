@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
 import CateringFOMO from "@/components/CateringFOMO";
+import { BuffetGallery } from "@/components/BuffetGallery";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
@@ -552,6 +553,13 @@ const Catering = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Buffet Gallery */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <BuffetGallery />
         </div>
       </section>
 
