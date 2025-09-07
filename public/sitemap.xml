@@ -20,6 +20,39 @@
     </image:image>
   </url>
 
+  <!-- Homepage Sections for better Sitelinks -->
+  <url>
+    <loc>https://sattuni.de/#services</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://sattuni.de/#spezialitaeten</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://sattuni.de/#kontakt</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://sattuni.de/#oeffnungszeiten</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
   <!-- Specialties Page -->
   <url>
     <loc>https://sattuni.de/spezialitaeten</loc>

@@ -4,6 +4,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import FOMOElements from "@/components/FOMOElements";
+import Breadcrumb from "@/components/Breadcrumb";
+import InternalLinks from "@/components/InternalLinks";
 import { Utensils, Leaf, Truck, Calendar, ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroSpecialties from "@/assets/hero-specialties.jpg";
@@ -208,20 +210,12 @@ const Specialties = () => {
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
         {/* Breadcrumb Navigation */}
-        <nav className="bg-muted/30 py-3 px-4">
-          <div className="container mx-auto">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <button 
-                onClick={() => window.location.href = '/'}
-                className="hover:text-primary transition-colors"
-              >
-                Startseite
-              </button>
-              <span>/</span>
-              <span className="text-foreground font-medium">Spezialitäten</span>
-            </div>
-          </div>
-        </nav>
+        <Breadcrumb 
+          items={[
+            { name: "Startseite", href: "/" },
+            { name: "Spezialitäten", href: "/spezialitaeten", current: true }
+          ]}
+        />
         {/* Hero Section - Optimized Height */}
         <section 
           className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
@@ -515,6 +509,9 @@ const Specialties = () => {
           <ArrowUp className="w-5 h-5 mx-auto" />
         </button>
       )}
+      
+      {/* Internal Links Section */}
+      <InternalLinks />
       
       <FOMOElements />
     </>

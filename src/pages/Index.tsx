@@ -13,6 +13,8 @@ import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/ChristmasPromo";
+import SectionNav from "@/components/SectionNav";
+import InternalLinks from "@/components/InternalLinks";
 import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
 const Index = () => {
@@ -157,13 +159,76 @@ const Index = () => {
           "publisher": {
             "@id": "https://sattuni.de/#restaurant"
           },
+          "mainEntity": {
+            "@id": "https://sattuni.de/#restaurant"
+          },
           "potentialAction": [
             {
               "@type": "SearchAction",
               "target": "https://sattuni.de/spezialitaeten?q={search_term_string}",
               "query-input": "required name=search_term_string"
+            },
+            {
+              "@type": "OrderAction",
+              "target": "https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F",
+              "name": "Online bestellen"
             }
-          ]
+          ],
+          "sameAs": [
+            "https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65",
+            "https://purevent.de"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Sattuni Navigation",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "WebPage",
+                  "name": "Services",
+                  "url": "https://sattuni.de/#services",
+                  "description": "Unsere Angebote: Lieferservice und Catering"
+                }
+              },
+              {
+                "@type": "Offer", 
+                "itemOffered": {
+                  "@type": "WebPage",
+                  "name": "Spezialitäten",
+                  "url": "https://sattuni.de/spezialitaeten",
+                  "description": "Authentische arabische Gerichte und Speisekarte"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "WebPage", 
+                  "name": "Event Catering",
+                  "url": "https://sattuni.de/catering",
+                  "description": "Professionelles Catering für Events und Feiern"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "WebPage",
+                  "name": "Kontakt",
+                  "url": "https://sattuni.de/#kontakt", 
+                  "description": "Kontaktformular und Anfragen"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "WebPage",
+                  "name": "Öffnungszeiten",
+                  "url": "https://sattuni.de/#oeffnungszeiten",
+                  "description": "Unsere Öffnungszeiten und Verfügbarkeit"
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "LocalBusiness",
@@ -267,8 +332,18 @@ const Index = () => {
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
         <Hero />
-        <Services />
-        <FoodShowcase />
+        
+        {/* Section Navigation */}
+        <SectionNav />
+        
+        <div id="services">
+          <Services />
+        </div>
+        
+        <div id="spezialitaeten">
+          <FoodShowcase />
+        </div>
+        
         <WhySattuni />
         
         {/* Mobile Expandable Sections */}
@@ -277,7 +352,9 @@ const Index = () => {
           icon={Clock}
           className="bg-gradient-to-b from-muted/30 to-background"
         >
-          <OpeningHours />
+          <div id="oeffnungszeiten">
+            <OpeningHours />
+          </div>
         </MobileSectionExpander>
         
         <MobileSectionExpander
@@ -301,8 +378,13 @@ const Index = () => {
           icon={MessageCircle}
           className="bg-gradient-subtle"
         >
-          <Contact />
+          <div id="kontakt">
+            <Contact />
+          </div>
         </MobileSectionExpander>
+        
+        {/* Internal Links Section */}
+        <InternalLinks />
       </main>
       <Footer />
       <MobileCTABar />

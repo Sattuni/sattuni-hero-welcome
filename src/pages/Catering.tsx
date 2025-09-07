@@ -7,6 +7,8 @@ import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
+import Breadcrumb from "@/components/Breadcrumb";
+import InternalLinks from "@/components/InternalLinks";
 import CateringFOMO from "@/components/CateringFOMO";
 import { BuffetGallery } from "@/components/BuffetGallery";
 import heroCatering from "@/assets/hero-catering.jpg";
@@ -211,20 +213,14 @@ const Catering = () => {
       <Header />
       
       {/* Breadcrumb Navigation */}
-      <nav className="bg-muted/30 py-3 px-4 pt-20">
-        <div className="container mx-auto">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <button 
-              onClick={() => window.location.href = '/'}
-              className="hover:text-primary transition-colors"
-            >
-              Startseite
-            </button>
-            <span>/</span>
-            <span className="text-foreground font-medium">Catering</span>
-          </div>
-        </div>
-      </nav>
+      <div className="pt-20">
+        <Breadcrumb 
+          items={[
+            { name: "Startseite", href: "/" },
+            { name: "Catering", href: "/catering", current: true }
+          ]}
+        />
+      </div>
       
       {/* Hero Section */}
       <section className="relative pt-8 pb-16 overflow-hidden">
@@ -778,9 +774,12 @@ const Catering = () => {
       </section>
 
       {/* Catering Contact Form */}
-      <CateringContact />
-      
-      {/* Testimonials */}
+        <CateringContact />
+        
+        {/* Internal Links Section */}
+        <InternalLinks />
+        
+        {/* Testimonials */}
       <section className="py-20 bg-gradient-subtle">
         <Testimonials />
       </section>
