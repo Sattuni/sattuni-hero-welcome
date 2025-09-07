@@ -34,6 +34,10 @@ All colors MUST be HSL.
     --accent: 105 30% 45%;
     --accent-foreground: 30 15% 96%;
 
+    /* Terracotta for Catering Services */
+    --catering: 15 55% 50%;
+    --catering-foreground: 30 15% 96%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 30 25% 95%;
 
