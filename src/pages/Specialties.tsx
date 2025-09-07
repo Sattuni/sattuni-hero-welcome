@@ -45,7 +45,12 @@ const Specialties = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="xl" variant="hero" className="font-display">
+              <Button 
+                size="xl" 
+                variant="hero" 
+                className="font-display"
+                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+              >
                 Jetzt bestellen
               </Button>
               <Button size="xl" variant="hero-secondary" className="font-display">
@@ -257,7 +262,12 @@ const Specialties = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="xl" variant="hero" className="font-display">
+              <Button 
+                size="xl" 
+                variant="hero" 
+                className="font-display"
+                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+              >
                 Jetzt bestellen
               </Button>
               <Button size="xl" variant="hero-secondary" className="font-display">
