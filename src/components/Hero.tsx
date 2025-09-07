@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-food.jpg";
+import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
@@ -18,10 +19,19 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-20">
         <div className="max-w-4xl mx-auto text-center lg:text-left">
           <div className="space-y-8">
+            {/* Logo */}
+            <div className="flex justify-center lg:justify-start mb-8">
+              <img 
+                src={sattunLogo} 
+                alt="Sattuni - Oriental Bowls & More Logo" 
+                className="h-32 w-auto drop-shadow-lg"
+              />
+            </div>
+            
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className="block text-foreground">Von Pita bis Party –</span>
-              <span className="block bg-gradient-warm bg-clip-text text-transparent">
+              <span className="block bg-gradient-sage bg-clip-text text-transparent">
                 wir liefern.
               </span>
             </h1>
@@ -72,9 +82,19 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-warm rounded-full opacity-20 blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-32 left-10 w-24 h-24 bg-accent/30 rounded-full opacity-40 blur-2xl animate-pulse delay-1000"></div>
+      {/* Decorative Elements - Ornate Arabic Style */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-sage rounded-full opacity-20 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-32 left-10 w-24 h-24 bg-primary/30 rounded-full opacity-40 blur-2xl animate-pulse delay-1000"></div>
+      
+      {/* Ornate Corner Decorations */}
+      <div className="absolute top-10 left-10 w-16 h-16 border-2 border-accent/30 rounded-full opacity-60"></div>
+      <div className="absolute bottom-20 right-20 w-12 h-12 border border-primary/40 rounded-full opacity-50"></div>
+      
+      {/* Arabic Pattern Inspired Elements */}
+      <div className="absolute top-1/3 right-5 w-20 h-20 opacity-10">
+        <div className="w-full h-full bg-accent transform rotate-45 rounded-lg"></div>
+        <div className="absolute inset-2 bg-background rounded-full"></div>
+      </div>
     </section>
   );
 };
