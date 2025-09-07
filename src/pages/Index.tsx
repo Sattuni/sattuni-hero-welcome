@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Services from "@/components/Services";
+import FoodShowcase from "@/components/FoodShowcase";
 import WhySattuni from "@/components/WhySattuni";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -32,6 +33,7 @@ const Index = () => {
       <main className="min-h-screen pt-16 pb-safe-mobile">
         <Hero />
         <Services />
+        <FoodShowcase />
         <WhySattuni />
         <HowItWorks />
         <Testimonials />
