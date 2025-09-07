@@ -153,13 +153,12 @@ const Catering = () => {
               <div className="flex items-center justify-center gap-3 text-white">
                 <span className="text-2xl">🎄</span>
                 <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Festliche Weihnachtszeit!</div>
+                  <div className="font-bold text-lg mb-1">Weihnachts-Special!</div>
                   <div className="text-sm opacity-95 leading-relaxed">
-                    Macht eure Weihnachtsfeier unvergesslich! Mit dem Code{' '}
+                    <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern Catering</span> mit Code{' '}
                     <span className="font-bold bg-white/25 px-2 py-1 rounded-md text-emerald-100">
                       SATT25
-                    </span>{' '}
-                    gibt es <span className="font-semibold">10% Rabatt</span> auf euer Catering.
+                    </span>
                   </div>
                 </div>
                 <span className="text-2xl">🎁</span>

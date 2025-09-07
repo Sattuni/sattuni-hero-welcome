@@ -49,7 +49,7 @@ const ChristmasPromo = () => {
             <Sparkles className="w-4 h-4" />
           </div>
           <p className="text-sm opacity-95 mb-3 leading-relaxed">
-            <span className="font-semibold">10% Rabatt</span> auf Weihnachtsfeiern mit Code{' '}
+            <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern Catering</span> mit Code{' '}
             <span className="font-bold bg-white/25 px-1.5 py-0.5 rounded text-emerald-100">
               SATT25
             </span>
