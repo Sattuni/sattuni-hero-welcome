@@ -42,7 +42,7 @@ const Hero = () => {
             {/* Urgency Badge */}
             <div className="flex justify-center lg:justify-start mb-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
                 <span className="text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
               </div>
             </div>
@@ -80,23 +80,21 @@ const Hero = () => {
                 </div>
                 <span className="text-muted-foreground">|</span>
                 <span className="text-muted-foreground">Über 1000 zufriedene Kunden</span>
-                <span className="text-muted-foreground">|</span>
-                <span className="text-primary font-medium">12 Bestellungen in der letzten Stunde</span>
               </div>
             </div>
             
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                 <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse delay-500"></span>
+                <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                 <span className="text-foreground font-medium">30-45 Min Lieferung</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse delay-1000"></span>
+                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                 <span className="text-foreground font-medium">Event-Catering</span>
               </div>
             </div>
