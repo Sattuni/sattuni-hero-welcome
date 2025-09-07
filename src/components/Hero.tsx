@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-food.jpg";
+import sattuniLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
   return (
@@ -18,8 +19,17 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-20">
         <div className="max-w-4xl mx-auto text-center lg:text-left">
           <div className="space-y-8">
+            {/* Logo */}
+            <div className="flex justify-center lg:justify-start mb-8">
+              <img 
+                src={sattuniLogo} 
+                alt="Sattuni - Oriental Bowls & More" 
+                className="h-24 md:h-32 w-auto"
+              />
+            </div>
+            
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="block text-foreground">Von Pita bis Party –</span>
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
                 wir liefern.
