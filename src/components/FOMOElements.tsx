@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ShoppingBag, X } from 'lucide-react';
+import { ShoppingBag, X, Heart, PartyPopper } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 
@@ -44,12 +44,16 @@ const FOMOElements = () => {
               <X className="w-4 h-4" />
             </button>
             <div className="pr-6">
-              <div className="font-semibold text-sm mb-2">🤤 Hunger bekommen?</div>
+              <div className="font-semibold text-sm mb-2 flex items-center gap-2">
+                <Heart className="w-4 h-4" />
+                Hunger bekommen?
+              </div>
               <div className="text-xs opacity-90 mb-1">
                 Leckere arabische Küche in 30-45 Min bei dir!
               </div>
-              <div className="text-xs font-semibold text-primary-foreground/95 mb-3">
-                🎉 15% Nachlass auf Deine Gesamtrechnung
+              <div className="text-xs font-semibold text-primary-foreground/95 mb-3 flex items-center gap-2">
+                <PartyPopper className="w-4 h-4" />
+                15% Nachlass auf Deine Gesamtrechnung
               </div>
               <Button
                 onClick={handleOrder}

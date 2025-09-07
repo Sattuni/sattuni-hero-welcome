@@ -1,4 +1,4 @@
-import { MapPin, CheckCircle, Clock, Truck } from 'lucide-react';
+import { MapPin, CheckCircle, Clock, Truck, PartyPopper } from 'lucide-react';
 import { useGeolocation } from '@/hooks/useGeolocation';
 
 interface LocationPersonalizationProps {
@@ -32,14 +32,14 @@ const LocationPersonalization = ({ type, className = '' }: LocationPersonalizati
       return (
         <div className={`flex items-center gap-2 text-primary font-medium text-sm ${className}`}>
           <CheckCircle className="w-4 h-4" />
-          <span>✅ Wir liefern zu dir nach {location.postalCode}!</span>
+          <span>Wir liefern zu dir nach {location.postalCode}!</span>
         </div>
       );
     } else if (location.city && location.city.toLowerCase().includes('düsseldorf')) {
       return (
         <div className={`flex items-center gap-2 text-amber-600 font-medium text-sm ${className}`}>
-          <Clock className="w-4 h-4" />
-          <span>📍 {location.postalCode}: Lieferung momentan nicht verfügbar</span>
+          <MapPin className="w-4 h-4" />
+          <span>{location.postalCode}: Lieferung momentan nicht verfügbar</span>
         </div>
       );
     } else {
@@ -56,8 +56,8 @@ const LocationPersonalization = ({ type, className = '' }: LocationPersonalizati
     if (location.isInCateringZone) {
       return (
         <div className={`flex items-center gap-2 text-primary font-medium text-sm ${className}`}>
-          <CheckCircle className="w-4 h-4" />
-          <span>🎉 Catering nach {location.city} ohne Lieferkosten!</span>
+          <PartyPopper className="w-4 h-4" />
+          <span>Catering nach {location.city} ohne Lieferkosten!</span>
         </div>
       );
     } else {

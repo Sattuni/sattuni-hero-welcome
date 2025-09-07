@@ -56,7 +56,7 @@ const CateringFOMO = () => {
         <div className="pr-6">
           <div className="font-semibold text-sm mb-2 flex items-center gap-2 text-foreground">
             <Utensils className="w-4 h-4 text-primary" />
-            🍽️ Lust auf einen Test?
+            Lust auf einen Test?
           </div>
           <div className="text-xs mb-3 leading-relaxed text-muted-foreground">
             <span className="font-semibold text-foreground">Probe Lunch Menü</span> für{' '}

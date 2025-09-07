@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Utensils } from 'lucide-react';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useState, useEffect } from 'react';
@@ -19,7 +19,7 @@ const WhatsAppFloat = () => {
   }, [isMobile, scrollProgress]);
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent('🥙 Hi! Ich möchte bestellen. Könnt ihr mir eure Tageskarte schicken?');
+    const message = encodeURIComponent('Hi! Ich möchte bestellen. Könnt ihr mir eure Tageskarte schicken?');
     const phoneNumber = '4921136180115'; // German phone number format for WhatsApp
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     

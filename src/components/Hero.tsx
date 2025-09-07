@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import SmartCTA from "@/components/mobile/SmartCTA";
+import { Utensils, Star } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
 import sattunLogo from "@/assets/sattuni-logo.png";
 
@@ -56,7 +57,10 @@ const Hero = () => {
                 className="min-w-[200px] text-base font-bold shadow-elegant hover:shadow-glow transition-all duration-300 relative overflow-hidden"
                 showTimeContext={true}
               >
-                <span className="relative z-10">🍽️ Jetzt bestellen</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <Utensils className="w-4 h-4" />
+                  Jetzt bestellen
+                </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </SmartCTA>
               
@@ -76,8 +80,14 @@ const Hero = () => {
             <div className="flex justify-center lg:justify-start pt-3">
               <div className="flex flex-col sm:flex-row items-center gap-3 text-sm">
                 <div className="flex items-center gap-1">
-                  <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
-                  <span className="font-medium text-foreground">4.9/5</span>
+                  <div className="flex text-yellow-500">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
+                  <span className="font-medium text-foreground ml-1">4.9/5</span>
                   <span className="text-muted-foreground text-xs">bei Google Bewertungen</span>
                 </div>
                 <span className="text-muted-foreground hidden sm:inline">|</span>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap } from "lucide-react";
+import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift } from "lucide-react";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
@@ -152,7 +152,7 @@ const Catering = () => {
             {/* Christmas Promo */}
             <div className="mt-8 p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-xl border border-white/20 backdrop-blur-sm">
               <div className="flex items-center justify-center gap-3 text-white">
-                <span className="text-2xl">🎄</span>
+                <TreePine className="w-8 h-8 text-emerald-200" />
                 <div className="text-center">
                   <div className="font-bold text-lg mb-1">Weihnachts-Special!</div>
                   <div className="text-sm opacity-95 leading-relaxed">
@@ -162,7 +162,7 @@ const Catering = () => {
                     </span>
                   </div>
                 </div>
-                <span className="text-2xl">🎁</span>
+                <Gift className="w-8 h-8 text-red-200" />
               </div>
             </div>
           </div>
