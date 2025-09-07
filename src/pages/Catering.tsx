@@ -501,11 +501,12 @@ const Catering = () => {
                 <div className="space-y-3">
                   {[
                     "Fattoush & Tabouleh Salate und andere Salate",
-                    "Hummus, Baba Ghanousch & Muhammara",
+                    "Hummus & Baba Ghanousch",
                     "Fatayer & Sambousek", 
-                    "Kibbeh & Falafel",
+                    "Kibbeh & gefüllte Weinblätter",
                     "Bulgur & Reis Beilagen",
                     "Lamm, Hähnchen & Fisch",
+                    "Gefüllte Zucchini",
                     "Baklava Dessert"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
