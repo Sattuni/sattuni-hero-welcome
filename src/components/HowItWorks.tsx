@@ -52,8 +52,8 @@ const HowItWorks = () => {
                 {/* Step Number & Icon */}
                 <div className="relative z-10 flex flex-col items-center space-y-4">
                   <div className="flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
-                      <IconComponent className="w-10 h-10 text-primary-foreground" />
+                    <div className="w-20 h-20 bg-primary rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
+                      <IconComponent className="w-10 h-10 text-white" />
                     </div>
                   </div>
                   

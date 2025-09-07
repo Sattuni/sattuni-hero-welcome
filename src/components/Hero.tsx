@@ -65,17 +65,17 @@ const Hero = () => {
             
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-8 text-sm font-body">
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                <span className="text-muted-foreground">Frisch zubereitet</span>
+                <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse delay-500"></span>
-                <span className="text-muted-foreground">30-45 Min Lieferung</span>
+                <span className="text-foreground font-medium">30-45 Min Lieferung</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border/50">
+              <div className="flex items-center gap-2 px-3 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse delay-1000"></span>
-                <span className="text-muted-foreground">Event-Catering</span>
+                <span className="text-foreground font-medium">Event-Catering</span>
               </div>
             </div>
           </div>

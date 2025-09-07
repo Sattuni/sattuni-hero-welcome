@@ -155,9 +155,9 @@ const Contact = () => {
         {/* Quick Contact Info */}
         <div className="mt-12 text-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/40 rounded-xl border border-border/30">
-              <div className="w-10 h-10 bg-gradient-warm rounded-full flex items-center justify-center">
-                <Mail className="w-5 h-5 text-primary-foreground" />
+            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                <Mail className="w-5 h-5 text-white" />
               </div>
               <div className="text-left">
                 <div className="text-sm text-muted-foreground">E-Mail</div>
@@ -165,9 +165,9 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/40 rounded-xl border border-border/30">
+            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                <Phone className="w-5 h-5 text-accent-foreground" />
+                <Phone className="w-5 h-5 text-white" />
               </div>
               <div className="text-left">
                 <div className="text-sm text-muted-foreground">Telefon</div>
@@ -175,8 +175,8 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/40 rounded-xl border border-border/30">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
+              <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
                 <Clock className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">

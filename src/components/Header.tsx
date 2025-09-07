@@ -54,7 +54,7 @@ const Header = () => {
           
           {/* CTA Button Desktop */}
           <div className="hidden md:block">
-            <Button size="sm" className="font-medium">
+            <Button size="sm" className="font-medium shadow-sm">
               Jetzt bestellen
             </Button>
           </div>
@@ -62,8 +62,8 @@ const Header = () => {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="sm" className="p-2">
-                <Menu className="w-5 h-5" />
+              <Button variant="ghost" size="sm" className="p-2 hover:bg-primary/10">
+                <Menu className="w-5 h-5 text-foreground" />
                 <span className="sr-only">Menü öffnen</span>
               </Button>
             </SheetTrigger>

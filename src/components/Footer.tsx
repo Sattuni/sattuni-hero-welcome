@@ -48,17 +48,17 @@ const Footer = () => {
                 href="https://instagram.com/sattuni" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 text-white" />
               </a>
               <a 
                 href="https://facebook.com/sattuni" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-accent/80 transition-colors"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -96,7 +96,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-foreground font-display">Kontakt</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="font-body">
                   <div className="text-sm text-muted-foreground">Adresse</div>
                   <div className="text-foreground">Düsseldorf, Deutschland</div>
@@ -104,7 +104,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="font-body">
                   <div className="text-sm text-muted-foreground">Telefon</div>
                   <a href="tel:021136180115" className="text-foreground hover:text-primary transition-colors">
@@ -114,7 +114,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="font-body">
                   <div className="text-sm text-muted-foreground">E-Mail</div>
                   <a href="mailto:info@sattuni.de" className="text-foreground hover:text-primary transition-colors">
@@ -124,7 +124,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="font-body">
                   <div className="text-sm text-muted-foreground">Öffnungszeiten</div>
                   <div className="text-foreground text-sm">

@@ -15,8 +15,8 @@ const Services = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-5 rounded-full blur-2xl"></div>
               
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
-                  <Utensils className="w-8 h-8 text-primary-foreground" />
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
+                  <Utensils className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-display font-bold text-foreground mb-3">
@@ -50,7 +50,7 @@ const Services = () => {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    <span className="text-muted-foreground">{item}</span>
+                    <span className="text-foreground/80 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -65,7 +65,7 @@ const Services = () => {
               
               <div className="flex items-start gap-4">
                 <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-soft">
-                  <PartyPopper className="w-8 h-8 text-accent-foreground" />
+                  <PartyPopper className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-display font-bold text-foreground mb-3">
@@ -99,7 +99,7 @@ const Services = () => {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                    <span className="text-muted-foreground">{item}</span>
+                    <span className="text-foreground/80 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
