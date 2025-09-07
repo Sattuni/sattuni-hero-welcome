@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp, HelpCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
 import CateringContact from "@/components/CateringContact";
@@ -319,6 +320,12 @@ const Catering = () => {
               So geht's
             </button>
             <button 
+              onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              FAQ
+            </button>
+            <button 
               onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
             >
@@ -543,6 +550,193 @@ const Catering = () => {
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-subtle" id="faq">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <HelpCircle className="w-8 h-8 text-primary" />
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Häufige Fragen zum Catering
+              </h2>
+            </div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Alles was Sie über unser Catering-Service wissen müssen
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem 
+                value="waermebehälter" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Werden Wärmebehälter mitgeliefert?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Ja, kostenlos ab 30 Personen!</span> 
+                    Wir liefern professionelle Wärmebehälter mit, damit Ihr Essen auch nach 
+                    Stunden noch perfekt temperiert ist.
+                  </p>
+                  <p>
+                    <strong>Service inklusive:</strong> Nach dem Event holen wir die Wärmebehälter 
+                    wieder ab – Sie müssen sich um nichts kümmern.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="geschirr-besteck" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Können wir über euch auch Geschirr und Besteck bestellen?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Ja, wir kümmern uns darum!</span> 
+                    Hochwertiges Geschirr, Besteck, Gläser und Servietten – 
+                    alles aus einer Hand für Ihr perfektes Event.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 mt-4">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Elegantes Porzellan</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Hochwertiges Besteck</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Gläser & Getränke</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Komplette Tischdeko</span>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="aufbau-zeit" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Wie lange braucht ihr für den Aufbau?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Wir kommen eine Stunde vor Eventbeginn</span> 
+                    und bauen in Ruhe alles auf. So können Sie entspannt Ihre Gäste empfangen.
+                  </p>
+                  <p>
+                    <strong>Ablauf:</strong> Buffet-Aufbau, Wärmebehälter installieren, 
+                    finale Dekoration – pünktlich zum Start ist alles perfekt vorbereitet.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="personenanzahl-flexibel" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Wie flexibel seid ihr bei der Personenanzahl?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Bis eine Woche vor dem Liefertag</span> 
+                    können Sie die Personenanzahl noch anpassen. Perfekt für Events mit 
+                    ungewisser Teilnehmerzahl.
+                  </p>
+                  <p>
+                    <strong>Praktisch:</strong> Ob 5 Personen mehr oder weniger – 
+                    wir passen Mengen und Preise entsprechend an.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="mindestbestellwert" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Gibt es einen Mindestbestellwert?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Ab 20 Personen</span> bieten wir 
+                    unser Catering-Service an. So können wir die beste Qualität und 
+                    Service-Level garantieren.
+                  </p>
+                  <p>
+                    <strong>Tipp:</strong> Für kleinere Gruppen empfehlen wir unseren 
+                    regulären Lieferservice über unser Online-Menü.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="vegane-optionen" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Habt ihr auch vegane und vegetarische Optionen?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Selbstverständlich!</span> 
+                    Unsere arabische Küche bietet natürlicherweise viele pflanzliche Gerichte.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 mt-4">
+                    <div className="flex items-center gap-2">
+                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span className="text-sm">Hummus & Baba Ghanousch</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span className="text-sm">Falafel & vegane Teigtaschen</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span className="text-sm">Tabouleh & Fattoush Salate</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span className="text-sm">Vegane Couscous Bowls</span>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="liefergebiet" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Wie weit liefert ihr für Catering?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-primary">Düsseldorf und Umgebung</span> – 
+                    bis zu 50km Radius von unserem Standort aus. Perfekt für 
+                    Firmenfeiern in der Region.
+                  </p>
+                  <p>
+                    <strong>Kostenlos:</strong> Innerhalb Düsseldorf ist die Anlieferung 
+                    bereits im Preis enthalten.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
