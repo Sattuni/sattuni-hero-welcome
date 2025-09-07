@@ -45,32 +45,31 @@ const CateringFOMO = () => {
       transform transition-all duration-500 ease-out
       ${showFOMO ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
     `}>
-      <div className="bg-accent text-accent-foreground p-4 rounded-lg shadow-xl max-w-xs border border-accent/20 backdrop-blur-sm">
+      <div className="bg-white text-foreground p-4 rounded-lg shadow-xl max-w-xs border border-border backdrop-blur-sm">
         <button
           onClick={() => setShowFOMO(false)}
-          className="absolute top-2 right-2 text-accent-foreground/80 hover:text-accent-foreground transition-colors"
+          className="absolute top-2 right-2 text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Schließen"
         >
           <X className="w-4 h-4" />
         </button>
         <div className="pr-6">
-          <div className="font-semibold text-sm mb-2 flex items-center gap-2">
-            <Utensils className="w-4 h-4" />
+          <div className="font-semibold text-sm mb-2 flex items-center gap-2 text-foreground">
+            <Utensils className="w-4 h-4 text-primary" />
             🍽️ Lust auf einen Test?
           </div>
-          <div className="text-xs opacity-90 mb-3 leading-relaxed">
-            <span className="font-semibold">Probe Lunch Menü</span> für{' '}
-            <span className="inline-flex items-center gap-1">
+          <div className="text-xs mb-3 leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Probe Lunch Menü</span> für{' '}
+            <span className="inline-flex items-center gap-1 text-foreground">
               <Users className="w-3 h-3" />
               10 Personen
             </span>{' '}
-            nur <span className="font-bold text-primary bg-primary/10 px-1 rounded">90€</span>
+            nur <span className="font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">90€</span>
           </div>
           <Button
             onClick={handleProbeMenuClick}
             size="sm"
-            variant="secondary"
-            className="w-full gap-2 h-8 text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+            className="w-full gap-2 h-9 text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
           >
             <Utensils className="w-3 h-3" />
             Probe Menü bestellen
