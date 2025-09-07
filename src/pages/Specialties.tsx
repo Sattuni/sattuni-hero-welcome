@@ -48,20 +48,14 @@ const Specialties = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
                 Willkommen in der Welt der arabischen Küche
               </h2>
-              <div className="text-lg leading-relaxed text-muted-foreground space-y-6 font-body">
+              <div className="text-lg leading-relaxed text-muted-foreground space-y-4 font-body">
                 <p>
-                  Die arabische Küche ist wie ein buntes Mosaik – voller Farben, Aromen und Geschichten, 
-                  die von Generation zu Generation weitergegeben werden. Bei Sattuni bringen wir dir diese 
-                  lebendige Tradition direkt nach Düsseldorf.
-                </p>
-                <p>
-                  Jedes Gericht wird täglich frisch und hausgemacht zubereitet. Ob vegan, vegetarisch oder 
-                  mit Fleisch – unsere Speisen entstehen aus den besten Zutaten und viel Liebe zum Detail. 
-                  Perfekt als schnelle Lieferung für den Alltag oder als Catering für besondere Momente.
+                  Die arabische Küche ist voller Farben, Aromen und Geschichten. Bei Sattuni bringen wir dir diese 
+                  lebendige Tradition täglich frisch und hausgemacht nach Düsseldorf.
                 </p>
                 <p className="text-primary font-semibold">
-                  Entdecke arabische Küche Düsseldorf, authentisches Hummus, knusprige Falafel und 
-                  unser vielfältiges arabisches Catering – alles hausgemacht und voller Geschmack.
+                  Entdecke arabische Küche Düsseldorf: authentisches Hummus, knusprige Falafel und 
+                  vielfältiges arabisches Catering – ob vegan, vegetarisch oder mit Fleisch.
                 </p>
               </div>
             </div>
@@ -76,16 +70,11 @@ const Specialties = () => {
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
                   Unsere orientalischen Dips & Vorspeisen
                 </h3>
-                <div className="text-lg text-muted-foreground space-y-4 font-body">
+                <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Hier beginnt jede arabische Mahlzeit: mit cremigem Hummus, der täglich frisch 
-                    aus Kichererbsen, Tahini und Olivenöl zubereitet wird. Dazu gesellt sich 
-                    rauchiges Baba Ghanousch aus gegrillten Auberginen und der frische Tabouleh-Salat 
-                    mit Petersilie, Tomaten und Bulgur.
-                  </p>
-                  <p>
-                    Jeder Dip erzählt seine eigene Geschichte und wird mit warmem, hausgebackenem 
-                    Pita-Brot serviert – der perfekte Start in die arabische Geschmackswelt.
+                    Cremiger Hummus aus Kichererbsen, rauchiges Baba Ghanousch und frischer Tabouleh-Salat 
+                    – täglich hausgemacht und mit warmem Pita-Brot serviert. Der perfekte Start in die 
+                    arabische Geschmackswelt.
                   </p>
                 </div>
                 <Button className="mt-8 font-display" size="lg">
@@ -118,16 +107,10 @@ const Specialties = () => {
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
                   Knusprige Falafel & hausgemachte Teigtaschen
                 </h3>
-                <div className="text-lg text-muted-foreground space-y-4 font-body">
+                <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Unsere Falafel sind kleine Kunstwerke – außen goldbraun und knusprig, 
-                    innen saftig und voller Gewürze. Aus Kichererbsen, frischen Kräutern und 
-                    einer geheimen Gewürzmischung entstehen diese veganen Köstlichkeiten.
-                  </p>
-                  <p>
-                    Die hausgemachten Teigtaschen werden jeden Tag frisch gefüllt – ob mit 
-                    würzigem Hackfleisch, cremigem Spinat-Käse oder anderen traditionellen 
-                    Füllungen. Ein Biss und du schmeckst die Handwerkskunst.
+                    Knusprige Falafel aus Kichererbsen und Gewürzen – außen goldbraun, innen saftig. 
+                    Dazu hausgemachte Teigtaschen mit traditionellen Füllungen, täglich frisch zubereitet.
                   </p>
                 </div>
                 <Button className="mt-8 font-display" size="lg">
@@ -146,16 +129,10 @@ const Specialties = () => {
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
                   Couscous Bowls & Hauptgerichte
                 </h3>
-                <div className="text-lg text-muted-foreground space-y-4 font-body">
+                <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Hier wird es richtig sättigend: Unsere Couscous Bowls vereinen das Beste 
-                    der arabischen Küche in einer Schüssel. Fluffiger Couscous trifft auf 
-                    gegrilltes Gemüse, würzige Kichererbsen und frische Kräuter.
-                  </p>
-                  <p>
-                    Die Hauptgerichte reichen von traditionellen Eintöpfen bis zu modernen 
-                    Interpretationen klassischer Rezepte. Jedes Gericht kann individuell 
-                    angepasst werden – perfekt für dein nächstes Catering-Event.
+                    Sättigende Couscous Bowls mit gegrilltem Gemüse, Kichererbsen und frischen Kräutern. 
+                    Plus traditionelle Hauptgerichte – individuell anpassbar für dein Catering-Event.
                   </p>
                 </div>
                 <Button className="mt-8 font-display" size="lg">
@@ -231,9 +208,8 @@ const Specialties = () => {
               Bereit für deine arabische Geschmacksreise?
             </h3>
             <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto font-body">
-              Egal ob kleiner Hunger oder große Feier – Sattuni bringt dir die Vielfalt der 
-              arabischen Küche direkt nach Düsseldorf. Entdecke authentische Aromen, 
-              hausgemachte Qualität und den Geschmack des Orients.
+              Egal ob kleiner Hunger oder große Feier – Sattuni bringt dir authentische 
+              arabische Küche direkt nach Düsseldorf.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
