@@ -147,6 +147,20 @@ const Catering = () => {
                 Unsere Spezialitäten ansehen
               </Button>
             </div>
+            
+            {/* Christmas Promo */}
+            <div className="mt-8 p-4 bg-gradient-to-r from-red-600/20 to-green-600/20 rounded-lg border border-white/20 backdrop-blur-sm">
+              <div className="flex items-center justify-center gap-2 text-white">
+                <span className="text-2xl">🎄</span>
+                <div className="text-center">
+                  <div className="font-bold">Weihnachts-Special!</div>
+                  <div className="text-sm opacity-90">
+                    Mit dem Code <span className="font-bold bg-white/20 px-2 py-1 rounded">satt25</span> gibt es 10% Rabatt auf Weihnachtsfeiern
+                  </div>
+                </div>
+                <span className="text-2xl">🎁</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

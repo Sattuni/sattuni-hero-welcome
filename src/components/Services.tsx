@@ -95,7 +95,7 @@ const Services = () => {
               <div className="grid grid-cols-2 gap-3 pt-4 text-sm font-body">
                 {[
                   "Individuelle Menüs",
-                  "Vegane Optionen",
+                  "Über 100 Caterings beliefert",
                   "Komplettservice", 
                   "20-500+ Personen"
                 ].map((item, index) => (

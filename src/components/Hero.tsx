@@ -74,13 +74,16 @@ const Hero = () => {
 
             {/* Trust Signal */}
             <div className="flex justify-center lg:justify-start pt-3">
-              <div className="flex items-center gap-3 text-sm">
+              <div className="flex flex-col sm:flex-row items-center gap-3 text-sm">
                 <div className="flex items-center gap-1">
-                  <span className="text-yellow-500">★★★★★</span>
-                  <span className="font-medium text-foreground">4.8</span>
+                  <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                  <span className="font-medium text-foreground">4.9/5</span>
+                  <span className="text-muted-foreground text-xs">bei Google Bewertungen</span>
                 </div>
-                <span className="text-muted-foreground">|</span>
+                <span className="text-muted-foreground hidden sm:inline">|</span>
                 <span className="text-muted-foreground">Über 1000 zufriedene Kunden</span>
+                <span className="text-muted-foreground hidden sm:inline">|</span>
+                <span className="text-primary font-medium">Mehr als 100 Caterings erfolgreich beliefert</span>
               </div>
             </div>
             
