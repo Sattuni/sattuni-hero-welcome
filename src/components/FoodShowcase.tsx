@@ -41,10 +41,10 @@ const FoodShowcase = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-8 md:py-16 px-4 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6 md:mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Utensils className="w-8 h-8 text-primary" />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
@@ -58,10 +58,10 @@ const FoodShowcase = () => {
         </div>
 
         {/* Food Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
           {foodCategories.map((category, index) => (
             <Card key={index} className="group hover:shadow-elegant transition-all duration-500 border-border/50 hover:border-primary/30 bg-card/95 backdrop-blur-sm overflow-hidden">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-36 md:h-48 overflow-hidden">
                 <img 
                   src={category.image} 
                   alt={category.title}
@@ -70,7 +70,7 @@ const FoodShowcase = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               
-              <CardContent className="p-6 space-y-4">
+              <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
                 <div>
                   <h3 className="text-xl font-display font-bold text-foreground mb-2">
                     {category.title}

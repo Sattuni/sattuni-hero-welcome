@@ -53,7 +53,7 @@ const MobileCTABar = () => {
           onClick={handleOrder}
           variant="hero"
           size="lg"
-          className="flex-1 gap-2 h-12 text-base font-semibold"
+          className="flex-1 gap-2 h-10 text-sm font-semibold"
         >
           <ShoppingBag className="w-4 h-4" />
           {ctaText}
@@ -62,7 +62,7 @@ const MobileCTABar = () => {
           onClick={handleCatering}
           variant="hero-secondary"
           size="lg"
-          className="gap-2 h-12 px-4"
+          className="gap-2 h-10 px-3 text-sm"
         >
           <CalendarCheck className="w-4 h-4" />
           Catering

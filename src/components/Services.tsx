@@ -5,13 +5,13 @@ import LocationPersonalization from "@/components/LocationPersonalization";
 
 const Services = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-subtle">
+    <section className="py-8 md:py-16 px-4 bg-gradient-subtle">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Lieferservice Card */}
           <Card className="group hover:shadow-elegant transition-all duration-500 border-border/50 hover:border-primary/30 bg-card/90 backdrop-blur-sm overflow-hidden">
-            <CardContent className="p-8 space-y-6 relative">
+            <CardContent className="p-4 md:p-8 space-y-4 md:space-y-6 relative">
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-5 rounded-full blur-2xl"></div>
               
@@ -42,7 +42,7 @@ const Services = () => {
               </div>
               
               {/* Service highlights */}
-              <div className="grid grid-cols-2 gap-3 pt-4 text-sm font-body">
+              <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                 {[
                   "Frisch zubereitet",
                   "30-45 Min Lieferung", 
@@ -60,7 +60,7 @@ const Services = () => {
           
           {/* Catering Card */}
           <Card className="group hover:shadow-elegant transition-all duration-500 border-border/50 hover:border-accent/30 bg-card/90 backdrop-blur-sm overflow-hidden">
-            <CardContent className="p-8 space-y-6 relative">
+            <CardContent className="p-4 md:p-8 space-y-4 md:space-y-6 relative">
               {/* Background decoration */}
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-2xl"></div>
               
@@ -93,7 +93,7 @@ const Services = () => {
               </div>
               
               {/* Service highlights */}
-              <div className="grid grid-cols-2 gap-3 pt-4 text-sm font-body">
+              <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                 {[
                   "Individuelle Menüs",
                   "Über 100 Caterings beliefert",

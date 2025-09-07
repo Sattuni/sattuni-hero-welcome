@@ -7,7 +7,7 @@ import sattunLogo from "@/assets/sattuni-logo.png";
 const Hero = () => {
   return (
     <section 
-      className="relative min-h-[50vh] flex items-start overflow-hidden"
+      className="relative min-h-[35vh] md:min-h-[50vh] flex items-start overflow-hidden"
       itemScope
       itemType="https://schema.org/Restaurant"
       role="banner"
@@ -29,15 +29,15 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="container relative z-10 px-4 py-6">
+      <div className="container relative z-10 px-4 py-4 md:py-6">
         <div className="max-w-4xl mx-auto text-center lg:text-left">
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3">
             {/* Logo */}
-            <div className="flex justify-center lg:justify-start mb-3">
+            <div className="flex justify-center lg:justify-start mb-2 md:mb-3">
               <img 
                 src={sattunLogo} 
                 alt="Sattuni Logo - Oriental Bowls & More - Arabische Küche Düsseldorf" 
-                className="h-16 lg:h-20 w-auto drop-shadow-lg"
+                className="h-12 md:h-16 lg:h-20 w-auto drop-shadow-lg"
                 width="200"
                 height="80"
                 loading="eager"
@@ -63,15 +63,15 @@ const Hero = () => {
             </p>
             
             {/* Urgency Badge */}
-            <div className="flex justify-center lg:justify-start mb-2">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
-                <span className="w-2 h-2 bg-primary rounded-full" aria-hidden="true"></span>
-                <span className="text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
+            <div className="flex justify-center lg:justify-start mb-1 md:mb-2">
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full" aria-hidden="true"></span>
+                <span className="text-xs md:text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center lg:justify-start pt-1 md:pt-2">
               <SmartCTA 
                 variant="hero" 
                 size="xl"
@@ -97,36 +97,34 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust Signal */}
-            <div className="flex justify-center lg:justify-start pt-3">
-              <div className="flex flex-col sm:flex-row items-center gap-3 text-sm">
+            {/* Trust Signal - Compact Mobile Version */}
+            <div className="flex justify-center lg:justify-start pt-2 md:pt-3">
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-xs md:text-sm">
                 <div className="flex items-center gap-1">
                   <div className="flex text-yellow-500">
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
+                    <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
+                    <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
+                    <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
+                    <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
                   </div>
                   <span className="font-medium text-foreground ml-1">4.9/5</span>
-                  <span className="text-muted-foreground text-xs">bei Google Bewertungen</span>
+                  <span className="text-muted-foreground text-xs hidden md:inline">bei Google</span>
                 </div>
-                <span className="text-muted-foreground hidden sm:inline">|</span>
-                <span className="text-muted-foreground">Über 1000 zufriedene Kunden</span>
-                <span className="text-muted-foreground hidden sm:inline">|</span>
-                <span className="text-primary font-medium">Mehr als 100 Caterings erfolgreich beliefert</span>
+                <span className="text-muted-foreground hidden md:inline">|</span>
+                <span className="text-muted-foreground text-center">1000+ Kunden • 100+ Caterings</span>
               </div>
             </div>
             
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
+            {/* Trust Indicators - Reduced on Mobile */}
+            <div className="hidden md:flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                 <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                <span className="text-foreground font-medium">30-45 Min Lieferung</span>
+                <span className="text-foreground font-medium">30-45 Min</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>

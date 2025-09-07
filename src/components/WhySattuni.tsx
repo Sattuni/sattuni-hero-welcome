@@ -25,10 +25,10 @@ const WhySattuni = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-hero">
+    <section className="py-8 md:py-16 px-4 bg-gradient-hero">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
+        <div className="text-center mb-6 md:mb-12 space-y-2 md:space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
             Warum Sattuni?
           </h2>
@@ -38,27 +38,27 @@ const WhySattuni = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
               <div 
                 key={index}
-                className="group text-center space-y-4 p-6 rounded-2xl hover:bg-card/60 transition-all duration-500 hover:shadow-elegant border border-transparent hover:border-border/50"
+                className="group text-center space-y-2 md:space-y-4 p-3 md:p-6 rounded-xl md:rounded-2xl hover:bg-card/60 transition-all duration-500 hover:shadow-elegant border border-transparent hover:border-border/50"
               >
                 {/* Icon Container */}
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
-                    <IconComponent className="w-8 h-8 text-white" />
+                <div className="flex items-center justify-center mb-2 md:mb-4">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-elegant">
+                    <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
                 </div>
                 
                 {/* Content */}
-                <div className="space-y-3">
-                  <h3 className="text-xl font-display font-bold text-foreground">
+                <div className="space-y-1 md:space-y-3">
+                  <h3 className="text-sm md:text-xl font-display font-bold text-foreground">
                     {benefit.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed font-body">
+                  <p className="text-xs md:text-base text-muted-foreground leading-relaxed font-body hidden md:block">
                     {benefit.description}
                   </p>
                 </div>
@@ -68,7 +68,7 @@ const WhySattuni = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-6 md:mt-12">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-card/80 backdrop-blur-sm rounded-full border border-border/50 shadow-soft">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
             <span className="text-sm font-medium text-foreground font-body">

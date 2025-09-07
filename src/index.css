@@ -130,4 +130,20 @@ All colors MUST be HSL.
   .safe-area-inset-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+  
+  /* Mobile-optimized spacing utilities */
+  @media (max-width: 768px) {
+    .space-y-mobile > * + * {
+      margin-top: 0.5rem;
+    }
+    
+    .p-mobile {
+      padding: 1rem;
+    }
+    
+    .py-mobile {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
 }
