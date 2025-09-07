@@ -39,6 +39,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        catering: {
+          DEFAULT: "hsl(var(--catering))",
+          foreground: "hsl(var(--catering-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -59,12 +63,16 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-warm': 'var(--gradient-warm)',
+        'gradient-luxury': 'var(--gradient-luxury)',
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-catering': 'var(--gradient-catering)',
       },
       boxShadow: {
-        'warm': 'var(--shadow-warm)',
+        'luxury': 'var(--shadow-luxury)',
         'soft': 'var(--shadow-soft)',
+        'elegant': 'var(--shadow-elegant)',
+        'warm': 'var(--shadow-warm)',
       },
       fontFamily: {
         'display': 'var(--font-display)',
