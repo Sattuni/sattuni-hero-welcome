@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -8,6 +9,25 @@ import CateringContact from "@/components/CateringContact";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
+  // Scroll to contact form if URL parameter is present
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollTo = urlParams.get('scrollTo');
+    
+    if (scrollTo === 'contact') {
+      setTimeout(() => {
+        const element = document.getElementById('catering-kontakt');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Focus the first input after scrolling
+          setTimeout(() => {
+            const nameInput = document.getElementById('name');
+            nameInput?.focus();
+          }, 500);
+        }
+      }, 100);
+    }
+  }, []);
   const cateringServices = [
     {
       icon: UtensilsCrossed,

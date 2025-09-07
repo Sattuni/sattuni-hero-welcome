@@ -54,7 +54,9 @@ const Hero = () => {
                 variant="outline" 
                 size="lg"
                 className="min-w-[180px] text-sm font-medium border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                onClick={() => window.location.href = '/catering#catering-kontakt'}
+                onClick={() => {
+                  window.location.href = '/catering?scrollTo=contact';
+                }}
               >
                 Catering anfragen
               </Button>

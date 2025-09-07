@@ -83,7 +83,9 @@ const Services = () => {
                   variant="outline" 
                   size="lg"
                   className="w-full sm:w-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 font-medium border-2"
-                  onClick={() => window.location.href = '/catering#catering-kontakt'}
+                  onClick={() => {
+                    window.location.href = '/catering?scrollTo=contact';
+                  }}
                 >
                   Catering anfragen
                 </Button>
