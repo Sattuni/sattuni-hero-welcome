@@ -15,7 +15,6 @@ const Services = () => {
                 <div className="w-16 h-16 bg-gradient-warm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Utensils className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <div className="text-4xl">🍽️</div>
               </div>
               
               <div className="space-y-4">
@@ -68,7 +67,6 @@ const Services = () => {
                 <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <PartyPopper className="w-8 h-8 text-accent-foreground" />
                 </div>
-                <div className="text-4xl">🎉</div>
               </div>
               
               <div className="space-y-4">

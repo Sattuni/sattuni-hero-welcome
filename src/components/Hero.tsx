@@ -40,7 +40,7 @@ const Hero = () => {
                 className="min-w-[220px]"
                 onClick={() => window.open('#bestellen', '_self')}
               >
-                🍽️ Jetzt bestellen
+                Jetzt bestellen
               </Button>
               
               <Button 
@@ -49,7 +49,7 @@ const Hero = () => {
                 className="min-w-[220px]"
                 onClick={() => window.open('#catering', '_self')}
               >
-                🎉 Catering anfragen
+                Catering anfragen
               </Button>
             </div>
             

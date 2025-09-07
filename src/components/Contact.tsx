@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Mail, User, MessageCircle } from "lucide-react";
+import { Send, Mail, User, MessageCircle, Phone, Clock } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Danke, wir melden uns bald bei dir! 🎉",
+        title: "Danke, wir melden uns bald bei dir!",
         description: "Deine Nachricht ist bei uns angekommen. Wir antworten normalerweise innerhalb von 24 Stunden.",
         duration: 5000
       });
@@ -167,7 +167,7 @@ const Contact = () => {
             
             <div className="flex items-center justify-center gap-3 p-4 bg-card/40 rounded-xl border border-border/30">
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                <span className="text-accent-foreground font-bold">📞</span>
+                <Phone className="w-5 h-5 text-accent-foreground" />
               </div>
               <div className="text-left">
                 <div className="text-sm text-muted-foreground">Telefon</div>
@@ -177,7 +177,7 @@ const Contact = () => {
             
             <div className="flex items-center justify-center gap-3 p-4 bg-card/40 rounded-xl border border-border/30">
               <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold">⏰</span>
+                <Clock className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">
                 <div className="text-sm text-muted-foreground">Antwortzeit</div>

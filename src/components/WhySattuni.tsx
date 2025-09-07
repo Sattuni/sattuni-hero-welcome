@@ -4,25 +4,21 @@ const WhySattuni = () => {
   const benefits = [
     {
       icon: ChefHat,
-      emoji: "✅",
       title: "Hausgemacht & frisch",
       description: "Von Pita bis Hummus – alles frisch aus unserer Küche."
     },
     {
       icon: Leaf,
-      emoji: "🌱",
       title: "Vielfalt für alle",
       description: "Ob Fleisch, vegetarisch oder vegan – wir haben für jeden was."
     },
     {
       icon: Truck,
-      emoji: "🚚",
       title: "Schnell & zuverlässig",
       description: "Lieferung in Düsseldorf – direkt zu dir oder zu deinem Event."
     },
     {
       icon: Calendar,
-      emoji: "🎉",
       title: "Alltag & Anlässe",
       description: "Egal ob Mittagspause oder Party – wir machen euch satt."
     }
@@ -51,12 +47,9 @@ const WhySattuni = () => {
                 className="group text-center space-y-4 p-6 rounded-2xl hover:bg-card/50 transition-all duration-300 hover:shadow-soft"
               >
                 {/* Icon Container */}
-                <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="flex items-center justify-center mb-4">
                   <div className="w-16 h-16 bg-gradient-warm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-warm">
                     <IconComponent className="w-8 h-8 text-primary-foreground" />
-                  </div>
-                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {benefit.emoji}
                   </div>
                 </div>
                 

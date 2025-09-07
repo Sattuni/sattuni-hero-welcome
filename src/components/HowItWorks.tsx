@@ -4,21 +4,18 @@ const HowItWorks = () => {
   const steps = [
     {
       icon: ClipboardList,
-      emoji: "📝",
       step: "Schritt 1",
       title: "Anfragen oder Bestellen",
       description: "Wähle: Heute bestellen oder Catering planen."
     },
     {
       icon: Mail,
-      emoji: "📩",
       step: "Schritt 2", 
       title: "Angebot & Bestätigung",
       description: "Wir bestätigen deine Bestellung oder schicken dir dein Catering-Angebot."
     },
     {
       icon: UtensilsCrossed,
-      emoji: "🍽️",
       step: "Schritt 3",
       title: "Genießen",
       description: "Frisch gekocht, pünktlich geliefert – und einfach lecker."
@@ -54,12 +51,9 @@ const HowItWorks = () => {
                 
                 {/* Step Number & Icon */}
                 <div className="relative z-10 flex flex-col items-center space-y-4">
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="flex items-center justify-center">
                     <div className="w-20 h-20 bg-gradient-warm rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-warm">
                       <IconComponent className="w-10 h-10 text-primary-foreground" />
-                    </div>
-                    <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                      {step.emoji}
                     </div>
                   </div>
                   
@@ -87,7 +81,6 @@ const HowItWorks = () => {
         {/* Bottom Message */}
         <div className="text-center mt-16">
           <div className="inline-flex items-center gap-3 px-8 py-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 shadow-soft">
-            <span className="text-2xl">🚀</span>
             <span className="text-lg font-medium text-foreground">
               Ready? Lass uns loslegen!
             </span>
