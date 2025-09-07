@@ -103,7 +103,7 @@ const Catering = () => {
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8">
                 Catering anfragen
               </Button>
-              <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary text-lg px-8">
+              <Button variant="outline" size="lg" className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg">
                 Unsere Spezialitäten ansehen
               </Button>
             </div>
