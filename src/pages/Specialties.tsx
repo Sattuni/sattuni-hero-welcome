@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Header from "@/components/Header";
+import FOMOElements from "@/components/FOMOElements";
 import heroSpecialties from "@/assets/hero-specialties.jpg";
 import dipsVorspeisen from "@/assets/dips-vorspeisen.jpg";
 import dipsVorspeisen2 from "@/assets/dips-vorspeisen-2.jpg";
@@ -25,7 +26,7 @@ const Specialties = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-16">
+      <main className="min-h-screen pt-16 pb-safe-mobile">
         {/* Hero Section */}
         <section 
           className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
@@ -277,6 +278,7 @@ const Specialties = () => {
           </div>
         </section>
       </main>
+      <FOMOElements />
     </>
   );
 };
