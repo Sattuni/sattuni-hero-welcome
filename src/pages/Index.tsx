@@ -11,7 +11,9 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import WhatsAppFloat from "@/components/mobile/WhatsAppFloat";
+import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/ChristmasPromo";
+import { Settings, Star, MessageCircle } from "lucide-react";
 
 const Index = () => {
   // SEO Meta Tags and Structured Data
@@ -268,9 +270,31 @@ const Index = () => {
         <Services />
         <FoodShowcase />
         <WhySattuni />
-        <HowItWorks />
-        <Testimonials />
-        <Contact />
+        
+        {/* Mobile Expandable Sections */}
+        <MobileSectionExpander
+          title="So funktioniert's"
+          icon={Settings}
+          className="bg-background"
+        >
+          <HowItWorks />
+        </MobileSectionExpander>
+        
+        <MobileSectionExpander
+          title="Das sagen unsere Gäste"
+          icon={Star}
+          className="bg-gradient-hero"
+        >
+          <Testimonials />
+        </MobileSectionExpander>
+        
+        <MobileSectionExpander
+          title="Schreib uns kurz"
+          icon={MessageCircle}
+          className="bg-gradient-subtle"
+        >
+          <Contact />
+        </MobileSectionExpander>
       </main>
       <Footer />
       <MobileCTABar />
