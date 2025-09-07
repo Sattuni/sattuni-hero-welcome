@@ -221,12 +221,13 @@ const Testimonials = () => {
         <div className="text-center">
           <Button 
             variant="hero" 
-            size="lg"
-            className="gap-2"
+            size="sm"
+            className="gap-2 text-sm md:text-base md:px-6 md:py-3"
             onClick={() => window.open('https://maps.app.goo.gl/Do5KknPnvW26zRvW8?g_st=ipc', '_blank')}
           >
-            <ExternalLink className="w-5 h-5" />
-            Mehr Bewertungen auf Google lesen
+            <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Mehr Bewertungen auf Google lesen</span>
+            <span className="sm:hidden">Google Bewertungen</span>
           </Button>
           
           {/* Trust Badge */}
