@@ -146,4 +146,43 @@ All colors MUST be HSL.
       padding-bottom: 0.5rem;
     }
   }
+  
+  /* Jotform AI Chatbot Mobile Optimization */
+  @media (max-width: 768px) {
+    /* Target the Jotform chatbot iframe and button */
+    div[id*="jfChatbot"], 
+    iframe[src*="jotfor.ms"],
+    div[style*="position: fixed"] {
+      /* Position above mobile CTA bar */
+      bottom: 90px !important;
+      right: 16px !important;
+      width: 60px !important;
+      height: 60px !important;
+      z-index: 45 !important;
+      border-radius: 50% !important;
+      box-shadow: 0 4px 20px -4px hsl(25 15% 15% / 0.15) !important;
+    }
+    
+    /* When chatbot is expanded/opened */
+    div[id*="jfChatbot"][data-expanded="true"],
+    div[id*="jfChatbot"].expanded {
+      width: calc(100vw - 32px) !important;
+      height: 400px !important;
+      bottom: 90px !important;
+      right: 16px !important;
+      left: 16px !important;
+      border-radius: 12px !important;
+    }
+  }
+  
+  /* Desktop positioning for chatbot */
+  @media (min-width: 769px) {
+    div[id*="jfChatbot"], 
+    iframe[src*="jotfor.ms"],
+    div[style*="position: fixed"] {
+      bottom: 24px !important;
+      right: 24px !important;
+      z-index: 40 !important;
+    }
+  }
 }
