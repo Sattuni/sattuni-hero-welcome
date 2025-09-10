@@ -168,8 +168,8 @@ const AboutUs = () => {
                 Kochen & Kümmern – <span className="text-accent">unser Bruderjob</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Feras sorgt für Einkauf, Küche & Menüs. Hamudi kümmert sich um Kunden, Organisation & Lieferung. 
-                <span className="text-accent font-semibold"> Zusammen = Sattuni.</span>
+                Zwei Brüder, eine Mission: <span className="text-accent font-semibold">Euch richtig satt machen.</span> 
+                Feras zaubert in der Küche, Hamudi macht den Rest. Simple as that.
               </p>
               <Button 
                 onClick={handleSpecialtiesClick}
@@ -193,7 +193,7 @@ const AboutUs = () => {
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   Wir sind zwei Brüder, die arabische Küche in Düsseldorf neu interpretieren – frisch, hausgemacht, modern. 
-                  Einer denkt in Rezepten, der andere in Abläufen. <span className="text-primary font-semibold">Gemeinsam machen wir euch satt.</span>
+                  <span className="text-primary font-semibold">Ohne Drama, ohne Schnickschnack. Einfach gutes Essen.</span>
                 </p>
               </div>
 
