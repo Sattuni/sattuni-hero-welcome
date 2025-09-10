@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Utensils, PartyPopper } from "lucide-react";
-import LocationPersonalization from "@/components/LocationPersonalization";
 
 const Services = () => {
   return (
@@ -105,11 +104,6 @@ const Services = () => {
                     <span className="text-foreground/80 text-sm">{item}</span>
                   </div>
                 ))}
-              </div>
-              
-              {/* Location Personalization for Catering */}
-              <div className="pt-3">
-                <LocationPersonalization type="catering" />
               </div>
             </CardContent>
           </Card>
