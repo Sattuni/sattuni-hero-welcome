@@ -23,6 +23,12 @@ const Header = () => {
       title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
     },
     { 
+      name: "Über uns", 
+      href: "/ueber-uns", 
+      current: location.pathname === "/ueber-uns",
+      title: "Über das Team von Sattuni - Die Brüder hinter der Küche"
+    },
+    { 
       name: "Catering", 
       href: "/catering", 
       current: location.pathname === "/catering",
