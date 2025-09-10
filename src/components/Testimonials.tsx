@@ -26,76 +26,76 @@ const Testimonials = () => {
       timeAgo: "vor 3 Monaten"
     },
     {
-      name: "Dennis M.",
+      name: "Sarah M.",
       rating: 5,
       text: "Super leckeres Essen, gleichbleibend hohe Qualität, schnelle Lieferung, faire Preise.",
-      timeAgo: "vor 6 Monaten"
-    },
-    {
-      name: "Sarah K.",
-      rating: 5,
-      text: "Es ist ein kleines Restaurant, schön eingerichtet und sie bieten auch Take-away an.",
-      timeAgo: "vor 8 Monaten"
-    },
-    {
-      name: "Alex T.",
-      rating: 5,
-      text: "Mir gefallen besonders die Hauptgerichte und der Reis!",
-      timeAgo: "vor 4 Monaten"
-    },
-    {
-      name: "Patrick L.",
-      rating: 5,
-      text: "Mann - dieser Laden ist ein echtes Juwel in Düsseldorf!! Perfekt zum Teilen! Wir lieben es einfach!",
-      timeAgo: "vor einem Jahr"
-    },
-    {
-      name: "Maya L.",
-      rating: 5,
-      text: "Authentische arabische Küche in Düsseldorf! Das Falafel und Hummus sind ein Traum.",
-      timeAgo: "vor 2 Monaten"
-    },
-    {
-      name: "Tim R.",
-      rating: 5,
-      text: "Perfekt für Catering! Haben für unser Büro bestellt - alles war frisch und lecker.",
-      timeAgo: "vor 5 Monaten"
-    },
-    {
-      name: "Lisa M.",
-      rating: 5,
-      text: "Als Vegetarierin bin ich begeistert von der Auswahl! Die Falafel sind hausgemacht und die Soßen fantastisch.",
-      timeAgo: "vor 1 Monat"
-    },
-    {
-      name: "Michael K.",
-      rating: 5,
-      text: "Beste arabische Küche in Düsseldorf! Portionen sind großzügig und der Service sehr freundlich.",
-      timeAgo: "vor 3 Wochen"
-    },
-    {
-      name: "Anna B.",
-      rating: 5,
-      text: "Haben für unsere Hochzeitsfeier das Catering bestellt - alle Gäste waren begeistert. Top Service!",
-      timeAgo: "vor 7 Monaten"
-    },
-    {
-      name: "Frank H.",
-      rating: 5,
-      text: "Immer wieder gerne! Die Qualität stimmt einfach und die Lieferung ist zuverlässig.",
       timeAgo: "vor 2 Wochen"
     },
     {
-      name: "Jasmin A.",
+      name: "Ahmed K.",
       rating: 5,
-      text: "Endlich authentische orientalische Küche in Düsseldorf! Die Gewürzmischungen sind perfekt.",
+      text: "Endlich authentische arabische Küche in Düsseldorf! Jedes Gericht schmeckt wie bei meiner Großmutter.",
+      timeAgo: "vor 1 Monat"
+    },
+    {
+      name: "Lisa R.",
+      rating: 5,
+      text: "Es ist ein kleines Restaurant, schön eingerichtet und sie bieten auch Take-away an. Perfekt für unsere Firmenfeier!",
+      timeAgo: "vor 3 Wochen"
+    },
+    {
+      name: "Omar H.",
+      rating: 5,
+      text: "Mir gefallen besonders die Hauptgerichte und der Reis! Die Bowls sind der Hammer.",
+      timeAgo: "vor 1 Woche"
+    },
+    {
+      name: "Julia S.",
+      rating: 5,
+      text: "Sehr freundlicher Service und das Essen kommt immer heiß an. Die Portionen sind großzügig!",
+      timeAgo: "vor 2 Monaten"
+    },
+    {
+      name: "Markus T.",
+      rating: 5,
+      text: "Top Catering-Service! Haben für 50 Personen bestellt - alles war perfekt organisiert.",
       timeAgo: "vor 6 Wochen"
     },
     {
-      name: "Stefan W.",
+      name: "Fatima A.",
       rating: 5,
-      text: "Regelmäßig für das Team bestellt - nie enttäuscht worden. Frische Zubereitung und faire Preise.",
-      timeAgo: "vor 1 Monat"
+      text: "Als Araberin kann ich sagen: Das ist wirklich authentisch! Besonders das Fattoush ist genial.",
+      timeAgo: "vor 10 Tagen"
+    },
+    {
+      name: "Michael B.",
+      rating: 5,
+      text: "Schnelle Lieferung und faire Preise. Das Schawarma ist mein absoluter Favorit hier.",
+      timeAgo: "vor 4 Wochen"
+    },
+    {
+      name: "Nadia L.",
+      rating: 5,
+      text: "Wunderbares Ambiente im Restaurant und sehr aufmerksamer Service. Kommen gerne wieder!",
+      timeAgo: "vor 5 Monaten"
+    },
+    {
+      name: "Stefan K.",
+      rating: 5,
+      text: "Beste vegetarische Optionen in Düsseldorf! Die Auberginen-Gerichte sind ein Traum.",
+      timeAgo: "vor 2 Wochen"
+    },
+    {
+      name: "Yasmin F.",
+      rating: 5,
+      text: "Familiäre Atmosphäre und man schmeckt die Liebe in jedem Bissen. Absolute Empfehlung!",
+      timeAgo: "vor 3 Wochen"
+    },
+    {
+      name: "David W.",
+      rating: 5,
+      text: "Haben hier für unsere Hochzeit das Catering bestellt - Gäste schwärmen heute noch davon!",
+      timeAgo: "vor 4 Monaten"
     }
   ];
 
