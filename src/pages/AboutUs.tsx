@@ -240,7 +240,7 @@ const AboutUs = () => {
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
                       <img 
-                        src={hamudiProfile} 
+                        src="/lovable-uploads/2e458865-8065-4f68-82d0-b997bc935585.png" 
                         alt="Hamudi - Organisation und Kundenbetreuung bei Sattuni" 
                         className="w-full h-full object-cover"
                       />
