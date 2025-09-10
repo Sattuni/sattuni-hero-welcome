@@ -225,13 +225,13 @@ const Specialties = () => {
           
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 drop-shadow-lg">
-              Arabische Spezialitäten in Düsseldorf
+              Worauf hast du Lust?
             </h1>
             <h2 className="text-xl md:text-2xl mb-8 font-body font-light drop-shadow-md">
-              Frisch, hausgemacht & authentisch
+              Authentische arabische Küche – frisch & hausgemacht
             </h2>
             <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto drop-shadow-md">
-              Von Hummus bis Falafel – entdecke die Levante-Küche bei Sattuni.
+              Von cremigem Hummus bis knuspriger Falafel – gönn dir was Gutes!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -241,7 +241,7 @@ const Specialties = () => {
                 className="font-display"
                 onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
               >
-                Jetzt bestellen
+                Bestell dir was Leckeres
               </Button>
               <Button 
                 size="xl" 
@@ -249,7 +249,7 @@ const Specialties = () => {
                 className="font-display"
                 onClick={() => window.location.href = '/catering'}
               >
-                Catering anfragen
+                Für dein Event anfragen
               </Button>
             </div>
           </div>
@@ -260,16 +260,16 @@ const Specialties = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
-                Willkommen in der Welt der arabischen Küche
+                Schmeck die Welt der Aromen!
               </h2>
               <div className="text-lg leading-relaxed text-muted-foreground space-y-4 font-body">
                 <p>
-                  Die arabische Küche ist voller Farben, Aromen und Geschichten. Bei Sattuni bringen wir dir diese 
-                  lebendige Tradition täglich frisch und hausgemacht nach Düsseldorf.
+                  Arabische Küche ist wie eine Umarmung für den Gaumen. Jeder Bissen erzählt eine Geschichte 
+                  von Sonne, Gewürzen und Gastfreundschaft – täglich frisch für dich gemacht.
                 </p>
                 <p className="text-primary font-semibold">
-                  Entdecke arabische Küche Düsseldorf: authentisches Hummus, knusprige Falafel und 
-                  vielfältiges arabisches Catering – ob vegan, vegetarisch oder mit Fleisch.
+                  Ob cremiger Hummus, knusprige Falafel oder bunte Bowls – 
+                  hier findest du, worauf du Lust hast. Vegan, vegetarisch oder mit Fleisch.
                 </p>
               </div>
             </div>
@@ -282,13 +282,13 @@ const Specialties = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Unsere orientalischen Dips & Vorspeisen
+                  Dips & Vorspeisen zum Verlieben
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Cremiger Hummus aus Kichererbsen, rauchiges Baba Ghanousch und frischer Tabouleh-Salat 
-                    – täglich hausgemacht und mit warmem Pita-Brot serviert. Der perfekte Start in die 
-                    arabische Geschmackswelt.
+                    Stell dir vor: Cremiger Hummus, der auf der Zunge zergeht. Rauchiges Baba Ghanousch 
+                    mit warmen Pita-Brot. Und frischer Tabouleh, der nach Sommer schmeckt. 
+                    Alles hausgemacht – jeden Tag neu.
                   </p>
                 </div>
                 <Button 
@@ -296,7 +296,7 @@ const Specialties = () => {
                   size="lg"
                   onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
                 >
-                  Jetzt probieren
+                  Hab ich Lust drauf!
                 </Button>
               </div>
               <div className="order-first md:order-last">
@@ -349,12 +349,13 @@ const Specialties = () => {
               </div>
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Knusprige Falafel & hausgemachte Teigtaschen
+                  Knusprige Falafel – außen crunchy, innen wow!
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Knusprige Falafel aus Kichererbsen und Gewürzen – außen goldbraun, innen saftig. 
-                    Dazu hausgemachte Teigtaschen mit traditionellen Füllungen, täglich frisch zubereitet.
+                    Goldbraun und knusprig, dabei innen so saftig – unsere Falafel sind echte 
+                    Geschmacksbomben. Dazu gibt's hausgemachte Teigtaschen mit Füllungen, 
+                    die dich überraschen werden.
                   </p>
                 </div>
                 <Button 
@@ -362,7 +363,7 @@ const Specialties = () => {
                   size="lg"
                   onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
                 >
-                  Zum Menü
+                  Das will ich probieren!
                 </Button>
               </div>
             </div>
@@ -375,12 +376,13 @@ const Specialties = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Couscous Bowls & Hauptgerichte
+                  Bowls, die richtig satt & glücklich machen
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Sättigende Couscous Bowls mit gegrilltem Gemüse, Kichererbsen und frischen Kräutern. 
-                    Plus traditionelle Hauptgerichte – individuell anpassbar für dein Catering-Event.
+                    Fluffiger Couscous trifft gegrilltes Gemüse und frische Kräuter – 
+                    das ist Comfort Food auf arabisch! Perfekt für den großen Hunger 
+                    oder wenn du einfach was Gutes brauchst.
                   </p>
                 </div>
                 <Button 

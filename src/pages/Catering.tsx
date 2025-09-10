@@ -148,22 +148,22 @@ const Catering = () => {
     {
       icon: UtensilsCrossed,
       title: "Fingerfood",
-      description: "Perfekt für Events & Empfänge – kleine Häppchen, große Wirkung.",
+      description: "Kleine Häppchen mit großer Wirkung – für Events, die in Erinnerung bleiben.",
     },
     {
       icon: Utensils, 
       title: "Buffets",
-      description: "Vielfalt für alle – vom kleinen Lunch bis zum großen Fest.",
+      description: "Für alle was dabei – vom entspannten Lunch bis zur großen Sause.",
     },
     {
       icon: Salad,
       title: "Veggie & Vegan", 
-      description: "Pflanzliche Köstlichkeiten, die jeden überzeugen.",
+      description: "Pflanzenpower, die auch Fleischfans überzeugt. Versprochen!",
     },
     {
       icon: Zap,
-      title: "Individuelle Menüs",
-      description: "Maßgeschneidert für deinen Anlass und dein Budget.",
+      title: "Dein Wunsch-Menü",
+      description: "Sag uns, was du brauchst – wir machen's möglich.",
     },
   ];
 
@@ -236,14 +236,14 @@ const Catering = () => {
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Catering aus Düsseldorf – 
+              Dein Event. Unser Essen. 
               <span className="block text-gradient bg-gradient-primary bg-clip-text text-transparent">
-                frisch, orientalisch & für jeden Anlass
+                Entspannt genießen!
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Von Fingerfood bis Buffet, von Geburtstag bis Firmenfest.
+              Arabische Küche für private Feiern & Business-Events. Stressfrei für dich, lecker für alle.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -262,7 +262,7 @@ const Catering = () => {
                   }
                 }}
               >
-                Catering anfragen
+                Lass uns reden
               </Button>
               <Button 
                 variant="outline" 
@@ -270,7 +270,7 @@ const Catering = () => {
                 className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg"
                 onClick={() => window.location.href = '/spezialitaeten'}
               >
-                Unsere Spezialitäten ansehen
+                Schau, was wir kochen
               </Button>
             </div>
             
@@ -337,8 +337,8 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
-              Hausgemacht, frisch, flexibel – wir bringen arabische Küche zu dir. 
-              <span className="text-primary font-medium"> Für private Feiern & Firmen-Events.</span>
+              Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. 
+              <span className="text-primary font-medium">So einfach kann Catering sein.</span>
             </p>
           </div>
         </div>
@@ -401,8 +401,8 @@ const Catering = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground">
-              Für Firmenkunden machen wir Catering & Eventorganisation easy. 
-              Persönlich, flexibel, mit Konzept.
+              Business-Events ohne Stress? Gibt's bei uns! Wir kümmern uns um alles – 
+              vom Menü bis zur perfekten Durchführung.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mt-12">
