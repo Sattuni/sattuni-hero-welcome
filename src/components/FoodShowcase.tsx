@@ -28,7 +28,7 @@ const FoodShowcase = () => {
       title: "Bowls & Hauptgerichte",
       description: "Bunte Bowls, die richtig satt machen. Herzhafte Hauptgerichte, die nach mehr schmecken.",
       image: bowlsImage,
-      highlights: ["Buddha Bowls", "Shawarma", "Grilled Chicken", "Vegane Optionen"]
+      highlights: ["Couscous Bowls", "Reisgerichte", "Fleisch", "Vegan"]
     }
   ];
 
