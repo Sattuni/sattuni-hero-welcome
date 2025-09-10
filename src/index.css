@@ -153,14 +153,24 @@ All colors MUST be HSL.
     div[id*="jfChatbot"], 
     iframe[src*="jotfor.ms"],
     div[style*="position: fixed"] {
-      /* Position above mobile CTA bar */
-      bottom: 90px !important;
+      /* Position to the right side, above mobile CTA bar */
+      bottom: 110px !important;
       right: 16px !important;
-      width: 60px !important;
-      height: 60px !important;
-      z-index: 45 !important;
+      width: 56px !important;
+      height: 56px !important;
+      z-index: 60 !important;
       border-radius: 50% !important;
       box-shadow: 0 4px 20px -4px hsl(25 15% 15% / 0.15) !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    /* When mobile CTA bar is visible, position chatbot to the left side of screen */
+    body:has(.z-50) div[id*="jfChatbot"], 
+    body:has(.z-50) iframe[src*="jotfor.ms"],
+    body:has(.z-50) div[style*="position: fixed"] {
+      left: 16px !important;
+      right: auto !important;
+      bottom: 20px !important;
     }
     
     /* When chatbot is expanded/opened */
@@ -168,7 +178,7 @@ All colors MUST be HSL.
     div[id*="jfChatbot"].expanded {
       width: calc(100vw - 32px) !important;
       height: 400px !important;
-      bottom: 90px !important;
+      bottom: 110px !important;
       right: 16px !important;
       left: 16px !important;
       border-radius: 12px !important;
