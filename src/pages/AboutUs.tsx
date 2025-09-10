@@ -221,15 +221,15 @@ const AboutUs = () => {
                     <div className="space-y-3">
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Einkauf</span>
+                        <span>Kauft ein</span>
                       </div>
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Kochen</span>
+                        <span>Kocht</span>
                       </div>
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Innovative Menüs</span>
+                        <span>Denkt sich was Neues aus</span>
                       </div>
                     </div>
                   </CardContent>
@@ -251,15 +251,15 @@ const AboutUs = () => {
                     <div className="space-y-3">
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Kundenkommunikation</span>
+                        <span>Redet mit euch</span>
                       </div>
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Organisation</span>
+                        <span>Organisiert alles</span>
                       </div>
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <CheckCircle className="w-5 h-5 text-primary" />
-                        <span>Lieferung</span>
+                        <span>Bringt's vorbei</span>
                       </div>
                     </div>
                   </CardContent>
