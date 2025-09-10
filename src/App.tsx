@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
+import ChatbotPositioner from "./components/mobile/ChatbotPositioner";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <div className="min-h-screen bg-gradient-hero">
         <Toaster />
         <Sonner />
+        <ChatbotPositioner />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
