@@ -1,4 +1,4 @@
-import { Star, ExternalLink } from "lucide-react";
+import { Star, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
@@ -99,6 +99,67 @@ const Testimonials = () => {
     }
   ];
 
+  // ReviewCard component with expand/collapse functionality
+  const ReviewCard = ({ review, index }: { review: any; index: number }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const maxLength = 120; // Maximum characters to show when collapsed
+    const shouldTruncate = review.text.length > maxLength;
+    const displayText = shouldTruncate && !isExpanded 
+      ? review.text.substring(0, maxLength) + "..."
+      : review.text;
+
+    return (
+      <Card className="group hover:shadow-warm transition-all duration-300 border-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm animate-fade-in">
+        <CardContent className="p-6 space-y-4">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {renderStars(review.rating)}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {review.timeAgo}
+            </div>
+          </div>
+          
+          {/* Review Text */}
+          <div className="space-y-3">
+            <div className="text-foreground leading-relaxed text-sm">
+              <p>&quot;{displayText}&quot;</p>
+              {shouldTruncate && (
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="inline-flex items-center gap-1 mt-2 text-xs text-primary hover:text-primary/80 transition-colors font-medium"
+                >
+                  {isExpanded ? (
+                    <>
+                      <span>Weniger lesen</span>
+                      <ChevronUp className="w-3 h-3" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Mehr lesen</span>
+                      <ChevronDown className="w-3 h-3" />
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-warm rounded-full flex items-center justify-center">
+                <span className="text-sm font-semibold text-primary-foreground">
+                  {review.name.charAt(0)}
+                </span>
+              </div>
+              <span className="font-medium text-foreground text-sm">
+                {review.name}
+              </span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
+
   // Auto-advance carousel
   useEffect(() => {
     const timer = setInterval(() => {
@@ -160,39 +221,11 @@ const Testimonials = () => {
                 <div key={slideIndex} className="w-full flex-shrink-0">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
                     {reviews.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, index) => (
-                      <Card 
+                      <ReviewCard 
                         key={slideIndex * 3 + index}
-                        className="group hover:shadow-warm transition-all duration-300 border-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm animate-fade-in"
-                      >
-                        <CardContent className="p-6 space-y-4">
-                          {/* Header */}
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              {renderStars(review.rating)}
-                            </div>
-                            <div className="text-sm text-muted-foreground">
-                              {review.timeAgo}
-                            </div>
-                          </div>
-                          
-                          {/* Review Text */}
-                          <div className="space-y-3">
-                            <p className="text-foreground leading-relaxed text-sm">
-                              &quot;{review.text}&quot;
-                            </p>
-                            <div className="flex items-center gap-2">
-                              <div className="w-8 h-8 bg-gradient-warm rounded-full flex items-center justify-center">
-                                <span className="text-sm font-semibold text-primary-foreground">
-                                  {review.name.charAt(0)}
-                                </span>
-                              </div>
-                              <span className="font-medium text-foreground text-sm">
-                                {review.name}
-                              </span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
+                        review={review}
+                        index={slideIndex * 3 + index}
+                      />
                     ))}
                   </div>
                 </div>
