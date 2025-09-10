@@ -370,7 +370,7 @@ const AboutUs = () => {
                   <img 
                     src="/lovable-uploads/4e8e5e31-1ebf-439f-9751-e7c77a726505.png" 
                     alt="Leonardo - Partner von Sattuni" 
-                    className="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    className="max-h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
                 
