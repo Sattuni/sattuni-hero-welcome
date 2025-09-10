@@ -18,6 +18,9 @@ const AboutUs = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+    
     // SEO Meta Tags
     document.title = "Über uns - Sattuni | Arabische Küche aus Düsseldorf";
     const metaDescription = document.querySelector('meta[name="description"]');
