@@ -16,31 +16,35 @@ const ChatbotPositioner = () => {
       currentElement: null as HTMLElement | null
     };
 
-    // Load saved position
-    let savedPosition = { x: 16, y: 20 };
+    // Load saved Y position only
+    let savedPosition = { x: 16, y: 100 }; // Default: 16px from right, 100px from top
     try {
       const saved = localStorage.getItem('chatbot-position');
       if (saved) {
-        savedPosition = JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        savedPosition.y = parsed.y || 100; // Only use saved Y position
       }
     } catch (e) {
-      console.log('Failed to load saved position');
+      console.log('Failed to load saved Y position, using default');
     }
 
     const makeDraggable = (element: HTMLElement) => {
-      console.log('🎯 Making element draggable:', element);
+      console.log('🎯 Making element draggable (vertical only):', element);
       
-      // Apply initial position
+      // Fixed right position
+      const rightPosition = 16;
+      
+      // Apply initial position - always on the right, use saved Y position
       element.style.position = 'fixed';
-      element.style.left = `${savedPosition.x}px`;
+      element.style.right = `${rightPosition}px`;
+      element.style.left = 'auto';
       element.style.top = `${savedPosition.y}px`;
-      element.style.right = 'auto';
       element.style.bottom = 'auto';
       element.style.zIndex = '9999';
-      element.style.cursor = 'grab';
+      element.style.cursor = 'ns-resize'; // Vertical resize cursor
       element.style.userSelect = 'none';
       element.style.webkitUserSelect = 'none';
-      element.style.touchAction = 'none';
+      element.style.touchAction = 'pan-y'; // Only allow vertical panning
 
       // Remove existing listeners
       element.removeEventListener('touchstart', handleTouchStart);
@@ -60,7 +64,7 @@ const ChatbotPositioner = () => {
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', handleMouseUp);
 
-      console.log('✅ Drag events attached');
+      console.log('✅ Vertical drag events attached');
     };
 
     const handleTouchStart = (e: TouchEvent) => {
@@ -80,17 +84,15 @@ const ChatbotPositioner = () => {
     const startDrag = (clientX: number, clientY: number, target: HTMLElement) => {
       dragData.isDragging = true;
       dragData.currentElement = target;
-      dragData.startX = clientX;
-      dragData.startY = clientY;
+      dragData.startY = clientY; // Only track Y position
       
       const rect = target.getBoundingClientRect();
-      dragData.initialLeft = rect.left;
-      dragData.initialTop = rect.top;
+      dragData.initialTop = rect.top; // Only need top position
       
-      target.style.cursor = 'grabbing';
+      target.style.cursor = 'ns-resize';
       target.style.transition = 'none';
       
-      console.log('🚀 Drag started at:', { clientX, clientY, initialLeft: dragData.initialLeft, initialTop: dragData.initialTop });
+      console.log('🚀 Vertical drag started at Y:', { clientY, initialTop: dragData.initialTop });
     };
 
     const handleTouchMove = (e: TouchEvent) => {
@@ -111,23 +113,18 @@ const ChatbotPositioner = () => {
     const updatePosition = (clientX: number, clientY: number) => {
       if (!dragData.currentElement) return;
       
-      const deltaX = clientX - dragData.startX;
+      // Only calculate vertical movement
       const deltaY = clientY - dragData.startY;
-      
-      let newLeft = dragData.initialLeft + deltaX;
       let newTop = dragData.initialTop + deltaY;
       
-      // Boundary constraints
-      const maxLeft = window.innerWidth - dragData.currentElement.offsetWidth;
+      // Vertical boundary constraints only
       const maxTop = window.innerHeight - dragData.currentElement.offsetHeight;
-      
-      newLeft = Math.max(0, Math.min(newLeft, maxLeft));
       newTop = Math.max(0, Math.min(newTop, maxTop));
       
-      dragData.currentElement.style.left = `${newLeft}px`;
+      // Keep element on the right side, only update top position
       dragData.currentElement.style.top = `${newTop}px`;
       
-      console.log('📍 Position updated:', { newLeft, newTop });
+      console.log('📍 Vertical position updated:', { newTop });
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
@@ -143,15 +140,15 @@ const ChatbotPositioner = () => {
     const endDrag = () => {
       if (!dragData.isDragging || !dragData.currentElement) return;
       
-      dragData.currentElement.style.cursor = 'grab';
+      dragData.currentElement.style.cursor = 'ns-resize';
       dragData.currentElement.style.transition = 'all 0.2s ease';
       
-      // Save position
+      // Save only Y position (X is always fixed on right)
       const rect = dragData.currentElement.getBoundingClientRect();
-      const position = { x: rect.left, y: rect.top };
+      const position = { x: 16, y: rect.top }; // X is always 16px from right
       localStorage.setItem('chatbot-position', JSON.stringify(position));
       
-      console.log('💾 Drag ended, saved position:', position);
+      console.log('💾 Vertical drag ended, saved Y position:', position.y);
       
       dragData.isDragging = false;
       dragData.currentElement = null;
