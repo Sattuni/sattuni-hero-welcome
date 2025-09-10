@@ -213,7 +213,7 @@ const AboutUs = () => {
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
                       <img 
-                        src="/lovable-uploads/30670c21-2fc8-4c3e-b8fe-6d7ac0bba54f.png" 
+                        src="/lovable-uploads/ebf7866c-758d-4168-b85d-d9de42f137cc.png" 
                         alt="Feras - Chef und Küchenchef bei Sattuni" 
                         className="w-full h-full object-cover"
                       />
