@@ -5,22 +5,22 @@ const WhySattuni = () => {
     {
       icon: ChefHat,
       title: "Hausgemacht & frisch",
-      description: "Von Pita bis Hummus – alles frisch aus unserer Küche."
+      description: "Jeden Tag frisch gemacht – schmeckst du sofort."
     },
     {
       icon: Leaf,
       title: "Vielfalt für alle",
-      description: "Ob Fleisch, vegetarisch oder vegan – wir haben für jeden was."
+      description: "Fleisch-Fan oder Veggie-Lover? Hier wird jeder glücklich."
     },
     {
       icon: Truck,
       title: "Schnell & zuverlässig",
-      description: "Lieferung in Düsseldorf – direkt zu dir oder zu deinem Event."
+      description: "In Düsseldorf bringen wir's dir – schnell und zuverlässig."
     },
     {
       icon: Calendar,
       title: "Alltag & Anlässe",
-      description: "Egal ob Mittagspause oder Party – wir machen euch satt."
+      description: "Kleiner Hunger oder große Feier – wir sind dabei."
     }
   ];
 

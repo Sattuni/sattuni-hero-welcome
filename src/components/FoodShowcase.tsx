@@ -14,19 +14,19 @@ const FoodShowcase = () => {
   const foodCategories = [
     {
       title: "Dips & Vorspeisen",
-      description: "Hausgemachte Hummus-Variationen, frische Salate und orientalische Vorspeisen.",
+      description: "Cremiger Hummus, der auf der Zunge zergeht. Frische Salate, die dich glücklich machen.",
       image: dipsImage,
       highlights: ["Klassischer Hummus", "Babaganoush", "Tabbouleh", "Fattoush"]
     },
     {
       title: "Falafel & Teigtaschen",
-      description: "Knusprige Falafel und gefüllte Teigtaschen nach traditionellen Rezepten.",
+      description: "Außen knusprig, innen saftig – so müssen Falafel sein. Hausgemacht wie bei Oma.",
       image: falafelImage,
       highlights: ["Frisch frittiert", "Hausgemacht", "Verschiedene Füllungen", "Vegan verfügbar"]
     },
     {
       title: "Bowls & Hauptgerichte",
-      description: "Bunte Bowls mit frischen Zutaten und herzhafte Hauptgerichte für jeden Geschmack.",
+      description: "Bunte Bowls, die richtig satt machen. Herzhafte Hauptgerichte, die nach mehr schmecken.",
       image: bowlsImage,
       highlights: ["Buddha Bowls", "Shawarma", "Grilled Chicken", "Vegane Optionen"]
     }
@@ -48,12 +48,12 @@ const FoodShowcase = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Utensils className="w-8 h-8 text-primary" />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-              Unser Essen
+              Worauf hast du Lust?
             </h2>
           </div>
           <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
-            Entdecke unsere vielfältige Auswahl an orientalischen Spezialitäten – 
-            von frischen Vorspeisen bis zu sättigenden Hauptgerichten.
+            Von cremigem Hummus bis zu knusprigen Falafel – 
+            hier findest du alles, was das Herz begehrt.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ const FoodShowcase = () => {
             size="lg"
             className="group hover:shadow-glow transition-all duration-300 font-medium"
           >
-            Alle Spezialitäten entdecken
+            Alle Leckereien ansehen
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
         </div>

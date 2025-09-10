@@ -58,8 +58,8 @@ const Hero = () => {
               className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body"
               itemProp="description"
             >
-              Egal ob Alltag oder Event: Bei uns gibt's frische arabische Küche – 
-              mal als Lieferung direkt zu dir, mal groß aufgefahren als Catering für dein Team.
+              Lust auf authentisch arabisches Essen? Hausgemacht, frisch und mit Liebe zubereitet – 
+              für deinen Feierabend oder das nächste Event mit deinem Team.
             </p>
             
             {/* Urgency Badge */}

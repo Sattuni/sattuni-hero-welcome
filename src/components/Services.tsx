@@ -21,11 +21,11 @@ const Services = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                    Alltag lecker machen
+                    Heute keine Lust zu kochen?
                   </h3>
                   <p className="text-muted-foreground text-lg leading-relaxed font-body">
-                    Frisch gebackenes Pita, hausgemachte Klassiker und orientalische Bowls – 
-                    direkt zu dir nach Hause oder ins Büro geliefert.
+                    Frisch gebackenes Pita, cremiger Hummus und bunte Bowls – 
+                    bringen wir dir nach Hause oder ins Büro. Einfach lecker!
                   </p>
                 </div>
               </div>
@@ -70,11 +70,11 @@ const Services = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                    Wenn's größer werden darf
+                    Catering, das rockt
                   </h3>
                   <p className="text-muted-foreground text-lg leading-relaxed font-body">
-                    Von Geburtstagsfeier bis Firmenfest: Mit Fingerfood, Buffets und veganen Optionen 
-                    machen wir jedes Event besonders.
+                    Ob 20 oder 200 Gäste – wir kümmern uns um alles. Fingerfood, Buffets, 
+                    vegane Optionen. Dein Event wird unvergesslich lecker!
                   </p>
                 </div>
               </div>
@@ -95,9 +95,9 @@ const Services = () => {
               {/* Service highlights */}
               <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                 {[
-                  "Individuelle Menüs",
-                  "Über 100 Caterings beliefert",
-                  "Komplettservice", 
+                  "Ganz wie du's magst",
+                  "100+ Caterings geschmackvoll geliefert",
+                  "Wir kümmern uns um alles", 
                   "20-500+ Personen"
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2">
