@@ -17,24 +17,43 @@ const ChatbotPositioner = () => {
     }
 
     const adjustChatbotPosition = () => {
-      // Find the mobile CTA bar
-      const mobileCTABar = document.querySelector('[class*="z-50"]');
-      const isCTAVisible = mobileCTABar && getComputedStyle(mobileCTABar).transform !== 'translateY(100%)';
+      console.log('🔍 Searching for chatbot elements...');
       
       // Find all possible chatbot elements
       const chatbotSelectors = [
         'div[id*="jfChatbot"]',
-        'iframe[src*="jotfor.ms"]',
+        'iframe[src*="jotfor.ms"]', 
         'div[style*="position: fixed"]',
         '[class*="chatbot"]',
-        '[id*="chatbot"]'
+        '[id*="chatbot"]',
+        // Additional selectors for Jotform chatbots
+        'div[data-chatbot]',
+        '.jf-chatbot',
+        '#jf-chatbot'
       ];
+      
+      let chatbotFound = false;
       
       chatbotSelectors.forEach(selector => {
         const elements = document.querySelectorAll(selector);
-        elements.forEach((element: Element) => {
+        console.log(`🔍 Selector "${selector}" found ${elements.length} elements`);
+        
+        elements.forEach((element: Element, index: number) => {
           const htmlElement = element as HTMLElement;
-          if (htmlElement && htmlElement.style.position === 'fixed') {
+          console.log(`📍 Element ${index}:`, {
+            tagName: htmlElement.tagName,
+            id: htmlElement.id,
+            className: htmlElement.className,
+            position: getComputedStyle(htmlElement).position,
+            display: getComputedStyle(htmlElement).display
+          });
+          
+          // Check if element is actually a chatbot (fixed position and visible)
+          const computedStyle = getComputedStyle(htmlElement);
+          if (computedStyle.position === 'fixed' && computedStyle.display !== 'none') {
+            console.log('✅ Found chatbot element!', htmlElement);
+            chatbotFound = true;
+            
             // Apply saved position
             htmlElement.style.setProperty('left', `${chatbotPosition.x}px`, 'important');
             htmlElement.style.setProperty('right', 'auto', 'important');
@@ -44,9 +63,11 @@ const ChatbotPositioner = () => {
             htmlElement.style.setProperty('height', '56px', 'important');
             htmlElement.style.setProperty('cursor', 'grab', 'important');
             htmlElement.style.setProperty('transition', isDragging ? 'none' : 'all 0.3s ease', 'important');
+            htmlElement.style.setProperty('touch-action', 'none', 'important');
             
-            // Add drag functionality
+            // Define drag functionality
             const handleTouchStart = (e: TouchEvent) => {
+              console.log('👆 Touch start on chatbot');
               setIsDragging(true);
               htmlElement.style.setProperty('cursor', 'grabbing', 'important');
               const touch = e.touches[0];
@@ -55,10 +76,12 @@ const ChatbotPositioner = () => {
                 y: window.innerHeight - touch.clientY - chatbotPosition.y
               });
               e.preventDefault();
+              e.stopPropagation();
             };
 
             const handleTouchMove = (e: TouchEvent) => {
               if (!isDragging) return;
+              console.log('👆 Touch move');
               
               const touch = e.touches[0];
               const newX = touch.clientX - dragStart.x;
@@ -73,30 +96,55 @@ const ChatbotPositioner = () => {
               htmlElement.style.setProperty('bottom', `${boundedY}px`, 'important');
               
               e.preventDefault();
+              e.stopPropagation();
             };
 
             const handleTouchEnd = (e: TouchEvent) => {
+              console.log('👆 Touch end');
               setIsDragging(false);
               htmlElement.style.setProperty('cursor', 'grab', 'important');
               
               // Save position to localStorage
               localStorage.setItem('chatbot-position', JSON.stringify(chatbotPosition));
+              console.log('💾 Saved position:', chatbotPosition);
               
               e.preventDefault();
+              e.stopPropagation();
             };
-
-            // Remove existing listeners
-            htmlElement.removeEventListener('touchstart', handleTouchStart);
-            htmlElement.removeEventListener('touchmove', handleTouchMove);
-            htmlElement.removeEventListener('touchend', handleTouchEnd);
             
-            // Add new listeners
+            // Remove existing listeners (if any)
+            const existingStartHandler = (htmlElement as any)._touchStartHandler;
+            const existingMoveHandler = (htmlElement as any)._touchMoveHandler;
+            const existingEndHandler = (htmlElement as any)._touchEndHandler;
+            
+            if (existingStartHandler) {
+              htmlElement.removeEventListener('touchstart', existingStartHandler);
+            }
+            if (existingMoveHandler) {
+              htmlElement.removeEventListener('touchmove', existingMoveHandler);
+            }
+            if (existingEndHandler) {
+              htmlElement.removeEventListener('touchend', existingEndHandler);
+            }
+            
+            // Store handlers on element for future removal
+            (htmlElement as any)._touchStartHandler = handleTouchStart;
+            (htmlElement as any)._touchMoveHandler = handleTouchMove;
+            (htmlElement as any)._touchEndHandler = handleTouchEnd;
+            
+            // Add new listeners with passive: false for preventDefault to work
             htmlElement.addEventListener('touchstart', handleTouchStart, { passive: false });
             htmlElement.addEventListener('touchmove', handleTouchMove, { passive: false });
             htmlElement.addEventListener('touchend', handleTouchEnd, { passive: false });
+            
+            console.log('🎯 Drag events attached to chatbot');
           }
         });
       });
+      
+      if (!chatbotFound) {
+        console.log('❌ No chatbot elements found');
+      }
     };
 
     // Initial adjustment
