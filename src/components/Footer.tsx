@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Instagram, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import sattunIcon from "@/assets/sattuni-icon.png";
 
 const Footer = () => {
@@ -112,17 +112,6 @@ const Footer = () => {
                   <a href="mailto:info@sattuni.de" className="text-foreground hover:text-primary transition-colors">
                     info@sattuni.de
                   </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <div className="font-body">
-                  <div className="text-sm text-muted-foreground">Öffnungszeiten</div>
-                  <div className="text-foreground text-sm">
-                    <div>Mo-Fr: 11:00 - 22:00</div>
-                    <div>Sa-So: 12:00 - 22:00</div>
-                  </div>
                 </div>
               </div>
             </div>
