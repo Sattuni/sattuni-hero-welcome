@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import InternalLinks from "@/components/InternalLinks";
 import FOMOElements from "@/components/FOMOElements";
+import ferasProfile from '@/assets/feras-profile.jpg';
+import hamudiProfile from '@/assets/hamudi-profile.jpg';
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -201,11 +203,15 @@ const AboutUs = () => {
                 {/* Feras Card */}
                 <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
-                    <div className="w-20 h-20 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-6">
-                      <ChefHat className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
+                      <img 
+                        src={ferasProfile} 
+                        alt="Feras - Chef und Küchenchef bei Sattuni" 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
-                      Feras 🍳
+                      Feras
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
@@ -227,11 +233,15 @@ const AboutUs = () => {
                 {/* Hamudi Card */}
                 <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
-                    <div className="w-20 h-20 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Truck className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
+                      <img 
+                        src={hamudiProfile} 
+                        alt="Hamudi - Organisation und Kundenbetreuung bei Sattuni" 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
-                      Hamudi 🚚
+                      Hamudi
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center gap-2 text-muted-foreground">
