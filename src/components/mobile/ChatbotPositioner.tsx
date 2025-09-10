@@ -80,51 +80,74 @@ const ChatbotPositioner = () => {
         htmlElement.style.setProperty('transition', isDragging ? 'none' : 'all 0.3s ease', 'important');
         htmlElement.style.setProperty('touch-action', 'none', 'important');
         
-        // Define drag functionality
+        // Define drag functionality with improved state management
         const handleTouchStart = (e: TouchEvent) => {
           console.log('👆 Touch start on chatbot');
-          setIsDragging(true);
-          htmlElement.style.setProperty('cursor', 'grabbing', 'important');
-          const touch = e.touches[0];
-          setDragStart({
-            x: touch.clientX - chatbotPosition.x,
-            y: window.innerHeight - touch.clientY - chatbotPosition.y
-          });
           e.preventDefault();
           e.stopPropagation();
+          
+          setIsDragging(true);
+          htmlElement.style.setProperty('cursor', 'grabbing', 'important');
+          htmlElement.style.setProperty('transition', 'none', 'important');
+          
+          const touch = e.touches[0];
+          const rect = htmlElement.getBoundingClientRect();
+          setDragStart({
+            x: touch.clientX - rect.left,
+            y: touch.clientY - rect.top
+          });
         };
 
         const handleTouchMove = (e: TouchEvent) => {
-          if (!isDragging) return;
-          console.log('👆 Touch move');
+          e.preventDefault();
+          e.stopPropagation();
+          
+          console.log('👆 Touch move - isDragging:', isDragging);
           
           const touch = e.touches[0];
           const newX = touch.clientX - dragStart.x;
-          const newY = window.innerHeight - touch.clientY - dragStart.y;
+          const newY = touch.clientY - dragStart.y;
           
           // Keep within screen boundaries
-          const boundedX = Math.max(0, Math.min(newX, window.innerWidth - 56));
-          const boundedY = Math.max(0, Math.min(newY, window.innerHeight - 56));
+          const boundedX = Math.max(0, Math.min(newX, window.innerWidth - htmlElement.offsetWidth));
+          const boundedY = Math.max(0, Math.min(newY, window.innerHeight - htmlElement.offsetHeight));
           
-          setChatbotPosition({ x: boundedX, y: boundedY });
+          // Update position immediately without state
           htmlElement.style.setProperty('left', `${boundedX}px`, 'important');
-          htmlElement.style.setProperty('bottom', `${boundedY}px`, 'important');
+          htmlElement.style.setProperty('top', `${boundedY}px`, 'important');
+          htmlElement.style.setProperty('right', 'auto', 'important');
+          htmlElement.style.setProperty('bottom', 'auto', 'important');
           
-          e.preventDefault();
-          e.stopPropagation();
+          console.log(`📍 Moving to: ${boundedX}, ${boundedY}`);
         };
 
         const handleTouchEnd = (e: TouchEvent) => {
           console.log('👆 Touch end');
-          setIsDragging(false);
-          htmlElement.style.setProperty('cursor', 'grab', 'important');
-          
-          // Save position to localStorage
-          localStorage.setItem('chatbot-position', JSON.stringify(chatbotPosition));
-          console.log('💾 Saved position:', chatbotPosition);
-          
           e.preventDefault();
           e.stopPropagation();
+          
+          setIsDragging(false);
+          htmlElement.style.setProperty('cursor', 'grab', 'important');
+          htmlElement.style.setProperty('transition', 'all 0.3s ease', 'important');
+          
+          // Save final position to localStorage
+          const rect = htmlElement.getBoundingClientRect();
+          const finalPosition = {
+            x: rect.left,
+            y: rect.top
+          };
+          localStorage.setItem('chatbot-position', JSON.stringify(finalPosition));
+          setChatbotPosition(finalPosition);
+          
+          console.log('💾 Saved final position:', finalPosition);
+          
+          // Re-attach event listeners to ensure they persist
+          setTimeout(() => {
+            console.log('🔄 Re-attaching event listeners');
+            htmlElement.addEventListener('touchstart', handleTouchStart, { passive: false });
+            htmlElement.addEventListener('touchmove', handleTouchMove, { passive: false });
+            htmlElement.addEventListener('touchend', handleTouchEnd, { passive: false });
+          }, 100);
         };
         
         // Remove existing listeners (if any)
