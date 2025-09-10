@@ -213,6 +213,8 @@ const AboutUs = () => {
                         src={ferasProfile} 
                         alt="Feras - Chef und Küchenchef bei Sattuni" 
                         className="w-full h-full object-cover"
+                        onError={(e) => console.log('Feras image loading error:', e)}
+                        onLoad={() => console.log('Feras image loaded successfully')}
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
