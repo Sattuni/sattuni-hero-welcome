@@ -116,9 +116,6 @@ const Testimonials = () => {
             <div className="flex items-center gap-2">
               {renderStars(review.rating)}
             </div>
-            <div className="text-sm text-muted-foreground">
-              {review.timeAgo}
-            </div>
           </div>
           
           {/* Review Text */}
