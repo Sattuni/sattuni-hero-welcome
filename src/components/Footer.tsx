@@ -25,7 +25,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border/50">
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 py-8 md:py-12 pb-24 md:pb-12">
         
         {/* Mobile Compact Header */}
         {isMobile && (
