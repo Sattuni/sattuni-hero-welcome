@@ -55,11 +55,15 @@ const ChatbotPositioner = () => {
         const elementStyle = getComputedStyle(element);
         const hasJotformSrc = element.tagName === 'IFRAME' && element.getAttribute('src')?.includes('jotfor');
         const hasChatbotId = element.id?.toLowerCase().includes('chatbot') || element.id?.toLowerCase().includes('jf');
-        const hasChatbotClass = element.className?.toLowerCase().includes('chatbot') || element.className?.toLowerCase().includes('jf');
+        const hasChatbotClass = element.className?.toLowerCase().includes('chatbot') || 
+                                element.className?.toLowerCase().includes('jf') ||
+                                element.className?.toLowerCase().includes('embedded-agent-container') ||
+                                element.className?.toLowerCase().includes('agent-container');
         const isSmallSquare = element.offsetWidth < 100 && element.offsetHeight < 100 && element.offsetWidth === element.offsetHeight;
         const isBottomRight = elementStyle.right !== 'auto' || elementStyle.bottom !== 'auto';
+        const hasHighZIndex = parseInt(elementStyle.zIndex) > 1000;
         
-        return hasJotformSrc || hasChatbotId || hasChatbotClass || (isSmallSquare && isBottomRight);
+        return hasJotformSrc || hasChatbotId || hasChatbotClass || (isSmallSquare && isBottomRight) || hasHighZIndex;
       });
       
       console.log(`🤖 Potential chatbot elements: ${chatbotElements.length}`);
