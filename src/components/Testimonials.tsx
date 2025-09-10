@@ -8,94 +8,94 @@ const Testimonials = () => {
 
   const reviews = [
     {
-      name: "Alban S.",
+      name: "Sabrina Möllenberg",
       rating: 5,
-      text: "Haben dort für ein Firmenevent bestellt und alle haben das Essen geliebt. Es kam pünktlich und super frisch an. Werden definitiv wieder dort bestellen :)",
-      timeAgo: "vor 2 Jahren"
-    },
-    {
-      name: "Joe",
-      rating: 5,
-      text: "Man schmeckt die Liebe zum Detail. Alles ist so frisch und die Aromen sind perfekt ausbalanciert. Vielen Dank!",
-      timeAgo: "vor einem Jahr"
-    },
-    {
-      name: "Tobias V.",
-      rating: 5,
-      text: "Das Essen war fantastisch und das Personal super nett. Kann ich definitiv empfehlen!",
-      timeAgo: "vor 3 Monaten"
-    },
-    {
-      name: "Sarah M.",
-      rating: 5,
-      text: "Super leckeres Essen, gleichbleibend hohe Qualität, schnelle Lieferung, faire Preise.",
-      timeAgo: "vor 2 Wochen"
-    },
-    {
-      name: "Ahmed K.",
-      rating: 5,
-      text: "Endlich authentische arabische Küche in Düsseldorf! Jedes Gericht schmeckt wie bei meiner Großmutter.",
-      timeAgo: "vor 1 Monat"
-    },
-    {
-      name: "Lisa R.",
-      rating: 5,
-      text: "Es ist ein kleines Restaurant, schön eingerichtet und sie bieten auch Take-away an. Perfekt für unsere Firmenfeier!",
-      timeAgo: "vor 3 Wochen"
-    },
-    {
-      name: "Omar H.",
-      rating: 5,
-      text: "Mir gefallen besonders die Hauptgerichte und der Reis! Die Bowls sind der Hammer.",
-      timeAgo: "vor 1 Woche"
-    },
-    {
-      name: "Julia S.",
-      rating: 5,
-      text: "Sehr freundlicher Service und das Essen kommt immer heiß an. Die Portionen sind großzügig!",
+      text: "Sattuni hat das Catering für unsere Hochzeit gemacht und es war einfach alles so lecker und perfekt! Wir hatten ein rein vegetarisches Buffet und alle waren begeistert! 100% weiterzuempfehlen!",
       timeAgo: "vor 2 Monaten"
     },
     {
-      name: "Markus T.",
+      name: "Katharina K.",
       rating: 5,
-      text: "Top Catering-Service! Haben für 50 Personen bestellt - alles war perfekt organisiert.",
-      timeAgo: "vor 6 Wochen"
-    },
-    {
-      name: "Fatima A.",
-      rating: 5,
-      text: "Als Araberin kann ich sagen: Das ist wirklich authentisch! Besonders das Fattoush ist genial.",
-      timeAgo: "vor 10 Tagen"
-    },
-    {
-      name: "Michael B.",
-      rating: 5,
-      text: "Schnelle Lieferung und faire Preise. Das Schawarma ist mein absoluter Favorit hier.",
-      timeAgo: "vor 4 Wochen"
-    },
-    {
-      name: "Nadia L.",
-      rating: 5,
-      text: "Wunderbares Ambiente im Restaurant und sehr aufmerksamer Service. Kommen gerne wieder!",
-      timeAgo: "vor 5 Monaten"
-    },
-    {
-      name: "Stefan K.",
-      rating: 5,
-      text: "Beste vegetarische Optionen in Düsseldorf! Die Auberginen-Gerichte sind ein Traum.",
-      timeAgo: "vor 2 Wochen"
-    },
-    {
-      name: "Yasmin F.",
-      rating: 5,
-      text: "Familiäre Atmosphäre und man schmeckt die Liebe in jedem Bissen. Absolute Empfehlung!",
+      text: "Danke für das Catering, es war sehr lecker auf jeden Fall für Workshops zu empfehlen. Sehr unkomplizierte Bestellung, pünktliche Lieferung und freundlicher Service.",
       timeAgo: "vor 3 Wochen"
     },
     {
-      name: "David W.",
+      name: "Pino T.",
       rating: 5,
-      text: "Haben hier für unsere Hochzeit das Catering bestellt - Gäste schwärmen heute noch davon!",
+      text: "Wir hatten ein echt super Catering von Sattuni gehabt, so etwas leckeres hatten wir selten im Büro. Von der Kommunikation bis zur Umsetzung war alles TOP!",
+      timeAgo: "vor 1 Monat"
+    },
+    {
+      name: "Carsten Dombrowsky",
+      rating: 5,
+      text: "Vom ersten bis zum letzten Kontakt war alles perfekt! Service, Lieferung, Präsentation der Speisen, Qualität und Geschmack des Essens!! Wir können dieses Restaurant nur wärmstens empfehlen!!",
+      timeAgo: "vor 6 Wochen"
+    },
+    {
+      name: "Schmonn",
+      rating: 5,
+      text: "Die libanesche Küche ist uns sehr vertraut, aber Sattuni spielt in der oberen Liga mit. Alles was wir probiert haben war top. Baba Ganoush, Hummus, Falafel und mein Highlight: Bulgerbällchen mit Kartoffeln.",
       timeAgo: "vor 4 Monaten"
+    },
+    {
+      name: "Sarah L.",
+      rating: 5,
+      text: "Wir hatten für unsere Geburtstagsparty mit 20 Gästen ein Catering von Sattuni bestellt, und es war einfach fantastisch! Die Speisen waren unglaublich lecker und frisch. Sehr zu empfehlen!",
+      timeAgo: "vor 2 Wochen"
+    },
+    {
+      name: "Thorsten Roß",
+      rating: 5,
+      text: "Super lecker! Ich habe ein kleines Catering für meinen Geburtstag hier bestellt und es war super! Meine Gäste waren einfach nur begeistert. Ich kann dieses Restaurant nur empfehlen!",
+      timeAgo: "vor 3 Monaten"
+    },
+    {
+      name: "Maja de Haan",
+      rating: 5,
+      text: "Wir wurden für unsere Weihnachtsfeiern beliefert. Das Essen war hervorragend und es wurde bei der Bestellung auf alle Wünsche von uns eingegangen. Die Abwicklung hat perfekt funktioniert.",
+      timeAgo: "vor 5 Monaten"
+    },
+    {
+      name: "Fabian Wilk",
+      rating: 5,
+      text: "Nun hat Hamudi auch für den Junggesellenabschied meiner Schwester abgeliefert und ein wunderbares Menü gezaubert. Falafeln, Hummus und Tabouleh sind jedes mal der absolute Hammer. Danke nochmals!",
+      timeAgo: "vor 1 Monat"
+    },
+    {
+      name: "André Schahidi",
+      rating: 5,
+      text: "Super leckeres, frisches Essen. Gut gewürzt, frische Zutaten, ordentliche Portionen. Die Falafel schmeckt herrlich, auch die verschiedenen Hummus-Gerichte sind super. Extrem freundlicher Kundenservice!",
+      timeAgo: "vor 2 Wochen"
+    },
+    {
+      name: "Mohammad Najjar",
+      rating: 5,
+      text: "Hier kann man die besten Falafel der Welt probieren. Traut mir",
+      timeAgo: "vor 1 Woche"
+    },
+    {
+      name: "AUDITOR",
+      rating: 5,
+      text: "Absolut empfehlenswert! Sattuni ist wirklich das beste orientalische Restaurant, das ich kenne! Die Bowls sind frisch, perfekt gewürzt und absolut lecker. Besonders der Fatoush hat mich total überzeugt.",
+      timeAgo: "vor 3 Wochen"
+    },
+    {
+      name: "Lionel Mattes",
+      rating: 5,
+      text: "Das Essen war zur vereinbarten Uhrzeit fertig und noch warm. Perfekt gewürzte Falafel, sehr fein abgeschmeckter Tahini-Dip. Eines der besten Baba Ganoush, die wir jemals probieren durften. Preise sind fair.",
+      timeAgo: "vor 4 Wochen"
+    },
+    {
+      name: "Thomas Hollwedel",
+      rating: 5,
+      text: "Hatte Sattuni bei Google entdeckt, und war neugierig auf Grund der 5* Bewertung bei über 170 Bewertungen. Super lecker, schnell geliefert. Schließe mich den Bewertungen an. Ich bestelle wieder.",
+      timeAgo: "vor 6 Wochen"
+    },
+    {
+      name: "Dennis S.",
+      rating: 5,
+      text: "Geschmackvoll eingerichtetes kleines Restaurant, arabische Musik im Hintergrund, sehr netter Eigentümer und das Essen ist sehr deliziös zubereitet! Selbst das Pita-Brot ist frisch gebacken. Absolut empfehlenswert!",
+      timeAgo: "vor 2 Monaten"
     }
   ];
 
