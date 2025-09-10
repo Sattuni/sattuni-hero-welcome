@@ -44,6 +44,12 @@ const Testimonials = () => {
       timeAgo: "vor 4 Monaten"
     },
     {
+      name: "Patrick L.",
+      rating: 5,
+      text: "Mann - dieser Laden ist ein echtes Juwel in Düsseldorf!! Perfekt zum Teilen! Wir lieben es einfach!",
+      timeAgo: "vor einem Jahr"
+    },
+    {
       name: "Maya L.",
       rating: 5,
       text: "Authentische arabische Küche in Düsseldorf! Das Falafel und Hummus sind ein Traum.",
@@ -90,12 +96,6 @@ const Testimonials = () => {
       rating: 5,
       text: "Regelmäßig für das Team bestellt - nie enttäuscht worden. Frische Zubereitung und faire Preise.",
       timeAgo: "vor 1 Monat"
-    },
-    {
-      name: "Melanie D.",
-      rating: 5,
-      text: "Das Fattoush ist der Hammer! Alles schmeckt frisch und hausgemacht. Absolute Empfehlung!",
-      timeAgo: "vor 4 Wochen"
     }
   ];
 
@@ -144,7 +144,7 @@ const Testimonials = () => {
             </div>
             <div className="text-3xl font-bold text-foreground">4.9</div>
             <div className="text-muted-foreground">
-              (226 Bewertungen auf Google)
+              (228 Bewertungen auf Google)
             </div>
           </div>
         </div>
@@ -223,7 +223,7 @@ const Testimonials = () => {
             variant="hero" 
             size="sm"
             className="gap-2 text-sm md:text-base md:px-6 md:py-3"
-            onClick={() => window.open('https://maps.app.goo.gl/Do5KknPnvW26zRvW8?g_st=ipc', '_blank')}
+            onClick={() => window.open('https://maps.app.goo.gl/qRyjid3sNZhw8Nds9?g_st=ia', '_blank')}
           >
             <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
             <span className="hidden sm:inline">Mehr Bewertungen auf Google lesen</span>
