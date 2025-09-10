@@ -168,9 +168,9 @@ const AboutUs = () => {
           <div className="absolute inset-0 bg-black/20"></div>
           
           {/* Decorative Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 border-2 border-primary/30 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-16 h-16 bg-primary/20 rounded-lg rotate-45 animate-bounce"></div>
-          <div className="absolute top-40 right-1/4 w-2 h-2 bg-accent rounded-full animate-ping"></div>
+          <div className="absolute top-20 left-10 w-20 h-20 border-2 border-primary/30 rounded-full"></div>
+          <div className="absolute bottom-20 right-10 w-16 h-16 bg-primary/20 rounded-lg rotate-45"></div>
+          <div className="absolute top-40 right-1/4 w-2 h-2 bg-accent rounded-full"></div>
           
           <div className="relative container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
