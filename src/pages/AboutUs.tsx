@@ -11,7 +11,7 @@ import InternalLinks from "@/components/InternalLinks";
 import FOMOElements from "@/components/FOMOElements";
 import ferasProfile from '@/assets/feras-profile.jpg';
 import hamudiProfile from '@/assets/hamudi-profile.jpg';
-import heroBrothersNoFaces from '@/assets/hero-brothers-no-faces.jpg';
+import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -159,10 +159,10 @@ const AboutUs = () => {
         <section className="relative py-20 lg:py-32 overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroBrothersNoFaces})` }}
+            style={{ backgroundImage: `url(${heroAboutAbstract})` }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-hero opacity-75"></div>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-hero opacity-60"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
           
           {/* Decorative Elements */}
           <div className="absolute top-20 left-10 w-20 h-20 border-2 border-primary/30 rounded-full animate-pulse"></div>
