@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Instagram, Facebook, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Clock } from "lucide-react";
 import sattunIcon from "@/assets/sattuni-icon.png";
 
 const Footer = () => {
@@ -45,20 +45,12 @@ const Footer = () => {
             
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/sattuni" 
+                href="https://www.instagram.com/sattuni_dus/reels/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
               >
                 <Instagram className="w-5 h-5 text-white" />
-              </a>
-              <a 
-                href="https://facebook.com/sattuni" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-accent/80 transition-colors"
-              >
-                <Facebook className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -99,7 +91,7 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="font-body">
                   <div className="text-sm text-muted-foreground">Adresse</div>
-                  <div className="text-foreground">Düsseldorf, Deutschland</div>
+                  <div className="text-foreground">Johannstraße 40, 40476 Düsseldorf</div>
                 </div>
               </div>
               
