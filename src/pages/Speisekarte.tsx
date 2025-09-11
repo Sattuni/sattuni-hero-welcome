@@ -132,23 +132,31 @@ const Speisekarte = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const allergenLegend = [
+    { number: "1)", description: "Glutenhaltige/s Getreide/-Erzeugnisse (Weizen)", icon: "🌾" },
+    { number: "2)", description: "Sesamsamen/-Erzeugnisse", icon: "🌰" },
+    { number: "3)", description: "Knoblauch", icon: "🧄" },
+    { number: "4)", description: "Fisch/-Erzeugnisse", icon: "🐟" },
+    { number: "5)", description: "Milch/-Erzeugnisse (laktosehaltig)", icon: "🥛" }
+  ];
+
   const menuCategories = [
     {
       title: "Hummus & Falafel Kreationen",
       icon: Utensils,
       description: "Hausgemachte Hummus-Variationen und frische Falafel",
       items: [
-        { name: "Hummus Veggie Plate", price: "9,00" },
-        { name: "Hummus Jerusalem Plate", price: "9,00" },
-        { name: "Hummus Marrakesch Plate", price: "9,00" },
-        { name: "Hummus Petra Plate", price: "9,90" },
-        { name: "Hummus Pyramiden Plate", price: "9,50" },
-        { name: "Hummus Classic Plate", price: "8,00" },
-        { name: "Vorspeise-Platte für 2", price: "30,00" },
-        { name: "Baba Ghanoush", price: "8,50" },
-        { name: "Falafel (10 Stück)", price: "7,00" },
-        { name: "Teigtaschen (3 Stück)", price: "4,50" },
-        { name: "Kibbeh (3 Stück)", price: "5,10" }
+        { name: "Hummus Veggie Plate", price: "9,00", allergens: "1), 2), 3)" },
+        { name: "Hummus Jerusalem Plate", price: "9,00", allergens: "1), 2), 3)" },
+        { name: "Hummus Marrakesch Plate", price: "9,00", allergens: "1), 2), 3)" },
+        { name: "Hummus Petra Plate", price: "9,90", allergens: "1), 2), 3)" },
+        { name: "Hummus Pyramiden Plate", price: "9,50", allergens: "1), 2), 3)" },
+        { name: "Hummus Classic Plate", price: "8,00", allergens: "1), 2), 3)" },
+        { name: "Vorspeise-Platte für 2 Personen", price: "30,00", allergens: "1), 2), 3)", description: "Hummus, Falafel, Baba Ghanoush, Tabouleh, Fattoush" },
+        { name: "Baba Ghanoush", price: "8,50", allergens: "1), 2), 3)" },
+        { name: "Falafel (10 Stück)", price: "7,00", allergens: "1), 2), 3)" },
+        { name: "Teigtaschen (3 Stück)", price: "4,50", allergens: "1)" },
+        { name: "Kibbeh (3 Stück)", price: "5,10", allergens: "1)" }
       ]
     },
     {
@@ -156,32 +164,34 @@ const Speisekarte = () => {
       icon: Salad,
       description: "Frische orientalische Salate mit authentischen Zutaten",
       items: [
-        { name: "Tabouleh", price: "7,50" },
-        { name: "Fattoush", price: "7,50" },
-        { name: "Romana-Salat", price: "7,50" },
-        { name: "Kichererbsensalat", price: "7,50" }
+        { name: "Tabouleh", price: "7,50", allergens: "1)" },
+        { name: "Fattoush", price: "7,50", allergens: "1), 2)" },
+        { name: "Romana-Salat", price: "7,50", allergens: "–" },
+        { name: "Kichererbsensalat", price: "7,50", allergens: "1), 2)" }
       ]
     },
     {
       title: "Bowls",
       icon: Coffee,
       description: "Nahrhafte Bowl-Kreationen mit verschiedenen Proteinen",
+      notice: "Alle Bowls enthalten: 1), 2), 3)",
       items: [
-        { name: "Beirut Bowl + Falafel", price: "13,00" },
-        { name: "Aleppo Bowl + Hähnchen", price: "14,00" },
-        { name: "Haifa Bowl + Lachs", price: "16,00" }
+        { name: "Beirut Bowl + Falafel", price: "13,00", allergens: "1), 2), 3)" },
+        { name: "Aleppo Bowl + Hähnchen", price: "14,00", allergens: "1), 2), 3), 5)" },
+        { name: "Haifa Bowl + Lachs", price: "16,00", allergens: "1), 2), 3), 4), 5)" }
       ]
     },
     {
       title: "Reisgerichte",
       icon: Wheat,
       description: "Herzhafte Reisgerichte mit orientalischen Gewürzen",
+      notice: "Alle Reisgerichte enthalten: 1), 3), 5)",
       items: [
-        { name: "Damascus Plate + Gemüse", price: "13,00" },
-        { name: "Kairo Plate + Hähnchen", price: "14,00" },
-        { name: "Mdina Plate + Rind", price: "14,50" },
-        { name: "Bethlehem Plate + Kebab", price: "14,50" },
-        { name: "Tunis Plate + Lachs", price: "16,00" }
+        { name: "Damascus Plate + Gemüse", price: "13,00", allergens: "1), 3), 5)" },
+        { name: "Kairo Plate + Hähnchen", price: "14,00", allergens: "1), 3), 5)" },
+        { name: "Mdina Plate + Rind", price: "14,50", allergens: "1), 3), 5)" },
+        { name: "Bethlehem Plate + Kebab", price: "14,50", allergens: "1), 3), 5)" },
+        { name: "Tunis Plate + Lachs", price: "16,00", allergens: "1), 3), 4), 5)" }
       ]
     },
     {
@@ -189,10 +199,10 @@ const Speisekarte = () => {
       icon: Sandwich,
       description: "Frisch gebackene Pita-Brote mit verschiedenen Füllungen",
       items: [
-        { name: "Veggie-Paradies-Pita", price: "6,70" },
-        { name: "Falafel Pita", price: "7,00" },
-        { name: "Chicken Pita", price: "9,00" },
-        { name: "Kebab Pita", price: "9,00" }
+        { name: "Veggie-Paradies-Pita", price: "6,70", allergens: "1), 2), 3)" },
+        { name: "Falafel Pita", price: "7,00", allergens: "1), 2), 3)" },
+        { name: "Chicken Pita", price: "9,00", allergens: "1), 2), 3)" },
+        { name: "Kebab Pita", price: "9,00", allergens: "1), 2), 3)" }
       ]
     }
   ];
@@ -249,6 +259,32 @@ const Speisekarte = () => {
             </div>
           </section>
 
+          {/* Allergen Legend */}
+          <section className="py-12 px-4 bg-primary/5">
+            <div className="max-w-4xl mx-auto">
+              <Card className="border-primary/20 bg-background/95 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-foreground mb-6 font-display text-center">
+                    🏷️ Allergene & Kennzeichen
+                  </h2>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {allergenLegend.map((allergen, index) => (
+                      <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-primary/5">
+                        <span className="text-2xl">{allergen.icon}</span>
+                        <div>
+                          <span className="font-bold text-primary">{allergen.number}</span>
+                          <span className="text-sm text-muted-foreground ml-2">
+                            {allergen.description}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
           {/* Menu Categories */}
           <section className="py-16 px-4">
             <div className="max-w-4xl mx-auto">
@@ -271,25 +307,44 @@ const Speisekarte = () => {
                           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
                             <IconComponent className="w-6 h-6 text-primary" />
                           </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-foreground font-display">
-                              {category.title}
-                            </h3>
-                            <p className="text-muted-foreground font-body">
-                              {category.description}
+                        <div>
+                          <h3 className="text-2xl font-bold text-foreground font-display">
+                            {category.title}
+                          </h3>
+                          <p className="text-muted-foreground font-body">
+                            {category.description}
+                          </p>
+                          {category.notice && (
+                            <p className="text-sm text-primary font-medium mt-1">
+                              {category.notice}
                             </p>
-                          </div>
+                          )}
+                        </div>
                         </div>
                         
                         <div className="grid gap-3">
                           {category.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0">
-                              <span className="font-medium text-foreground font-body">
-                                {item.name}
-                              </span>
-                              <Badge variant="secondary" className="font-bold">
-                                {item.price} €
-                              </Badge>
+                            <div key={itemIndex} className="py-3 border-b border-border/50 last:border-b-0">
+                              <div className="flex justify-between items-start mb-1">
+                                <div className="flex-1">
+                                  <span className="font-medium text-foreground font-body block">
+                                    {item.name}
+                                  </span>
+                                  {item.description && (
+                                    <span className="text-xs text-muted-foreground italic">
+                                      {item.description}
+                                    </span>
+                                  )}
+                                </div>
+                                <Badge variant="secondary" className="font-bold ml-3">
+                                  {item.price} €
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center">
+                                <span className="text-xs text-primary font-medium">
+                                  {item.allergens}
+                                </span>
+                              </div>
                             </div>
                           ))}
                         </div>
