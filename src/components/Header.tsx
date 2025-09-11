@@ -23,6 +23,12 @@ const Header = () => {
       title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
     },
     { 
+      name: "Speisekarte", 
+      href: "/speisekarte", 
+      current: location.pathname === "/speisekarte",
+      title: "Komplette Speisekarte mit Preisen - Orientalische Küche"
+    },
+    { 
       name: "Über uns", 
       href: "/ueber-uns", 
       current: location.pathname === "/ueber-uns",
