@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper } from "lucide-react";
+import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper, CheckCircle, Wand2 } from "lucide-react";
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +20,31 @@ const CateringContact = () => {
     date: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFillingDemo, setIsFillingDemo] = useState(false);
   const { toast } = useToast();
+
+  // Calculate form completion progress
+  const getFormProgress = () => {
+    const requiredFields = ['name', 'email', 'address', 'occasion', 'date'];
+    const optionalFields = ['company', 'phone', 'comment'];
+    
+    const requiredComplete = requiredFields.filter(field => {
+      const value = formData[field as keyof typeof formData];
+      return typeof value === 'string' ? value.trim() : !!value;
+    }).length;
+    
+    const optionalComplete = optionalFields.filter(field => {
+      const value = formData[field as keyof typeof formData];
+      return typeof value === 'string' ? value.trim() : !!value;
+    }).length;
+    
+    const requiredProgress = (requiredComplete / requiredFields.length) * 75; // 75% for required
+    const optionalProgress = (optionalComplete / optionalFields.length) * 25; // 25% for optional
+    
+    return Math.round(requiredProgress + optionalProgress);
+  };
+
+  const progress = getFormProgress();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,6 +59,47 @@ const CateringContact = () => {
       ...prev,
       occasion: value
     }));
+  };
+
+  // Demo fill function with animation
+  const fillDemoData = async () => {
+    setIsFillingDemo(true);
+    
+    const demoData = {
+      name: "Max Mustermann",
+      company: "Mustermann GmbH",
+      email: "max@mustermann-gmbh.de", 
+      phone: "+49 211 123456",
+      address: "Königsallee 1, 40212 Düsseldorf",
+      occasion: "firmenevent",
+      date: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
+      comment: "Wir planen ein Firmenjubiläum für ca. 150 Personen. Buffet-Style wäre perfekt mit vegetarischen und veganen Optionen. Budget: ca. 2.500€"
+    };
+
+    // Animate filling each field with delay
+    const fields = Object.entries(demoData);
+    
+    for (let i = 0; i < fields.length; i++) {
+      const [key, value] = fields[i];
+      
+      await new Promise(resolve => {
+        setTimeout(() => {
+          setFormData(prev => ({
+            ...prev,
+            [key]: value
+          }));
+          resolve(void 0);
+        }, i * 200); // 200ms delay between each field
+      });
+    }
+    
+    setIsFillingDemo(false);
+    
+    toast({
+      title: "Demo-Daten eingefügt! ✨",
+      description: "Du kannst die Daten jetzt anpassen oder direkt absenden.",
+      duration: 3000
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -99,6 +164,55 @@ const CateringContact = () => {
         {/* Contact Form */}
         <Card className="border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
           <CardContent className="p-8">
+            {/* Progress Bar */}
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-foreground">Formular ausfüllen</span>
+                <span className="text-sm text-muted-foreground">{progress}%</span>
+              </div>
+              <div className="w-full bg-muted rounded-full h-2">
+                <div 
+                  className="bg-gradient-primary h-2 rounded-full transition-all duration-500 ease-out"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+              {progress === 100 && (
+                <div className="flex items-center gap-2 mt-2 text-primary animate-fade-in">
+                  <CheckCircle className="w-4 h-4" />
+                  <span className="text-sm font-medium">Bereit zum Absenden!</span>
+                </div>
+              )}
+            </div>
+
+            {/* Demo Fill Button */}
+            <div className="mb-6 p-4 bg-gradient-subtle rounded-xl border border-border/50">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-1">Schnell testen</h4>
+                  <p className="text-xs text-muted-foreground">Formular mit Beispiel-Daten füllen</p>
+                </div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={fillDemoData}
+                  disabled={isFillingDemo || isSubmitting}
+                  className="gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                >
+                  {isFillingDemo ? (
+                    <>
+                      <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
+                      Füllt aus...
+                    </>
+                  ) : (
+                    <>
+                      <Wand2 className="w-3 h-3" />
+                      Demo ausfüllen
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name & Company Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
