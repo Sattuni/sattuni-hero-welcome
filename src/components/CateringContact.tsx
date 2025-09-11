@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper, CheckCircle, Wand2 } from "lucide-react";
+import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper, CheckCircle, Wand2, RotateCcw, Save } from "lucide-react";
+import { cateringFormSchema, type CateringFormData } from '@/lib/validation/contact-schemas';
+import { submitCateringForm } from '@/lib/api/contact-service';
+import { handleFormError, handleFormSuccess } from '@/lib/utils/error-handling';
+import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
@@ -19,9 +23,39 @@ const CateringContact = () => {
     occasion: "",
     date: ""
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFillingDemo, setIsFillingDemo] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const { toast } = useToast();
+
+  // Auto-save functionality
+  const { restoreData, clearSavedData, hasSavedData } = useFormAutoSave({
+    key: 'catering-form',
+    data: formData,
+    enabled: true,
+    onRestore: (restoredData) => {
+      setFormData(prev => ({ ...prev, ...restoredData }));
+    }
+  });
+
+  // Form validation
+  const validateForm = (): boolean => {
+    const result = cateringFormSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.issues.forEach(issue => {
+        const fieldName = issue.path[0] as string;
+        errors[fieldName] = issue.message;
+      });
+      setValidationErrors(errors);
+      return false;
+    }
+    
+    setValidationErrors({});
+    return true;
+  };
 
   // Calculate form completion progress
   const getFormProgress = () => {
@@ -46,12 +80,28 @@ const CateringContact = () => {
 
   const progress = getFormProgress();
 
+  // Auto-restore on mount if saved data exists
+  useEffect(() => {
+    if (hasSavedData()) {
+      restoreData();
+    }
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Clear validation error for this field when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSelectChange = (value: string) => {
@@ -59,6 +109,15 @@ const CateringContact = () => {
       ...prev,
       occasion: value
     }));
+    
+    // Clear validation error for occasion field
+    if (validationErrors.occasion) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.occasion;
+        return newErrors;
+      });
+    }
   };
 
   // Demo fill function with animation
@@ -75,6 +134,9 @@ const CateringContact = () => {
       date: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
       comment: "Wir planen ein Firmenjubiläum für ca. 150 Personen. Buffet-Style wäre perfekt mit vegetarischen und veganen Optionen. Budget: ca. 2.500€"
     };
+
+    // Clear any existing validation errors
+    setValidationErrors({});
 
     // Animate filling each field with delay
     const fields = Object.entries(demoData);
@@ -102,29 +164,55 @@ const CateringContact = () => {
     });
   };
 
+  // Clear form and saved data
+  const handleClearForm = () => {
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      address: "",
+      comment: "",
+      occasion: "",
+      date: ""
+    });
+    setValidationErrors({});
+    clearSavedData();
+    toast({
+      title: "Formular zurückgesetzt",
+      description: "Alle Eingaben wurden gelöscht.",
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.address || !formData.occasion || !formData.date) {
+    if (!validateForm()) {
       toast({
-        title: "Bitte alle Pflichtfelder ausfüllen",
-        description: "Name, E-Mail, Adresse, Anlass und Datum sind erforderlich.",
-        variant: "destructive"
+        variant: "destructive",
+        title: "Validierungsfehler",
+        description: "Bitte korrigieren Sie die markierten Felder und versuchen Sie es erneut.",
       });
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Catering-Anfrage gesendet!",
-        description: "Wir erstellen dir ein individuelles Angebot und melden uns innerhalb von 24 Stunden.",
-        duration: 5000
-      });
+
+    try {
+      // For now, simulate API call until backend is connected
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Reset form
+      // When backend is ready, use this instead:
+      // const result = await submitCateringForm(formData as CateringFormData);
+      // if (result.success) {
+      
+      handleFormSuccess(
+        "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+        "Anfrage erfolgreich gesendet!"
+      );
+
+      // Clear saved data and reset form
+      clearSavedData();
       setFormData({
         name: "",
         company: "",
@@ -135,8 +223,16 @@ const CateringContact = () => {
         occasion: "",
         date: ""
       });
+      setValidationErrors({});
+      
+      // } else {
+      //   handleFormError(new Error(result.error || 'Unbekannter Fehler'), 'Catering-Formular');
+      // }
+    } catch (error) {
+      handleFormError(error, 'Catering-Formular');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const occasions = [
@@ -168,7 +264,15 @@ const CateringContact = () => {
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-foreground">Formular ausfüllen</span>
-                <span className="text-sm text-muted-foreground">{progress}%</span>
+                <div className="flex items-center gap-2">
+                  {hasSavedData() && (
+                    <span className="text-xs text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-1 rounded flex items-center gap-1">
+                      <Save className="w-3 h-3" />
+                      Gespeichert
+                    </span>
+                  )}
+                  <span className="text-sm text-muted-foreground">{progress}%</span>
+                </div>
               </div>
               <div className="w-full bg-muted rounded-full h-2">
                 <div 
@@ -184,35 +288,49 @@ const CateringContact = () => {
               )}
             </div>
 
-            {/* Demo Fill Button */}
+            {/* Control Buttons */}
             <div className="mb-6 p-4 bg-gradient-subtle rounded-xl border border-border/50">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-foreground mb-1">Schnell testen</h4>
-                  <p className="text-xs text-muted-foreground">Formular mit Beispiel-Daten füllen</p>
+                  <h4 className="text-sm font-medium text-foreground mb-1">Formular-Aktionen</h4>
+                  <p className="text-xs text-muted-foreground">Schnell testen oder zurücksetzen</p>
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={fillDemoData}
-                  disabled={isFillingDemo || isSubmitting}
-                  className="gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
-                  {isFillingDemo ? (
-                    <>
-                      <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
-                      Füllt aus...
-                    </>
-                  ) : (
-                    <>
-                      <Wand2 className="w-3 h-3" />
-                      Demo ausfüllen
-                    </>
-                  )}
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={fillDemoData}
+                    disabled={isFillingDemo || isSubmitting}
+                    className="gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  >
+                    {isFillingDemo ? (
+                      <>
+                        <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
+                        Füllt aus...
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="w-3 h-3" />
+                        Demo ausfüllen
+                      </>
+                    )}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleClearForm}
+                    disabled={isSubmitting || isFillingDemo}
+                    className="gap-2 hover:bg-destructive hover:text-destructive-foreground transition-all duration-300"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    Zurücksetzen
+                  </Button>
+                </div>
               </div>
             </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name & Company Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -228,9 +346,14 @@ const CateringContact = () => {
                     placeholder="Vor- und Nachname"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                      validationErrors.name ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                     disabled={isSubmitting}
                   />
+                  {validationErrors.name && (
+                    <p className="text-red-500 text-sm">{validationErrors.name}</p>
+                  )}
                 </div>
 
                 <div className="space-y-3">
@@ -265,26 +388,36 @@ const CateringContact = () => {
                     placeholder="deine@email.de"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                      validationErrors.email ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                     disabled={isSubmitting}
                   />
+                  {validationErrors.email && (
+                    <p className="text-red-500 text-sm">{validationErrors.email}</p>
+                  )}
                 </div>
 
                 <div className="space-y-3">
                   <Label htmlFor="phone" className="text-foreground font-medium flex items-center gap-2">
                     <Phone className="w-4 h-4 text-primary" />
-                    Telefon
+                    Telefon *
                   </Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="Optional"
+                    placeholder="+49 123 456789"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                      validationErrors.phone ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                     disabled={isSubmitting}
                   />
+                  {validationErrors.phone && (
+                    <p className="text-red-500 text-sm">{validationErrors.phone}</p>
+                  )}
                 </div>
               </div>
 
@@ -301,9 +434,14 @@ const CateringContact = () => {
                   placeholder="Straße, PLZ, Stadt"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                  className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                    validationErrors.address ? 'border-red-500 focus:border-red-500' : ''
+                  }`}
                   disabled={isSubmitting}
                 />
+                {validationErrors.address && (
+                  <p className="text-red-500 text-sm">{validationErrors.address}</p>
+                )}
               </div>
 
               {/* Occasion & Date Row */}
@@ -314,7 +452,9 @@ const CateringContact = () => {
                     Anlass *
                   </Label>
                   <Select value={formData.occasion} onValueChange={handleSelectChange} disabled={isSubmitting}>
-                    <SelectTrigger className="h-12 text-lg border-border/50 focus:border-primary">
+                    <SelectTrigger className={`h-12 text-lg border-border/50 focus:border-primary ${
+                      validationErrors.occasion ? 'border-red-500 focus:border-red-500' : ''
+                    }`}>
                       <SelectValue placeholder="Anlass wählen" />
                     </SelectTrigger>
                     <SelectContent className="bg-card border-border/50">
@@ -325,6 +465,9 @@ const CateringContact = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {validationErrors.occasion && (
+                    <p className="text-red-500 text-sm">{validationErrors.occasion}</p>
+                  )}
                 </div>
 
                 <div className="space-y-3">
@@ -338,9 +481,14 @@ const CateringContact = () => {
                     type="date"
                     value={formData.date}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                      validationErrors.date ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                     disabled={isSubmitting}
                   />
+                  {validationErrors.date && (
+                    <p className="text-red-500 text-sm">{validationErrors.date}</p>
+                  )}
                 </div>
               </div>
 
@@ -385,8 +533,9 @@ const CateringContact = () => {
               </div>
 
               {/* Note */}
-              <div className="text-center text-sm text-muted-foreground pt-4">
-                * Pflichtfelder | Wir melden uns innerhalb von 24 Stunden mit einem individuellen Angebot
+              <div className="text-center text-sm text-muted-foreground pt-4 space-y-1">
+                <p>* Pflichtfelder | Wir melden uns innerhalb von 24 Stunden mit einem individuellen Angebot</p>
+                <p className="text-xs opacity-75">Ihre Daten werden automatisch gespeichert und bei einem Seitenwechsel wiederhergestellt.</p>
               </div>
             </form>
           </CardContent>
