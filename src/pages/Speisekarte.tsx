@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import InternalLinks from "@/components/InternalLinks";
 import FOMOElements from "@/components/FOMOElements";
 import SmartCTA from "@/components/mobile/SmartCTA";
-import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich, Plus } from "lucide-react";
+import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
 
 const Speisekarte = () => {
@@ -193,21 +193,6 @@ const Speisekarte = () => {
         { name: "Falafel Pita", price: "7,00" },
         { name: "Chicken Pita", price: "9,00" },
         { name: "Kebab Pita", price: "9,00" }
-      ]
-    },
-    {
-      title: "Extras",
-      icon: Plus,
-      description: "Zusätzliche Saucen und Beilagen",
-      items: [
-        { name: "Harissa", price: "1,00" },
-        { name: "Dakka", price: "1,00" },
-        { name: "Joghurt-Sauce", price: "1,00" },
-        { name: "Labaneh", price: "1,00" },
-        { name: "Tahini", price: "1,00" },
-        { name: "Pita (1 Stück)", price: "1,50" },
-        { name: "Pita (2 Stück)", price: "2,50" },
-        { name: "Pita (3 Stück)", price: "3,50" }
       ]
     }
   ];
