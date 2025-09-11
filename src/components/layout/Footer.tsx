@@ -95,7 +95,7 @@ const Footer = () => {
                       <Instagram className="w-5 h-5 text-white" />
                     </a>
                     <a 
-                      href="https://maps.google.com/maps?q=Johannstraße+40,+40476+Düsseldorf" 
+                      href="https://maps.app.goo.gl/YK5P5qjdCFnFVM7B7" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
@@ -204,7 +204,7 @@ const Footer = () => {
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
                 <a 
-                  href="https://maps.google.com/maps?q=Johannstraße+40,+40476+Düsseldorf" 
+                  href="https://maps.app.goo.gl/YK5P5qjdCFnFVM7B7" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
