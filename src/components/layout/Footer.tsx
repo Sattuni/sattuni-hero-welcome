@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Instagram, ChevronUp, ChevronDown } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, ChevronUp, ChevronDown, Map } from "lucide-react";
 import { useState } from "react";
 import { useMobileDetection } from "@/hooks/useMobileDetection";
 import sattunIcon from "@/assets/sattuni-icon.png";
@@ -93,6 +93,14 @@ const Footer = () => {
                       className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
                     >
                       <Instagram className="w-5 h-5 text-white" />
+                    </a>
+                    <a 
+                      href="https://maps.google.com/maps?q=Johannstraße+40,+40476+Düsseldorf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
+                    >
+                      <Map className="w-5 h-5 text-white" />
                     </a>
                   </div>
                 </div>
@@ -194,6 +202,14 @@ const Footer = () => {
                   className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
                 >
                   <Instagram className="w-5 h-5 text-white" />
+                </a>
+                <a 
+                  href="https://maps.google.com/maps?q=Johannstraße+40,+40476+Düsseldorf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary/80 transition-colors"
+                >
+                  <Map className="w-5 h-5 text-white" />
                 </a>
               </div>
             </div>
