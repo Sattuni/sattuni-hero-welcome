@@ -81,4 +81,49 @@
     </image:image>
   </url>
 
+  <!-- Speisekarte Page -->
+  <url>
+    <loc>https://sattuni.de/speisekarte</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/hero-food.jpg</image:loc>
+      <image:title>Speisekarte - Sattuni Orientalische Küche</image:title>
+      <image:caption>Komplette Speisekarte mit Preisen - Hummus, Falafel, Bowls und mehr</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Us Page -->
+  <url>
+    <loc>https://sattuni.de/ueber-uns</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/hero-about-us.jpg</image:loc>
+      <image:title>Über uns - Die Brüder hinter Sattuni</image:title>
+      <image:caption>Feras und Hamudi - das Team hinter der authentischen arabischen Küche</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://sattuni.de/impressum</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/datenschutz</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <mobile:mobile/>
+  </url>
+
 </urlset>

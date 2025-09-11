@@ -169,13 +169,18 @@
     <link rel="preload" href="/hero-food.jpg" as="image" type="image/jpeg" />
     <link rel="preload" href="/sattuni-logo.png" as="image" type="image/png" />
 
-    <!-- Google Fonts - Optimized -->
+    <!-- DNS Prefetch for External Resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.foodbooking.com" />
+
+    <!-- Google Fonts - Optimized with font-display: swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AI Chatbot -->
-    <script src='https://cdn.jotfor.ms/agent/embedjs/0199338e105d7ce194cf93d70469b06ac75f/embed.js'></script>
+    <!-- AI Chatbot - Deferred for better performance -->
+    <script defer src='https://cdn.jotfor.ms/agent/embedjs/0199338e105d7ce194cf93d70469b06ac75f/embed.js'></script>
     
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />

@@ -30,11 +30,11 @@ const Index = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      '🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch. Jetzt bestellen!'
+      '🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch ✅ Halal. Jetzt bestellen!'
     );
 
     // Add comprehensive structured data for homepage
-    const structuredData = {
+    const mainStructuredData = {
       "@context": "https://schema.org",
       "@graph": [
         {
@@ -265,8 +265,54 @@ const Index = () => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.setAttribute('data-homepage', 'true');
-    script.textContent = JSON.stringify(structuredData);
+    script.textContent = JSON.stringify(mainStructuredData);
     document.head.appendChild(script);
+
+    // Add FAQ Schema for better SERP features
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Liefert Sattuni nach Düsseldorf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, wir liefern frische arabische Küche in ganz Düsseldorf und Umgebung. Unsere Lieferzeiten sind Mo-Fr 11:00-22:00 und Sa-So 12:00-23:00."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es vegane und vegetarische Optionen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolut! Viele unserer Gerichte sind von Natur aus vegan oder vegetarisch - wie Hummus, Falafel, Tabouleh und unsere Oriental Bowls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bietet Sattuni Catering für Events an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, wir bieten professionelles Catering für Events ab 20 Personen. Von Fingerfood bis kompletten Buffets - alles frisch zubereitet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist das Fleisch halal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, unser Fleisch ist halal. Bitte erwähne das gerne bei deiner Bestellung, damit wir entsprechend zubereiten können."
+          }
+        }
+      ]
+    };
+
+    const faqScript = document.createElement('script');
+    faqScript.type = 'application/ld+json';
+    faqScript.setAttribute('data-faq', 'true');
+    faqScript.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(faqScript);
 
     // Add canonical link
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -293,6 +339,10 @@ const Index = () => {
       if (scriptToRemove) {
         document.head.removeChild(scriptToRemove);
       }
+      const faqScriptToRemove = document.querySelector('script[data-faq]');
+      if (faqScriptToRemove) {
+        document.head.removeChild(faqScriptToRemove);
+      }
     };
   }, []);
 
@@ -315,18 +365,18 @@ const Index = () => {
     <>
       <Helmet>
         <title>Sattuni - Arabische Küche Düsseldorf | Lieferservice & Catering</title>
-        <meta name="description" content="🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch. Jetzt bestellen!" />
-        <meta name="keywords" content="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, arabisches restaurant" />
+        <meta name="description" content="🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch ✅ Halal. Jetzt bestellen!" />
+        <meta name="keywords" content="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, arabisches restaurant, halal, pita" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Sattuni - Authentische Arabische Küche in Düsseldorf" />
-        <meta property="og:description" content="Entdecke authentische arabische Küche in Düsseldorf! Frische Pita, hausgemachter Hummus & Falafel. Lieferservice und Event-Catering für jeden Anlass." />
+        <meta property="og:description" content="Entdecke authentische arabische Küche in Düsseldorf! Frische Pita, hausgemachter Hummus & Falafel. Lieferservice und Event-Catering für jeden Anlass. Halal verfügbar." />
         <meta property="og:url" content="https://sattuni.de/" />
         <meta property="og:image" content="https://sattuni.de/hero-food.jpg" />
         <meta property="og:locale" content="de_DE" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sattuni - Arabische Küche Düsseldorf" />
-        <meta name="twitter:description" content="Authentische arabische Küche, frisch zubereitet. Lieferservice & Catering in Düsseldorf." />
+        <meta name="twitter:description" content="Authentische arabische Küche, frisch zubereitet. Lieferservice & Catering in Düsseldorf. Halal verfügbar." />
       </Helmet>
       
       <Header />
