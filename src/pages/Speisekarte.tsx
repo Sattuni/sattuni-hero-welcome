@@ -8,7 +8,8 @@ import Breadcrumb from "@/components/layout/Breadcrumb";
 import InternalLinks from "@/components/layout/InternalLinks";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
 import SmartCTA from "@/components/mobile/SmartCTA";
-import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich } from "lucide-react";
+import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich, Info } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import heroImage from "@/assets/hero-food.jpg";
 
 const Speisekarte = () => {
@@ -259,32 +260,6 @@ const Speisekarte = () => {
             </div>
           </section>
 
-          {/* Allergen Legend */}
-          <section className="py-12 px-4 bg-primary/5">
-            <div className="max-w-4xl mx-auto">
-              <Card className="border-primary/20 bg-background/95 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-bold text-foreground mb-6 font-display text-center">
-                    🏷️ Allergene & Kennzeichen
-                  </h2>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {allergenLegend.map((allergen, index) => (
-                      <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-primary/5">
-                        <span className="text-2xl">{allergen.icon}</span>
-                        <div>
-                          <span className="font-bold text-primary">{allergen.number}</span>
-                          <span className="text-sm text-muted-foreground ml-2">
-                            {allergen.description}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-
           {/* Menu Categories */}
           <section className="py-16 px-4">
             <div className="max-w-4xl mx-auto">
@@ -326,12 +301,24 @@ const Speisekarte = () => {
                           {category.items.map((item, itemIndex) => (
                             <div key={itemIndex} className="py-3 border-b border-border/50 last:border-b-0">
                               <div className="flex justify-between items-start mb-1">
-                                <div className="flex-1">
-                                  <span className="font-medium text-foreground font-body block">
+                                <div className="flex-1 flex items-center gap-2">
+                                  <span className="font-medium text-foreground font-body">
                                     {item.name}
                                   </span>
+                                  {item.allergens !== "–" && (
+                                    <TooltipProvider>
+                                      <Tooltip>
+                                        <TooltipTrigger asChild>
+                                          <Info className="w-4 h-4 text-primary/70 hover:text-primary cursor-help" />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                          <p className="text-sm">Allergene: {item.allergens}</p>
+                                        </TooltipContent>
+                                      </Tooltip>
+                                    </TooltipProvider>
+                                  )}
                                   {item.description && (
-                                    <span className="text-xs text-muted-foreground italic">
+                                    <span className="text-xs text-muted-foreground italic block">
                                       {item.description}
                                     </span>
                                   )}
@@ -339,11 +326,6 @@ const Speisekarte = () => {
                                 <Badge variant="secondary" className="font-bold ml-3">
                                   {item.price} €
                                 </Badge>
-                              </div>
-                              <div className="flex justify-between items-center">
-                                <span className="text-xs text-primary font-medium">
-                                  {item.allergens}
-                                </span>
                               </div>
                             </div>
                           ))}
@@ -398,6 +380,29 @@ const Speisekarte = () => {
                   Catering
                 </Button>
               </div>
+            </div>
+          </section>
+          {/* Allergen Legend */}
+          <section className="py-8 px-4 bg-muted/30">
+            <div className="max-w-4xl mx-auto">
+              <Card className="border-primary/10">
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-bold text-foreground mb-4 font-display text-center">
+                    🏷️ Allergene & Kennzeichen
+                  </h3>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+                    {allergenLegend.map((allergen, index) => (
+                      <div key={index} className="flex items-center gap-2 p-2 rounded bg-background/50">
+                        <span className="text-lg">{allergen.icon}</span>
+                        <span className="font-medium text-primary text-xs">{allergen.number}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {allergen.description}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </section>
         </main>
