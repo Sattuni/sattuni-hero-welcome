@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import InternalLinks from "@/components/InternalLinks";
 import FOMOElements from "@/components/FOMOElements";
 import SmartCTA from "@/components/mobile/SmartCTA";
-import { ArrowUp, UtensilsCrossed } from "lucide-react";
+import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich, Plus } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
 
 const Speisekarte = () => {
@@ -135,7 +135,7 @@ const Speisekarte = () => {
   const menuCategories = [
     {
       title: "Hummus & Falafel Kreationen",
-      icon: "🧆",
+      icon: Utensils,
       description: "Hausgemachte Hummus-Variationen und frische Falafel",
       items: [
         { name: "Hummus Veggie Plate", price: "9,00" },
@@ -153,7 +153,7 @@ const Speisekarte = () => {
     },
     {
       title: "Salate",
-      icon: "🥗",
+      icon: Salad,
       description: "Frische orientalische Salate mit authentischen Zutaten",
       items: [
         { name: "Tabouleh", price: "7,50" },
@@ -164,7 +164,7 @@ const Speisekarte = () => {
     },
     {
       title: "Bowls",
-      icon: "🥙",
+      icon: Coffee,
       description: "Nahrhafte Bowl-Kreationen mit verschiedenen Proteinen",
       items: [
         { name: "Beirut Bowl + Falafel", price: "13,00" },
@@ -174,7 +174,7 @@ const Speisekarte = () => {
     },
     {
       title: "Reisgerichte",
-      icon: "🍚",
+      icon: Wheat,
       description: "Herzhafte Reisgerichte mit orientalischen Gewürzen",
       items: [
         { name: "Damascus Plate + Gemüse", price: "13,00" },
@@ -186,7 +186,7 @@ const Speisekarte = () => {
     },
     {
       title: "Pita",
-      icon: "🌯",
+      icon: Sandwich,
       description: "Frisch gebackene Pita-Brote mit verschiedenen Füllungen",
       items: [
         { name: "Veggie-Paradies-Pita", price: "6,70" },
@@ -197,7 +197,7 @@ const Speisekarte = () => {
     },
     {
       title: "Extras",
-      icon: "➕",
+      icon: Plus,
       description: "Zusätzliche Saucen und Beilagen",
       items: [
         { name: "Harissa", price: "1,00" },
@@ -277,36 +277,41 @@ const Speisekarte = () => {
               </div>
 
               <div className="space-y-8">
-                {menuCategories.map((category, index) => (
-                  <Card key={index} className="overflow-hidden shadow-soft hover:shadow-warm transition-shadow duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="text-3xl">{category.icon}</span>
-                        <div>
-                          <h3 className="text-2xl font-bold text-foreground font-display">
-                            {category.title}
-                          </h3>
-                          <p className="text-muted-foreground font-body">
-                            {category.description}
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <div className="grid gap-3">
-                        {category.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0">
-                            <span className="font-medium text-foreground font-body">
-                              {item.name}
-                            </span>
-                            <Badge variant="secondary" className="font-bold">
-                              {item.price} €
-                            </Badge>
+                {menuCategories.map((category, index) => {
+                  const IconComponent = category.icon;
+                  return (
+                    <Card key={index} className="overflow-hidden shadow-soft hover:shadow-warm transition-shadow duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                            <IconComponent className="w-6 h-6 text-primary" />
                           </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                          <div>
+                            <h3 className="text-2xl font-bold text-foreground font-display">
+                              {category.title}
+                            </h3>
+                            <p className="text-muted-foreground font-body">
+                              {category.description}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid gap-3">
+                          {category.items.map((item, itemIndex) => (
+                            <div key={itemIndex} className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0">
+                              <span className="font-medium text-foreground font-body">
+                                {item.name}
+                              </span>
+                              <Badge variant="secondary" className="font-bold">
+                                {item.price} €
+                              </Badge>
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </section>
