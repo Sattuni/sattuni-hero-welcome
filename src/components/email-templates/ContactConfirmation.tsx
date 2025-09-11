@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContactFormData } from '../../lib/validation/contact-schemas';
+import { ContactFormData } from '@/services/validation/schemas';
 
 interface ContactConfirmationProps {
   formData: ContactFormData;

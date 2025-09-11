@@ -135,3 +135,5 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
     </div>
   );
 };
+
+export default BuffetGallery;

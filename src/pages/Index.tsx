@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Hero from "@/components/Hero";
-import Header from "@/components/Header";
-import Services from "@/components/Services";
-import FoodShowcase from "@/components/FoodShowcase";
-import WhySattuni from "@/components/WhySattuni";
-import HowItWorks from "@/components/HowItWorks";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import OpeningHours from "@/components/OpeningHours";
-import Footer from "@/components/Footer";
+import Hero from "@/components/features/hero/Hero";
+import Header from "@/components/layout/Header";
+import Services from "@/components/features/services/Services";
+import FoodShowcase from "@/components/features/food/FoodShowcase";
+import WhySattuni from "@/components/features/about/WhySattuni";
+import HowItWorks from "@/components/features/process/HowItWorks";
+import Testimonials from "@/components/features/testimonials/Testimonials";
+import Contact from "@/components/features/contact/Contact";
+import OpeningHours from "@/components/layout/OpeningHours";
+import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
-import ChristmasPromo from "@/components/ChristmasPromo";
-import SectionNav from "@/components/SectionNav";
-import InternalLinks from "@/components/InternalLinks";
+import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
+import SectionNav from "@/components/layout/SectionNav";
+import InternalLinks from "@/components/layout/InternalLinks";
 import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
 const Index = () => {

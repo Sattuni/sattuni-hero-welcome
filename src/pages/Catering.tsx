@@ -4,13 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp, HelpCircle } from "lucide-react";
-import Header from "@/components/Header";
-import Testimonials from "@/components/Testimonials";
-import CateringContact from "@/components/CateringContact";
-import Breadcrumb from "@/components/Breadcrumb";
-import InternalLinks from "@/components/InternalLinks";
-import CateringFOMO from "@/components/CateringFOMO";
-import { BuffetGallery } from "@/components/BuffetGallery";
+import Header from "@/components/layout/Header";
+import Testimonials from "@/components/features/testimonials/Testimonials";
+import CateringContact from "@/components/features/catering/CateringContact";
+import Breadcrumb from "@/components/layout/Breadcrumb";
+import InternalLinks from "@/components/layout/InternalLinks";
+import CateringFOMO from "@/components/features/marketing/CateringFOMO";
+import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {

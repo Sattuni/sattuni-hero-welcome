@@ -1,4 +1,4 @@
-import { ContactFormData, CateringFormData } from "../validation/contact-schemas";
+import { ContactFormData, CateringFormData } from "../validation/schemas";
 
 // API Response types
 export interface ApiResponse<T = any> {

@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper, CheckCircle, Wand2, RotateCcw, Save } from "lucide-react";
-import { cateringFormSchema, type CateringFormData } from '@/lib/validation/contact-schemas';
-import { submitCateringForm } from '@/lib/api/contact-service';
-import { handleFormError, handleFormSuccess } from '@/lib/utils/error-handling';
+import { cateringFormSchema, type CateringFormData } from '@/services/validation/schemas';
+import { submitCateringForm } from '@/services/api/contact.service';
+import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 
 const CateringContact = () => {
