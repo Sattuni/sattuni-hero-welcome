@@ -2,9 +2,11 @@ import { Star, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useTranslation();
 
   const reviews = [
     {
@@ -128,15 +130,15 @@ const Testimonials = () => {
                   className="inline-flex items-center gap-1 mt-2 text-xs text-primary hover:text-primary/80 transition-colors font-medium"
                 >
                   {isExpanded ? (
-                    <>
-                      <span>Weniger lesen</span>
-                      <ChevronUp className="w-3 h-3" />
-                    </>
-                  ) : (
-                    <>
-                      <span>Mehr lesen</span>
-                      <ChevronDown className="w-3 h-3" />
-                    </>
+                      <>
+                        <span>{t('testimonials.readLess')}</span>
+                        <ChevronUp className="w-3 h-3" />
+                      </>
+                    ) : (
+                      <>
+                        <span>{t('testimonials.readMore')}</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </>
                   )}
                 </button>
               )}
@@ -189,10 +191,10 @@ const Testimonials = () => {
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Das sagen unsere Gäste
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground">
-            Echte Stimmen, direkt von Google.
+            {t('testimonials.subtitle')}
           </p>
           
           {/* Overall Rating */}
@@ -202,7 +204,7 @@ const Testimonials = () => {
             </div>
             <div className="text-3xl font-bold text-foreground">4.9</div>
             <div className="text-muted-foreground">
-              (228 Bewertungen auf Google)
+              (228 {t('testimonials.reviewsCount')})
             </div>
           </div>
         </div>
@@ -241,7 +243,7 @@ const Testimonials = () => {
                     ? "bg-primary scale-125" 
                     : "bg-muted hover:bg-primary/50"
                 }`}
-                aria-label={`Gehe zu Bewertungsgruppe ${index + 1}`}
+                aria-label={`${t('testimonials.slideLabel')} ${index + 1}`}
               />
             ))}
           </div>
@@ -256,8 +258,8 @@ const Testimonials = () => {
             onClick={() => window.open('https://maps.app.goo.gl/qRyjid3sNZhw8Nds9?g_st=ia', '_blank')}
           >
             <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
-            <span className="hidden sm:inline">Mehr Bewertungen auf Google lesen</span>
-            <span className="sm:hidden">Google Bewertungen</span>
+            <span className="hidden sm:inline">{t('testimonials.googleButton')}</span>
+            <span className="sm:hidden">{t('testimonials.googleButtonShort')}</span>
           </Button>
           
           {/* Trust Badge */}
@@ -266,7 +268,7 @@ const Testimonials = () => {
               {renderStars(5)}
             </div>
             <span className="text-sm font-medium text-foreground">
-              Verifizierte Google Bewertungen
+              {t('testimonials.verified')}
             </span>
           </div>
         </div>

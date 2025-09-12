@@ -1,28 +1,15 @@
 import { ChefHat, Leaf, Truck, Calendar } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const WhySattuni = () => {
-  const benefits = [
-    {
-      icon: ChefHat,
-      title: "Hausgemacht & frisch",
-      description: "Jeden Tag frisch gemacht – schmeckst du sofort."
-    },
-    {
-      icon: Leaf,
-      title: "Vielfalt für alle",
-      description: "Fleisch-Fan oder Veggie-Lover? Hier wird jeder glücklich."
-    },
-    {
-      icon: Truck,
-      title: "Schnell & zuverlässig",
-      description: "In Düsseldorf bringen wir's dir – schnell und zuverlässig."
-    },
-    {
-      icon: Calendar,
-      title: "Alltag & Anlässe",
-      description: "Kleiner Hunger oder große Feier – wir sind dabei."
-    }
-  ];
+  const { t } = useTranslation();
+  
+  const benefits = t('whySattuni.benefits', { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>;
+
+  const icons = [ChefHat, Leaf, Truck, Calendar];
 
   return (
     <section className="py-8 md:py-16 px-4 bg-gradient-hero">
@@ -30,17 +17,17 @@ const WhySattuni = () => {
         {/* Header */}
         <div className="text-center mb-6 md:mb-12 space-y-2 md:space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
-            Warum Sattuni?
+            {t('whySattuni.title')}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            Weil's bei uns nicht nur lecker ist, sondern auch easy.
+            {t('whySattuni.subtitle')}
           </p>
         </div>
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {benefits.map((benefit, index) => {
-            const IconComponent = benefit.icon;
+            const IconComponent = icons[index];
             return (
               <div 
                 key={index}
@@ -72,7 +59,7 @@ const WhySattuni = () => {
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-card/80 backdrop-blur-sm rounded-full border border-border/50 shadow-soft">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
             <span className="text-sm font-medium text-foreground font-body">
-              Authentisch orientalisch in Düsseldorf
+              {t('whySattuni.tagline')}
             </span>
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse delay-1000"></span>
           </div>

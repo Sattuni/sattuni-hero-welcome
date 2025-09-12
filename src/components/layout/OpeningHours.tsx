@@ -1,7 +1,9 @@
 import { Clock, Calendar, CheckCircle, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from 'react-i18next';
 
 const OpeningHours = () => {
+  const { t } = useTranslation();
   const getCurrentDay = () => {
     return new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
   };
@@ -34,28 +36,28 @@ const OpeningHours = () => {
 
   const openingHours = [
     {
-      days: "Montag - Mittwoch",
+      days: t('openingHours.days.mondayWednesday'),
       hours: "17:00 - 23:00",
       dayNumbers: [1, 2, 3]
     },
     {
-      days: "Donnerstag",
-      hours: "Ruhetag",
+      days: t('openingHours.days.thursday'),
+      hours: t('openingHours.days.closedDay'),
       dayNumbers: [4],
       isClosed: true
     },
     {
-      days: "Freitag",
+      days: t('openingHours.days.friday'),
       hours: "17:00 - 23:00",
       dayNumbers: [5]
     },
     {
-      days: "Samstag",
+      days: t('openingHours.days.saturday'),
       hours: "17:00 - 22:00",
       dayNumbers: [6]
     },
     {
-      days: "Sonntag",
+      days: t('openingHours.days.sunday'),
       hours: "14:00 - 22:00",
       dayNumbers: [0]
     }
@@ -72,7 +74,7 @@ const OpeningHours = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Clock className="w-8 h-8 text-primary" />
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground">
-              Öffnungszeiten
+              {t('openingHours.title')}
             </h2>
           </div>
           
@@ -85,12 +87,12 @@ const OpeningHours = () => {
             {isOpen ? (
               <>
                 <CheckCircle className="w-4 h-4" />
-                <span className="font-semibold">Jetzt geöffnet</span>
+                <span className="font-semibold">{t('openingHours.open')}</span>
               </>
             ) : (
               <>
                 <X className="w-4 h-4" />
-                <span className="font-semibold">Geschlossen</span>
+                <span className="font-semibold">{t('openingHours.closed')}</span>
               </>
             )}
           </div>
@@ -121,7 +123,7 @@ const OpeningHours = () => {
                       </span>
                       {isToday && (
                         <span className="px-2 py-1 text-xs bg-primary text-primary-foreground rounded-full font-medium">
-                          Heute
+                          {t('openingHours.today')}
                         </span>
                       )}
                     </div>
@@ -145,9 +147,9 @@ const OpeningHours = () => {
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-accent mt-0.5" />
                 <div className="text-sm text-muted-foreground">
-                  <p className="font-medium text-foreground mb-1">Hinweis:</p>
-                  <p>Letzte Bestellung 30 Minuten vor Schließung möglich.</p>
-                  <p>Catering nach Vereinbarung auch außerhalb der Öffnungszeiten.</p>
+                  <p className="font-medium text-foreground mb-1">{t('openingHours.notice.title')}</p>
+                  <p>{t('openingHours.notice.lastOrder')}</p>
+                  <p>{t('openingHours.notice.catering')}</p>
                 </div>
               </div>
             </div>

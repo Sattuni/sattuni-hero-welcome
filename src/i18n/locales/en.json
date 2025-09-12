@@ -180,6 +180,117 @@
       }
     ]
   },
+  "food": {
+    "title": "What are you craving?",
+    "subtitle": "From creamy hummus to crispy falafel – here you'll find everything your heart desires.",
+    "categories": {
+      "dips": {
+        "title": "Dips & Appetizers",
+        "description": "Creamy hummus that melts on your tongue. Fresh salads that make you happy.",
+        "highlights": ["Classic Hummus", "Baba Ganoush", "Tabbouleh", "Fattoush"]
+      },
+      "falafel": {
+        "title": "Falafel & Pastries",
+        "description": "Crispy outside, juicy inside – that's how falafel should be. Homemade like grandma's.",
+        "highlights": ["Freshly fried", "Homemade", "Various fillings", "Vegan available"]
+      },
+      "bowls": {
+        "title": "Bowls & Main Dishes",
+        "description": "Colorful bowls that really fill you up. Hearty main dishes that taste like more.",
+        "highlights": ["Couscous Bowls", "Rice dishes", "Meat", "Vegan"]
+      }
+    },
+    "orderNow": "Order Now",
+    "viewAll": "View all delicacies"
+  },
+  "whySattuni": {
+    "title": "Why Sattuni?",
+    "subtitle": "Because it's not just delicious with us, but also easy.",
+    "benefits": [
+      {
+        "title": "Homemade & fresh",
+        "description": "Made fresh every day – you can taste it immediately."
+      },
+      {
+        "title": "Variety for everyone",
+        "description": "Meat fan or veggie lover? Everyone gets happy here."
+      },
+      {
+        "title": "Fast & reliable",
+        "description": "In Düsseldorf we bring it to you – fast and reliable."
+      },
+      {
+        "title": "Everyday & occasions",
+        "description": "Small hunger or big celebration – we're there."
+      }
+    ],
+    "tagline": "Authentically oriental in Düsseldorf"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Whether ordering or catering – with us it's easy in three steps.",
+    "steps": [
+      {
+        "step": "Step 1",
+        "title": "Inquire or Order",
+        "description": "Choose: Order today or plan catering."
+      },
+      {
+        "step": "Step 2",
+        "title": "Quote & Confirmation",
+        "description": "We confirm your order or send you your catering quote."
+      },
+      {
+        "step": "Step 3",
+        "title": "Enjoy",
+        "description": "Freshly cooked, delivered on time – and simply delicious."
+      }
+    ],
+    "cta": "Ready? Let's get started!"
+  },
+  "testimonials": {
+    "title": "What our guests say",
+    "subtitle": "Real voices, directly from Google.",
+    "readMore": "Read more",
+    "readLess": "Read less", 
+    "reviewsCount": "reviews on Google",
+    "googleButton": "Read more reviews on Google",
+    "googleButtonShort": "Google Reviews",
+    "verified": "Verified Google Reviews",
+    "slideLabel": "Go to review group"
+  },
+  "openingHours": {
+    "title": "Opening Hours",
+    "open": "Currently open",
+    "closed": "Closed",
+    "today": "Today",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday", 
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "mondayWednesday": "Monday - Wednesday",
+      "closedDay": "Closed"
+    },
+    "notice": {
+      "title": "Notice:",
+      "lastOrder": "Last order possible 30 minutes before closing.",
+      "catering": "Catering by appointment also outside opening hours."
+    }
+  },
+  "mobile": {
+    "expand": "Show more",
+    "collapse": "Collapse",
+    "sections": {
+      "openingHours": "Opening Hours",
+      "howItWorks": "How it works",
+      "testimonials": "What our guests say",
+      "contact": "Drop us a line"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",

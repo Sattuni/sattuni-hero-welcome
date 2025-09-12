@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Utensils } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 // Import food images
 import dipsImage from "@/assets/dips-vorspeisen.jpg";
@@ -10,25 +11,26 @@ import bowlsImage from "@/assets/bowls-hauptgerichte.jpg";
 
 const FoodShowcase = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const foodCategories = [
     {
-      title: "Dips & Vorspeisen",
-      description: "Cremiger Hummus, der auf der Zunge zergeht. Frische Salate, die dich glücklich machen.",
+      title: t('food.categories.dips.title'),
+      description: t('food.categories.dips.description'),
       image: dipsImage,
-      highlights: ["Klassischer Hummus", "Babaganoush", "Tabbouleh", "Fattoush"]
+      highlights: t('food.categories.dips.highlights', { returnObjects: true }) as string[]
     },
     {
-      title: "Falafel & Teigtaschen",
-      description: "Außen knusprig, innen saftig – so müssen Falafel sein. Hausgemacht wie bei Oma.",
+      title: t('food.categories.falafel.title'),
+      description: t('food.categories.falafel.description'),
       image: falafelImage,
-      highlights: ["Frisch frittiert", "Hausgemacht", "Verschiedene Füllungen", "Vegan verfügbar"]
+      highlights: t('food.categories.falafel.highlights', { returnObjects: true }) as string[]
     },
     {
-      title: "Bowls & Hauptgerichte",
-      description: "Bunte Bowls, die richtig satt machen. Herzhafte Hauptgerichte, die nach mehr schmecken.",
+      title: t('food.categories.bowls.title'),
+      description: t('food.categories.bowls.description'),
       image: bowlsImage,
-      highlights: ["Couscous Bowls", "Reisgerichte", "Fleisch", "Vegan"]
+      highlights: t('food.categories.bowls.highlights', { returnObjects: true }) as string[]
     }
   ];
 
@@ -48,12 +50,11 @@ const FoodShowcase = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Utensils className="w-8 h-8 text-primary" />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-              Worauf hast du Lust?
+              {t('food.title')}
             </h2>
           </div>
           <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
-            Von cremigem Hummus bis zu knusprigen Falafel – 
-            hier findest du alles, was das Herz begehrt.
+            {t('food.subtitle')}
           </p>
         </div>
 
@@ -97,7 +98,7 @@ const FoodShowcase = () => {
                     variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 font-medium"
                   >
-                    Jetzt bestellen
+                    {t('food.orderNow')}
                   </Button>
                 </div>
               </CardContent>
@@ -112,7 +113,7 @@ const FoodShowcase = () => {
             size="lg"
             className="group hover:shadow-glow transition-all duration-300 font-medium"
           >
-            Alle Leckereien ansehen
+            {t('food.viewAll')}
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
         </div>

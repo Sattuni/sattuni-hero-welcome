@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
+import { useTranslation } from 'react-i18next';
 
 interface MobileSectionExpanderProps {
   title: string;
@@ -20,6 +21,7 @@ const MobileSectionExpander = ({
 }: MobileSectionExpanderProps) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const isMobile = useMobileDetection();
+  const { t } = useTranslation();
   
   // On desktop, always show content without expansion functionality
   if (!isMobile) {
@@ -44,7 +46,7 @@ const MobileSectionExpander = ({
                 {title}
               </h3>
               <p className="text-xs text-muted-foreground">
-                {isExpanded ? 'Einklappen' : 'Mehr anzeigen'}
+                {isExpanded ? t('mobile.collapse') : t('mobile.expand')}
               </p>
             </div>
           </div>

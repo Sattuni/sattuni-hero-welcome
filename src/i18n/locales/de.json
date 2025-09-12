@@ -180,6 +180,117 @@
       }
     ]
   },
+  "food": {
+    "title": "Worauf hast du Lust?",
+    "subtitle": "Von cremigem Hummus bis zu knusprigen Falafel – hier findest du alles, was das Herz begehrt.",
+    "categories": {
+      "dips": {
+        "title": "Dips & Vorspeisen",
+        "description": "Cremiger Hummus, der auf der Zunge zergeht. Frische Salate, die dich glücklich machen.",
+        "highlights": ["Klassischer Hummus", "Babaganoush", "Tabbouleh", "Fattoush"]
+      },
+      "falafel": {
+        "title": "Falafel & Teigtaschen",
+        "description": "Außen knusprig, innen saftig – so müssen Falafel sein. Hausgemacht wie bei Oma.",
+        "highlights": ["Frisch frittiert", "Hausgemacht", "Verschiedene Füllungen", "Vegan verfügbar"]
+      },
+      "bowls": {
+        "title": "Bowls & Hauptgerichte",
+        "description": "Bunte Bowls, die richtig satt machen. Herzhafte Hauptgerichte, die nach mehr schmecken.",
+        "highlights": ["Couscous Bowls", "Reisgerichte", "Fleisch", "Vegan"]
+      }
+    },
+    "orderNow": "Jetzt bestellen",
+    "viewAll": "Alle Leckereien ansehen"
+  },
+  "whySattuni": {
+    "title": "Warum Sattuni?",
+    "subtitle": "Weil's bei uns nicht nur lecker ist, sondern auch easy.",
+    "benefits": [
+      {
+        "title": "Hausgemacht & frisch",
+        "description": "Jeden Tag frisch gemacht – schmeckst du sofort."
+      },
+      {
+        "title": "Vielfalt für alle", 
+        "description": "Fleisch-Fan oder Veggie-Lover? Hier wird jeder glücklich."
+      },
+      {
+        "title": "Schnell & zuverlässig",
+        "description": "In Düsseldorf bringen wir's dir – schnell und zuverlässig."
+      },
+      {
+        "title": "Alltag & Anlässe",
+        "description": "Kleiner Hunger oder große Feier – wir sind dabei."
+      }
+    ],
+    "tagline": "Authentisch orientalisch in Düsseldorf"
+  },
+  "howItWorks": {
+    "title": "So funktioniert's",
+    "subtitle": "Ob Bestellung oder Catering – bei uns geht's easy in drei Schritten.",
+    "steps": [
+      {
+        "step": "Schritt 1",
+        "title": "Anfragen oder Bestellen",
+        "description": "Wähle: Heute bestellen oder Catering planen."
+      },
+      {
+        "step": "Schritt 2",
+        "title": "Angebot & Bestätigung", 
+        "description": "Wir bestätigen deine Bestellung oder schicken dir dein Catering-Angebot."
+      },
+      {
+        "step": "Schritt 3",
+        "title": "Genießen",
+        "description": "Frisch gekocht, pünktlich geliefert – und einfach lecker."
+      }
+    ],
+    "cta": "Ready? Lass uns loslegen!"
+  },
+  "testimonials": {
+    "title": "Das sagen unsere Gäste",
+    "subtitle": "Echte Stimmen, direkt von Google.",
+    "readMore": "Mehr lesen",
+    "readLess": "Weniger lesen",
+    "reviewsCount": "Bewertungen auf Google",
+    "googleButton": "Mehr Bewertungen auf Google lesen",
+    "googleButtonShort": "Google Bewertungen",
+    "verified": "Verifizierte Google Bewertungen",
+    "slideLabel": "Gehe zu Bewertungsgruppe"
+  },
+  "openingHours": {
+    "title": "Öffnungszeiten",
+    "open": "Jetzt geöffnet",
+    "closed": "Geschlossen",
+    "today": "Heute",
+    "days": {
+      "monday": "Montag",
+      "tuesday": "Dienstag", 
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "saturday": "Samstag",
+      "sunday": "Sonntag",
+      "mondayWednesday": "Montag - Mittwoch",
+      "closedDay": "Ruhetag"
+    },
+    "notice": {
+      "title": "Hinweis:",
+      "lastOrder": "Letzte Bestellung 30 Minuten vor Schließung möglich.",
+      "catering": "Catering nach Vereinbarung auch außerhalb der Öffnungszeiten."
+    }
+  },
+  "mobile": {
+    "expand": "Mehr anzeigen",
+    "collapse": "Einklappen",
+    "sections": {
+      "openingHours": "Öffnungszeiten",
+      "howItWorks": "So funktioniert's",
+      "testimonials": "Das sagen unsere Gäste", 
+      "contact": "Schreib uns kurz"
+    }
+  },
   "common": {
     "loading": "Lädt...",
     "error": "Ein Fehler ist aufgetreten",

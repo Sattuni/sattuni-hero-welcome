@@ -66,7 +66,7 @@ const Index = () => {
         
         {/* Mobile Expandable Sections */}
         <MobileSectionExpander
-          title="Öffnungszeiten"
+          title={t('mobile.sections.openingHours')}
           icon={Clock}
           className="bg-gradient-to-b from-muted/30 to-background"
         >
@@ -76,7 +76,7 @@ const Index = () => {
         </MobileSectionExpander>
         
         <MobileSectionExpander
-          title="So funktioniert's"
+          title={t('mobile.sections.howItWorks')}
           icon={Settings}
           className="bg-background"
         >
@@ -84,7 +84,7 @@ const Index = () => {
         </MobileSectionExpander>
         
         <MobileSectionExpander
-          title="Das sagen unsere Gäste"
+          title={t('mobile.sections.testimonials')}
           icon={Star}
           className="bg-gradient-hero"
         >
@@ -92,7 +92,7 @@ const Index = () => {
         </MobileSectionExpander>
         
         <MobileSectionExpander
-          title="Schreib uns kurz"
+          title={t('mobile.sections.contact')}
           icon={MessageCircle}
           className="bg-gradient-subtle"
         >
