@@ -369,7 +369,7 @@ const AboutUs = () => {
                 
                 <div className="flex items-center justify-center p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
                   <img 
-                    src="/lovable-uploads/4e8e5e31-1ebf-439f-9751-e7c77a726505.png" 
+                    src="/lovable-uploads/a84a6d0f-6d58-42b9-84e6-1f0db1c14995.png" 
                     alt="Leonardo - Partner von Sattuni" 
                     className="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
