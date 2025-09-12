@@ -12,6 +12,7 @@ import FOMOElements from "@/components/features/marketing/FOMOElements";
 import ferasProfile from '@/assets/feras-profile.jpg';
 import hamudiProfile from '@/assets/hamudi-profile.jpg';
 import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
+import ProfileImage from '@/components/common/ProfileImage';
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -212,7 +213,7 @@ const AboutUs = () => {
                 <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
-                      <img 
+                      <ProfileImage 
                         src="/lovable-uploads/9aac3d69-5c9c-483e-8650-92d5ccc427f7.png" 
                         alt="Feras - Chef und Küchenchef bei Sattuni" 
                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
@@ -242,7 +243,7 @@ const AboutUs = () => {
                 <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
-                      <img 
+                      <ProfileImage 
                         src="/lovable-uploads/86e32e96-adf6-4842-b797-4be3e991aac7.png" 
                         alt="Hamudi - Organisation und Kundenbetreuung bei Sattuni" 
                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
