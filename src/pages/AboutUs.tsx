@@ -12,7 +12,6 @@ import FOMOElements from "@/components/features/marketing/FOMOElements";
 import ferasProfile from '@/assets/feras-profile.jpg';
 import hamudiProfile from '@/assets/hamudi-profile.jpg';
 import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
-import ProfileImage from '@/components/common/ProfileImage';
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -213,7 +212,7 @@ const AboutUs = () => {
                 <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
-                      <ProfileImage 
+                      <img 
                         src="/lovable-uploads/9aac3d69-5c9c-483e-8650-92d5ccc427f7.png" 
                         alt="Feras - Chef und Küchenchef bei Sattuni" 
                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
@@ -243,7 +242,7 @@ const AboutUs = () => {
                 <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
-                      <ProfileImage 
+                      <img 
                         src="/lovable-uploads/86e32e96-adf6-4842-b797-4be3e991aac7.png" 
                         alt="Hamudi - Organisation und Kundenbetreuung bei Sattuni" 
                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
@@ -369,7 +368,7 @@ const AboutUs = () => {
                 
                 <div className="flex items-center justify-center p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
                   <img 
-                    src="/lovable-uploads/a84a6d0f-6d58-42b9-84e6-1f0db1c14995.png" 
+                    src="/lovable-uploads/4e8e5e31-1ebf-439f-9751-e7c77a726505.png" 
                     alt="Leonardo - Partner von Sattuni" 
                     className="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
