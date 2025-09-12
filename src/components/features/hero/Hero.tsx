@@ -3,8 +3,11 @@ import SmartCTA from "@/components/mobile/SmartCTA";
 import { Utensils, Star } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
 import sattunLogo from "@/assets/sattuni-logo.png";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 const Hero = () => {
+  const { scrollY } = useScrollPosition();
+  
   return (
     <section 
       className="relative min-h-[35vh] md:min-h-[50vh] flex items-start overflow-hidden"
@@ -14,7 +17,12 @@ const Hero = () => {
       aria-label="Sattuni Hauptbereich"
     >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${scrollY * 0.5}px)`,
+        }}
+      >
         <img 
           src={heroImage} 
           alt="Authentische arabische Küche - Frische Pita, hausgemachter Hummus und Buffet-Catering von Sattuni in Düsseldorf" 
