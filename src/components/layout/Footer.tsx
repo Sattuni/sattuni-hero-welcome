@@ -1,23 +1,27 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, ChevronUp, ChevronDown, Map } from "lucide-react";
 import { useState } from "react";
-import { useTranslation } from 'react-i18next';
 import { useMobileDetection } from "@/hooks/useMobileDetection";
 import sattunIcon from "@/assets/sattuni-icon.png";
 
 const Footer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isMobile = useMobileDetection();
-  const { t } = useTranslation();
   
   const quickLinks = [
-    { name: t('nav.specialties'), href: "/spezialitaeten" },
-    { name: t('nav.catering'), href: "/catering" },
-    { name: t('nav.about'), href: "/ueber-uns" },
-    { name: t('nav.contact'), href: "#kontakt" },
+    { name: "Spezialitäten", href: "/spezialitaeten" },
+    { name: "Catering", href: "/catering" },
+    { name: "Über uns", href: "/ueber-uns" },
+    { name: "Kontakt", href: "#kontakt" },
   ];
 
-  const cateringServices = t('footer.services', { returnObjects: true }) as string[];
+  const cateringServices = [
+    "Fingerfood",
+    "Buffets", 
+    "Vegane Optionen",
+    "Firmen-Events",
+    "Private Feiern"
+  ];
 
   return (
     <footer className="bg-card border-t border-border/50">
@@ -39,7 +43,7 @@ const Footer = () => {
                 <div>
                   <span className="text-base font-semibold text-foreground font-display">sattuni</span>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide font-body">
-                    {t('footer.contactInfo')}
+                    Kontakt & Links
                   </p>
                 </div>
               </div>
@@ -77,7 +81,8 @@ const Footer = () => {
                 {/* Brand Description */}
                 <div className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed font-body text-sm">
-                    {t('footer.description')}
+                    Authentische arabische Küche in Düsseldorf. 
+                    Frisch zubereitet für Alltag und besondere Anlässe.
                   </p>
                   
                   <div className="flex space-x-4">
@@ -102,7 +107,7 @@ const Footer = () => {
                 
                 {/* Quick Links */}
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-foreground font-display">{t('footer.quickLinks')}</h4>
+                  <h4 className="text-base font-semibold text-foreground font-display">Quick Links</h4>
                   <nav className="grid grid-cols-2 gap-2">
                     {quickLinks.map((link) => (
                       <Link
@@ -119,7 +124,7 @@ const Footer = () => {
                 
                 {/* Services */}
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-foreground font-display">{t('footer.cateringServices')}</h4>
+                  <h4 className="text-base font-semibold text-foreground font-display">Catering Services</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {cateringServices.map((service) => (
                       <span key={service} className="text-muted-foreground font-body text-sm">
@@ -131,13 +136,13 @@ const Footer = () => {
                 
                 {/* Full Contact Info */}
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-foreground font-display">{t('footer.fullContact')}</h4>
+                  <h4 className="text-base font-semibold text-foreground font-display">Vollständiger Kontakt</h4>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                       <div className="font-body text-sm">
-                        <div className="text-muted-foreground">{t('footer.addressLabel')}</div>
-                        <div className="text-foreground">{t('footer.address')}</div>
+                        <div className="text-muted-foreground">Adresse</div>
+                        <div className="text-foreground">Johannstraße 40, 40476 Düsseldorf</div>
                       </div>
                     </div>
                   </div>
@@ -146,19 +151,19 @@ const Footer = () => {
                 {/* Legal Links */}
                 <div className="flex flex-wrap gap-4 text-sm pt-4 border-t border-border/30">
                   <a href="/datenschutz" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                    {t('footer.legalLinks.privacy')}
+                    Datenschutz
                   </a>
                   <a href="/impressum" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                    {t('footer.legalLinks.imprint')}
+                    Impressum
                   </a>
                   <a href="/agb" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                    {t('footer.legalLinks.terms')}
+                    AGB
                   </a>
                 </div>
                 
                 {/* Copyright */}
                 <p className="text-xs text-muted-foreground font-body pb-4">
-                  © 2024 Sattuni - Oriental Bowls & More. {t('footer.rights')}
+                  © 2024 Sattuni - Oriental Bowls & More. Alle Rechte vorbehalten.
                 </p>
               </div>
             </div>
@@ -185,7 +190,8 @@ const Footer = () => {
               </div>
               
               <p className="text-muted-foreground leading-relaxed font-body">
-                {t('footer.description')}
+                Authentische arabische Küche in Düsseldorf. 
+                Frisch zubereitet für Alltag und besondere Anlässe.
               </p>
               
               <div className="flex space-x-4">
@@ -210,7 +216,7 @@ const Footer = () => {
             
             {/* Quick Links */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-foreground font-display">{t('footer.quickLinks')}</h3>
+              <h3 className="text-lg font-semibold text-foreground font-display">Quick Links</h3>
               <nav className="flex flex-col space-y-3">
                 {quickLinks.map((link) => (
                   <Link
@@ -226,7 +232,7 @@ const Footer = () => {
             
             {/* Services */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-foreground font-display">{t('footer.cateringServices')}</h3>
+              <h3 className="text-lg font-semibold text-foreground font-display">Catering Services</h3>
               <ul className="space-y-3">
                 {cateringServices.map((service) => (
                   <li key={service} className="text-muted-foreground font-body">
@@ -238,20 +244,20 @@ const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-foreground font-display">{t('footer.contact')}</h3>
+              <h3 className="text-lg font-semibold text-foreground font-display">Kontakt</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div className="font-body">
-                    <div className="text-sm text-muted-foreground">{t('footer.addressLabel')}</div>
-                    <div className="text-foreground">{t('footer.address')}</div>
+                    <div className="text-sm text-muted-foreground">Adresse</div>
+                    <div className="text-foreground">Johannstraße 40, 40476 Düsseldorf</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div className="font-body">
-                    <div className="text-sm text-muted-foreground">{t('footer.phoneLabel')}</div>
+                    <div className="text-sm text-muted-foreground">Telefon</div>
                     <a href="tel:021136180115" className="text-foreground hover:text-primary transition-colors">
                       0211 36180115
                     </a>
@@ -261,9 +267,9 @@ const Footer = () => {
                 <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div className="font-body">
-                    <div className="text-sm text-muted-foreground">{t('footer.emailLabel')}</div>
+                    <div className="text-sm text-muted-foreground">E-Mail</div>
                     <a href="mailto:info@sattuni.de" className="text-foreground hover:text-primary transition-colors">
-                      {t('footer.email')}
+                      info@sattuni.de
                     </a>
                   </div>
                 </div>
@@ -275,17 +281,17 @@ const Footer = () => {
           <div className="border-t border-border/50 mt-12 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground font-body">
-                © 2024 Sattuni - Oriental Bowls & More. {t('footer.rights')}
+                © 2024 Sattuni - Oriental Bowls & More. Alle Rechte vorbehalten.
               </p>
               <div className="flex space-x-6 text-sm">
                 <a href="/datenschutz" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                  {t('footer.legalLinks.privacy')}
+                  Datenschutz
                 </a>
                 <a href="/impressum" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                  {t('footer.legalLinks.imprint')}
+                  Impressum
                 </a>
                 <a href="/agb" className="text-muted-foreground hover:text-primary transition-colors font-body">
-                  {t('footer.legalLinks.terms')}
+                  AGB
                 </a>
               </div>
             </div>

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
 import { ChefHat, Truck, Users, Heart, CheckCircle, Leaf, PartyPopper } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,7 +15,6 @@ import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
 
 const AboutUs = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -155,8 +153,8 @@ const AboutUs = () => {
       <main className="min-h-screen">
         <Breadcrumb 
           items={[
-            { name: t('nav.home'), href: "/" },
-            { name: t('nav.about'), href: "/ueber-uns", current: true }
+            { name: "Startseite", href: "/" },
+            { name: "Über uns", href: "/ueber-uns", current: true }
           ]} 
         />
 
@@ -177,10 +175,11 @@ const AboutUs = () => {
           <div className="relative container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                {t('about.title')}
+                Kochen & Kümmern – <span className="text-accent">unser Bruderjob</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                {t('about.subtitle')}
+                Zwei Brüder, eine Mission: <span className="text-accent font-semibold">Richtig gutes Essen machen.</span> 
+                Feras zaubert in der Küche, Hamudi macht den Rest. Simple as that.
               </p>
               <Button 
                 onClick={handleSpecialtiesClick}
@@ -188,7 +187,7 @@ const AboutUs = () => {
                 size="xl"
                 className="text-lg px-8 py-4"
               >
-                {t('about.discoverSpecialties')}
+                Unsere Spezialitäten entdecken
               </Button>
             </div>
           </div>
@@ -200,10 +199,11 @@ const AboutUs = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  {t('about.whoWeAre')}
+                  Wer wir sind
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                  {t('about.whoWeAreDesc')}
+                  Wir sind zwei Brüder, die arabische Küche in Düsseldorf neu interpretieren – frisch, hausgemacht, modern. 
+                  <span className="text-primary font-semibold">Ohne Drama, ohne Schnickschnack. Einfach gutes Essen.</span>
                 </p>
               </div>
 
@@ -219,15 +219,21 @@ const AboutUs = () => {
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
-                      {t('about.brothers.feras.name')}
+                      Feras
                     </h3>
                     <div className="space-y-3">
-                      {(t('about.brothers.feras.tasks', { returnObjects: true }) as string[]).map((task, index) => (
-                        <div key={index} className="flex items-center justify-center gap-2 text-muted-foreground">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span>{task}</span>
-                        </div>
-                      ))}
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Kauft ein</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Kocht</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Denkt sich was Neues aus</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -243,15 +249,21 @@ const AboutUs = () => {
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
-                      {t('about.brothers.hamudi.name')}
+                      Hamudi
                     </h3>
                     <div className="space-y-3">
-                      {(t('about.brothers.hamudi.tasks', { returnObjects: true }) as string[]).map((task, index) => (
-                        <div key={index} className="flex items-center justify-center gap-2 text-muted-foreground">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span>{task}</span>
-                        </div>
-                      ))}
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Redet mit euch</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Organisiert alles</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span>Bringt's vorbei</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -265,10 +277,10 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <div className="space-y-4 text-2xl lg:text-3xl font-medium text-foreground leading-relaxed">
-                <p>{t('about.humor.line1')}</p>
-                <p>{t('about.humor.line2')}</p>
+                <p>Einer kocht. Einer redet.</p>
+                <p>Einer denkt in Rezepten. Einer in Abläufen.</p>
                 <p className="text-primary font-bold text-3xl lg:text-4xl">
-                  {t('about.humor.line3')}
+                  Zusammen machen wir euch satt.
                 </p>
               </div>
             </div>
@@ -281,31 +293,51 @@ const AboutUs = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  {t('about.importantToUs')}
+                  Was uns wichtig ist
                 </h2>
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                {(t('about.values', { returnObjects: true }) as string[]).map((value, index) => {
-                  const icons = [CheckCircle, Leaf, Truck, Heart];
-                  const IconComponent = icons[index];
-                  
-                  return (
-                    <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300 text-center">
-                      <CardContent className="p-6">
-                        <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
-                          <IconComponent className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="font-bold text-foreground mb-2">{value}</h3>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300 text-center">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2">Hausgemacht & frisch</h3>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300 text-center">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Leaf className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2">Vielfalt: Fleisch, vegetarisch & vegan</h3>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300 text-center">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Truck className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2">Lieferservice & Catering</h3>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300 text-center">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Heart className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2">Persönlich & unkompliziert</h3>
+                  </CardContent>
+                </Card>
               </div>
 
               <div className="text-center">
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  {t('about.valuesDesc')}
+                  Ob Abendessen zuhause oder Event mit hunderten Gästen – wir kümmern uns drum.
                 </p>
               </div>
             </div>
@@ -318,10 +350,10 @@ const AboutUs = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  {t('about.partners')}
+                  Unsere Partner
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  {t('about.partnersDesc')}
+                  Wir sind stolz darauf, regelmäßig mit diesen Unternehmen zusammenzuarbeiten und ihre Events zu bereichern.
                 </p>
               </div>
 

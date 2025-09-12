@@ -1,25 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Utensils, UtensilsCrossed } from "lucide-react";
-import { useTranslation } from 'react-i18next';
 
 const InternalLinks = () => {
-  const { t } = useTranslation();
-  
   const links = [
     {
-      title: t('nav.specialties'),
+      title: "Unsere Spezialitäten",
       description: "Entdecke authentische arabische Gerichte: Hummus, Falafel, Couscous Bowls und mehr",
       href: "/spezialitaeten",
       icon: Utensils,
       cta: "Zur Speisekarte"
     },
     {
-      title: "Event " + t('nav.catering'),
+      title: "Event Catering",
       description: "Professionelles Catering für deine Feier oder Firmen-Event - individuell & hausgemacht",
       href: "/catering",
       icon: UtensilsCrossed,
-      cta: t('services.requestCatering')
+      cta: "Catering anfragen"
     }
   ];
 

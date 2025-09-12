@@ -1,15 +1,26 @@
 import { ClipboardList, Mail, UtensilsCrossed } from "lucide-react";
-import { useTranslation } from 'react-i18next';
 
 const HowItWorks = () => {
-  const { t } = useTranslation();
-  const steps = t('howItWorks.steps', { returnObjects: true }) as Array<{
-    step: string;
-    title: string;
-    description: string;
-  }>;
-
-  const icons = [ClipboardList, Mail, UtensilsCrossed];
+  const steps = [
+    {
+      icon: ClipboardList,
+      step: "Schritt 1",
+      title: "Anfragen oder Bestellen",
+      description: "Wähle: Heute bestellen oder Catering planen."
+    },
+    {
+      icon: Mail,
+      step: "Schritt 2", 
+      title: "Angebot & Bestätigung",
+      description: "Wir bestätigen deine Bestellung oder schicken dir dein Catering-Angebot."
+    },
+    {
+      icon: UtensilsCrossed,
+      step: "Schritt 3",
+      title: "Genießen",
+      description: "Frisch gekocht, pünktlich geliefert – und einfach lecker."
+    }
+  ];
 
   return (
     <section className="py-16 px-4 bg-background">
@@ -17,17 +28,17 @@ const HowItWorks = () => {
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
-            {t('howItWorks.title')}
+            So funktioniert's
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body">
-            {t('howItWorks.subtitle')}
+            Ob Bestellung oder Catering – bei uns geht's easy in drei Schritten.
           </p>
         </div>
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {steps.map((step, index) => {
-            const IconComponent = icons[index];
+            const IconComponent = step.icon;
             return (
               <div 
                 key={index}
@@ -71,7 +82,7 @@ const HowItWorks = () => {
         <div className="text-center mt-12">
           <div className="inline-flex items-center gap-3 px-8 py-4 bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-elegant">
             <span className="text-lg font-medium text-foreground font-display">
-              {t('howItWorks.cta')}
+              Ready? Lass uns loslegen!
             </span>
           </div>
         </div>

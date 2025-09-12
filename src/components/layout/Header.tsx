@@ -3,45 +3,42 @@ import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
-import { useTranslation } from 'react-i18next';
 import sattunIcon from "@/assets/sattuni-icon.png";
-import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { t } = useTranslation();
   
   const navigation = [
     { 
-      name: t('nav.home'), 
+      name: "Home", 
       href: "/", 
       current: location.pathname === "/",
-      title: t('navigation.titles.home')
+      title: "Zur Startseite - Arabische Küche Düsseldorf"
     },
     { 
-      name: t('nav.specialties'), 
+      name: "Spezialitäten", 
       href: "/spezialitaeten", 
       current: location.pathname === "/spezialitaeten",
-      title: t('navigation.titles.specialties')
+      title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
     },
     { 
-      name: t('nav.menu'), 
+      name: "Speisekarte", 
       href: "/speisekarte", 
       current: location.pathname === "/speisekarte",
-      title: t('navigation.titles.menu')
+      title: "Komplette Speisekarte mit Preisen - Orientalische Küche"
     },
     { 
-      name: t('nav.about'), 
+      name: "Über uns", 
       href: "/ueber-uns", 
       current: location.pathname === "/ueber-uns",
-      title: t('navigation.titles.about')
+      title: "Über das Team von Sattuni - Die Brüder hinter der Küche"
     },
     { 
-      name: t('nav.catering'), 
+      name: "Catering", 
       href: "/catering", 
       current: location.pathname === "/catering",
-      title: t('navigation.titles.catering')
+      title: "Catering Service Düsseldorf - Arabische Küche für Events"
     },
   ];
 
@@ -129,19 +126,18 @@ const Header = () => {
               }}
               className="text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
             >
-              {t('nav.contact')}
+              Kontakt
             </button>
           </nav>
           
-          {/* Language Switcher & CTA Button Desktop */}
-          <div className="hidden md:flex items-center gap-3">
-            <LanguageSwitcher />
+          {/* CTA Button Desktop */}
+          <div className="hidden md:block">
             <Button 
               size="sm" 
               className="font-medium shadow-sm"
               onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
             >
-              {t('hero.orderNow')}
+              Jetzt bestellen
             </Button>
           </div>
           
@@ -150,17 +146,14 @@ const Header = () => {
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="sm" className="p-2 hover:bg-primary/10">
                 <Menu className="w-5 h-5 text-foreground" />
-                <span className="sr-only">{t('common.openMenu')}</span>
+                <span className="sr-only">Menü öffnen</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-6 mt-8">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <img src={sattunIcon} alt="Sattuni" className="h-8 w-8" />
-                    <span className="text-lg font-semibold font-display">sattuni</span>
-                  </div>
-                  <LanguageSwitcher />
+                <div className="flex items-center space-x-3">
+                  <img src={sattunIcon} alt="Sattuni" className="h-8 w-8" />
+                  <span className="text-lg font-semibold font-display">sattuni</span>
                 </div>
                 
                 <nav className="flex flex-col space-y-4">
@@ -194,7 +187,7 @@ const Header = () => {
                     }}
                     className="text-foreground hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 text-left w-full"
                   >
-                    {t('nav.contact')}
+                    Kontakt
                   </button>
                 </nav>
                 
@@ -207,7 +200,7 @@ const Header = () => {
                       window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                     }}
                   >
-                    {t('hero.orderNow')}
+                    Jetzt bestellen
                   </Button>
                 </div>
               </div>

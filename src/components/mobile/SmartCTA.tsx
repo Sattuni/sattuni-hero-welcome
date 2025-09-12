@@ -1,7 +1,6 @@
 import { Button, ButtonProps } from '@/components/ui/button';
 import { useTimeContext } from '@/hooks/useTimeContext';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
-import { useTranslation } from 'react-i18next';
 
 interface SmartCTAProps extends Omit<ButtonProps, 'onClick'> {
   onOrderClick?: () => void;
@@ -17,7 +16,6 @@ const SmartCTA = ({
 }: SmartCTAProps) => {
   const { ctaText, period } = useTimeContext();
   const isMobile = useMobileDetection();
-  const { t } = useTranslation();
 
   const handleClick = () => {
     if (onOrderClick) {
@@ -29,7 +27,7 @@ const SmartCTA = ({
   };
 
   // Use smart CTA text only if requested and on mobile
-  const displayText = showTimeContext && isMobile ? ctaText : (children || t('common.orderNow'));
+  const displayText = showTimeContext && isMobile ? ctaText : (children || 'Jetzt bestellen');
   
   // Add time-based styling
   const timeContextClass = period === 'dinner' ? 'shadow-ornate' : '';

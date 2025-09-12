@@ -282,7 +282,7 @@ const Speisekarte = () => {
                         </div>
                         
                         <div className="grid gap-3">
-                          {category.items.map((item: any, itemIndex: number) => (
+                          {category.items.map((item, itemIndex) => (
                             <div key={itemIndex} className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0">
                               <span className="font-medium text-foreground font-body">
                                 {item.name}

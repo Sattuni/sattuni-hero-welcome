@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import SmartCTA from "@/components/mobile/SmartCTA";
 import { Utensils, Star } from "lucide-react";
-import { useTranslation } from 'react-i18next';
 import heroImage from "@/assets/hero-food.jpg";
 import sattunLogo from "@/assets/sattuni-logo.png";
 
 const Hero = () => {
-  const { t } = useTranslation();
-
   return (
     <section 
       className="relative min-h-[35vh] md:min-h-[50vh] flex items-start overflow-hidden"
@@ -53,7 +50,7 @@ const Hero = () => {
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight"
               itemProp="name"
             >
-              {t('hero.title')}
+              Von Pita bis Party – wir liefern.
             </h1>
             
             {/* Subline */}
@@ -61,14 +58,15 @@ const Hero = () => {
               className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body"
               itemProp="description"
             >
-              {t('hero.subtitle')}
+              Lust auf authentisch arabisches Essen? Hausgemacht, frisch und mit Liebe zubereitet – 
+              für deinen Feierabend oder das nächste Event mit deinem Team.
             </p>
             
             {/* Urgency Badge */}
             <div className="flex justify-center lg:justify-start mb-1 md:mb-2">
               <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full" aria-hidden="true"></span>
-                <span className="text-xs md:text-sm font-medium text-primary">{t('hero.urgency')}</span>
+                <span className="text-xs md:text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
               </div>
             </div>
 
@@ -82,7 +80,7 @@ const Hero = () => {
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <Utensils className="w-4 h-4" />
-                  {t('hero.orderNow')}
+                  Jetzt bestellen
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </SmartCTA>
@@ -95,7 +93,7 @@ const Hero = () => {
                   window.location.href = '/catering?scrollTo=contact';
                 }}
               >
-                {t('hero.requestCatering')}
+                Catering anfragen
               </Button>
             </div>
 
@@ -111,10 +109,10 @@ const Hero = () => {
                     <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
                   </div>
                   <span className="font-medium text-foreground ml-1">4.9/5</span>
-                  <span className="text-muted-foreground text-xs hidden md:inline">{t('hero.rating')}</span>
+                  <span className="text-muted-foreground text-xs hidden md:inline">bei Google</span>
                 </div>
                 <span className="text-muted-foreground hidden md:inline">|</span>
-                <span className="text-muted-foreground text-center">{t('hero.since')}</span>
+                <span className="text-muted-foreground text-center">Seit 2022 am Start • 100+ Caterings geschmackvoll geliefert</span>
               </div>
             </div>
             
@@ -122,15 +120,15 @@ const Hero = () => {
             <div className="hidden md:flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                <span className="text-foreground font-medium">{t('hero.freshMade')}</span>
+                <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                <span className="text-foreground font-medium">{t('hero.deliveryTime')}</span>
+                <span className="text-foreground font-medium">30-45 Min</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                <span className="text-foreground font-medium">{t('hero.eventCatering')}</span>
+                <span className="text-foreground font-medium">Event-Catering</span>
               </div>
             </div>
           </div>
