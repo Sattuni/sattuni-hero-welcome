@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "specialties": "Specialties", 
+    "menu": "Menu",
+    "catering": "Catering",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "From Pita to Party – we deliver.",
+    "subtitle": "Craving authentic Arabic cuisine? Homemade, fresh and prepared with love – for your evening or your team's next event.",
+    "urgency": "Order today, delivered today!",
+    "orderNow": "Order Now",
+    "requestCatering": "Request Catering",
+    "rating": "on Google",
+    "since": "Since 2022 • 100+ Caterings deliciously delivered",
+    "freshMade": "Freshly prepared",
+    "deliveryTime": "30-45 Min",
+    "eventCatering": "Event Catering"
+  },
+  "services": {
+    "deliveryTitle": "Don't feel like cooking today?",
+    "deliverySubtitle": "Freshly baked pita, creamy hummus and colorful bowls – we bring it to your home or office. Simply delicious!",
+    "orderNow": "Order Now",
+    "cateringTitle": "Catering that rocks",
+    "cateringSubtitle": "Whether 20 or 200 guests – we take care of everything. Finger food, buffets, vegan options. Your event will be unforgettably delicious!",
+    "requestCatering": "Request Catering",
+    "features": {
+      "freshMade": "Freshly prepared",
+      "delivery": "30-45 Min delivery",
+      "orientalBowls": "Oriental Bowls", 
+      "homemade": "Homemade",
+      "customized": "Just the way you like it",
+      "experience": "100+ Caterings deliciously delivered",
+      "fullService": "We take care of everything",
+      "groupSize": "20-300+ People"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "hours": "Opening Hours",
+    "followUs": "Follow Us",
+    "address": "Johannstraße 40, 40476 Düsseldorf",
+    "phone": "+49 211 17607757",
+    "email": "info@sattuni.de", 
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "language": "Language"
+  }
+}

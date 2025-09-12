@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Utensils, PartyPopper } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-8 md:py-16 px-4 bg-gradient-subtle">
       <div className="container mx-auto max-w-6xl">
@@ -21,11 +24,10 @@ const Services = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      Heute keine Lust zu kochen?
+                      {t('services.deliveryTitle')}
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed font-body">
-                      Frisch gebackenes Pita, cremiger Hummus und bunte Bowls – 
-                      bringen wir dir nach Hause oder ins Büro. Einfach lecker!
+                      {t('services.deliverySubtitle')}
                     </p>
                   </div>
                 </div>
@@ -33,10 +35,10 @@ const Services = () => {
                 {/* Service highlights */}
                 <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                   {[
-                    "Frisch zubereitet",
-                    "30-45 Min Lieferung", 
-                    "Oriental Bowls",
-                    "Hausgemacht"
+                    t('services.features.freshMade'),
+                    t('services.features.delivery'),
+                    t('services.features.orientalBowls'),
+                    t('services.features.homemade')
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
@@ -53,7 +55,7 @@ const Services = () => {
                   className="w-full sm:w-auto group-hover:shadow-glow transition-all duration-300 font-medium"
                   onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
                 >
-                  Jetzt bestellen
+                  {t('services.orderNow')}
                 </Button>
               </div>
             </CardContent>
@@ -72,11 +74,10 @@ const Services = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      Catering, das rockt
+                      {t('services.cateringTitle')}
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed font-body">
-                      Ob 20 oder 200 Gäste – wir kümmern uns um alles. Fingerfood, Buffets, 
-                      vegane Optionen. Dein Event wird unvergesslich lecker!
+                      {t('services.cateringSubtitle')}
                     </p>
                   </div>
                 </div>
@@ -84,10 +85,10 @@ const Services = () => {
                 {/* Service highlights */}
                 <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                   {[
-                    "Ganz wie du's magst",
-                    "100+ Caterings geschmackvoll geliefert",
-                    "Wir kümmern uns um alles", 
-                    "20-300+ Personen"
+                    t('services.features.customized'),
+                    t('services.features.experience'),
+                    t('services.features.fullService'),
+                    t('services.features.groupSize')
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
@@ -106,7 +107,7 @@ const Services = () => {
                     window.location.href = '/catering?scrollTo=contact';
                   }}
                 >
-                  Catering anfragen
+                  {t('services.requestCatering')}
                 </Button>
               </div>
             </CardContent>

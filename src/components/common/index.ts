@@ -5,3 +5,6 @@
 
 // ===== IMAGE COMPONENTS =====
 export { default as LazyImage } from './LazyImage';
+
+// ===== LANGUAGE COMPONENTS =====
+export { default as LanguageSwitcher } from './LanguageSwitcher';

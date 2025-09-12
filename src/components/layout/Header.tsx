@@ -3,39 +3,42 @@ import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import sattunIcon from "@/assets/sattuni-icon.png";
+import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
   
   const navigation = [
     { 
-      name: "Home", 
+      name: t('nav.home'), 
       href: "/", 
       current: location.pathname === "/",
       title: "Zur Startseite - Arabische Küche Düsseldorf"
     },
     { 
-      name: "Spezialitäten", 
+      name: t('nav.specialties'), 
       href: "/spezialitaeten", 
       current: location.pathname === "/spezialitaeten",
       title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
     },
     { 
-      name: "Speisekarte", 
+      name: t('nav.menu'), 
       href: "/speisekarte", 
       current: location.pathname === "/speisekarte",
       title: "Komplette Speisekarte mit Preisen - Orientalische Küche"
     },
     { 
-      name: "Über uns", 
+      name: t('nav.about'), 
       href: "/ueber-uns", 
       current: location.pathname === "/ueber-uns",
       title: "Über das Team von Sattuni - Die Brüder hinter der Küche"
     },
     { 
-      name: "Catering", 
+      name: t('nav.catering'), 
       href: "/catering", 
       current: location.pathname === "/catering",
       title: "Catering Service Düsseldorf - Arabische Küche für Events"
@@ -126,18 +129,19 @@ const Header = () => {
               }}
               className="text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
             >
-              Kontakt
+              {t('nav.contact')}
             </button>
           </nav>
           
-          {/* CTA Button Desktop */}
-          <div className="hidden md:block">
+          {/* Language Switcher & CTA Button Desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <Button 
               size="sm" 
               className="font-medium shadow-sm"
               onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
             >
-              Jetzt bestellen
+              {t('hero.orderNow')}
             </Button>
           </div>
           
@@ -151,9 +155,12 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-6 mt-8">
-                <div className="flex items-center space-x-3">
-                  <img src={sattunIcon} alt="Sattuni" className="h-8 w-8" />
-                  <span className="text-lg font-semibold font-display">sattuni</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <img src={sattunIcon} alt="Sattuni" className="h-8 w-8" />
+                    <span className="text-lg font-semibold font-display">sattuni</span>
+                  </div>
+                  <LanguageSwitcher />
                 </div>
                 
                 <nav className="flex flex-col space-y-4">
@@ -187,7 +194,7 @@ const Header = () => {
                     }}
                     className="text-foreground hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 text-left w-full"
                   >
-                    Kontakt
+                    {t('nav.contact')}
                   </button>
                 </nav>
                 
@@ -200,7 +207,7 @@ const Header = () => {
                       window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                     }}
                   >
-                    Jetzt bestellen
+                    {t('hero.orderNow')}
                   </Button>
                 </div>
               </div>
