@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp, HelpCircle } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import Header from "@/components/layout/Header";
 import Testimonials from "@/components/features/testimonials/Testimonials";
 import CateringContact from "@/components/features/catering/CateringContact";
@@ -14,6 +15,7 @@ import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
+  const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // SEO Meta Tags
@@ -147,53 +149,36 @@ const Catering = () => {
   const cateringServices = [
     {
       icon: UtensilsCrossed,
-      title: "Fingerfood",
-      description: "Kleine Häppchen mit großer Wirkung – für Events, die in Erinnerung bleiben.",
+      title: t('catering.serviceTypes.fingerfood.title'),
+      description: t('catering.serviceTypes.fingerfood.desc'),
     },
     {
       icon: Utensils, 
-      title: "Buffets",
-      description: "Für alle was dabei – vom entspannten Lunch bis zur großen Sause.",
+      title: t('catering.serviceTypes.buffets.title'),
+      description: t('catering.serviceTypes.buffets.desc'),
     },
     {
       icon: Salad,
-      title: "Veggie & Vegan", 
-      description: "Pflanzenpower, die auch Fleischfans überzeugt. Versprochen!",
+      title: t('catering.serviceTypes.veggie.title'), 
+      description: t('catering.serviceTypes.veggie.desc'),
     },
     {
       icon: Zap,
-      title: "Dein Wunsch-Menü",
-      description: "Sag uns, was du brauchst – wir machen's möglich.",
+      title: t('catering.serviceTypes.custom.title'),
+      description: t('catering.serviceTypes.custom.desc'),
     },
   ];
 
-  const usps = [
-    {
-      icon: Heart,
-      title: "Hausgemacht & frisch",
-      description: "Alles selbst gemacht, täglich frisch zubereitet",
-    },
-    {
-      icon: Leaf,
-      title: "Vielfalt für alle",
-      description: "Fleisch, vegetarisch & vegan – für jeden Geschmack",
-    },
-    {
-      icon: Users,
-      title: "Flexibel: 20–500 Personen",
-      description: "Kleine Runden bis große Feste",
-    },
-    {
-      icon: Sparkles,
-      title: "Mit Eventkompetenz",
-      description: "PurEvent macht dein Event unvergesslich",
-    },
-  ];
+  const usps = (t('catering.usps', { returnObjects: true }) as Array<{title: string, desc: string}>).map((usp, index) => ({
+    icon: [Heart, Leaf, Users, Sparkles][index],
+    title: usp.title,
+    description: usp.desc,
+  }));
 
   const processSteps = [
     {
       icon: Phone,
-      title: "Anfragen",
+      title: t('common.request'),
       description: "Erzähl uns von deinem Event",
     },
     {
@@ -216,8 +201,8 @@ const Catering = () => {
       <div className="pt-20">
         <Breadcrumb 
           items={[
-            { name: "Startseite", href: "/" },
-            { name: "Catering", href: "/catering", current: true }
+            { name: t('nav.home'), href: "/" },
+            { name: t('nav.catering'), href: "/catering", current: true }
           ]}
         />
       </div>
@@ -236,14 +221,11 @@ const Catering = () => {
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Dein Event. Unser Essen. 
-              <span className="block text-gradient bg-gradient-primary bg-clip-text text-transparent">
-                Entspannt genießen!
-              </span>
+              {t('catering.title')}
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Arabische Küche für private Feiern & Business-Events. Stressfrei für dich, lecker für alle.
+              {t('catering.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -262,7 +244,7 @@ const Catering = () => {
                   }
                 }}
               >
-                Lass uns reden
+                {t('catering.letsTalk')}
               </Button>
               <Button 
                 variant="outline" 
@@ -270,7 +252,7 @@ const Catering = () => {
                 className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg"
                 onClick={() => window.location.href = '/spezialitaeten'}
               >
-                Schau, was wir kochen
+                {t('catering.seeWhatWeCook')}
               </Button>
             </div>
             
@@ -279,9 +261,9 @@ const Catering = () => {
               <div className="flex items-center justify-center gap-3 text-white">
                 <TreePine className="w-8 h-8 text-emerald-200" />
                 <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Weihnachts-Special!</div>
+                  <div className="font-bold text-lg mb-1">{t('catering.christmasSpecial')}</div>
                   <div className="text-sm opacity-95 leading-relaxed">
-                    <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern Catering</span> mit Code{' '}
+                    <span className="font-semibold">{t('catering.christmasOffer')}</span> mit Code{' '}
                     <span className="font-bold bg-white/25 px-2 py-1 rounded-md text-emerald-100">
                       SATT25
                     </span>
@@ -302,31 +284,31 @@ const Catering = () => {
               onClick={() => document.getElementById('catering-services')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              Services
+              {t('catering.quickNav.services')}
             </button>
             <button 
               onClick={() => document.getElementById('beispielmenus')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              Beispielmenüs
+              {t('catering.quickNav.menus')}
             </button>
             <button 
               onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              So geht's
+              {t('catering.quickNav.process')}
             </button>
             <button 
               onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              FAQ
+              {t('catering.quickNav.faq')}
             </button>
             <button 
               onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-3 py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
             >
-              Anfragen
+              {t('catering.quickNav.request')}
             </button>
           </div>
         </div>
@@ -337,8 +319,7 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
-              Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. 
-              <span className="text-primary font-medium">So einfach kann Catering sein.</span>
+              {t('catering.intro')}
             </p>
           </div>
         </div>
@@ -349,7 +330,7 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Unsere Catering-Angebote
+              {t('catering.servicesTitle')}
             </h2>
           </div>
           
@@ -381,7 +362,7 @@ const Catering = () => {
                         }
                       }}
                     >
-                      Anfragen
+                      {t('common.request')}
                     </Button>
                   </CardContent>
                 </Card>
@@ -433,7 +414,7 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Warum Sattuni?
+              {t('catering.whySattuni')}
             </h2>
           </div>
           
