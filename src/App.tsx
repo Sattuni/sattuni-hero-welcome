@@ -12,6 +12,7 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
 import ChatbotPositioner from "./components/mobile/ChatbotPositioner";
+import CookieConsent from "./components/features/cookies/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <ChatbotPositioner />
+        <CookieConsent />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
