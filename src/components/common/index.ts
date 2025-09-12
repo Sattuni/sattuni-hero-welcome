@@ -1,10 +1,5 @@
-/**
- * Common Components Index
- * Wiederverwendbare Komponenten
- */
-
-// ===== IMAGE COMPONENTS =====
+// Common components
 export { default as LazyImage } from './LazyImage';
-
-// ===== LANGUAGE COMPONENTS =====
 export { default as LanguageSwitcher } from './LanguageSwitcher';
+export { default as SEOHead } from './SEOHead';
+export { default as StructuredData } from './StructuredData';

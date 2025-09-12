@@ -10,6 +10,7 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import InternalLinks from "@/components/layout/InternalLinks";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
+import { useLanguageRouting } from '@/hooks/useLanguageRouting';
 import ferasProfile from '@/assets/feras-profile.jpg';
 import hamudiProfile from '@/assets/hamudi-profile.jpg';
 import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
@@ -18,6 +19,9 @@ const AboutUs = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  
+  // Enable language routing
+  useLanguageRouting();
 
   useEffect(() => {
     // Scroll to top on page load

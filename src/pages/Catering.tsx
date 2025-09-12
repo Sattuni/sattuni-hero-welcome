@@ -12,11 +12,15 @@ import Breadcrumb from "@/components/layout/Breadcrumb";
 import InternalLinks from "@/components/layout/InternalLinks";
 import CateringFOMO from "@/components/features/marketing/CateringFOMO";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
+import { useLanguageRouting } from '@/hooks/useLanguageRouting';
 import heroCatering from "@/assets/hero-catering.jpg";
 
 const Catering = () => {
   const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  
+  // Enable language routing
+  useLanguageRouting();
 
   // SEO Meta Tags
   useEffect(() => {
