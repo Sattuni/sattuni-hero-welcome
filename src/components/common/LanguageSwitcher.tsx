@@ -7,15 +7,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import { useLanguageRouting } from '@/hooks/useLanguageRouting';
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
-  const { generateLanguageUrl } = useLanguageRouting();
 
   const changeLanguage = (lng: string) => {
-    // Navigate to the language-specific URL
-    window.location.href = generateLanguageUrl(lng);
+    i18n.changeLanguage(lng);
   };
 
   const currentLanguage = i18n.language === 'en' ? 'EN' : 'DE';

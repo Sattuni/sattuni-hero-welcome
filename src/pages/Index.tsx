@@ -16,14 +16,10 @@ import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
 import SectionNav from "@/components/layout/SectionNav";
 import InternalLinks from "@/components/layout/InternalLinks";
-import { useLanguageRouting } from '@/hooks/useLanguageRouting';
 import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
 const Index = () => {
   const { t } = useTranslation();
-  
-  // Enable language routing
-  useLanguageRouting();
   // SEO Meta Tags and Structured Data
   useEffect(() => {
     // Dynamic title based on language
