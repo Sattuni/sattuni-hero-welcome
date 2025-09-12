@@ -87,8 +87,8 @@ const Hero = () => {
               
               <Button 
                 variant="hero-secondary" 
-                size="lg"
-                className="min-w-[180px] text-sm font-medium"
+                size="xl"
+                className="min-w-[200px] text-base font-bold"
                 onClick={() => {
                   window.location.href = '/catering?scrollTo=contact';
                 }}
