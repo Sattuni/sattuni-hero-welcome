@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useTimeContext } from '@/hooks/useTimeContext';
+import { useTranslation } from 'react-i18next';
 
 const MobileCTABar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +13,7 @@ const MobileCTABar = () => {
   const { scrollY, scrollProgress } = useScrollPosition();
   const { ctaText } = useTimeContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isMobile) {
@@ -65,7 +67,7 @@ const MobileCTABar = () => {
           className="gap-2 h-10 px-3 text-sm"
         >
           <CalendarCheck className="w-4 h-4" />
-          Catering
+          {t('common.catering')}
         </Button>
       </div>
     </div>

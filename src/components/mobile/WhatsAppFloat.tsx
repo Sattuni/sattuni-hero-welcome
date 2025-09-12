@@ -2,11 +2,13 @@ import { MessageCircle, Utensils } from 'lucide-react';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const WhatsAppFloat = () => {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useMobileDetection();
   const { scrollProgress } = useScrollPosition();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Show WhatsApp float when mobile CTA bar is not prominent (first 30% of page)
@@ -19,7 +21,7 @@ const WhatsAppFloat = () => {
   }, [isMobile, scrollProgress]);
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent('Hi! Ich möchte bestellen. Könnt ihr mir eure Tageskarte schicken?');
+    const message = encodeURIComponent(t('common.whatsappMessage'));
     const phoneNumber = '4921136180115'; // German phone number format for WhatsApp
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
@@ -40,7 +42,7 @@ const WhatsAppFloat = () => {
         transform hover:scale-110
         ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
       `}
-      aria-label="WhatsApp bestellen"
+      aria-label={t('common.whatsappOrder')}
     >
       <MessageCircle className="w-6 h-6 text-white" />
     </button>

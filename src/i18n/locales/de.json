@@ -300,6 +300,148 @@
     "cancel": "Abbrechen",
     "submit": "Absenden",
     "language": "Sprache",
-    "request": "Anfragen"
+    "request": "Anfragen",
+    "orderNow": "Jetzt bestellen",
+    "orderNowToday": "Heute noch bestellen",
+    "openMenu": "Menü öffnen",
+    "whatsappOrder": "WhatsApp bestellen",
+    "whatsappMessage": "Hi! Ich möchte bestellen. Könnt ihr mir eure Tageskarte schicken?",
+    "catering": "Catering",
+    "backHome": "Zur Startseite",
+    "viewSpecialties": "Unsere Spezialitäten ansehen"
+  },
+  "navigation": {
+    "titles": {
+      "home": "Zur Startseite - Sattuni Oriental Bowls & More",
+      "specialties": "Spezialitäten entdecken - Authentische arabische Küche",
+      "menu": "Speisekarte ansehen - Falafel, Bowls & mehr",
+      "catering": "Catering Service - Events & Firmen-Catering",
+      "about": "Über uns - Die Sattuni Brüder aus Düsseldorf",
+      "contact": "Kontakt aufnehmen - Fragen & Catering-Anfragen"
+    }
+  },
+  "menu": {
+    "title": "Unsere Speisekarte",
+    "subtitle": "Entdecke unsere hausgemachten Spezialitäten – von knusprigen Falafel bis zu herzhaften Bowls. Alle Preise inklusive Lieferung in Düsseldorf.",
+    "categories": {
+      "dips": {
+        "title": "Dips & Vorspeisen",
+        "description": "Cremige Dips und frische Salate als perfekter Start",
+        "items": [
+          { "name": "Hummus klassisch", "price": "4,50€" },
+          { "name": "Hummus mit Pinienkerne", "price": "5,50€" },
+          { "name": "Baba Ganoush", "price": "4,50€" },
+          { "name": "Muhammara", "price": "4,50€" },
+          { "name": "Tabbouleh Salat", "price": "5,00€" },
+          { "name": "Fattoush Salat", "price": "6,00€" }
+        ]
+      },
+      "mains": {
+        "title": "Hauptgerichte & Bowls",
+        "description": "Sättigende Bowls und herzhafte Hauptgerichte",
+        "items": [
+          { "name": "Falafel Bowl", "price": "9,50€" },
+          { "name": "Chicken Shawarma Bowl", "price": "11,00€" },
+          { "name": "Couscous Bowl Vegan", "price": "8,50€" },
+          { "name": "Lamb Kofta Bowl", "price": "12,00€" },
+          { "name": "Mixed Grill Platte", "price": "14,50€" },
+          { "name": "Veggie Deluxe Bowl", "price": "9,00€" }
+        ]
+      },
+      "sides": {
+        "title": "Beilagen & Snacks",
+        "description": "Perfekte Ergänzungen zu deinem Hauptgericht",
+        "items": [
+          { "name": "Falafel (6 Stück)", "price": "6,00€" },
+          { "name": "Pita Brot (2 Stück)", "price": "2,50€" },
+          { "name": "Reis", "price": "3,00€" },
+          { "name": "Pommes", "price": "3,50€" },
+          { "name": "Oliven Mix", "price": "3,00€" }
+        ]
+      },
+      "drinks": {
+        "title": "Getränke",
+        "description": "Erfrischende Getränke zu deinem Essen",
+        "items": [
+          { "name": "Ayran", "price": "2,50€" },
+          { "name": "Mint Lemonade", "price": "3,50€" },
+          { "name": "Cola/Fanta/Sprite", "price": "2,50€" },
+          { "name": "Wasser still/sprudel", "price": "2,00€" },
+          { "name": "Arabischer Tee", "price": "3,00€" }
+        ]
+      }
+    },
+    "notice": {
+      "title": "Wichtige Hinweise",
+      "vegan": "Alle veganen und vegetarischen Gerichte sind deutlich markiert.",
+      "halal": "Unser Fleisch ist 100% halal zertifiziert.",
+      "delivery": "Kostenlose Lieferung in Düsseldorf ab 15€ Bestellwert."
+    },
+    "cta": {
+      "title": "Lust bekommen?",
+      "subtitle": "Bestelle jetzt online oder lass dich von unserem Catering-Service überzeugen.",
+      "orderButton": "Jetzt online bestellen",
+      "cateringButton": "Catering anfragen"
+    }
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "subtitle": "Die Seite existiert nicht. Lass uns dich zurück zu unserem leckeren arabischen Essen bringen!",
+    "buttons": {
+      "home": "Zur Startseite",
+      "specialties": "Unsere Spezialitäten ansehen"
+    }
+  },
+  "legal": {
+    "imprint": {
+      "title": "Impressum",
+      "subtitle": "Rechtliche Angaben gemäß § 5 TMG",
+      "sections": {
+        "provider": {
+          "title": "Angaben gemäß § 5 TMG",
+          "name": "Diensteanbieter:",
+          "company": "Feras Muhammad",
+          "business": "Sattuni (Einzelunternehmer)",
+          "street": "Johannstrasse 40",
+          "city": "40476 Düsseldorf"
+        },
+        "contact": {
+          "title": "Kontakt",
+          "phone": "Telefon:",
+          "email": "E-Mail:"
+        },
+        "vat": {
+          "title": "Umsatzsteuer-ID",
+          "description": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+          "number": "DE351329904"
+        },
+        "dispute": {
+          "title": "Verbraucherstreitbeilegung/Universalschlichtungsstelle",
+          "text": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+        },
+        "source": "Quelle: eRecht24"
+      }
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "subtitle": "Informationen zur Erhebung und Verarbeitung personenbezogener Daten",
+      "sections": {
+        "intro": {
+          "title": "Einleitung",
+          "content": "Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten wir zu welchen Zwecken und in welchem Umfang verarbeiten."
+        },
+        "responsible": {
+          "title": "Verantwortlicher",
+          "name": "Feras Muhammad",
+          "company": "Sattuni",
+          "address": "Johannstrasse 40, 40476 Düsseldorf",
+          "contact": "E-Mail: info@sattuni.de, Telefon: 0211 36180115"
+        },
+        "rights": {
+          "title": "Ihre Rechte",
+          "content": "Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu."
+        }
+      }
+    }
   }
 }

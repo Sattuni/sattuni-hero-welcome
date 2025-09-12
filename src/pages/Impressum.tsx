@@ -5,22 +5,25 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import { Scale, Mail, Phone, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslation } from 'react-i18next';
 
 const Impressum = () => {
+  const { t } = useTranslation();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const breadcrumbItems = [
-    { name: "Home", href: "/" },
-    { name: "Impressum", href: "/impressum" }
+    { name: t('nav.home'), href: "/" },
+    { name: t('legal.imprint.title'), href: "/impressum" }
   ];
 
   return (
     <>
       <Helmet>
-        <title>Impressum - Sattuni Oriental Bowls & More</title>
-        <meta name="description" content="Impressum und rechtliche Angaben von Sattuni - Oriental Bowls & More, Düsseldorf. Kontaktdaten und Unternehmensangaben gemäß TMG." />
+        <title>{t('legal.imprint.title')} - Sattuni Oriental Bowls & More</title>
+        <meta name="description" content={`${t('legal.imprint.subtitle')} ${t('footer.description')}`} />
         <link rel="canonical" href="https://sattuni.de/impressum" />
         <meta name="robots" content="index, follow" />
       </Helmet>
@@ -37,11 +40,11 @@ const Impressum = () => {
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Scale className="w-8 h-8 text-primary" />
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
-                  Impressum
+                  {t('legal.imprint.title')}
                 </h1>
               </div>
               <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
-                Rechtliche Angaben gemäß § 5 TMG
+                {t('legal.imprint.subtitle')}
               </p>
             </div>
 
@@ -51,17 +54,17 @@ const Impressum = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-xl font-display">
                     <MapPin className="w-5 h-5 text-primary" />
-                    Angaben gemäß § 5 TMG
+                    {t('legal.imprint.sections.provider.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 font-body">
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Diensteanbieter:</h3>
+                    <h3 className="font-semibold text-foreground mb-2">{t('legal.imprint.sections.provider.name')}</h3>
                     <p className="text-muted-foreground">
-                      Feras Muhammad<br />
-                      Sattuni (Einzelunternehmer)<br />
-                      Johannstrasse 40<br />
-                      40476 Düsseldorf
+                      {t('legal.imprint.sections.provider.company')}<br />
+                      {t('legal.imprint.sections.provider.business')}<br />
+                      {t('legal.imprint.sections.provider.street')}<br />
+                      {t('legal.imprint.sections.provider.city')}
                     </p>
                   </div>
                 </CardContent>
@@ -71,13 +74,13 @@ const Impressum = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-xl font-display">
                     <Phone className="w-5 h-5 text-primary" />
-                    Kontakt
+                    {t('legal.imprint.sections.contact.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 font-body">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <h3 className="font-semibold text-foreground mb-2">Telefon:</h3>
+                      <h3 className="font-semibold text-foreground mb-2">{t('legal.imprint.sections.contact.phone')}</h3>
                       <a 
                         href="tel:021136180115" 
                         className="text-primary hover:text-primary/80 transition-colors"
@@ -86,7 +89,7 @@ const Impressum = () => {
                       </a>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-2">E-Mail:</h3>
+                      <h3 className="font-semibold text-foreground mb-2">{t('legal.imprint.sections.contact.email')}</h3>
                       <a 
                         href="mailto:info@sattuni.de" 
                         className="text-primary hover:text-primary/80 transition-colors"
@@ -102,13 +105,13 @@ const Impressum = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-xl font-display">
                     <Scale className="w-5 h-5 text-primary" />
-                    Umsatzsteuer-ID
+                    {t('legal.imprint.sections.vat.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="font-body">
                   <p className="text-muted-foreground">
-                    Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: 
-                    <span className="font-semibold text-foreground ml-2">DE351329904</span>
+                    {t('legal.imprint.sections.vat.description')}
+                    <span className="font-semibold text-foreground ml-2">{t('legal.imprint.sections.vat.number')}</span>
                   </p>
                 </CardContent>
               </Card>
@@ -116,13 +119,12 @@ const Impressum = () => {
               <Card className="bg-card/95 backdrop-blur-sm border-border/50">
                 <CardHeader>
                   <CardTitle className="text-xl font-display">
-                    Verbraucherstreitbeilegung/Universalschlichtungsstelle
+                    {t('legal.imprint.sections.dispute.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="font-body">
                   <p className="text-muted-foreground">
-                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                    Verbraucherschlichtungsstelle teilzunehmen.
+                    {t('legal.imprint.sections.dispute.text')}
                   </p>
                 </CardContent>
               </Card>
@@ -130,7 +132,7 @@ const Impressum = () => {
               <Card className="bg-card/95 backdrop-blur-sm border-border/50">
                 <CardContent className="pt-6 font-body">
                   <p className="text-xs text-muted-foreground">
-                    <strong>Quelle:</strong> eRecht24
+                    <strong>{t('legal.imprint.sections.source')}:</strong> eRecht24
                   </p>
                 </CardContent>
               </Card>

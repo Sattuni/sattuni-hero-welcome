@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const useTimeContext = () => {
+  const { t } = useTranslation();
   const [timeContext, setTimeContext] = useState<{
     period: 'dinner' | 'other';
     ctaText: string;
   }>({
     period: 'other',
-    ctaText: 'Jetzt bestellen'
+    ctaText: t('common.orderNow')
   });
 
   useEffect(() => {
@@ -17,12 +19,12 @@ export const useTimeContext = () => {
       if (hour >= 17 && hour < 22) {
         setTimeContext({
           period: 'dinner',
-          ctaText: 'Heute noch bestellen'
+          ctaText: t('common.orderNowToday')
         });
       } else {
         setTimeContext({
           period: 'other',
-          ctaText: 'Jetzt bestellen'
+          ctaText: t('common.orderNow')
         });
       }
     };

@@ -17,31 +17,31 @@ const Header = () => {
       name: t('nav.home'), 
       href: "/", 
       current: location.pathname === "/",
-      title: "Zur Startseite - Arabische Küche Düsseldorf"
+      title: t('navigation.titles.home')
     },
     { 
       name: t('nav.specialties'), 
       href: "/spezialitaeten", 
       current: location.pathname === "/spezialitaeten",
-      title: "Arabische Spezialitäten - Hummus, Falafel & mehr"
+      title: t('navigation.titles.specialties')
     },
     { 
       name: t('nav.menu'), 
       href: "/speisekarte", 
       current: location.pathname === "/speisekarte",
-      title: "Komplette Speisekarte mit Preisen - Orientalische Küche"
+      title: t('navigation.titles.menu')
     },
     { 
       name: t('nav.about'), 
       href: "/ueber-uns", 
       current: location.pathname === "/ueber-uns",
-      title: "Über das Team von Sattuni - Die Brüder hinter der Küche"
+      title: t('navigation.titles.about')
     },
     { 
       name: t('nav.catering'), 
       href: "/catering", 
       current: location.pathname === "/catering",
-      title: "Catering Service Düsseldorf - Arabische Küche für Events"
+      title: t('navigation.titles.catering')
     },
   ];
 
@@ -150,7 +150,7 @@ const Header = () => {
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="sm" className="p-2 hover:bg-primary/10">
                 <Menu className="w-5 h-5 text-foreground" />
-                <span className="sr-only">Menü öffnen</span>
+                <span className="sr-only">{t('common.openMenu')}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">

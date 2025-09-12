@@ -300,6 +300,148 @@
     "cancel": "Cancel",
     "submit": "Submit",
     "language": "Language",
-    "request": "Request"
+    "request": "Request",
+    "orderNow": "Order Now",
+    "orderNowToday": "Order Today",
+    "openMenu": "Open Menu",
+    "whatsappOrder": "Order via WhatsApp",
+    "whatsappMessage": "Hi! I would like to order. Could you send me your daily menu?",
+    "catering": "Catering",
+    "backHome": "Back to Home",
+    "viewSpecialties": "View our Specialties"
+  },
+  "navigation": {
+    "titles": {
+      "home": "Home - Sattuni Oriental Bowls & More",
+      "specialties": "Discover Specialties - Authentic Arabic Cuisine",
+      "menu": "View Menu - Falafel, Bowls & more",
+      "catering": "Catering Service - Events & Corporate Catering",
+      "about": "About Us - The Sattuni Brothers from Düsseldorf",
+      "contact": "Contact Us - Questions & Catering Inquiries"
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Discover our homemade specialties – from crispy falafel to hearty bowls. All prices include delivery in Düsseldorf.",
+    "categories": {
+      "dips": {
+        "title": "Dips & Appetizers",
+        "description": "Creamy dips and fresh salads as the perfect start",
+        "items": [
+          { "name": "Classic Hummus", "price": "4,50€" },
+          { "name": "Hummus with Pine Nuts", "price": "5,50€" },
+          { "name": "Baba Ganoush", "price": "4,50€" },
+          { "name": "Muhammara", "price": "4,50€" },
+          { "name": "Tabbouleh Salad", "price": "5,00€" },
+          { "name": "Fattoush Salad", "price": "6,00€" }
+        ]
+      },
+      "mains": {
+        "title": "Main Dishes & Bowls",
+        "description": "Filling bowls and hearty main dishes",
+        "items": [
+          { "name": "Falafel Bowl", "price": "9,50€" },
+          { "name": "Chicken Shawarma Bowl", "price": "11,00€" },
+          { "name": "Couscous Bowl Vegan", "price": "8,50€" },
+          { "name": "Lamb Kofta Bowl", "price": "12,00€" },
+          { "name": "Mixed Grill Platter", "price": "14,50€" },
+          { "name": "Veggie Deluxe Bowl", "price": "9,00€" }
+        ]
+      },
+      "sides": {
+        "title": "Sides & Snacks",
+        "description": "Perfect additions to your main course",
+        "items": [
+          { "name": "Falafel (6 pieces)", "price": "6,00€" },
+          { "name": "Pita Bread (2 pieces)", "price": "2,50€" },
+          { "name": "Rice", "price": "3,00€" },
+          { "name": "Fries", "price": "3,50€" },
+          { "name": "Mixed Olives", "price": "3,00€" }
+        ]
+      },
+      "drinks": {
+        "title": "Drinks",
+        "description": "Refreshing beverages to complement your meal",
+        "items": [
+          { "name": "Ayran", "price": "2,50€" },
+          { "name": "Mint Lemonade", "price": "3,50€" },
+          { "name": "Cola/Fanta/Sprite", "price": "2,50€" },
+          { "name": "Water still/sparkling", "price": "2,00€" },
+          { "name": "Arabic Tea", "price": "3,00€" }
+        ]
+      }
+    },
+    "notice": {
+      "title": "Important Notes",
+      "vegan": "All vegan and vegetarian dishes are clearly marked.",
+      "halal": "Our meat is 100% halal certified.",
+      "delivery": "Free delivery in Düsseldorf for orders over 15€."
+    },
+    "cta": {
+      "title": "Tempted?",
+      "subtitle": "Order online now or let our catering service convince you.",
+      "orderButton": "Order online now",
+      "cateringButton": "Request catering"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "This page doesn't exist. Let us take you back to our delicious Arabic food!",
+    "buttons": {
+      "home": "Back to Home",
+      "specialties": "View our Specialties"
+    }
+  },
+  "legal": {
+    "imprint": {
+      "title": "Legal Notice",
+      "subtitle": "Legal information according to § 5 TMG",
+      "sections": {
+        "provider": {
+          "title": "Information according to § 5 TMG",
+          "name": "Service Provider:",
+          "company": "Feras Muhammad",
+          "business": "Sattuni (Sole Proprietorship)",
+          "street": "Johannstrasse 40",
+          "city": "40476 Düsseldorf"
+        },
+        "contact": {
+          "title": "Contact",
+          "phone": "Phone:",
+          "email": "Email:"
+        },
+        "vat": {
+          "title": "VAT ID",
+          "description": "VAT identification number according to § 27 a VAT law:",
+          "number": "DE351329904"
+        },
+        "dispute": {
+          "title": "Consumer Dispute Resolution/Universal Arbitration Board",
+          "text": "We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board."
+        },
+        "source": "Source: eRecht24"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "Information about the collection and processing of personal data",
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "content": "With the following privacy policy, we would like to inform you about what types of your personal data we process for what purposes and to what extent."
+        },
+        "responsible": {
+          "title": "Responsible Party",
+          "name": "Feras Muhammad",
+          "company": "Sattuni",
+          "address": "Johannstrasse 40, 40476 Düsseldorf",
+          "contact": "Email: info@sattuni.de, Phone: 0211 36180115"
+        },
+        "rights": {
+          "title": "Your Rights",
+          "content": "You generally have the rights to information, correction, deletion, restriction, data portability, revocation and objection."
+        }
+      }
+    }
   }
 }
