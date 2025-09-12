@@ -209,13 +209,13 @@ const AboutUs = () => {
 
               <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                 {/* Feras Card */}
-                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
+                <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
                       <img 
                         src="/lovable-uploads/9aac3d69-5c9c-483e-8650-92d5ccc427f7.png" 
                         alt="Feras - Chef und Küchenchef bei Sattuni" 
-                        className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
@@ -239,13 +239,13 @@ const AboutUs = () => {
                 </Card>
 
                 {/* Hamudi Card */}
-                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
+                <Card className="group bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-warm transition-all duration-300">
                   <CardContent className="p-8 text-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 ring-2 ring-primary/20">
                       <img 
                         src="/lovable-uploads/86e32e96-adf6-4842-b797-4be3e991aac7.png" 
                         alt="Hamudi - Organisation und Kundenbetreuung bei Sattuni" 
-                        className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
