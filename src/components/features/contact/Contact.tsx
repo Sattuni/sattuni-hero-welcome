@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from 'react-i18next';
 import { Send, Mail, User, MessageCircle, Phone, Clock, CheckCircle } from "lucide-react";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,8 +48,8 @@ const Contact = () => {
     
     if (!formData.email || !formData.message) {
       toast({
-        title: "Bitte Pflichtfelder ausfüllen",
-        description: "E-Mail und Nachricht sind erforderlich.",
+        title: t('contact.requiredError'),
+        description: t('contact.requiredErrorDesc'),
         variant: "destructive"
       });
       return;
@@ -58,8 +60,8 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Danke, wir melden uns bald bei dir!",
-        description: "Deine Nachricht ist bei uns angekommen. Wir antworten normalerweise innerhalb von 24 Stunden.",
+        title: t('contact.successTitle'),
+        description: t('contact.successDesc'),
         duration: 5000
       });
       
@@ -80,10 +82,10 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Schreib uns kurz
+            {t('contact.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Ob Bestellung, Catering oder einfach eine Frage – wir melden uns schnell zurück.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -93,7 +95,7 @@ const Contact = () => {
             {/* Progress Bar */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-foreground">Formular ausfüllen</span>
+                <span className="text-sm font-medium text-foreground">{t('contact.formProgress')}</span>
                 <span className="text-sm text-muted-foreground">{progress}%</span>
               </div>
               <div className="w-full bg-muted rounded-full h-2">
@@ -105,7 +107,7 @@ const Contact = () => {
               {progress === 100 && (
                 <div className="flex items-center gap-2 mt-2 text-primary">
                   <CheckCircle className="w-4 h-4" />
-                  <span className="text-sm font-medium">Bereit zum Absenden!</span>
+                  <span className="text-sm font-medium">{t('contact.readyToSubmit')}</span>
                 </div>
               )}
             </div>
@@ -115,13 +117,13 @@ const Contact = () => {
               <div className="space-y-3">
                 <Label htmlFor="email" className="text-foreground font-medium flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
-                  E-Mail <span className="text-destructive">*</span>
+                  {t('contact.email')} <span className="text-destructive">*</span>
                 </Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="deine@email.de"
+                  placeholder={t('contact.placeholders.email')}
                   value={formData.email}
                   onChange={handleInputChange}
                   className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
@@ -135,12 +137,12 @@ const Contact = () => {
               <div className="space-y-3">
                 <Label htmlFor="message" className="text-foreground font-medium flex items-center gap-2">
                   <MessageCircle className="w-4 h-4 text-primary" />
-                  Nachricht <span className="text-destructive">*</span>
+                  {t('contact.message')} <span className="text-destructive">*</span>
                 </Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Erzähl uns, womit wir dir helfen können..."
+                  placeholder={t('contact.placeholders.message')}
                   value={formData.message}
                   onChange={handleInputChange}
                   className="min-h-[120px] text-lg border-border/50 focus:border-primary transition-colors resize-none"
@@ -152,20 +154,20 @@ const Contact = () => {
               {/* Optional Fields Section */}
               <div className="border-t border-border/30 pt-6">
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Optional (hilft uns, besser zu helfen)</h4>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('contact.optional')}</h4>
                 </div>
 
                 {/* Name Field - Optional */}
                 <div className="space-y-3 mb-4">
                   <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2">
                     <User className="w-4 h-4 text-muted-foreground" />
-                    Name <span className="text-xs text-muted-foreground">(optional)</span>
+                    {t('contact.name')} <span className="text-xs text-muted-foreground">{t('contact.optionalLabel')}</span>
                   </Label>
                   <Input
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="Wie heißt du?"
+                    placeholder={t('contact.placeholders.name')}
                     value={formData.name}
                     onChange={handleInputChange}
                     className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
@@ -178,13 +180,13 @@ const Contact = () => {
                 <div className="space-y-3">
                   <Label htmlFor="phone" className="text-foreground font-medium flex items-center gap-2">
                     <Phone className="w-4 h-4 text-muted-foreground" />
-                    Telefon <span className="text-xs text-muted-foreground">(für Rückrufe)</span>
+                    {t('contact.phone')} <span className="text-xs text-muted-foreground">{t('contact.phoneLabel')}</span>
                   </Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+49 xxx xxx xxxx"
+                    placeholder={t('contact.placeholders.phone')}
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
@@ -206,17 +208,17 @@ const Contact = () => {
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                      Wird gesendet...
+                      {t('contact.sending')}
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Absenden
+                      {t('contact.submit')}
                     </>
                   )}
                 </Button>
                 <p className="text-xs text-muted-foreground mt-2 text-center">
-                  <span className="text-destructive">*</span> Pflichtfelder
+                  <span className="text-destructive">*</span> {t('contact.required')}
                 </p>
               </div>
             </form>
@@ -231,8 +233,8 @@ const Contact = () => {
                 <Mail className="w-5 h-5 text-white" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">E-Mail</div>
-                <div className="font-medium text-foreground">info@sattuni.de</div>
+                <div className="text-sm text-muted-foreground">{t('footer.emailLabel')}</div>
+                <div className="font-medium text-foreground">{t('footer.email')}</div>
               </div>
             </div>
             
@@ -241,7 +243,7 @@ const Contact = () => {
                 <Phone className="w-5 h-5 text-white" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">Telefon</div>
+                <div className="text-sm text-muted-foreground">{t('footer.phoneLabel')}</div>
                 <div className="font-medium text-foreground">0211 36180115</div>
               </div>
             </div>
@@ -251,8 +253,8 @@ const Contact = () => {
                 <Clock className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">Antwortzeit</div>
-                <div className="font-medium text-foreground">Meist &lt; 24h</div>
+                <div className="text-sm text-muted-foreground">{t('contact.responseLabel')}</div>
+                <div className="font-medium text-foreground">{t('contact.responseTime')}</div>
               </div>
             </div>
           </div>

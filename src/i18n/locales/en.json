@@ -44,8 +44,141 @@
     "followUs": "Follow Us",
     "address": "Johannstraße 40, 40476 Düsseldorf",
     "phone": "+49 211 17607757",
-    "email": "info@sattuni.de", 
-    "rights": "All rights reserved."
+    "email": "info@sattuni.de",
+    "rights": "All rights reserved.",
+    "description": "Authentic Arabic cuisine in Düsseldorf. Freshly prepared for everyday and special occasions.",
+    "contactInfo": "Contact & Links",
+    "cateringServices": "Catering Services",
+    "fullContact": "Full Contact",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "legalLinks": {
+      "privacy": "Privacy Policy",
+      "imprint": "Legal Notice", 
+      "terms": "Terms"
+    },
+    "services": [
+      "Finger Food",
+      "Buffets", 
+      "Vegan Options",
+      "Corporate Events",
+      "Private Parties"
+    ]
+  },
+  "contact": {
+    "title": "Drop us a line",
+    "subtitle": "Whether it's an order, catering or just a question – we'll get back to you quickly.",
+    "formProgress": "Fill out form",
+    "readyToSubmit": "Ready to submit!",
+    "email": "Email",
+    "message": "Message",
+    "name": "Name",
+    "phone": "Phone",
+    "optional": "Optional (helps us help you better)",
+    "optionalLabel": "(optional)",
+    "phoneLabel": "(for callbacks)",
+    "required": "Required fields",
+    "placeholders": {
+      "email": "your@email.com",
+      "message": "Tell us how we can help you...",
+      "name": "What's your name?",
+      "phone": "+49 xxx xxx xxxx"
+    },
+    "submit": "Submit",
+    "sending": "Sending...",
+    "requiredError": "Please fill in required fields",
+    "requiredErrorDesc": "Email and message are required.",
+    "successTitle": "Thanks, we'll get back to you soon!",
+    "successDesc": "Your message has reached us. We usually respond within 24 hours.",
+    "responseTime": "Usually < 24h",
+    "responseLabel": "Response Time"
+  },
+  "about": {
+    "title": "Cooking & Caring – our brother job",
+    "subtitle": "Two brothers, one mission: Making really good food. Feras works magic in the kitchen, Hamudi handles the rest. Simple as that.",
+    "discoverSpecialties": "Discover our specialties",
+    "whoWeAre": "Who we are",
+    "whoWeAreDesc": "We are two brothers who reinterpret Arabic cuisine in Düsseldorf – fresh, homemade, modern. No drama, no frills. Just good food.",
+    "brothers": {
+      "feras": {
+        "name": "Feras",
+        "tasks": ["Does the shopping", "Cooks", "Invents new things"]
+      },
+      "hamudi": {
+        "name": "Hamudi", 
+        "tasks": ["Talks to you", "Organizes everything", "Brings it over"]
+      }
+    },
+    "humor": {
+      "line1": "One cooks. One talks.",
+      "line2": "One thinks in recipes. One in processes.",
+      "line3": "Together we keep you satisfied."
+    },
+    "importantToUs": "What's important to us",
+    "values": [
+      "Homemade & fresh",
+      "Variety: Meat, vegetarian & vegan", 
+      "Delivery service & Catering",
+      "Personal & uncomplicated"
+    ],
+    "valuesDesc": "Whether dinner at home or an event with hundreds of guests – we take care of it.",
+    "partners": "Our partners",
+    "partnersDesc": "We are proud to regularly work with these companies and enrich their events."
+  },
+  "catering": {
+    "title": "Your Event. Our Food. Relax & Enjoy!",
+    "subtitle": "Arabic cuisine for private parties & business events. Stress-free for you, delicious for everyone.",
+    "letsTalk": "Let's talk",
+    "seeWhatWeCook": "See what we cook",
+    "christmasSpecial": "Christmas Special!",
+    "christmasOffer": "10% discount on Christmas party catering",
+    "quickNav": {
+      "services": "Services",
+      "menus": "Sample Menus", 
+      "process": "How it works",
+      "faq": "FAQ",
+      "request": "Request"
+    },
+    "intro": "You celebrate, we cook. You relax, your guests rave. Catering can be this simple.",
+    "servicesTitle": "Our Catering Services",
+    "serviceTypes": {
+      "fingerfood": {
+        "title": "Finger Food",
+        "desc": "Small bites with big impact – for events that are remembered."
+      },
+      "buffets": {
+        "title": "Buffets", 
+        "desc": "Something for everyone – from relaxed lunch to big celebrations."
+      },
+      "veggie": {
+        "title": "Veggie & Vegan",
+        "desc": "Plant power that convinces even meat fans. Promised!"
+      },
+      "custom": {
+        "title": "Your Custom Menu",
+        "desc": "Tell us what you need – we'll make it possible."
+      }
+    },
+    "whySattuni": "Why Sattuni?",
+    "usps": [
+      {
+        "title": "Homemade & fresh",
+        "desc": "Everything made from scratch, freshly prepared daily"
+      },
+      {
+        "title": "Variety for all", 
+        "desc": "Meat, vegetarian & vegan – for every taste"
+      },
+      {
+        "title": "Flexible: 20–500 people",
+        "desc": "Small gatherings to large celebrations"
+      },
+      {
+        "title": "With event expertise",
+        "desc": "PurEvent makes your event unforgettable"
+      }
+    ]
   },
   "common": {
     "loading": "Loading...",
@@ -55,6 +188,7 @@
     "save": "Save",
     "cancel": "Cancel",
     "submit": "Submit",
-    "language": "Language"
+    "language": "Language",
+    "request": "Request"
   }
 }

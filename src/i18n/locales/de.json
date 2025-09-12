@@ -44,8 +44,141 @@
     "followUs": "Folge uns",
     "address": "Johannstraße 40, 40476 Düsseldorf",
     "phone": "+49 211 17607757",
-    "email": "info@sattuni.de", 
-    "rights": "Alle Rechte vorbehalten."
+    "email": "info@sattuni.de",
+    "rights": "Alle Rechte vorbehalten.",
+    "description": "Authentische arabische Küche in Düsseldorf. Frisch zubereitet für Alltag und besondere Anlässe.",
+    "contactInfo": "Kontakt & Links",
+    "cateringServices": "Catering Services",
+    "fullContact": "Vollständiger Kontakt",
+    "addressLabel": "Adresse",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail",
+    "legalLinks": {
+      "privacy": "Datenschutz",
+      "imprint": "Impressum", 
+      "terms": "AGB"
+    },
+    "services": [
+      "Fingerfood",
+      "Buffets", 
+      "Vegane Optionen",
+      "Firmen-Events",
+      "Private Feiern"
+    ]
+  },
+  "contact": {
+    "title": "Schreib uns kurz",
+    "subtitle": "Ob Bestellung, Catering oder einfach eine Frage – wir melden uns schnell zurück.",
+    "formProgress": "Formular ausfüllen",
+    "readyToSubmit": "Bereit zum Absenden!",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "name": "Name",
+    "phone": "Telefon",
+    "optional": "Optional (hilft uns, besser zu helfen)",
+    "optionalLabel": "(optional)",
+    "phoneLabel": "(für Rückrufe)",
+    "required": "Pflichtfelder",
+    "placeholders": {
+      "email": "deine@email.de",
+      "message": "Erzähl uns, womit wir dir helfen können...",
+      "name": "Wie heißt du?",
+      "phone": "+49 xxx xxx xxxx"
+    },
+    "submit": "Absenden",
+    "sending": "Wird gesendet...",
+    "requiredError": "Bitte Pflichtfelder ausfüllen",
+    "requiredErrorDesc": "E-Mail und Nachricht sind erforderlich.",
+    "successTitle": "Danke, wir melden uns bald bei dir!",
+    "successDesc": "Deine Nachricht ist bei uns angekommen. Wir antworten normalerweise innerhalb von 24 Stunden.",
+    "responseTime": "Meist < 24h",
+    "responseLabel": "Antwortzeit"
+  },
+  "about": {
+    "title": "Kochen & Kümmern – unser Bruderjob",
+    "subtitle": "Zwei Brüder, eine Mission: Richtig gutes Essen machen. Feras zaubert in der Küche, Hamudi macht den Rest. Simple as that.",
+    "discoverSpecialties": "Unsere Spezialitäten entdecken",
+    "whoWeAre": "Wer wir sind",
+    "whoWeAreDesc": "Wir sind zwei Brüder, die arabische Küche in Düsseldorf neu interpretieren – frisch, hausgemacht, modern. Ohne Drama, ohne Schnickschnack. Einfach gutes Essen.",
+    "brothers": {
+      "feras": {
+        "name": "Feras",
+        "tasks": ["Kauft ein", "Kocht", "Denkt sich was Neues aus"]
+      },
+      "hamudi": {
+        "name": "Hamudi", 
+        "tasks": ["Redet mit euch", "Organisiert alles", "Bringt's vorbei"]
+      }
+    },
+    "humor": {
+      "line1": "Einer kocht. Einer redet.",
+      "line2": "Einer denkt in Rezepten. Einer in Abläufen.",
+      "line3": "Zusammen machen wir euch satt."
+    },
+    "importantToUs": "Was uns wichtig ist",
+    "values": [
+      "Hausgemacht & frisch",
+      "Vielfalt: Fleisch, vegetarisch & vegan", 
+      "Lieferservice & Catering",
+      "Persönlich & unkompliziert"
+    ],
+    "valuesDesc": "Ob Abendessen zuhause oder Event mit hunderten Gästen – wir kümmern uns drum.",
+    "partners": "Unsere Partner",
+    "partnersDesc": "Wir sind stolz darauf, regelmäßig mit diesen Unternehmen zusammenzuarbeiten und ihre Events zu bereichern."
+  },
+  "catering": {
+    "title": "Dein Event. Unser Essen. Entspannt genießen!",
+    "subtitle": "Arabische Küche für private Feiern & Business-Events. Stressfrei für dich, lecker für alle.",
+    "letsTalk": "Lass uns reden",
+    "seeWhatWeCook": "Schau, was wir kochen",
+    "christmasSpecial": "Weihnachts-Special!",
+    "christmasOffer": "10% Rabatt auf Weihnachtsfeiern Catering",
+    "quickNav": {
+      "services": "Services",
+      "menus": "Beispielmenüs", 
+      "process": "So geht's",
+      "faq": "FAQ",
+      "request": "Anfragen"
+    },
+    "intro": "Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. So einfach kann Catering sein.",
+    "servicesTitle": "Unsere Catering-Angebote",
+    "serviceTypes": {
+      "fingerfood": {
+        "title": "Fingerfood",
+        "desc": "Kleine Häppchen mit großer Wirkung – für Events, die in Erinnerung bleiben."
+      },
+      "buffets": {
+        "title": "Buffets", 
+        "desc": "Für alle was dabei – vom entspannten Lunch bis zur großen Sause."
+      },
+      "veggie": {
+        "title": "Veggie & Vegan",
+        "desc": "Pflanzenpower, die auch Fleischfans überzeugt. Versprochen!"
+      },
+      "custom": {
+        "title": "Dein Wunsch-Menü",
+        "desc": "Sag uns, was du brauchst – wir machen's möglich."
+      }
+    },
+    "whySattuni": "Warum Sattuni?",
+    "usps": [
+      {
+        "title": "Hausgemacht & frisch",
+        "desc": "Alles selbst gemacht, täglich frisch zubereitet"
+      },
+      {
+        "title": "Vielfalt für alle", 
+        "desc": "Fleisch, vegetarisch & vegan – für jeden Geschmack"
+      },
+      {
+        "title": "Flexibel: 20–500 Personen",
+        "desc": "Kleine Runden bis große Feste"
+      },
+      {
+        "title": "Mit Eventkompetenz",
+        "desc": "PurEvent macht dein Event unvergesslich"
+      }
+    ]
   },
   "common": {
     "loading": "Lädt...",
@@ -55,6 +188,7 @@
     "save": "Speichern",
     "cancel": "Abbrechen",
     "submit": "Absenden",
-    "language": "Sprache"
+    "language": "Sprache",
+    "request": "Anfragen"
   }
 }
