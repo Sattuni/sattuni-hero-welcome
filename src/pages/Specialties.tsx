@@ -219,7 +219,7 @@ const Specialties = () => {
         {/* Hero Section - Optimized Height */}
         <section 
           className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroSpecialties});` }}
+          style={{ backgroundImage: `url(${heroSpecialties})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
           
