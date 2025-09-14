@@ -4,9 +4,9 @@ import { ArrowRight, Utensils } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 // Import food images
-import dipsImage from "@/assets/dips-vorspeisen.jpg";
-import falafelImage from "@/assets/falafel-teigtaschen.jpg";
-import bowlsImage from "@/assets/bowls-hauptgerichte.jpg";
+import bowlsImage from "@/assets/bowls/bowls-hauptgerichte.jpg";
+import dipsImage from "@/assets/dips/dips-vorspeisen.jpg";
+import falafelImage from "@/assets/falafel/falafel-teigtaschen.jpg";
 
 const FoodShowcase = () => {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ const FoodShowcase = () => {
                   alt={category.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10"></div>
               </div>
               
               <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">

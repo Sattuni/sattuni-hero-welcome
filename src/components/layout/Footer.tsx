@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Instagram, ChevronUp, ChevronDown, Map } from "lucide-react";
-import { useState } from "react";
+import sattunIcon from "@/assets/icons/sattuni-header-icon.png";
 import { useMobileDetection } from "@/hooks/useMobileDetection";
-import sattunIcon from "@/assets/sattuni-icon.png";
+import { ChevronDown, ChevronUp, Instagram, Mail, Map, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isExpanded, setIsExpanded] = useState(false);

@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import sattunIcon from "@/assets/icons/sattuni-header-icon.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
-import sattunIcon from "@/assets/sattuni-icon.png";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

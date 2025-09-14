@@ -1,26 +1,26 @@
+import bowlsHauptgerichte2 from "@/assets/bowls/bowls-hauptgerichte-2.jpg";
+import bowlsHauptgerichte3 from "@/assets/bowls/bowls-hauptgerichte-3.jpg";
+import bowlsHauptgerichte4 from "@/assets/bowls/bowls-hauptgerichte-4.jpg";
+import bowlsHauptgerichte from "@/assets/bowls/bowls-hauptgerichte.jpg";
+import dipsVorspeisen2 from "@/assets/dips/dips-vorspeisen-2.jpg";
+import dipsVorspeisen3 from "@/assets/dips/dips-vorspeisen-3.jpg";
+import dipsVorspeisen4 from "@/assets/dips/dips-vorspeisen-4.jpg";
+import dipsVorspeisen from "@/assets/dips/dips-vorspeisen.jpg";
+import falafelTeigtaschen2 from "@/assets/falafel/falafel-teigtaschen-2.jpg";
+import falafelTeigtaschen3 from "@/assets/falafel/falafel-teigtaschen-3.jpg";
+import falafelTeigtaschen4 from "@/assets/falafel/falafel-teigtaschen-4.jpg";
+import falafelTeigtaschen from "@/assets/falafel/falafel-teigtaschen.jpg";
+import heroSpecialties from "@/assets/hero/hero-specialties.jpg";
+import FOMOElements from "@/components/features/marketing/FOMOElements";
+import Breadcrumb from "@/components/layout/Breadcrumb";
+import Header from "@/components/layout/Header";
+import InternalLinks from "@/components/layout/InternalLinks";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Helmet } from "react-helmet";
-import Header from "@/components/layout/Header";
-import FOMOElements from "@/components/features/marketing/FOMOElements";
-import Breadcrumb from "@/components/layout/Breadcrumb";
-import InternalLinks from "@/components/layout/InternalLinks";
-import { Utensils, Leaf, Truck, Calendar, ArrowUp } from "lucide-react";
+import { ArrowUp, Calendar, Leaf, Truck, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
-import heroSpecialties from "@/assets/hero-specialties.jpg";
-import dipsVorspeisen from "@/assets/dips-vorspeisen.jpg";
-import dipsVorspeisen2 from "@/assets/dips-vorspeisen-2.jpg";
-import dipsVorspeisen3 from "@/assets/dips-vorspeisen-3.jpg";
-import dipsVorspeisen4 from "@/assets/dips-vorspeisen-4.jpg";
-import falafelTeigtaschen from "@/assets/falafel-teigtaschen.jpg";
-import falafelTeigtaschen2 from "@/assets/falafel-teigtaschen-2.jpg";
-import falafelTeigtaschen3 from "@/assets/falafel-teigtaschen-3.jpg";
-import falafelTeigtaschen4 from "@/assets/falafel-teigtaschen-4.jpg";
-import bowlsHauptgerichte from "@/assets/bowls-hauptgerichte.jpg";
-import bowlsHauptgerichte2 from "@/assets/bowls-hauptgerichte-2.jpg";
-import bowlsHauptgerichte3 from "@/assets/bowls-hauptgerichte-3.jpg";
-import bowlsHauptgerichte4 from "@/assets/bowls-hauptgerichte-4.jpg";
+import { Helmet } from "react-helmet";
 
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -77,7 +77,7 @@ const Specialties = () => {
                 "position": 1,
                 "name": "Hummus",
                 "description": "Cremiger Kichererbsendip mit Tahini, Olivenöl und Gewürzen",
-                "image": "https://sattuni.de/dips-vorspeisen.jpg",
+                "image": "https://sattuni.de/dips/dips-vorspeisen.jpg",
                 "cuisine": "Arabisch",
                 "keywords": "hummus, kichererbsen, tahini, vegan, glutenfrei",
                 "nutrition": {
@@ -92,7 +92,7 @@ const Specialties = () => {
                 "position": 2,
                 "name": "Falafel",
                 "description": "Knusprige Kichererbsenbällchen, hausgemacht und traditionell gewürzt",
-                "image": "https://sattuni.de/falafel-teigtaschen.jpg",
+                "image": "https://sattuni.de/falafel/falafel-teigtaschen.jpg",
                 "cuisine": "Arabisch",
                 "keywords": "falafel, kichererbsen, vegan, protein, hausgemacht"
               },
@@ -101,7 +101,7 @@ const Specialties = () => {
                 "position": 3,
                 "name": "Couscous Bowl",
                 "description": "Sättigende Bowl mit Couscous, gegrilltem Gemüse und frischen Kräutern",
-                "image": "https://sattuni.de/bowls-hauptgerichte.jpg",
+                "image": "https://sattuni.de/bowls/bowls-hauptgerichte.jpg",
                 "cuisine": "Arabisch",
                 "keywords": "couscous, bowl, gemüse, vegetarisch, vollwertig"
               }
@@ -203,7 +203,7 @@ const Specialties = () => {
         <meta property="og:title" content="Arabische Spezialitäten in Düsseldorf - Sattuni" />
         <meta property="og:description" content="Authentische arabische Küche: Hummus, Falafel, Couscous Bowls und mehr. Hausgemacht und frisch in Düsseldorf." />
         <meta property="og:url" content="https://sattuni.de/spezialitaeten" />
-        <meta property="og:image" content="https://sattuni.de/hero-specialties.jpg" />
+        <meta property="og:image" content="https://sattuni.de/hero/hero-specialties.jpg" />
         <link rel="canonical" href="https://sattuni.de/spezialitaeten" />
       </Helmet>
       
@@ -219,9 +219,9 @@ const Specialties = () => {
         {/* Hero Section - Optimized Height */}
         <section 
           className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroSpecialties})` }}
+          style={{ backgroundImage: `url(${heroSpecialties});` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
           
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 drop-shadow-lg">

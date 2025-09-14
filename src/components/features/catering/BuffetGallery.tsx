@@ -1,19 +1,14 @@
-import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useState } from "react";
 
 // Import buffet images
-import bowls1 from "@/assets/bowls-hauptgerichte.jpg";
 import bowls2 from "@/assets/bowls-hauptgerichte-2.jpg";
-import bowls3 from "@/assets/bowls-hauptgerichte-3.jpg";
-import bowls4 from "@/assets/bowls-hauptgerichte-4.jpg";
-import dips1 from "@/assets/dips-vorspeisen.jpg";
+import bowls1 from "@/assets/bowls-hauptgerichte.jpg";
 import dips2 from "@/assets/dips-vorspeisen-2.jpg";
-import dips3 from "@/assets/dips-vorspeisen-3.jpg";
-import dips4 from "@/assets/dips-vorspeisen-4.jpg";
+import dips1 from "@/assets/dips-vorspeisen.jpg";
 import falafel1 from "@/assets/falafel-teigtaschen.jpg";
-import falafel2 from "@/assets/falafel-teigtaschen-2.jpg";
 
 const buffetImages = [
   { src: bowls1, title: "Bowl Buffet", description: "Gesunde Bowls mit frischen Zutaten" },

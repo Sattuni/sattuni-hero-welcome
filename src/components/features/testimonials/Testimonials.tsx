@@ -1,6 +1,6 @@
-import { Star, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronDown, ChevronUp, ExternalLink, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Testimonials = () => {
@@ -252,7 +252,7 @@ const Testimonials = () => {
           <Button 
             variant="hero" 
             size="sm"
-            className="gap-2 text-sm md:text-base md:px-6 md:py-3"
+            className="gap-2 text-sm mx-2 md:text-base md:px-6 md:py-3 rounded-full border border-border/30 box-border"
             onClick={() => window.open('https://maps.app.goo.gl/qRyjid3sNZhw8Nds9?g_st=ia', '_blank')}
           >
             <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
@@ -261,7 +261,7 @@ const Testimonials = () => {
           </Button>
           
           {/* Trust Badge */}
-          <div className="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-card/60 backdrop-blur-sm rounded-full border border-border/30">
+          <div className="mt-8 mx-2 inline-flex items-center gap-3 px-6 py-3 bg-card/60 backdrop-blur-sm rounded-full border border-border/30 box-border">
             <div className="flex items-center gap-1">
               {renderStars(5)}
             </div>

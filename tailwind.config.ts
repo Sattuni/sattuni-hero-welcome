@@ -61,10 +61,15 @@ export default {
       backgroundImage: {
         'gradient-warm': 'var(--gradient-warm)',
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-sage': 'var(--gradient-sage)',
+        'gradient-subtle': 'linear-gradient(135deg, hsl(105 15% 88%), hsl(30 15% 96%))',
       },
       boxShadow: {
         'warm': 'var(--shadow-warm)',
         'soft': 'var(--shadow-soft)',
+        'elegant': '0 8px 32px -8px hsl(105 25% 55% / 0.2)',
+        'glow': '0 0 20px hsl(105 25% 55% / 0.3)',
+        'ornate': 'var(--shadow-ornate)',
       },
       fontFamily: {
         'display': 'var(--font-display)',
@@ -102,11 +107,20 @@ export default {
             opacity: "1",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "slide-in-up": "slide-in-up 0.3s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
       },
     },
   },

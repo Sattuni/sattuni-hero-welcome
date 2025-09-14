@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import heroCatering from "@/assets/hero/hero-catering.jpg";
+import BuffetGallery from "@/components/features/catering/BuffetGallery";
+import CateringContact from "@/components/features/catering/CateringContact";
+import CateringFOMO from "@/components/features/marketing/CateringFOMO";
+import Testimonials from "@/components/features/testimonials/Testimonials";
+import Breadcrumb from "@/components/layout/Breadcrumb";
+import Header from "@/components/layout/Header";
+import InternalLinks from "@/components/layout/InternalLinks";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Star, Utensils, Leaf, Sparkles, CheckCircle, Users, Clock, Heart, Phone, Mail, UtensilsCrossed, Salad, TreePine, Zap, Gift, ArrowUp, HelpCircle } from "lucide-react";
-import Header from "@/components/layout/Header";
-import Testimonials from "@/components/features/testimonials/Testimonials";
-import CateringContact from "@/components/features/catering/CateringContact";
-import Breadcrumb from "@/components/layout/Breadcrumb";
-import InternalLinks from "@/components/layout/InternalLinks";
-import CateringFOMO from "@/components/features/marketing/CateringFOMO";
-import BuffetGallery from "@/components/features/catering/BuffetGallery";
-import heroCatering from "@/assets/hero-catering.jpg";
+import { ArrowUp, CheckCircle, ChevronRight, Gift, Heart, HelpCircle, Leaf, Mail, Phone, Salad, Sparkles, TreePine, Users, Utensils, UtensilsCrossed, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -229,6 +228,9 @@ const Catering = () => {
             src={heroCatering} 
             alt="Sattuni Catering Setup" 
             className="w-full h-full object-cover"
+            style={{
+              filter: 'blur(0.8px)',
+            }}
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -237,7 +239,7 @@ const Catering = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               Dein Event. Unser Essen. 
-              <span className="block text-gradient bg-gradient-primary bg-clip-text text-transparent">
+              <span className="block text-gradient bg-gradient-warm bg-clip-text text-transparent">
                 Entspannt genießen!
               </span>
             </h1>
@@ -533,21 +535,32 @@ const Catering = () => {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {processSteps.map((step, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="relative">
-                  <div className="mx-auto w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                    {index + 1}
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
+              {processSteps.map((step, index) => (
+                <div key={index} className="flex items-center w-1/3">
+                  {/* Step Card */}
+                  <div className="flex flex-col items-center text-center space-y-4 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 w-full shadow-soft hover:shadow-warm transition-all duration-300">
+                    <div className="relative">
+                      <div className="mx-auto w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                        <step.icon className="w-8 h-8 text-primary" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                    </div>
                   </div>
-                  <div className="absolute -top-2 -right-2 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <step.icon className="w-6 h-6 text-primary" />
-                  </div>
+                  
+                  {/* Chevron Arrow - Only in horizontal layout */}
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden md:flex items-center justify-center mx-2">
+                      <ChevronRight className="w-6 h-6 text-primary/60" />
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

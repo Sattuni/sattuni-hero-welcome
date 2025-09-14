@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Utensils, PartyPopper } from "lucide-react";
+import { PartyPopper, Utensils } from "lucide-react";
 
 const Services = () => {
   return (
@@ -12,7 +12,7 @@ const Services = () => {
           <Card className="group hover:shadow-elegant transition-all duration-500 border-border/50 hover:border-primary/30 bg-card/90 backdrop-blur-sm overflow-hidden h-full flex flex-col">
             <CardContent className="p-4 md:p-8 space-y-4 md:space-y-6 relative flex-1 flex flex-col">
               {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-5 rounded-full blur-2xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-warm opacity-5 rounded-full blur-2xl"></div>
               
               <div className="flex-1">
                 <div className="flex items-start gap-4">

@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, User, Building, Mail, Phone, MapPin, MessageCircle, Calendar, PartyPopper, CheckCircle, Wand2, RotateCcw, Save } from "lucide-react";
-import { cateringFormSchema, type CateringFormData } from '@/services/validation/schemas';
-import { submitCateringForm } from '@/services/api/contact.service';
-import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
+import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
+import { cateringFormSchema } from '@/services/validation/schemas';
+import { Building, Calendar, CheckCircle, Mail, MapPin, MessageCircle, PartyPopper, Phone, RotateCcw, Send, User, Wand2 } from "lucide-react";
+import React, { useEffect, useState } from 'react';
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
@@ -267,8 +266,8 @@ const CateringContact = () => {
                 <div className="flex items-center gap-2">
                   {hasSavedData() && (
                     <span className="text-xs text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-1 rounded flex items-center gap-1">
-                      <Save className="w-3 h-3" />
-                      Gespeichert
+                      {/* <Save className="w-3 h-3" />
+                      Gespeichert */}
                     </span>
                   )}
                   <span className="text-sm text-muted-foreground">{progress}%</span>
@@ -276,7 +275,7 @@ const CateringContact = () => {
               </div>
               <div className="w-full bg-muted rounded-full h-2">
                 <div 
-                  className="bg-gradient-primary h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-warm h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>

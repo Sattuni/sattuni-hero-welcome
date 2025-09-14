@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import SmartCTA from "@/components/mobile/SmartCTA";
-import { Utensils, Star } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
-import sattunLogo from "@/assets/sattuni-logo.png";
+import sattunLogo from "@/assets/icons/sattuni-header-icon.png";
+import SmartCTA from "@/components/mobile/SmartCTA";
+import { Button } from "@/components/ui/button";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { Star, Timer, Truck, Utensils } from "lucide-react";
 
 const Hero = () => {
   const { scrollY } = useScrollPosition();
@@ -127,15 +127,15 @@ const Hero = () => {
             {/* Trust Indicators - Reduced on Mobile */}
             <div className="hidden md:flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                <Utensils className="w-3 h-3"/>
                 <span className="text-foreground font-medium">Frisch zubereitet</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                <Timer className="w-3 h-3"/>
                 <span className="text-foreground font-medium">30-45 Min</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                <Truck className="w-3 h-3"/>
                 <span className="text-foreground font-medium">Event-Catering</span>
               </div>
             </div>
@@ -144,7 +144,7 @@ const Hero = () => {
       </div>
       
       {/* Decorative Elements - Enhanced Arabic Style */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-primary rounded-full opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-warm rounded-full opacity-10 blur-3xl animate-pulse"></div>
       <div className="absolute bottom-32 left-10 w-24 h-24 bg-accent/30 rounded-full opacity-30 blur-2xl animate-pulse delay-1000"></div>
       
       {/* Geometric Pattern Elements */}

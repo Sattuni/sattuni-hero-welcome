@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Cookie, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Cookie } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +42,7 @@ const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-slide-in-up">
+    <div className="fixed bottom-0 left-0 right-0 z-[10000] p-4 animate-slide-in-up">
       <Card className="max-w-4xl mx-auto bg-background/95 backdrop-blur-sm border-border/50 shadow-elegant">
         <CardContent className="p-4 md:p-6">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
