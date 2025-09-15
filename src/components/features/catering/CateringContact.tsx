@@ -11,6 +11,9 @@ import { cateringFormSchema } from '@/services/validation/schemas';
 import { Building, Calendar, CheckCircle, Mail, MapPin, MessageCircle, PartyPopper, Phone, RotateCcw, Send, User, Wand2 } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 
+const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
+
+
 const CateringContact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -56,6 +59,31 @@ const CateringContact = () => {
     return true;
   };
 
+  const submitCateringForm = (e) =>{
+    e.preventDefault();
+    
+    // const data = {name:form.name, email:form.email, message:form.textArea};
+    // setLoaderVisible(true);
+    fetch(CONTACT_US_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+        // setLoaderVisible(false);
+        return response.json();
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsSubmitting(false);
+      });
+  }
   // Calculate form completion progress
   const getFormProgress = () => {
     const requiredFields = ['name', 'email', 'address', 'occasion', 'date'];
@@ -516,6 +544,7 @@ const CateringContact = () => {
                   size="xl"
                   className="w-full gap-3 shadow-elegant hover:shadow-glow"
                   disabled={isSubmitting}
+                  onClick={submitCateringForm}
                 >
                   {isSubmitting ? (
                     <>

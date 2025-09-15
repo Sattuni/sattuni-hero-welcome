@@ -1,11 +1,12 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { Send, Mail, User, MessageCircle, Phone, Clock, CheckCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { CheckCircle, Clock, Mail, MessageCircle, Phone, Send, User } from "lucide-react";
+import { useState } from "react";
+
+const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+
 
   // Calculate form completion progress
   const getFormProgress = () => {
@@ -45,33 +46,60 @@ const Contact = () => {
     e.preventDefault();
     
     if (!formData.email || !formData.message) {
-      toast({
-        title: "Bitte Pflichtfelder ausfüllen",
-        description: "E-Mail und Nachricht sind erforderlich.",
-        variant: "destructive"
-      });
+      // toast({
+      //   title: "Bitte Pflichtfelder ausfüllen",
+      //   description: "E-Mail und Nachricht sind erforderlich.",
+      //   variant: "destructive"
+      // });
+      e.preventDefault();
+      // if(!validateForm()){
+      //   return;
+      // }
+      const data = {name:formData.name, email:formData.email, message:formData.message, phone:formData.phone};
+      // setLoaderVisible(true);
+      fetch(CONTACT_US_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error(response.statusText);
+          }
+          // setLoaderVisible(false);
+          return response.json();
+        })
+        // .then(() => setStatus("Deine Anfrage wurde erfolgreich geschickt. Wir melden uns schnellstmöglich bei dir."))
+        .catch((err) => {
+          // setStatus(err.toString())
+          // setLoaderVisible(false);
+          setIsSubmitting(false);
+        });
       return;
     }
 
     setIsSubmitting(true);
     
     // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Danke, wir melden uns bald bei dir!",
-        description: "Deine Nachricht ist bei uns angekommen. Wir antworten normalerweise innerhalb von 24 Stunden.",
-        duration: 5000
-      });
+    // setTimeout(() => {
+    //   toast({
+    //     title: "Danke, wir melden uns bald bei dir!",
+    //     description: "Deine Nachricht ist bei uns angekommen. Wir antworten normalerweise innerhalb von 24 Stunden.",
+    //     duration: 5000
+    //   });
       
       // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: ""
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    //   setFormData({
+    //     name: "",
+    //     email: "",
+    //     phone: "",
+    //     message: ""
+    //   });
+    //   setIsSubmitting(false);
+    // }, 1500);
   };
 
   return (
@@ -202,6 +230,7 @@ const Contact = () => {
                   size="xl"
                   className="w-full gap-3"
                   disabled={isSubmitting || !formData.email || !formData.message}
+                  onClick={handleSubmit}
                 >
                   {isSubmitting ? (
                     <>
