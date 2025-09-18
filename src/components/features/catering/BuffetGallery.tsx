@@ -45,6 +45,8 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
     }
   };
 
+  return <></>;
+
   return (
     <div className={className}>
       <div className="text-center mb-8">
