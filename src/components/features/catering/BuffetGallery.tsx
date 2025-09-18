@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 // Import buffet images
-import bowls2 from "@/assets/bowls-hauptgerichte-2.jpg";
-import bowls1 from "@/assets/bowls-hauptgerichte.jpg";
-import dips2 from "@/assets/dips-vorspeisen-2.jpg";
-import dips1 from "@/assets/dips-vorspeisen.jpg";
-import falafel1 from "@/assets/falafel-teigtaschen.jpg";
+import bowls1 from "@/assets/buffet-gallery/bowls/1.png";
+import bowls2 from "@/assets/buffet-gallery/bowls2/3.png";
+import dips1 from "@/assets/buffet-gallery/dips/7.png";
+import dips2 from "@/assets/buffet-gallery/dips2/14.png";
+import falafel1 from "@/assets/buffet-gallery/falafel/12.png";
 
 const buffetImages = [
   { src: bowls1, title: "Bowl Buffet", description: "Gesunde Bowls mit frischen Zutaten" },
@@ -45,7 +45,6 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
     }
   };
 
-  return <></>;
 
   return (
     <div className={className}>
@@ -68,13 +67,13 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
           >
             <img
               src={image.src}
-              alt={image.title}
+              // alt={image.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute bottom-2 left-2 right-2 text-white">
-                <h4 className="font-semibold text-sm mb-1">{image.title}</h4>
-                <p className="text-xs opacity-90 line-clamp-2">{image.description}</p>
+                {/* <h4 className="font-semibold text-sm mb-1">{image.title}</h4>
+                <p className="text-xs opacity-90 line-clamp-2">{image.description}</p> */}
               </div>
             </div>
           </div>
@@ -86,14 +85,14 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
         <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
           {selectedImage !== null && (
             <div className="relative">
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="icon"
                 className="absolute top-4 right-4 z-10 bg-black/50 text-white hover:bg-black/70"
                 onClick={closeLightbox}
               >
                 <X className="w-5 h-5" />
-              </Button>
+              </Button> */}
 
               {/* Navigation Buttons */}
               <Button
@@ -121,8 +120,8 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
                   className="w-full h-auto max-h-[70vh] object-contain"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">{buffetImages[selectedImage].title}</h3>
-                  <p className="text-sm opacity-90">{buffetImages[selectedImage].description}</p>
+                  {/* <h3 className="text-xl font-bold mb-2">{buffetImages[selectedImage].title}</h3>
+                  <p className="text-sm opacity-90">{buffetImages[selectedImage].description}</p> */}
                 </div>
               </div>
             </div>
