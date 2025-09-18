@@ -63,7 +63,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
           <div
             key={index}
             className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            onClick={() => openLightbox(index)}
+            // onClick={() => openLightbox(index)}
           >
             <img
               src={image.src}
