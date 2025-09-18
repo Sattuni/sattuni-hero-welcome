@@ -18,12 +18,14 @@ import InternalLinks from "@/components/layout/InternalLinks";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useAnalytics } from "@/contexts";
 import { ArrowUp, Calendar, Leaf, Truck, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { trackOrderButton, trackCateringInquiry } = useAnalytics();
 
   // SEO Meta Tags and Structured Data
   useEffect(() => {
@@ -239,7 +241,10 @@ const Specialties = () => {
                 size="xl" 
                 variant="hero" 
                 className="font-display"
-                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                onClick={() => {
+                  trackOrderButton('hero-section');
+                  window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                }}
               >
                 Bestell dir was Leckeres
               </Button>
@@ -247,7 +252,10 @@ const Specialties = () => {
                 size="xl" 
                 variant="hero-secondary" 
                 className="font-display"
-                onClick={() => window.location.href = '/catering'}
+                onClick={() => {
+                  trackCateringInquiry('hero-section');
+                  window.location.href = '/catering';
+                }}
               >
                 Für dein Event anfragen
               </Button>
@@ -294,7 +302,10 @@ const Specialties = () => {
                 <Button 
                   className="mt-8 font-display" 
                   size="lg"
-                  onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                  onClick={() => {
+                    trackOrderButton('dips-section');
+                    window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                  }}
                 >
                   Hab ich Lust drauf!
                 </Button>
@@ -361,7 +372,10 @@ const Specialties = () => {
                 <Button 
                   className="mt-8 font-display" 
                   size="lg"
-                  onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                  onClick={() => {
+                    trackOrderButton('falafel-section');
+                    window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                  }}
                 >
                   Das will ich probieren!
                 </Button>
@@ -388,7 +402,10 @@ const Specialties = () => {
                 <Button 
                   className="mt-8 font-display" 
                   size="lg"
-                  onClick={() => window.location.href = '/catering'}
+                  onClick={() => {
+                    trackCateringInquiry('bowls-section');
+                    window.location.href = '/catering';
+                  }}
                 >
                   Für dein Catering anfragen
                 </Button>
@@ -484,7 +501,10 @@ const Specialties = () => {
                 size="xl" 
                 variant="hero" 
                 className="font-display"
-                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+                onClick={() => {
+                  trackOrderButton('conclusion-section');
+                  window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                }}
               >
                 Jetzt bestellen
               </Button>
@@ -492,7 +512,10 @@ const Specialties = () => {
                 size="xl" 
                 variant="hero-secondary" 
                 className="font-display"
-                onClick={() => window.location.href = '/catering'}
+                onClick={() => {
+                  trackCateringInquiry('conclusion-section');
+                  window.location.href = '/catering';
+                }}
               >
                 Catering anfragen
               </Button>

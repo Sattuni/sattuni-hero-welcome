@@ -59,31 +59,30 @@ const CateringContact = () => {
     return true;
   };
 
-  const submitCateringForm = (e) =>{
-    e.preventDefault();
+  // const submitCateringForm = (e) =>{
+  //   e.preventDefault();
     
-    // const data = {name:form.name, email:form.email, message:form.textArea};
-    // setLoaderVisible(true);
-    fetch(CONTACT_US_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error(response.statusText);
-        }
-        // setLoaderVisible(false);
-        return response.json();
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsSubmitting(false);
-      });
-  }
+  //   // const data = {name:form.name, email:form.email, message:form.textArea};
+  //   // setLoaderVisible(true);
+  //   fetch(CONTACT_US_ENDPOINT, {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((response) => {
+  //       if (response.status !== 200) {
+  //         throw new Error(response.statusText);
+  //       }
+  //       return response.json();
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       setIsSubmitting(false);
+  //     });
+  // }
   // Calculate form completion progress
   const getFormProgress = () => {
     const requiredFields = ['name', 'email', 'address', 'occasion', 'date'];
@@ -184,11 +183,11 @@ const CateringContact = () => {
     
     setIsFillingDemo(false);
     
-    toast({
-      title: "Demo-Daten eingefügt! ✨",
-      description: "Du kannst die Daten jetzt anpassen oder direkt absenden.",
-      duration: 3000
-    });
+    // toast({
+    //   title: "Demo-Daten eingefügt! ✨",
+    //   description: "Du kannst die Daten jetzt anpassen oder direkt absenden.",
+    //   duration: 3000
+    // });
   };
 
   // Clear form and saved data
@@ -211,9 +210,12 @@ const CateringContact = () => {
     });
   };
 
+
   const handleSubmit = async (e: React.FormEvent) => {
+
+
     e.preventDefault();
-    
+        
     if (!validateForm()) {
       toast({
         variant: "destructive",
@@ -222,44 +224,49 @@ const CateringContact = () => {
       });
       return;
     }
-
-    setIsSubmitting(true);
-
+    
     try {
-      // For now, simulate API call until backend is connected
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // When backend is ready, use this instead:
-      // const result = await submitCateringForm(formData as CateringFormData);
-      // if (result.success) {
-      
-      handleFormSuccess(
-        "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
-        "Anfrage erfolgreich gesendet!"
-      );
-
-      // Clear saved data and reset form
-      clearSavedData();
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        address: "",
-        comment: "",
-        occasion: "",
-        date: ""
-      });
-      setValidationErrors({});
-      
-      // } else {
-      //   handleFormError(new Error(result.error || 'Unbekannter Fehler'), 'Catering-Formular');
-      // }
+      fetch(CONTACT_US_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error(response.statusText);
+          }
+          handleFormSuccess(
+            "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+            "Anfrage erfolgreich gesendet!"
+          );
+          clearSavedData();
+          setFormData({
+            name: "",
+            company: "",
+            email: "",
+            phone: "",
+            address: "",
+            comment: "",
+            occasion: "",
+            date: ""
+          });
+          setValidationErrors({});
+          return response.json();
+        })
+        .catch((err) => {
+          console.error(err);
+        }).finally(() => {
+          setIsSubmitting(false);
+        });
+  
     } catch (error) {
-      handleFormError(error, 'Catering-Formular');
-    } finally {
+      handleFormError(error, "Catering-Anfrage");
       setIsSubmitting(false);
     }
+
   };
 
   const occasions = [
@@ -544,7 +551,7 @@ const CateringContact = () => {
                   size="xl"
                   className="w-full gap-3 shadow-elegant hover:shadow-glow"
                   disabled={isSubmitting}
-                  onClick={submitCateringForm}
+                  // onClick={submitCateringForm}
                 >
                   {isSubmitting ? (
                     <>

@@ -467,13 +467,13 @@ const Catering = () => {
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-primary mb-2">Leichte Mahlzeit</h3>
-                  <p className="text-3xl font-bold text-foreground">ab 27€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
+                  <p className="text-3xl font-bold text-foreground">ab 25€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
                   <p className="text-muted-foreground">ab 20 Personen</p>
                 </div>
                 
                 <div className="space-y-3">
                   {[
-                    "Fattoush & Tabouleh Salate und andere Salate",
+                    "Fattoush & Tabouleh und andere Salate",
                     "Hummus & Baba Ghanousch Dips", 
                     "Fatayer Teigtaschen",
                     "Kibbeh Bällchen",
@@ -493,13 +493,13 @@ const Catering = () => {
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-primary mb-2">Große Feiern</h3>
-                  <p className="text-3xl font-bold text-foreground">ab 37€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
-                  <p className="text-muted-foreground">ab 50 Personen</p>
+                  <p className="text-3xl font-bold text-foreground">ab 30€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
+                  <p className="text-muted-foreground">ab 40 Personen</p>
                 </div>
                 
                 <div className="space-y-3">
                   {[
-                    "Fattoush & Tabouleh Salate und andere Salate",
+                    "Fattoush & Tabouleh und andere Salate",
                     "Hummus & Baba Ghanousch",
                     "Fatayer & Sambousek", 
                     "Kibbeh & gefüllte Weinblätter",

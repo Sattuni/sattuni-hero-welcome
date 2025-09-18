@@ -202,10 +202,6 @@ const AboutUs = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                   Wer wir sind
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                  Wir sind zwei Brüder, die arabische Küche in Düsseldorf neu interpretieren – frisch, hausgemacht, modern. 
-                  <span className="text-primary font-semibold">Ohne Drama, ohne Schnickschnack. Einfach gutes Essen.</span>
-                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
