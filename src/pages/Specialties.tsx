@@ -19,13 +19,17 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useAnalytics } from "@/contexts";
+import { useMenuTracking } from "@/hooks/useMenuTracking";
+import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { ArrowUp, Calendar, Leaf, Truck, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const { trackOrderButton, trackCateringInquiry } = useAnalytics();
+  const { trackOrderButton, trackCateringInquiry, trackImageInteraction, trackBusinessAction } = useAnalytics();
+  const { addEngagementFactor } = useScrollTracking();
+  const { trackItemView, trackItemClick } = useMenuTracking();
 
   // SEO Meta Tags and Structured Data
   useEffect(() => {
@@ -222,6 +226,10 @@ const Specialties = () => {
         <section 
           className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${heroSpecialties})` }}
+          onLoad={() => {
+            trackImageInteraction('hero-specialties', 'view', 'specialties-hero-section');
+            addEngagementFactor('hero_image_view');
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
           

@@ -11,9 +11,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUp, CheckCircle, ChevronRight, Gift, Heart, HelpCircle, Leaf, Mail, Phone, Salad, Sparkles, TreePine, Users, Utensils, UtensilsCrossed, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useAnalytics } from "@/contexts";
+import { useScrollTracking } from "@/hooks/useScrollTracking";
 
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
+  const { addEngagementFactor } = useScrollTracking();
 
   // SEO Meta Tags
   useEffect(() => {
@@ -231,6 +235,10 @@ const Catering = () => {
             style={{
               filter: 'blur(0.8px)',
             }}
+            onLoad={() => {
+              trackImageInteraction('hero-catering', 'view', 'catering-hero-section');
+              addEngagementFactor('hero_image_view');
+            }}
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -253,6 +261,16 @@ const Catering = () => {
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
                 onClick={() => {
+                  // Track enhanced catering inquiry
+                  trackCateringInquiryEnhanced('hero-section', {
+                    estimatedValue: 500,
+                    guestCount: 20,
+                    pricePerPerson: 25,
+                    eventType: 'general_inquiry'
+                  });
+                  
+                  addEngagementFactor('catering_cta_hero');
+                  
                   const element = document.getElementById('catering-kontakt');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -277,7 +295,17 @@ const Catering = () => {
             </div>
             
             {/* Christmas Promo */}
-            <div className="mt-8 p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-xl border border-white/20 backdrop-blur-sm">
+            <div 
+              className="mt-8 p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-xl border border-white/20 backdrop-blur-sm"
+              onClick={() => {
+                trackBusinessAction('christmas_promo_view', {
+                  promo_code: 'SATT25',
+                  discount_percentage: 10,
+                  event_type: 'christmas_catering'
+                });
+                addEngagementFactor('christmas_promo_interaction');
+              }}
+            >
               <div className="flex items-center justify-center gap-3 text-white">
                 <TreePine className="w-8 h-8 text-emerald-200" />
                 <div className="text-center">

@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
+import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { cateringFormSchema } from '@/services/validation/schemas';
 import { Building, Calendar, CheckCircle, Mail, MapPin, MessageCircle, PartyPopper, Phone, RotateCcw, Send, User, Wand2 } from "lucide-react";
@@ -30,6 +31,48 @@ const CateringContact = () => {
   const [isFillingDemo, setIsFillingDemo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const { toast } = useToast();
+  
+  // Enhanced form tracking
+  const { trackFieldFocus, trackValidationError, trackSubmission } = useFormTracking({
+    formName: 'catering-contact',
+    formType: 'catering_inquiry',
+    onSubmission: (formData) => {
+      console.log('Catering form submitted with enhanced tracking:', formData);
+    }
+  });
+
+  // Helper functions for analytics
+  const calculateEstimatedValue = (data: any): number => {
+    // Simple estimation based on occasion and company presence
+    let baseValue = 500; // Base catering value
+    
+    if (data.company) baseValue += 200; // Corporate events typically higher value
+    if (data.occasion === 'Hochzeit') baseValue += 300; // Weddings are premium
+    if (data.occasion === 'Firmenfeier') baseValue += 150; // Corporate events
+    
+    return baseValue;
+  };
+
+  const estimateGuestCount = (data: any): number => {
+    // Extract guest count from comment if mentioned, otherwise estimate
+    const comment = data.comment?.toLowerCase() || '';
+    const guestMatches = comment.match(/(\d+)\s*(personen|gäste|teilnehmer)/);
+    
+    if (guestMatches) {
+      return parseInt(guestMatches[1]);
+    }
+    
+    // Default estimates based on occasion
+    const occasionEstimates: Record<string, number> = {
+      'Geburtstag': 15,
+      'Hochzeit': 50,
+      'Firmenfeier': 25,
+      'Weihnachtsfeier': 30,
+      'Sonstiges': 20
+    };
+    
+    return occasionEstimates[data.occasion] || 20;
+  };
 
   // Auto-save functionality
   const { restoreData, clearSavedData, hasSavedData } = useFormAutoSave({
@@ -212,11 +255,14 @@ const CateringContact = () => {
 
 
   const handleSubmit = async (e: React.FormEvent) => {
-
-
     e.preventDefault();
         
     if (!validateForm()) {
+      // Track validation errors
+      Object.keys(validationErrors).forEach(fieldName => {
+        trackValidationError(fieldName, validationErrors[fieldName]);
+      });
+      
       toast({
         variant: "destructive",
         title: "Validierungsfehler",
@@ -238,6 +284,16 @@ const CateringContact = () => {
           if (response.status !== 200) {
             throw new Error(response.statusText);
           }
+          
+          // Track successful form submission with enhanced data
+          trackSubmission({
+            ...formData,
+            estimatedValue: calculateEstimatedValue(formData),
+            guestCount: estimateGuestCount(formData),
+            eventType: formData.occasion,
+            submissionMethod: 'web_form'
+          });
+          
           handleFormSuccess(
             "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
             "Anfrage erfolgreich gesendet!"
@@ -380,6 +436,7 @@ const CateringContact = () => {
                     placeholder="Vor- und Nachname"
                     value={formData.name}
                     onChange={handleInputChange}
+                    onFocus={() => trackFieldFocus('name')}
                     className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
                       validationErrors.name ? 'border-red-500 focus:border-red-500' : ''
                     }`}
@@ -422,6 +479,7 @@ const CateringContact = () => {
                     placeholder="deine@email.de"
                     value={formData.email}
                     onChange={handleInputChange}
+                    onFocus={() => trackFieldFocus('email')}
                     className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
                       validationErrors.email ? 'border-red-500 focus:border-red-500' : ''
                     }`}
