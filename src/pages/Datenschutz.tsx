@@ -1,15 +1,11 @@
-import { useEffect } from "react";
-import { Helmet } from "react-helmet";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import { Shield, Mail, Phone, MapPin, Lock, Eye, Cookie, Globe } from "lucide-react";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Cookie, Eye, Globe, Lock, Mail, MapPin, Shield } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const Datenschutz = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const breadcrumbItems = [
     { name: "Home", href: "/" },

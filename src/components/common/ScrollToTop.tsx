@@ -1,13 +1,12 @@
-import { useAnalytics } from '@/contexts';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
- * Hook to automatically track page views and scroll to top when the route changes
+ * Component that automatically scrolls to top when route changes
+ * This is a more robust implementation that can be used as a fallback
  */
-export const usePageTracking = () => {
+const ScrollToTop = () => {
   const location = useLocation();
-  const { trackPageView } = useAnalytics();
 
   useEffect(() => {
     // Check if there's a scrollTo parameter in the URL
@@ -15,7 +14,6 @@ export const usePageTracking = () => {
     const scrollTo = urlParams.get('scrollTo');
     
     if (!scrollTo) {
-      // Only scroll to top if there's no specific scrollTo parameter
       // Use requestAnimationFrame to ensure DOM is ready
       requestAnimationFrame(() => {
         window.scrollTo({
@@ -25,8 +23,9 @@ export const usePageTracking = () => {
         });
       });
     }
-    
-    // Track page view when location changes
-    trackPageView(location.pathname + location.search);
-  }, [location, trackPageView]);
+  }, [location.pathname, location.search]);
+
+  return null; // This component doesn't render anything
 };
+
+export default ScrollToTop;
