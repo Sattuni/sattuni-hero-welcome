@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useToast } from "../../ui/use-toast";
 
 const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
+// https://submit-form.com/iDr8mtDk
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,44 +47,43 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    setIsSubmitting(true);
+
     if (!formData.email || !formData.message) {
       toast({
         title: "Bitte Pflichtfelder ausfüllen",
         description: "E-Mail und Nachricht sind erforderlich.",
         variant: "destructive"
       });
-      const data = {name:formData.name, email:formData.email, message:formData.message, phone:formData.phone};
-      fetch(CONTACT_US_ENDPOINT, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => {
-          if (response.status !== 200) {
-            throw new Error(response.statusText);
-          }
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            message: ""
-          });
-          setIsSubmitting(false);
-          return response.json();
-        })
-        .catch((err) => {
-          console.error(err);
-        }).finally(() => {
-          setIsSubmitting(false);
-        });
-      return;
     }
-
-    setIsSubmitting(true);
+    const data = {name:formData.name, email:formData.email, message:formData.message, phone:formData.phone};
+    fetch(CONTACT_US_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+        setIsSubmitting(false);
+        return response.json();
+      })
+      .catch((err) => {
+        console.error(err);
+      }).finally(() => {
+        setIsSubmitting(false);
+      });
+    return;
   };
 
   return (
