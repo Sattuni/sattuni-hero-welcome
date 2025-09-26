@@ -1,5 +1,5 @@
 // Google Analytics Configuration
-export const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || 'G-4HMTMFVHJR';
+export const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || 'G-D6N6QCK330';
 
 // Enhanced Google Analytics 4 (gtag) configuration
 export const initGA = () => {
