@@ -1,29 +1,28 @@
-import { 
-  initGA, 
-  trackButtonClick, 
-  trackCateringInquiry, 
+import {
+  trackBusinessAction,
+  trackButtonClick,
+  trackCateringInquiry,
   trackCateringInquiryEnhanced,
-  trackEvent, 
-  trackExternalLink, 
-  trackFormSubmission, 
-  trackFormSubmissionEnhanced,
-  trackFormStart,
+  trackEngagementScore,
+  trackError,
+  trackEvent,
+  trackExternalLink,
   trackFormFieldFocus,
+  trackFormStart,
+  trackFormSubmission,
+  trackFormSubmissionEnhanced,
   trackFormValidationError,
-  trackOrderButton, 
+  trackImageInteraction,
+  trackMenuItemClick,
+  trackMenuItemView,
+  trackNavigation,
+  trackOrderButton,
   trackPageView,
   trackScrollDepth,
-  trackTimeOnPage,
-  trackMenuItemView,
-  trackMenuItemClick,
-  trackImageInteraction,
-  trackNavigation,
   trackSearch,
-  trackError,
-  trackBusinessAction,
-  trackEngagementScore
+  trackTimeOnPage
 } from '@/config/analytics.config';
-import React, { createContext, ReactNode, useContext, useEffect } from 'react';
+import React, { createContext, ReactNode, useContext } from 'react';
 
 interface AnalyticsContextType {
   // Basic tracking
@@ -68,10 +67,10 @@ interface AnalyticsProviderProps {
 }
 
 export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({ children }) => {
-  useEffect(() => {
-    // Initialize Google Analytics when the app loads
-    initGA();
-  }, []);
+  // useEffect(() => {
+  //   // Initialize Google Analytics when the app loads
+  //   initGA();
+  // }, []);
 
   const analyticsValue: AnalyticsContextType = {
     // Basic tracking
