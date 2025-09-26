@@ -1,4 +1,5 @@
 import {
+  initGA,
   trackBusinessAction,
   trackButtonClick,
   trackCateringInquiry,
@@ -22,7 +23,7 @@ import {
   trackSearch,
   trackTimeOnPage
 } from '@/config/analytics.config';
-import React, { createContext, ReactNode, useContext } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect } from 'react';
 
 interface AnalyticsContextType {
   // Basic tracking
@@ -67,10 +68,10 @@ interface AnalyticsProviderProps {
 }
 
 export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({ children }) => {
-  // useEffect(() => {
-  //   // Initialize Google Analytics when the app loads
-  //   initGA();
-  // }, []);
+  useEffect(() => {
+    // Initialize Google Analytics when the app loads
+    initGA();
+  }, []);
 
   const analyticsValue: AnalyticsContextType = {
     // Basic tracking
