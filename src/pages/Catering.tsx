@@ -324,37 +324,37 @@ const Catering = () => {
         </div>
       </section>
       
-      {/* Quick Navigation */}
-      <section className="py-6 bg-muted/20 border-b">
+      {/* Quick Navigation - Sticky on Mobile */}
+      <section className="sticky top-16 md:top-20 z-40 py-3 md:py-6 bg-background/95 backdrop-blur-sm border-b shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-4 justify-center text-sm">
+          <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
             <button 
-              onClick={() => document.getElementById('catering-services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => document.getElementById('catering-services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Services
             </button>
             <button 
-              onClick={() => document.getElementById('beispielmenus')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => document.getElementById('beispielmenus')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              Beispielmenüs
+              Menüs
             </button>
             <button 
-              onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              So geht's
+              Ablauf
             </button>
             <button 
-              onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3 py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               FAQ
             </button>
             <button 
-              onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3 py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+              onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
             >
               Anfragen
             </button>
@@ -363,38 +363,38 @@ const Catering = () => {
       </section>
 
       {/* Kurz-Intro */}
-      <section className="py-16 bg-gradient-subtle">
+      <section className="py-8 md:py-16 bg-gradient-subtle">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed px-4">
               Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. 
-              <span className="text-primary font-medium">So einfach kann Catering sein.</span>
+              <span className="text-primary font-medium block md:inline mt-2 md:mt-0">So einfach kann Catering sein.</span>
             </p>
           </div>
         </div>
       </section>
 
       {/* Catering Services */}
-      <section className="py-16" id="catering-services">
+      <section className="py-12 md:py-16 scroll-mt-24" id="catering-services">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
               Unsere Catering-Angebote
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {cateringServices.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <Card key={index} className="group hover:shadow-elegant transition-all duration-300 h-full">
-                  <CardContent className="p-4 text-center space-y-3 flex flex-col h-full">
+                  <CardContent className="p-5 text-center space-y-3 flex flex-col h-full">
                     <div className="flex justify-center">
-                      <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                        <IconComponent className="w-6 h-6 text-white" />
+                      <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-7 h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-foreground">{service.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                     <Button 
                       variant="outline" 
@@ -459,22 +459,22 @@ const Catering = () => {
       </section>
 
       {/* Why Sattuni USPs */}
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
               Warum Sattuni?
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {usps.map((usp, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <usp.icon className="w-8 h-8 text-primary" />
+              <div key={index} className="text-center space-y-3 md:space-y-4">
+                <div className="mx-auto w-14 h-14 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                  <usp.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">{usp.title}</h3>
-                <p className="text-muted-foreground">{usp.description}</p>
+                <h3 className="text-lg md:text-xl font-semibold text-foreground">{usp.title}</h3>
+                <p className="text-sm md:text-base text-muted-foreground">{usp.description}</p>
               </div>
             ))}
           </div>
@@ -482,10 +482,10 @@ const Catering = () => {
       </section>
 
       {/* Example Menus */}
-      <section className="py-20 bg-gradient-subtle" id="beispielmenus">
+      <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="beispielmenus">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
               Beispielmenüs für Buffets
             </h2>
           </div>
@@ -555,10 +555,10 @@ const Catering = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="py-20" id="prozess">
+      <section className="py-12 md:py-20 scroll-mt-24" id="prozess">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
               So einfach geht's
             </h2>
           </div>
@@ -601,13 +601,13 @@ const Catering = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-subtle" id="faq">
+      <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <HelpCircle className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Häufige Fragen zum Catering
+          <div className="text-center mb-8 md:mb-16">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 mb-2 md:mb-4">
+              <HelpCircle className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
+                Häufige Fragen
               </h2>
             </div>
           </div>
@@ -865,11 +865,31 @@ const Catering = () => {
         </div>
       </section>
       
+      {/* Mobile CTA Button - Fixed at bottom */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t shadow-lg p-4">
+        <Button 
+          size="lg" 
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+          onClick={() => {
+            const element = document.getElementById('catering-kontakt');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(() => {
+                const nameInput = document.getElementById('name');
+                nameInput?.focus();
+              }, 500);
+            }
+          }}
+        >
+          Jetzt Catering anfragen
+        </Button>
+      </div>
+
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className="fixed bottom-24 md:bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
           aria-label="Nach oben scrollen"
         >
           <ArrowUp className="w-5 h-5 mx-auto" />
