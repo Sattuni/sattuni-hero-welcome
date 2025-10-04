@@ -11,11 +11,9 @@ import Contact from "@/components/features/contact/Contact";
 import OpeningHours from "@/components/layout/OpeningHours";
 import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
-import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
 import SectionNav from "@/components/layout/SectionNav";
 import InternalLinks from "@/components/layout/InternalLinks";
-import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
 const Index = () => {
   // SEO Meta Tags and Structured Data
@@ -396,32 +394,16 @@ const Index = () => {
         
         <WhySattuni />
         
-        {/* Mobile Expandable Sections */}
-        <MobileSectionExpander
-          title="Öffnungszeiten"
-          icon={Clock}
-          className="bg-gradient-to-b from-muted/30 to-background"
-        >
-          <div id="oeffnungszeiten">
-            <OpeningHours />
-          </div>
-        </MobileSectionExpander>
+        {/* Opening Hours - Always Visible */}
+        <div id="oeffnungszeiten">
+          <OpeningHours />
+        </div>
         
-        <MobileSectionExpander
-          title="So funktioniert's"
-          icon={Settings}
-          className="bg-background"
-        >
-          <HowItWorks />
-        </MobileSectionExpander>
+        {/* How It Works - Always Visible */}
+        <HowItWorks />
         
-        <MobileSectionExpander
-          title="Das sagen unsere Gäste"
-          icon={Star}
-          className="bg-gradient-hero"
-        >
-          <Testimonials />
-        </MobileSectionExpander>
+        {/* Testimonials - Always Visible */}
+        <Testimonials />
         
         {/* Contact Section - Always Visible */}
         <div id="kontakt" className="bg-gradient-subtle">
