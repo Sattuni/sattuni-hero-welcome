@@ -1,7 +1,6 @@
 import heroCatering from "@/assets/hero/hero-catering.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringContact from "@/components/features/catering/CateringContact";
-import CateringFOMO from "@/components/features/marketing/CateringFOMO";
 import Testimonials from "@/components/features/testimonials/Testimonials";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Header from "@/components/layout/Header";
@@ -892,8 +891,6 @@ const Catering = () => {
           <ArrowUp className="w-5 h-5 mx-auto" />
         </button>
       )}
-      
-      <CateringFOMO />
     </div>
   );
 };
