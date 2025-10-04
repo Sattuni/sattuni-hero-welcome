@@ -423,15 +423,10 @@ const Index = () => {
           <Testimonials />
         </MobileSectionExpander>
         
-        <MobileSectionExpander
-          title="Schreib uns kurz"
-          icon={MessageCircle}
-          className="bg-gradient-subtle"
-        >
-          <div id="kontakt">
-            <Contact />
-          </div>
-        </MobileSectionExpander>
+        {/* Contact Section - Always Visible */}
+        <div id="kontakt" className="bg-gradient-subtle">
+          <Contact />
+        </div>
         
         {/* Internal Links Section */}
         <InternalLinks />

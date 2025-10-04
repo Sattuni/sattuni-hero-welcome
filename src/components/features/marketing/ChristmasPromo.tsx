@@ -2,16 +2,25 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { X, Gift, Sparkles } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { useFOMO } from '@/contexts/FOMOContext';
 
 const ChristmasPromo = () => {
   const [showPromo, setShowPromo] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
+  const { registerFOMO, unregisterFOMO } = useFOMO();
+
+  // Check if promo is still valid (only until Jan 31, 2025)
+  const isPromoValid = () => {
+    const now = new Date();
+    const endDate = new Date('2025-01-31T23:59:59');
+    return now <= endDate;
+  };
 
   // Check if user has already dismissed this promo
   useEffect(() => {
     const dismissed = localStorage.getItem('christmas-promo-dismissed');
-    if (dismissed) {
+    if (dismissed || !isPromoValid()) {
       setIsDismissed(true);
       return;
     }
@@ -19,23 +28,35 @@ const ChristmasPromo = () => {
 
   // Show promo after 20% scroll or 3 seconds delay
   useEffect(() => {
-    if (isDismissed) return;
+    if (isDismissed || !isPromoValid()) return;
 
     const timer = setTimeout(() => {
-      setShowPromo(true);
+      const canShow = registerFOMO('christmas');
+      if (canShow) {
+        setShowPromo(true);
+      }
     }, 3000);
 
     if (scrollProgress > 20) {
-      setShowPromo(true);
+      const canShow = registerFOMO('christmas');
+      if (canShow) {
+        setShowPromo(true);
+      }
       clearTimeout(timer);
     }
 
-    return () => clearTimeout(timer);
-  }, [scrollProgress, isDismissed]);
+    return () => {
+      clearTimeout(timer);
+      if (showPromo) {
+        unregisterFOMO('christmas');
+      }
+    };
+  }, [scrollProgress, isDismissed, registerFOMO, unregisterFOMO, showPromo]);
 
   const handleDismiss = () => {
     setShowPromo(false);
     setIsDismissed(true);
+    unregisterFOMO('christmas');
     localStorage.setItem('christmas-promo-dismissed', 'true');
   };
 

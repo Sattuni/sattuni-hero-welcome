@@ -4,6 +4,7 @@
  */
 
 export { AnalyticsProvider, useAnalytics } from './AnalyticsContext';
+export { FOMOProvider, useFOMO } from './FOMOContext';
 export { LanguageProvider, useLanguage } from './LanguageContext';
 export { ThemeProvider, useTheme } from './ThemeContext';
 

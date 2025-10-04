@@ -3,12 +3,19 @@ import { Button } from '@/components/ui/button';
 import { X, Utensils, Users } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
+import { useFOMO } from '@/contexts/FOMOContext';
+import { useLocation } from 'react-router-dom';
 
 const CateringFOMO = () => {
   const [showFOMO, setShowFOMO] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
+  const { registerFOMO, unregisterFOMO } = useFOMO();
+  const location = useLocation();
+
+  // Only show on catering page
+  const isCateringPage = location.pathname === '/catering';
 
   // Check if user has already dismissed this FOMO
   useEffect(() => {
@@ -18,21 +25,31 @@ const CateringFOMO = () => {
     }
   }, []);
 
-  // Show FOMO at 60% scroll
+  // Show FOMO at 60% scroll (only on catering page and if no other FOMO is active)
   useEffect(() => {
+    if (!isCateringPage) return;
+    
     if (scrollProgress >= 60 && !showFOMO && !isDismissed) {
-      setShowFOMO(true);
-      // Auto-hide after 10 seconds
-      const timer = setTimeout(() => {
-        setShowFOMO(false);
-      }, 10000);
-      return () => clearTimeout(timer);
+      const canShow = registerFOMO('catering');
+      if (canShow) {
+        setShowFOMO(true);
+        // Auto-hide after 10 seconds
+        const timer = setTimeout(() => {
+          setShowFOMO(false);
+          unregisterFOMO('catering');
+        }, 10000);
+        return () => {
+          clearTimeout(timer);
+          unregisterFOMO('catering');
+        };
+      }
     }
-  }, [scrollProgress, showFOMO, isDismissed]);
+  }, [scrollProgress, showFOMO, isDismissed, isCateringPage, registerFOMO, unregisterFOMO]);
 
   const handleDismiss = () => {
     setShowFOMO(false);
     setIsDismissed(true);
+    unregisterFOMO('catering');
     localStorage.setItem('catering-fomo-dismissed', 'true');
   };
 
