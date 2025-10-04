@@ -1,6 +1,6 @@
 import heroCatering from "@/assets/hero/hero-catering.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
-import CateringContactMultiStep from "@/components/features/catering/CateringContactMultiStep";
+import CateringContact from "@/components/features/catering/CateringContact";
 import CateringFOMO from "@/components/features/marketing/CateringFOMO";
 import Testimonials from "@/components/features/testimonials/Testimonials";
 import Breadcrumb from "@/components/layout/Breadcrumb";
@@ -812,7 +812,7 @@ const Catering = () => {
       </section>
 
       {/* Catering Contact Form */}
-      <CateringContactMultiStep />
+        <CateringContact />
         
         {/* Internal Links Section */}
         <InternalLinks />

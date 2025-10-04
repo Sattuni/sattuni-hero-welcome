@@ -3,35 +3,37 @@ import { Button } from '@/components/ui/button';
 import { ShoppingBag, X, Heart, PartyPopper } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
-import { useFOMO } from '@/contexts/FOMOContext';
 
 const FOMOElements = () => {
   const [showScrollFOMO, setShowScrollFOMO] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
-  const { canShowFOMO, setActiveFOMO, dismissFOMO } = useFOMO();
 
-  // Show FOMO after 70% scroll and only if no other FOMO is active
+  // Check if user has already dismissed this FOMO
   useEffect(() => {
-    if (!canShowFOMO('scroll-fomo')) return;
+    const dismissed = localStorage.getItem('scroll-fomo-dismissed');
+    if (dismissed) {
+      setIsDismissed(true);
+    }
+  }, []);
 
-    if (scrollProgress > 70) {
-      setActiveFOMO('scroll-fomo');
+  // Show scroll FOMO at 70% scroll
+  useEffect(() => {
+    if (scrollProgress >= 70 && !showScrollFOMO && !isDismissed) {
       setShowScrollFOMO(true);
-      
       // Auto-hide after 8 seconds
       const timer = setTimeout(() => {
         setShowScrollFOMO(false);
-        setActiveFOMO(null);
       }, 8000);
-
       return () => clearTimeout(timer);
     }
-  }, [scrollProgress, canShowFOMO, setActiveFOMO]);
+  }, [scrollProgress, showScrollFOMO, isDismissed]);
 
   const handleDismiss = () => {
     setShowScrollFOMO(false);
-    dismissFOMO('scroll-fomo');
+    setIsDismissed(true);
+    localStorage.setItem('scroll-fomo-dismissed', 'true');
   };
 
   const handleOrder = () => {

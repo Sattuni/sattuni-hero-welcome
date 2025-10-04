@@ -18,18 +18,8 @@ const ChristmasPromo = () => {
   }, []);
 
   // Show promo after 20% scroll or 3 seconds delay
-  // Only show until January 31, 2025
   useEffect(() => {
     if (isDismissed) return;
-
-    // Check if we're past January 31, 2025
-    const now = new Date();
-    const endDate = new Date('2025-01-31T23:59:59');
-    
-    if (now > endDate) {
-      setIsDismissed(true);
-      return;
-    }
 
     const timer = setTimeout(() => {
       setShowPromo(true);

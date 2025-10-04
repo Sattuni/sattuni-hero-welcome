@@ -3,38 +3,37 @@ import { Button } from '@/components/ui/button';
 import { X, Utensils, Users } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
-import { useFOMO } from '@/contexts/FOMOContext';
 
 const CateringFOMO = () => {
   const [showFOMO, setShowFOMO] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
-  const { canShowFOMO, setActiveFOMO, dismissFOMO } = useFOMO();
 
-  // Only show on /catering page
-  const isCateringPage = window.location.pathname === '/catering';
-
-  // Show FOMO when scrolled to 60% on catering page only
+  // Check if user has already dismissed this FOMO
   useEffect(() => {
-    if (!isCateringPage || !canShowFOMO('catering-fomo')) return;
+    const dismissed = localStorage.getItem('catering-fomo-dismissed');
+    if (dismissed) {
+      setIsDismissed(true);
+    }
+  }, []);
 
-    if (scrollProgress > 60) {
-      setActiveFOMO('catering-fomo');
+  // Show FOMO at 60% scroll
+  useEffect(() => {
+    if (scrollProgress >= 60 && !showFOMO && !isDismissed) {
       setShowFOMO(true);
-      
       // Auto-hide after 10 seconds
       const timer = setTimeout(() => {
         setShowFOMO(false);
-        setActiveFOMO(null);
       }, 10000);
-
       return () => clearTimeout(timer);
     }
-  }, [scrollProgress, isCateringPage, canShowFOMO, setActiveFOMO]);
+  }, [scrollProgress, showFOMO, isDismissed]);
 
   const handleDismiss = () => {
     setShowFOMO(false);
-    dismissFOMO('catering-fomo');
+    setIsDismissed(true);
+    localStorage.setItem('catering-fomo-dismissed', 'true');
   };
 
   const handleProbeMenuClick = () => {
