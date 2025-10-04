@@ -183,7 +183,7 @@ const Catering = () => {
     },
     {
       icon: Users,
-      title: "Flexibel: 20–500 Personen",
+      title: "Flexibel: 20 bis 300+ Personen",
       description: "Kleine Runden bis große Feste",
     },
     {
