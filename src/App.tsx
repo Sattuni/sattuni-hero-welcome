@@ -1,7 +1,7 @@
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AnalyticsProvider } from "@/contexts";
+import { AnalyticsProvider, FOMOProvider } from "@/contexts";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -40,17 +40,19 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AnalyticsProvider>
-      <TooltipProvider>
-        <div className="min-h-screen bg-gradient-hero">
-          <Toaster />
-          <Sonner />
-          <ChatbotPositioner />
-          <CookieConsent />
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
-        </div>
-      </TooltipProvider>
+      <FOMOProvider>
+        <TooltipProvider>
+          <div className="min-h-screen bg-gradient-hero">
+            <Toaster />
+            <Sonner />
+            <ChatbotPositioner />
+            <CookieConsent />
+            <BrowserRouter>
+              <AppRoutes />
+            </BrowserRouter>
+          </div>
+        </TooltipProvider>
+      </FOMOProvider>
     </AnalyticsProvider>
   </QueryClientProvider>
 );
