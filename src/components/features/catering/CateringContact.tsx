@@ -515,8 +515,9 @@ const CateringContact = () => {
                   <Button
                     type="button"
                     onClick={handleNextStep}
-                    className="w-full gap-2 bg-gradient-primary hover:opacity-90 transition-opacity"
+                    className="w-full gap-2"
                     size="lg"
+                    variant="default"
                   >
                     Weiter zu Event-Details
                     <ArrowRight className="w-4 h-4" />
@@ -635,8 +636,9 @@ const CateringContact = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 gap-2 bg-gradient-primary hover:opacity-90 transition-opacity"
+                      className="flex-1 gap-2"
                       size="lg"
+                      variant="default"
                     >
                       {isSubmitting ? (
                         <>
