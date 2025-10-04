@@ -10,10 +10,10 @@ const ChristmasPromo = () => {
   const { scrollProgress } = useScrollPosition();
   const { registerFOMO, unregisterFOMO } = useFOMO();
 
-  // Check if promo is still valid (only until Jan 31, 2025)
+  // Check if promo is still valid (only until Dec 20, 2025)
   const isPromoValid = () => {
     const now = new Date();
-    const endDate = new Date('2025-01-31T23:59:59');
+    const endDate = new Date('2025-12-20T23:59:59');
     return now <= endDate;
   };
 
