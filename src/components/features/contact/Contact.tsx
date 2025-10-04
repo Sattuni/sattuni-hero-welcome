@@ -55,7 +55,10 @@ const Contact = () => {
         description: "E-Mail und Nachricht sind erforderlich.",
         variant: "destructive"
       });
+      setIsSubmitting(false);
+      return;
     }
+    
     const data = {name:formData.name, email:formData.email, message:formData.message, phone:formData.phone};
     fetch(CONTACT_US_ENDPOINT, {
       method: "POST",
@@ -75,15 +78,22 @@ const Contact = () => {
           phone: "",
           message: ""
         });
-        setIsSubmitting(false);
+        toast({
+          title: "Nachricht gesendet! ✅",
+          description: "Wir melden uns innerhalb von 24 Stunden bei dir zurück.",
+        });
         return response.json();
       })
       .catch((err) => {
         console.error(err);
+        toast({
+          title: "Fehler beim Senden",
+          description: "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
+          variant: "destructive"
+        });
       }).finally(() => {
         setIsSubmitting(false);
       });
-    return;
   };
 
   return (
