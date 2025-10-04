@@ -1,19 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { cateringFormSchema } from '@/services/validation/schemas';
-import { Building, Calendar, CheckCircle, Mail, MapPin, MessageCircle, PartyPopper, Phone, RotateCcw, Send, User, Wand2 } from "lucide-react";
+import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight } from "lucide-react";
 import React, { useEffect, useState } from 'react';
+import { FORM_CONSTANTS } from '@/constants';
 
 const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
-
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
@@ -28,8 +29,9 @@ const CateringContact = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isFillingDemo, setIsFillingDemo] = useState(false);
+  const [isDemoFilling, setIsDemoFilling] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [currentStep, setCurrentStep] = useState(1);
   const { toast } = useToast();
   
   // Enhanced form tracking
@@ -43,18 +45,14 @@ const CateringContact = () => {
 
   // Helper functions for analytics
   const calculateEstimatedValue = (data: any): number => {
-    // Simple estimation based on occasion and company presence
-    let baseValue = 500; // Base catering value
-    
-    if (data.company) baseValue += 200; // Corporate events typically higher value
-    if (data.occasion === 'Hochzeit') baseValue += 300; // Weddings are premium
-    if (data.occasion === 'Firmenfeier') baseValue += 150; // Corporate events
-    
+    let baseValue = 500;
+    if (data.company) baseValue += 200;
+    if (data.occasion === 'Hochzeit') baseValue += 300;
+    if (data.occasion === 'Firmenfeier') baseValue += 150;
     return baseValue;
   };
 
   const estimateGuestCount = (data: any): number => {
-    // Extract guest count from comment if mentioned, otherwise estimate
     const comment = data.comment?.toLowerCase() || '';
     const guestMatches = comment.match(/(\d+)\s*(personen|gäste|teilnehmer)/);
     
@@ -62,7 +60,6 @@ const CateringContact = () => {
       return parseInt(guestMatches[1]);
     }
     
-    // Default estimates based on occasion
     const occasionEstimates: Record<string, number> = {
       'Geburtstag': 15,
       'Hochzeit': 50,
@@ -84,17 +81,28 @@ const CateringContact = () => {
     }
   });
 
-  // Form validation
-  const validateForm = (): boolean => {
-    const result = cateringFormSchema.safeParse(formData);
-    
+  // Validate form data
+  const validateForm = () => {
+    const result = cateringFormSchema.safeParse({
+      ...formData,
+      guestCount: undefined,
+      budget: undefined,
+    });
+
     if (!result.success) {
       const errors: Record<string, string> = {};
-      result.error.issues.forEach(issue => {
-        const fieldName = issue.path[0] as string;
-        errors[fieldName] = issue.message;
+      result.error.issues.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0].toString()] = err.message;
+        }
       });
       setValidationErrors(errors);
+      
+      // Track validation errors
+      Object.keys(errors).forEach(field => {
+        trackValidationError(field, errors[field]);
+      });
+      
       return false;
     }
     
@@ -102,52 +110,65 @@ const CateringContact = () => {
     return true;
   };
 
-  // const submitCateringForm = (e) =>{
-  //   e.preventDefault();
+  // Validate only Step 1 fields
+  const validateStep1 = () => {
+    const errors: Record<string, string> = {};
     
-  //   // const data = {name:form.name, email:form.email, message:form.textArea};
-  //   // setLoaderVisible(true);
-  //   fetch(CONTACT_US_ENDPOINT, {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then((response) => {
-  //       if (response.status !== 200) {
-  //         throw new Error(response.statusText);
-  //       }
-  //       return response.json();
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       setIsSubmitting(false);
-  //     });
-  // }
-  // Calculate form completion progress
-  const getFormProgress = () => {
-    const requiredFields = ['name', 'email', 'address', 'occasion', 'date'];
-    const optionalFields = ['company', 'phone', 'comment'];
+    if (!formData.name || formData.name.trim().length < 2) {
+      errors.name = "Name ist erforderlich";
+    }
+    if (!formData.email || !formData.email.includes('@')) {
+      errors.email = "Bitte geben Sie eine gültige E-Mail-Adresse ein";
+    }
+    if (!formData.phone || formData.phone.trim().length < 10) {
+      errors.phone = "Telefonnummer ist erforderlich";
+    }
     
-    const requiredComplete = requiredFields.filter(field => {
-      const value = formData[field as keyof typeof formData];
-      return typeof value === 'string' ? value.trim() : !!value;
-    }).length;
+    setValidationErrors(errors);
     
-    const optionalComplete = optionalFields.filter(field => {
-      const value = formData[field as keyof typeof formData];
-      return typeof value === 'string' ? value.trim() : !!value;
-    }).length;
+    if (Object.keys(errors).length > 0) {
+      Object.keys(errors).forEach(field => {
+        trackValidationError(field, errors[field]);
+      });
+      return false;
+    }
     
-    const requiredProgress = (requiredComplete / requiredFields.length) * 75; // 75% for required
-    const optionalProgress = (optionalComplete / optionalFields.length) * 25; // 25% for optional
-    
-    return Math.round(requiredProgress + optionalProgress);
+    return true;
   };
 
-  const progress = getFormProgress();
+  // Get form progress percentage
+  const getFormProgress = () => {
+    if (currentStep === 1) {
+      const step1Fields = ['name', 'email', 'phone'];
+      const filledStep1 = step1Fields.filter(field => formData[field as keyof typeof formData]);
+      return Math.round((filledStep1.length / step1Fields.length) * 50); // Max 50% for step 1
+    } else {
+      const step1Progress = 50; // Step 1 complete
+      const step2Fields = ['address', 'occasion', 'date'];
+      const filledStep2 = step2Fields.filter(field => formData[field as keyof typeof formData]);
+      return step1Progress + Math.round((filledStep2.length / step2Fields.length) * 50);
+    }
+  };
+
+  // Handle next step
+  const handleNextStep = () => {
+    if (validateStep1()) {
+      setCurrentStep(2);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      toast({
+        title: "Bitte füllen Sie alle Pflichtfelder aus",
+        description: "Name, E-Mail und Telefon sind erforderlich.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  // Handle previous step
+  const handlePreviousStep = () => {
+    setCurrentStep(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Auto-restore on mount if saved data exists
   useEffect(() => {
@@ -173,90 +194,74 @@ const CateringContact = () => {
     }
   };
 
-  const handleSelectChange = (value: string) => {
+  const handleSelectChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
-      occasion: value
+      [field]: value
     }));
     
-    // Clear validation error for occasion field
-    if (validationErrors.occasion) {
+    // Clear validation error for this field
+    if (validationErrors[field]) {
       setValidationErrors(prev => {
         const newErrors = { ...prev };
-        delete newErrors.occasion;
+        delete newErrors[field];
         return newErrors;
       });
     }
   };
 
-  // Demo fill function with animation
+  // Fill demo data for testing
   const fillDemoData = async () => {
-    setIsFillingDemo(true);
+    setIsDemoFilling(true);
     
     const demoData = {
       name: "Max Mustermann",
-      company: "Mustermann GmbH",
-      email: "max@mustermann-gmbh.de", 
-      phone: "+49 211 123456",
-      address: "Königsallee 1, 40212 Düsseldorf",
-      occasion: "firmenevent",
-      date: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
-      comment: "Wir planen ein Firmenjubiläum für ca. 150 Personen. Buffet-Style wäre perfekt mit vegetarischen und veganen Optionen. Budget: ca. 2.500€"
+      company: "Musterfirma GmbH",
+      email: "max.mustermann@example.com",
+      phone: "+49 211 1234567",
+      address: "Musterstraße 123, 40210 Düsseldorf",
+      occasion: "Firmenfeier",
+      date: "2024-12-20",
+      comment: "Wir würden gerne eine Auswahl an vegetarischen und veganen Optionen haben."
     };
 
-    // Clear any existing validation errors
-    setValidationErrors({});
-
-    // Animate filling each field with delay
-    const fields = Object.entries(demoData);
-    
-    for (let i = 0; i < fields.length; i++) {
-      const [key, value] = fields[i];
-      
-      await new Promise(resolve => {
-        setTimeout(() => {
-          setFormData(prev => ({
-            ...prev,
-            [key]: value
-          }));
-          resolve(void 0);
-        }, i * 200); // 200ms delay between each field
+    // Simulate typing animation
+    setTimeout(() => {
+      setFormData(demoData);
+      setIsDemoFilling(false);
+      setCurrentStep(2); // Move to step 2 after demo fill
+      toast({
+        title: "Demo-Daten eingefügt",
+        description: "Sie können die Daten nun bearbeiten oder direkt absenden.",
       });
-    }
-    
-    setIsFillingDemo(false);
-    
-    // toast({
-    //   title: "Demo-Daten eingefügt! ✨",
-    //   description: "Du kannst die Daten jetzt anpassen oder direkt absenden.",
-    //   duration: 3000
-    // });
+    }, 100);
   };
 
-  // Clear form and saved data
+  // Clear form
   const handleClearForm = () => {
     setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      address: "",
-      comment: "",
-      occasion: "",
-      date: ""
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      address: '',
+      occasion: '',
+      date: '',
+      comment: ''
     });
     setValidationErrors({});
+    setCurrentStep(1);
     clearSavedData();
+    
     toast({
       title: "Formular zurückgesetzt",
-      description: "Alle Eingaben wurden gelöscht.",
+      description: "Alle Felder wurden geleert.",
     });
   };
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-        
+    
     if (!validateForm()) {
       // Track validation errors
       Object.keys(validationErrors).forEach(fieldName => {
@@ -270,6 +275,8 @@ const CateringContact = () => {
       });
       return;
     }
+    
+    setIsSubmitting(true);
     
     try {
       fetch(CONTACT_US_ENDPOINT, {
@@ -298,22 +305,27 @@ const CateringContact = () => {
             "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
             "Anfrage erfolgreich gesendet!"
           );
-          clearSavedData();
+          
+          // Reset form on success
           setFormData({
-            name: "",
-            company: "",
-            email: "",
-            phone: "",
-            address: "",
-            comment: "",
-            occasion: "",
-            date: ""
+            name: '',
+            company: '',
+            email: '',
+            phone: '',
+            address: '',
+            occasion: '',
+            date: '',
+            comment: ''
           });
           setValidationErrors({});
+          setCurrentStep(1);
+          clearSavedData();
+          
           return response.json();
         })
         .catch((err) => {
           console.error(err);
+          handleFormError(err, "Catering-Anfrage");
         }).finally(() => {
           setIsSubmitting(false);
         });
@@ -322,17 +334,7 @@ const CateringContact = () => {
       handleFormError(error, "Catering-Anfrage");
       setIsSubmitting(false);
     }
-
   };
-
-  const occasions = [
-    { value: "geburtstag", label: "Geburtstag" },
-    { value: "hochzeit", label: "Hochzeit" },
-    { value: "office-lunch", label: "Office Lunch" },
-    { value: "firmenevent", label: "Firmenevent" },
-    { value: "privat", label: "Private Feier" },
-    { value: "sonstiges", label: "Sonstiges" }
-  ];
 
   return (
     <section id="catering-kontakt" className="py-12 md:py-20 px-4 bg-gradient-subtle">
@@ -347,291 +349,325 @@ const CateringContact = () => {
           </p>
         </div>
 
-        {/* Contact Form */}
-        <Card className="border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
-          <CardContent className="p-4 md:p-6 lg:p-8">
+        <Card className="w-full max-w-2xl mx-auto shadow-xl border-2 border-primary/10">
+          <CardHeader className="space-y-3 pb-6">
+            <CardTitle className="text-2xl md:text-3xl font-display text-center">
+              Catering-Anfrage
+            </CardTitle>
+            <CardDescription className="text-center text-base">
+              Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen
+            </CardDescription>
+            
+            {/* Step Indicator */}
+            <div className="flex items-center justify-center gap-2 pt-4">
+              <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${
+                currentStep === 1 
+                  ? 'bg-primary text-primary-foreground border-primary' 
+                  : 'bg-primary/10 text-primary border-primary'
+              }`}>
+                1
+              </div>
+              <div className={`h-0.5 w-16 transition-all ${
+                currentStep === 2 ? 'bg-primary' : 'bg-muted'
+              }`} />
+              <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${
+                currentStep === 2 
+                  ? 'bg-primary text-primary-foreground border-primary' 
+                  : 'bg-muted text-muted-foreground border-muted'
+              }`}>
+                2
+              </div>
+            </div>
+            
+            {/* Step Title */}
+            <div className="text-center pt-2">
+              <p className="text-sm font-medium text-primary">
+                {currentStep === 1 ? 'Schritt 1: Kontaktdaten' : 'Schritt 2: Event-Details'}
+              </p>
+            </div>
+            
             {/* Progress Bar */}
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-foreground">Formular ausfüllen</span>
-                <div className="flex items-center gap-2">
-                  {hasSavedData() && (
-                    <span className="text-xs text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-1 rounded flex items-center gap-1">
-                      {/* <Save className="w-3 h-3" />
-                      Gespeichert */}
-                    </span>
-                  )}
-                  <span className="text-sm text-muted-foreground">{progress}%</span>
-                </div>
+            <div className="space-y-2 pt-2">
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <span>Fortschritt</span>
+                <span>{getFormProgress()}%</span>
               </div>
-              <div className="w-full bg-muted rounded-full h-2">
-                <div 
-                  className="bg-gradient-warm h-2 rounded-full transition-all duration-500 ease-out"
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-              {progress === 100 && (
-                <div className="flex items-center gap-2 mt-2 text-primary animate-fade-in">
-                  <CheckCircle className="w-4 h-4" />
-                  <span className="text-sm font-medium">Bereit zum Absenden!</span>
-                </div>
-              )}
+              <Progress value={getFormProgress()} className="h-2" />
             </div>
+          </CardHeader>
 
-            {/* Control Buttons */}
-            <div className="mb-4 md:mb-6 p-3 md:p-4 bg-gradient-subtle rounded-xl border border-border/50">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
-                <div>
-                  <h4 className="text-sm font-medium text-foreground mb-1">Formular-Aktionen</h4>
-                  <p className="text-xs text-muted-foreground">Schnell testen oder zurücksetzen</p>
-                </div>
-                <div className="flex gap-2 w-full sm:w-auto">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={fillDemoData}
-                    disabled={isFillingDemo || isSubmitting}
-                    className="gap-1.5 md:gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-xs md:text-sm flex-1 sm:flex-none"
-                  >
-                    {isFillingDemo ? (
-                      <>
-                        <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
-                        <span className="hidden xs:inline">Füllt aus...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Wand2 className="w-3 h-3" />
-                        <span className="hidden xs:inline">Demo</span>
-                        <span className="xs:hidden">Demo</span>
-                      </>
-                    )}
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={handleClearForm}
-                    disabled={isSubmitting || isFillingDemo}
-                    className="gap-1.5 md:gap-2 hover:bg-destructive hover:text-destructive-foreground transition-all duration-300 text-xs md:text-sm flex-1 sm:flex-none"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span className="hidden xs:inline">Zurücksetzen</span>
-                    <span className="xs:hidden">Reset</span>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-              {/* Name & Company Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div className="space-y-2 md:space-y-3">
-                  <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                    <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    Name *
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Vor- und Nachname"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    onFocus={() => trackFieldFocus('name')}
-                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
-                      validationErrors.name ? 'border-red-500 focus:border-red-500' : ''
-                    }`}
-                    disabled={isSubmitting}
-                  />
-                  {validationErrors.name && (
-                    <p className="text-red-500 text-sm">{validationErrors.name}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2 md:space-y-3">
-                  <Label htmlFor="company" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                    <Building className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    Firmenname
-                  </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    placeholder="Optional"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors"
-                    disabled={isSubmitting}
-                  />
-                </div>
-              </div>
-
-              {/* Email & Phone Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <Label htmlFor="email" className="text-foreground font-medium flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-primary" />
-                    E-Mail *
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="deine@email.de"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    onFocus={() => trackFieldFocus('email')}
-                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
-                      validationErrors.email ? 'border-red-500 focus:border-red-500' : ''
-                    }`}
-                    disabled={isSubmitting}
-                  />
-                  {validationErrors.email && (
-                    <p className="text-red-500 text-sm">{validationErrors.email}</p>
-                  )}
-                </div>
-
-                <div className="space-y-3">
-                  <Label htmlFor="phone" className="text-foreground font-medium flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-primary" />
-                    Telefon *
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+49 123 456789"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
-                      validationErrors.phone ? 'border-red-500 focus:border-red-500' : ''
-                    }`}
-                    disabled={isSubmitting}
-                  />
-                  {validationErrors.phone && (
-                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.phone}</p>
-                  )}
-                </div>
-              </div>
-
-              {/* Address Field */}
-              <div className="space-y-2 md:space-y-3">
-                <Label htmlFor="address" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                  Adresse / Veranstaltungsort *
-                </Label>
-                <Input
-                  id="address"
-                  name="address"
-                  type="text"
-                  placeholder="Straße, PLZ, Stadt"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
-                    validationErrors.address ? 'border-red-500 focus:border-red-500' : ''
-                  }`}
-                  disabled={isSubmitting}
-                />
-                {validationErrors.address && (
-                  <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.address}</p>
-                )}
-              </div>
-
-              {/* Occasion & Date Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div className="space-y-2 md:space-y-3">
-                  <Label className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                    <PartyPopper className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    Anlass *
-                  </Label>
-                  <Select value={formData.occasion} onValueChange={handleSelectChange} disabled={isSubmitting}>
-                    <SelectTrigger className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary ${
-                      validationErrors.occasion ? 'border-red-500 focus:border-red-500' : ''
-                    }`}>
-                      <SelectValue placeholder="Anlass wählen" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-card border-border/50 max-w-[calc(100vw-2rem)]">
-                      {occasions.map((occasion) => (
-                        <SelectItem key={occasion.value} value={occasion.value} className="text-sm md:text-base">
-                          {occasion.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {validationErrors.occasion && (
-                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.occasion}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2 md:space-y-3">
-                  <Label htmlFor="date" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                    <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    Datum *
-                  </Label>
-                  <Input
-                    id="date"
-                    name="date"
-                    type="date"
-                    value={formData.date}
-                    onChange={handleInputChange}
-                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
-                      validationErrors.date ? 'border-red-500 focus:border-red-500' : ''
-                    }`}
-                    disabled={isSubmitting}
-                  />
-                  {validationErrors.date && (
-                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.date}</p>
-                  )}
-                </div>
-              </div>
-
-              {/* Comment Field */}
-              <div className="space-y-2 md:space-y-3">
-                <Label htmlFor="comment" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
-                  <MessageCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                  Weitere Wünsche & Infos
-                </Label>
-                <Textarea
-                  id="comment"
-                  name="comment"
-                  placeholder="Anzahl Gäste, besondere Wünsche, Budget, etc."
-                  value={formData.comment}
-                  onChange={handleInputChange}
-                  className="min-h-[100px] md:min-h-[120px] text-base md:text-lg border-border/50 focus:border-primary transition-colors resize-none"
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4 md:pt-6">
-                <Button 
-                  type="submit"
-                  variant="hero"
-                  size="xl"
-                  className="w-full gap-2 md:gap-3 shadow-elegant hover:shadow-glow h-12 md:h-14 text-base md:text-lg"
-                  disabled={isSubmitting}
-                  // onClick={submitCateringForm}
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Demo/Reset Buttons */}
+              <div className="flex gap-2 justify-end pb-4 border-b">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={fillDemoData}
+                  disabled={isDemoFilling || isSubmitting}
+                  className="gap-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                      <span>Wird gesendet...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 md:w-5 md:h-5" />
-                      <span>Catering-Anfrage senden</span>
-                    </>
-                  )}
+                  <Sparkles className="w-4 h-4" />
+                  Demo
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={handleClearForm}
+                  disabled={isSubmitting}
+                  className="gap-2"
+                >
+                  <X className="w-4 h-4" />
+                  Reset
                 </Button>
               </div>
 
-              {/* Note */}
-              <div className="text-center text-xs md:text-sm text-muted-foreground pt-3 md:pt-4 space-y-1 px-2">
-                <p className="break-words">* Pflichtfelder | Wir melden uns innerhalb von 24 Stunden mit einem individuellen Angebot</p>
-                <p className="text-[10px] md:text-xs opacity-75 break-words">Ihre Daten werden automatisch gespeichert und bei einem Seitenwechsel wiederhergestellt.</p>
-              </div>
+              {/* Step 1: Contact Details */}
+              {currentStep === 1 && (
+                <div className="space-y-6 animate-in fade-in slide-in-from-right-5 duration-300">
+                  {/* Name */}
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="flex items-center gap-2 text-base">
+                      <User className="w-4 h-4" />
+                      Name <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Max Mustermann"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('name')}
+                      required
+                      className={validationErrors.name ? "border-destructive" : ""}
+                    />
+                    {validationErrors.name && (
+                      <p className="text-sm text-destructive">{validationErrors.name}</p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="flex items-center gap-2 text-base">
+                      <Mail className="w-4 h-4" />
+                      E-Mail <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="max@beispiel.de"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('email')}
+                      required
+                      className={validationErrors.email ? "border-destructive" : ""}
+                    />
+                    {validationErrors.email && (
+                      <p className="text-sm text-destructive">{validationErrors.email}</p>
+                    )}
+                  </div>
+
+                  {/* Phone */}
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="flex items-center gap-2 text-base">
+                      <Phone className="w-4 h-4" />
+                      Telefon <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+49 211 1234567"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('phone')}
+                      required
+                      className={validationErrors.phone ? "border-destructive" : ""}
+                    />
+                    {validationErrors.phone && (
+                      <p className="text-sm text-destructive">{validationErrors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* Message/Comment */}
+                  <div className="space-y-2">
+                    <Label htmlFor="comment" className="flex items-center gap-2 text-base">
+                      <MessageSquare className="w-4 h-4" />
+                      Ihre Wünsche & Anmerkungen <span className="text-muted-foreground text-sm">(optional)</span>
+                    </Label>
+                    <Textarea
+                      id="comment"
+                      name="comment"
+                      placeholder="Teilen Sie uns Ihre Wünsche mit..."
+                      value={formData.comment}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('comment')}
+                      rows={4}
+                      className="resize-none"
+                    />
+                  </div>
+
+                  {/* Next Button */}
+                  <Button
+                    type="button"
+                    onClick={handleNextStep}
+                    className="w-full gap-2 bg-gradient-primary hover:opacity-90 transition-opacity"
+                    size="lg"
+                  >
+                    Weiter zu Event-Details
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
+              )}
+
+              {/* Step 2: Event Details */}
+              {currentStep === 2 && (
+                <div className="space-y-6 animate-in fade-in slide-in-from-left-5 duration-300">
+                  {/* Address */}
+                  <div className="space-y-2">
+                    <Label htmlFor="address" className="flex items-center gap-2 text-base">
+                      <MapPin className="w-4 h-4" />
+                      Adresse <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="address"
+                      name="address"
+                      type="text"
+                      placeholder="Straße, PLZ, Stadt"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('address')}
+                      required
+                      className={validationErrors.address ? "border-destructive" : ""}
+                    />
+                    {validationErrors.address && (
+                      <p className="text-sm text-destructive">{validationErrors.address}</p>
+                    )}
+                  </div>
+
+                  {/* Occasion */}
+                  <div className="space-y-2">
+                    <Label htmlFor="occasion" className="flex items-center gap-2 text-base">
+                      <PartyPopper className="w-4 h-4" />
+                      Anlass <span className="text-destructive">*</span>
+                    </Label>
+                    <Select 
+                      name="occasion"
+                      value={formData.occasion}
+                      onValueChange={(value) => handleSelectChange('occasion', value)}
+                      required
+                    >
+                      <SelectTrigger 
+                        id="occasion"
+                        className={validationErrors.occasion ? "border-destructive" : ""}
+                        onFocus={() => trackFieldFocus('occasion')}
+                      >
+                        <SelectValue placeholder="Wählen Sie einen Anlass" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {FORM_CONSTANTS.occasions.map((occasion) => (
+                          <SelectItem key={occasion.value} value={occasion.value}>
+                            {occasion.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {validationErrors.occasion && (
+                      <p className="text-sm text-destructive">{validationErrors.occasion}</p>
+                    )}
+                  </div>
+
+                  {/* Date */}
+                  <div className="space-y-2">
+                    <Label htmlFor="date" className="flex items-center gap-2 text-base">
+                      <Calendar className="w-4 h-4" />
+                      Datum <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="date"
+                      name="date"
+                      type="date"
+                      value={formData.date}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('date')}
+                      required
+                      min={new Date().toISOString().split('T')[0]}
+                      className={validationErrors.date ? "border-destructive" : ""}
+                    />
+                    {validationErrors.date && (
+                      <p className="text-sm text-destructive">{validationErrors.date}</p>
+                    )}
+                  </div>
+
+                  {/* Company (optional) */}
+                  <div className="space-y-2">
+                    <Label htmlFor="company" className="flex items-center gap-2 text-base">
+                      <Building2 className="w-4 h-4" />
+                      Firmenname <span className="text-muted-foreground text-sm">(optional)</span>
+                    </Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      type="text"
+                      placeholder="Musterfirma GmbH"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('company')}
+                    />
+                  </div>
+
+                  {/* Navigation Buttons */}
+                  <div className="flex gap-3 pt-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handlePreviousStep}
+                      className="flex-1 gap-2"
+                      size="lg"
+                    >
+                      <ArrowRight className="w-4 h-4 rotate-180" />
+                      Zurück
+                    </Button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 gap-2 bg-gradient-primary hover:opacity-90 transition-opacity"
+                      size="lg"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Wird gesendet...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          Anfrage senden
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              {/* Note about required fields - only show in step 1 */}
+              {currentStep === 1 && (
+                <div className="text-center text-sm text-muted-foreground pt-2 border-t">
+                  <p className="flex items-center justify-center gap-2">
+                    <span className="text-destructive">*</span>
+                    Pflichtfelder
+                  </p>
+                  {hasSavedData() && (
+                    <p className="text-xs mt-1 text-primary">
+                      Ihre Daten werden automatisch gespeichert
+                    </p>
+                  )}
+                </div>
+              )}
             </form>
           </CardContent>
         </Card>
