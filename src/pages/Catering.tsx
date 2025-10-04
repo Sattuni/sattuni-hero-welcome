@@ -212,7 +212,7 @@ const Catering = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       
       {/* Breadcrumb Navigation */}
@@ -244,15 +244,15 @@ const Catering = () => {
         </div>
         
         <div className="relative container mx-auto px-4 text-center text-white">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
               Dein Event. Unser Essen. 
-              <span className="block text-gradient bg-gradient-warm bg-clip-text text-transparent">
+              <span className="block text-gradient bg-gradient-warm bg-clip-text text-transparent mt-2">
                 Entspannt genießen!
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
               Arabische Küche für private Feiern & Business-Events. Stressfrei für dich, lecker für alle.
             </p>
             
@@ -296,7 +296,7 @@ const Catering = () => {
             
             {/* Christmas Promo */}
             <div 
-              className="mt-8 p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-xl border border-white/20 backdrop-blur-sm"
+              className="mt-6 md:mt-8 p-3 md:p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-lg md:rounded-xl border border-white/20 backdrop-blur-sm mx-2"
               onClick={() => {
                 trackBusinessAction('christmas_promo_view', {
                   promo_code: 'SATT25',
@@ -306,18 +306,18 @@ const Catering = () => {
                 addEngagementFactor('christmas_promo_interaction');
               }}
             >
-              <div className="flex items-center justify-center gap-3 text-white">
-                <TreePine className="w-8 h-8 text-emerald-200" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3 text-white">
+                <TreePine className="w-6 h-6 md:w-8 md:h-8 text-emerald-200 flex-shrink-0" />
                 <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Weihnachts-Special!</div>
-                  <div className="text-sm opacity-95 leading-relaxed">
-                    <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern Catering</span> mit Code{' '}
-                    <span className="font-bold bg-white/25 px-2 py-1 rounded-md text-emerald-100">
+                  <div className="font-bold text-base md:text-lg mb-1">Weihnachts-Special!</div>
+                  <div className="text-xs md:text-sm opacity-95 leading-relaxed break-words px-2">
+                    <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern</span> mit Code{' '}
+                    <span className="font-bold bg-white/25 px-1.5 md:px-2 py-0.5 md:py-1 rounded-md text-emerald-100 whitespace-nowrap">
                       SATT25
                     </span>
                   </div>
                 </div>
-                <Gift className="w-8 h-8 text-red-200" />
+                <Gift className="w-6 h-6 md:w-8 md:h-8 text-red-200 flex-shrink-0" />
               </div>
             </div>
           </div>
@@ -889,7 +889,7 @@ const Catering = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 md:bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
           aria-label="Nach oben scrollen"
         >
           <ArrowUp className="w-5 h-5 mx-auto" />

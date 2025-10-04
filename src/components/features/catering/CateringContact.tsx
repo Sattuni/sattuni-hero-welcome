@@ -335,21 +335,21 @@ const CateringContact = () => {
   ];
 
   return (
-    <section id="catering-kontakt" className="py-20 px-6 bg-gradient-subtle">
-      <div className="container mx-auto max-w-4xl">
+    <section id="catering-kontakt" className="py-12 md:py-20 px-4 bg-gradient-subtle">
+      <div className="container mx-auto max-w-full px-2 md:px-4 md:max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className="text-center mb-8 md:mb-12 space-y-3 md:space-y-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Catering anfragen
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
             Erzähl uns von deinem Event – wir erstellen dir ein individuelles Angebot.
           </p>
         </div>
 
         {/* Contact Form */}
         <Card className="border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
-          <CardContent className="p-8">
+          <CardContent className="p-4 md:p-6 lg:p-8">
             {/* Progress Bar */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
@@ -379,30 +379,31 @@ const CateringContact = () => {
             </div>
 
             {/* Control Buttons */}
-            <div className="mb-6 p-4 bg-gradient-subtle rounded-xl border border-border/50">
-              <div className="flex items-center justify-between">
+            <div className="mb-4 md:mb-6 p-3 md:p-4 bg-gradient-subtle rounded-xl border border-border/50">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <div>
                   <h4 className="text-sm font-medium text-foreground mb-1">Formular-Aktionen</h4>
                   <p className="text-xs text-muted-foreground">Schnell testen oder zurücksetzen</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full sm:w-auto">
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={fillDemoData}
                     disabled={isFillingDemo || isSubmitting}
-                    className="gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    className="gap-1.5 md:gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-xs md:text-sm flex-1 sm:flex-none"
                   >
                     {isFillingDemo ? (
                       <>
                         <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
-                        Füllt aus...
+                        <span className="hidden xs:inline">Füllt aus...</span>
                       </>
                     ) : (
                       <>
                         <Wand2 className="w-3 h-3" />
-                        Demo ausfüllen
+                        <span className="hidden xs:inline">Demo</span>
+                        <span className="xs:hidden">Demo</span>
                       </>
                     )}
                   </Button>
@@ -412,21 +413,22 @@ const CateringContact = () => {
                     size="sm"
                     onClick={handleClearForm}
                     disabled={isSubmitting || isFillingDemo}
-                    className="gap-2 hover:bg-destructive hover:text-destructive-foreground transition-all duration-300"
+                    className="gap-1.5 md:gap-2 hover:bg-destructive hover:text-destructive-foreground transition-all duration-300 text-xs md:text-sm flex-1 sm:flex-none"
                   >
                     <RotateCcw className="w-3 h-3" />
-                    Zurücksetzen
+                    <span className="hidden xs:inline">Zurücksetzen</span>
+                    <span className="xs:hidden">Reset</span>
                   </Button>
                 </div>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               {/* Name & Company Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2">
-                    <User className="w-4 h-4 text-primary" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-2 md:space-y-3">
+                  <Label htmlFor="name" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                    <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     Name *
                   </Label>
                   <Input
@@ -437,7 +439,7 @@ const CateringContact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     onFocus={() => trackFieldFocus('name')}
-                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
                       validationErrors.name ? 'border-red-500 focus:border-red-500' : ''
                     }`}
                     disabled={isSubmitting}
@@ -447,9 +449,9 @@ const CateringContact = () => {
                   )}
                 </div>
 
-                <div className="space-y-3">
-                  <Label htmlFor="company" className="text-foreground font-medium flex items-center gap-2">
-                    <Building className="w-4 h-4 text-primary" />
+                <div className="space-y-2 md:space-y-3">
+                  <Label htmlFor="company" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                    <Building className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     Firmenname
                   </Label>
                   <Input
@@ -459,7 +461,7 @@ const CateringContact = () => {
                     placeholder="Optional"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className="h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors"
                     disabled={isSubmitting}
                   />
                 </div>
@@ -502,21 +504,21 @@ const CateringContact = () => {
                     placeholder="+49 123 456789"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
                       validationErrors.phone ? 'border-red-500 focus:border-red-500' : ''
                     }`}
                     disabled={isSubmitting}
                   />
                   {validationErrors.phone && (
-                    <p className="text-red-500 text-sm">{validationErrors.phone}</p>
+                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.phone}</p>
                   )}
                 </div>
               </div>
 
               {/* Address Field */}
-              <div className="space-y-3">
-                <Label htmlFor="address" className="text-foreground font-medium flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
+              <div className="space-y-2 md:space-y-3">
+                <Label htmlFor="address" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Adresse / Veranstaltungsort *
                 </Label>
                 <Input
@@ -526,45 +528,45 @@ const CateringContact = () => {
                   placeholder="Straße, PLZ, Stadt"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                  className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
                     validationErrors.address ? 'border-red-500 focus:border-red-500' : ''
                   }`}
                   disabled={isSubmitting}
                 />
                 {validationErrors.address && (
-                  <p className="text-red-500 text-sm">{validationErrors.address}</p>
+                  <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.address}</p>
                 )}
               </div>
 
               {/* Occasion & Date Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <Label className="text-foreground font-medium flex items-center gap-2">
-                    <PartyPopper className="w-4 h-4 text-primary" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-2 md:space-y-3">
+                  <Label className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                    <PartyPopper className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     Anlass *
                   </Label>
                   <Select value={formData.occasion} onValueChange={handleSelectChange} disabled={isSubmitting}>
-                    <SelectTrigger className={`h-12 text-lg border-border/50 focus:border-primary ${
+                    <SelectTrigger className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary ${
                       validationErrors.occasion ? 'border-red-500 focus:border-red-500' : ''
                     }`}>
                       <SelectValue placeholder="Anlass wählen" />
                     </SelectTrigger>
-                    <SelectContent className="bg-card border-border/50">
+                    <SelectContent className="bg-card border-border/50 max-w-[calc(100vw-2rem)]">
                       {occasions.map((occasion) => (
-                        <SelectItem key={occasion.value} value={occasion.value} className="text-lg">
+                        <SelectItem key={occasion.value} value={occasion.value} className="text-sm md:text-base">
                           {occasion.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                   {validationErrors.occasion && (
-                    <p className="text-red-500 text-sm">{validationErrors.occasion}</p>
+                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.occasion}</p>
                   )}
                 </div>
 
-                <div className="space-y-3">
-                  <Label htmlFor="date" className="text-foreground font-medium flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-primary" />
+                <div className="space-y-2 md:space-y-3">
+                  <Label htmlFor="date" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                    <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     Datum *
                   </Label>
                   <Input
@@ -573,21 +575,21 @@ const CateringContact = () => {
                     type="date"
                     value={formData.date}
                     onChange={handleInputChange}
-                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${
+                    className={`h-10 md:h-12 text-base md:text-lg border-border/50 focus:border-primary transition-colors ${
                       validationErrors.date ? 'border-red-500 focus:border-red-500' : ''
                     }`}
                     disabled={isSubmitting}
                   />
                   {validationErrors.date && (
-                    <p className="text-red-500 text-sm">{validationErrors.date}</p>
+                    <p className="text-red-500 text-xs md:text-sm break-words">{validationErrors.date}</p>
                   )}
                 </div>
               </div>
 
               {/* Comment Field */}
-              <div className="space-y-3">
-                <Label htmlFor="comment" className="text-foreground font-medium flex items-center gap-2">
-                  <MessageCircle className="w-4 h-4 text-primary" />
+              <div className="space-y-2 md:space-y-3">
+                <Label htmlFor="comment" className="text-foreground font-medium flex items-center gap-2 text-sm md:text-base">
+                  <MessageCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Weitere Wünsche & Infos
                 </Label>
                 <Textarea
@@ -596,39 +598,39 @@ const CateringContact = () => {
                   placeholder="Anzahl Gäste, besondere Wünsche, Budget, etc."
                   value={formData.comment}
                   onChange={handleInputChange}
-                  className="min-h-[120px] text-lg border-border/50 focus:border-primary transition-colors resize-none"
+                  className="min-h-[100px] md:min-h-[120px] text-base md:text-lg border-border/50 focus:border-primary transition-colors resize-none"
                   disabled={isSubmitting}
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="pt-6">
+              <div className="pt-4 md:pt-6">
                 <Button 
                   type="submit"
                   variant="hero"
                   size="xl"
-                  className="w-full gap-3 shadow-elegant hover:shadow-glow"
+                  className="w-full gap-2 md:gap-3 shadow-elegant hover:shadow-glow h-12 md:h-14 text-base md:text-lg"
                   disabled={isSubmitting}
                   // onClick={submitCateringForm}
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                      Wird gesendet...
+                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      <span>Wird gesendet...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
-                      Catering-Anfrage senden
+                      <Send className="w-4 h-4 md:w-5 md:h-5" />
+                      <span>Catering-Anfrage senden</span>
                     </>
                   )}
                 </Button>
               </div>
 
               {/* Note */}
-              <div className="text-center text-sm text-muted-foreground pt-4 space-y-1">
-                <p>* Pflichtfelder | Wir melden uns innerhalb von 24 Stunden mit einem individuellen Angebot</p>
-                <p className="text-xs opacity-75">Ihre Daten werden automatisch gespeichert und bei einem Seitenwechsel wiederhergestellt.</p>
+              <div className="text-center text-xs md:text-sm text-muted-foreground pt-3 md:pt-4 space-y-1 px-2">
+                <p className="break-words">* Pflichtfelder | Wir melden uns innerhalb von 24 Stunden mit einem individuellen Angebot</p>
+                <p className="text-[10px] md:text-xs opacity-75 break-words">Ihre Daten werden automatisch gespeichert und bei einem Seitenwechsel wiederhergestellt.</p>
               </div>
             </form>
           </CardContent>
