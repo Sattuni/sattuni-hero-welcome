@@ -58,7 +58,7 @@ const Hero = () => {
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight"
               itemProp="name"
             >
-              Von Pita bis Party – wir liefern.
+              Sattuni – Arabische Küche & Catering in Düsseldorf
             </h1>
             
             {/* Subline */}

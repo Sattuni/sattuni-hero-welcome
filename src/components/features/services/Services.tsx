@@ -20,9 +20,9 @@ const Services = () => {
                     <Utensils className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      Heute keine Lust zu kochen?
-                    </h3>
+                    <h2 className="text-2xl font-display font-bold text-foreground mb-3">
+                      Lieferservice – Schnell & Frisch
+                    </h2>
                     <p className="text-muted-foreground text-lg leading-relaxed font-body">
                       Frisch gebackenes Pita, cremiger Hummus und bunte Bowls – 
                       bringen wir dir nach Hause oder ins Büro. Einfach lecker!
@@ -71,9 +71,9 @@ const Services = () => {
                     <PartyPopper className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      Catering, das rockt
-                    </h3>
+                    <h2 className="text-2xl font-display font-bold text-foreground mb-3">
+                      Catering für Events
+                    </h2>
                     <p className="text-muted-foreground text-lg leading-relaxed font-body">
                       Ob 20 oder 200 Gäste – wir kümmern uns um alles. Fingerfood, Buffets, 
                       vegane Optionen. Dein Event wird unvergesslich lecker!

@@ -20,10 +20,10 @@ const AboutUs = () => {
 
   useEffect(() => {
     // SEO Meta Tags
-    document.title = "Über uns - Sattuni | Arabische Küche aus Düsseldorf";
+    document.title = "Über uns – Feras & Hamudi, die Brüder hinter Sattuni";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Lerne die Brüder Feras & Hamudi kennen - das Team hinter Sattuni. Frische arabische Küche, hausgemacht und modern interpretiert in Düsseldorf.");
+      metaDescription.setAttribute("content", "Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!");
     }
 
     // Keywords
@@ -142,8 +142,8 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>Über uns - Sattuni | Arabische Küche aus Düsseldorf</title>
-        <meta name="description" content="Lerne die Brüder Feras & Hamudi kennen - das Team hinter Sattuni. Frische arabische Küche, hausgemacht und modern interpretiert in Düsseldorf." />
+        <title>Über uns – Feras & Hamudi, die Brüder hinter Sattuni</title>
+        <meta name="description" content="Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!" />
       </Helmet>
 
       <Header />
@@ -173,7 +173,7 @@ const AboutUs = () => {
           <div className="relative container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Kochen & Kümmern – <span className="text-accent">unser Bruderjob</span>
+                Über uns – Feras & Hamudi von Sattuni
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Zwei Brüder, eine Mission: <span className="text-accent font-semibold">Richtig gutes Essen machen. </span> 
@@ -331,7 +331,7 @@ const AboutUs = () => {
 
               <div className="text-center">
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Ob Abendessen zuhause oder Event mit hunderten Gästen – wir kümmern uns drum.
+                  Ob Abendessen zuhause oder <a href="/catering" className="text-primary hover:underline font-medium">Event mit hunderten Gästen</a> – wir kümmern uns drum.
                 </p>
               </div>
             </div>

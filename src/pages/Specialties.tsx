@@ -33,7 +33,7 @@ const Specialties = () => {
 
   // SEO Meta Tags and Structured Data
   useEffect(() => {
-    document.title = "Arabische Spezialitäten Düsseldorf | Sattuni - Hummus, Falafel & mehr";
+    document.title = "Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf";
     
     // Create or update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -43,7 +43,7 @@ const Specialties = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Entdecke authentische arabische Küche in Düsseldorf ✓ Hausgemachte Dips ✓ Knusprige Falafel ✓ Frische Bowls ✓ Catering verfügbar - Jetzt bestellen!'
+      'Arabische Spezialitäten in Düsseldorf: Hummus, Falafel, Bowls. Hausgemacht & frisch. Jetzt bestellen oder Catering anfragen!'
     );
 
     // Add comprehensive structured data for specialties page
@@ -201,8 +201,8 @@ const Specialties = () => {
   return (
     <>
       <Helmet>
-        <title>Arabische Spezialitäten Düsseldorf | Sattuni - Hummus, Falafel & mehr</title>
-        <meta name="description" content="Entdecke authentische arabische Küche in Düsseldorf ✓ Hausgemachte Dips ✓ Knusprige Falafel ✓ Frische Bowls ✓ Catering verfügbar - Jetzt bestellen!" />
+        <title>Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf</title>
+        <meta name="description" content="Arabische Spezialitäten in Düsseldorf: Hummus, Falafel, Bowls. Hausgemacht & frisch. Jetzt bestellen oder Catering anfragen!" />
         <meta name="keywords" content="arabische spezialitäten düsseldorf, hummus düsseldorf, falafel düsseldorf, orientalische küche, vegan düsseldorf, couscous bowl" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
@@ -234,8 +234,8 @@ const Specialties = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
           
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 drop-shadow-lg">
-              Worauf hast du Lust?
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Sattuni – Arabische Spezialitäten in Düsseldorf
             </h1>
             <h2 className="text-xl md:text-2xl mb-8 font-body font-light drop-shadow-md">
               Authentische arabische Küche – frisch & hausgemacht
@@ -285,7 +285,7 @@ const Specialties = () => {
                 </p>
                 <p className="text-primary font-semibold">
                   Ob cremiger Hummus, knusprige Falafel oder bunte Bowls – 
-                  hier findest du, worauf du Lust hast. Vegan, vegetarisch oder mit Fleisch.
+                  hier findest du, worauf du Lust hast. Vegan, vegetarisch oder mit Fleisch. <a href="/speisekarte" className="text-accent hover:underline font-medium">Zur kompletten Speisekarte</a>.
                 </p>
               </div>
             </div>
@@ -476,7 +476,7 @@ const Specialties = () => {
                   Lieferung & Catering
                 </h4>
                 <p className="text-muted-foreground font-body">
-                  Schnelle Lieferung für den Alltag oder Catering für besondere Anlässe in Düsseldorf.
+                  Schnelle Lieferung für den Alltag oder <a href="/catering" className="text-primary hover:underline font-medium">Catering für besondere Anlässe</a> in Düsseldorf.
                 </p>
               </Card>
               

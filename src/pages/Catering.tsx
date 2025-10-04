@@ -21,7 +21,7 @@ const Catering = () => {
 
   // SEO Meta Tags
   useEffect(() => {
-    document.title = "Catering Düsseldorf | Sattuni - Arabisches Event-Catering ab 27€";
+    document.title = "Catering in Düsseldorf – Buffets, Fingerfood & Events | Sattuni";
     
     // Create or update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -31,7 +31,7 @@ const Catering = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Professionelles Catering in Düsseldorf ✓ Arabische Küche für Events ✓ Ab 27€ pro Person ✓ Fingerfood & Buffets ✓ 20-500+ Personen ✓ Jetzt anfragen!'
+      'Arabisches Catering für Events in Düsseldorf: Buffets, Fingerfood & mehr. Frisch, hausgemacht. Für 20-300+ Personen.'
     );
 
     // Add structured JSON-LD data for SEO
@@ -246,10 +246,7 @@ const Catering = () => {
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
-              Dein Event. Unser Essen. 
-              <span className="block text-gradient bg-gradient-warm bg-clip-text text-transparent mt-2">
-                Entspannt genießen!
-              </span>
+              Sattuni – Arabische Küche & Catering in Düsseldorf
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
@@ -368,7 +365,7 @@ const Catering = () => {
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed px-4">
               Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. 
-              <span className="text-primary font-medium block md:inline mt-2 md:mt-0">So einfach kann Catering sein.</span>
+              <span className="text-primary font-medium block md:inline mt-2 md:mt-0">So einfach kann Catering sein.</span> <a href="/ueber-uns" className="text-accent hover:underline font-medium">Lerne unser Team kennen</a>.
             </p>
           </div>
         </div>

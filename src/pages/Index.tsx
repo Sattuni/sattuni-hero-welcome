@@ -20,7 +20,7 @@ import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 const Index = () => {
   // SEO Meta Tags and Structured Data
   useEffect(() => {
-    document.title = "Sattuni - Arabische Küche Düsseldorf | Lieferservice & Catering";
+    document.title = "Sattuni – Arabische Küche & Catering in Düsseldorf";
     
     // Create or update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -30,7 +30,7 @@ const Index = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      '🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch ✅ Halal. Jetzt bestellen!'
+      'Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Mit Lieferservice und Catering für privat & Firmen. Jetzt bestellen!'
     );
 
     // Add comprehensive structured data for homepage
@@ -364,8 +364,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Sattuni - Arabische Küche Düsseldorf | Lieferservice & Catering</title>
-        <meta name="description" content="🥙 Authentische arabische Küche in Düsseldorf: Frische Pita, hausgemachter Hummus & Falafel. ✅ Lieferservice ✅ Event-Catering ✅ Vegan & Vegetarisch ✅ Halal. Jetzt bestellen!" />
+        <title>Sattuni – Arabische Küche & Catering in Düsseldorf</title>
+        <meta name="description" content="Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Mit Lieferservice und Catering für privat & Firmen. Jetzt bestellen!" />
         <meta name="keywords" content="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, arabisches restaurant, halal, pita" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta property="og:type" content="website" />

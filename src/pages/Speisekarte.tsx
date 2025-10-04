@@ -16,11 +16,11 @@ const Speisekarte = () => {
 
   useEffect(() => {
     // SEO Meta Tags
-    document.title = "Speisekarte - Sattuni: Orientalische Küche Düsseldorf";
+    document.title = "Speisekarte – Hummus, Falafel & Bowls | Sattuni Düsseldorf";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Entdecke unsere orientalische Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. ✓ Frisch ✓ Hausgemacht ✓ Halal ✓ Vegan/Vegetarisch ✓ Preise ab 4,50€');
+      metaDescription.setAttribute('content', 'Unsere Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. Frisch, hausgemacht, halal. Preise ab 4,50€. Jetzt bestellen!');
     }
 
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -200,8 +200,8 @@ const Speisekarte = () => {
   return (
     <>
       <Helmet>
-        <title>Speisekarte - Sattuni: Orientalische Küche Düsseldorf</title>
-        <meta name="description" content="Entdecke unsere orientalische Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. ✓ Frisch ✓ Hausgemacht ✓ Halal ✓ Vegan/Vegetarisch ✓ Preise ab 4,50€" />
+        <title>Speisekarte – Hummus, Falafel & Bowls | Sattuni Düsseldorf</title>
+        <meta name="description" content="Unsere Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. Frisch, hausgemacht, halal. Preise ab 4,50€. Jetzt bestellen!" />
         <link rel="canonical" href="https://sattuni.de/speisekarte" />
       </Helmet>
 
@@ -228,9 +228,9 @@ const Speisekarte = () => {
               <div className="bg-background/90 backdrop-blur-sm rounded-2xl p-8 shadow-ornate">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <UtensilsCrossed className="w-8 h-8 text-primary" />
-                  <h1 className="text-4xl md:text-5xl font-bold text-foreground font-display">
-                    Unsere Speisekarte
-                  </h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground font-display">
+                Sattuni – Unsere Speisekarte
+              </h1>
                 </div>
                 
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 font-body leading-relaxed">
@@ -323,9 +323,9 @@ const Speisekarte = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-display">
                 Jetzt bestellen oder Catering anfragen
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 font-body">
-                Lust auf unsere orientalischen Köstlichkeiten bekommen?
-              </p>
+               <p className="text-lg text-muted-foreground mb-8 font-body">
+                 Lust auf unsere orientalischen Köstlichkeiten bekommen? <a href="/spezialitaeten" className="text-primary hover:underline font-medium">Entdecke alle Spezialitäten</a> oder bestelle direkt.
+               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <SmartCTA 

@@ -48,7 +48,7 @@ const FoodShowcase = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Utensils className="w-8 h-8 text-primary" />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-              Worauf hast du Lust?
+              Unsere Spezialitäten
             </h2>
           </div>
           <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
