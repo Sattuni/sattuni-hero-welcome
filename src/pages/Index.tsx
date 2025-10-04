@@ -13,7 +13,7 @@ import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 import MobileSectionExpander from "@/components/mobile/MobileSectionExpander";
 import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
-import SectionNav from "@/components/layout/SectionNav";
+import ExitIntent from "@/components/features/marketing/ExitIntent";
 import InternalLinks from "@/components/layout/InternalLinks";
 import { Settings, Star, MessageCircle, Clock } from "lucide-react";
 
@@ -383,9 +383,6 @@ const Index = () => {
       <main className="min-h-screen pt-16 pb-safe-mobile">
         <Hero />
         
-        {/* Section Navigation */}
-        <SectionNav />
-        
         <div id="services">
           <Services />
         </div>
@@ -423,15 +420,10 @@ const Index = () => {
           <Testimonials />
         </MobileSectionExpander>
         
-        <MobileSectionExpander
-          title="Schreib uns kurz"
-          icon={MessageCircle}
-          className="bg-gradient-subtle"
-        >
-          <div id="kontakt">
-            <Contact />
-          </div>
-        </MobileSectionExpander>
+        {/* Contact Section - Always visible (not in expander) */}
+        <div id="kontakt" className="bg-gradient-subtle py-12 md:py-16">
+          <Contact />
+        </div>
         
         {/* Internal Links Section */}
         <InternalLinks />
@@ -439,6 +431,7 @@ const Index = () => {
       <Footer />
       <MobileCTABar />
       <ChristmasPromo />
+      <ExitIntent />
     </>
   );
 };

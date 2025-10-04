@@ -53,21 +53,23 @@ const Hero = () => {
               />
             </div>
             
-            {/* Headline */}
+            {/* Headline - Kompakter auf Mobile */}
             <h1 
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight"
               itemProp="name"
             >
-              Sattuni – Arabische Küche & Catering in Düsseldorf
+              <span className="hidden sm:inline">Sattuni – Arabische Küche & Catering in Düsseldorf</span>
+              <span className="sm:hidden">Arabische Küche & Catering Düsseldorf</span>
             </h1>
             
-            {/* Subline */}
+            {/* Subline - Kürzer auf Mobile */}
             <p 
               className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body"
               itemProp="description"
             >
-              Lust auf authentisch arabisches Essen? Hausgemacht, frisch und mit Liebe zubereitet – 
-              für deinen Feierabend oder das nächste Event mit deinem Team.
+              <span className="hidden sm:inline">Lust auf authentisch arabisches Essen? Hausgemacht, frisch und mit Liebe zubereitet – 
+              für deinen Feierabend oder das nächste Event mit deinem Team.</span>
+              <span className="sm:hidden">Authentisch arabisch. Hausgemacht & frisch für dich.</span>
             </p>
             
             {/* Urgency Badge */}
@@ -105,9 +107,9 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust Signal - Compact Mobile Version */}
+            {/* Trust Signal - Horizontal auf Mobile */}
             <div className="flex justify-center lg:justify-start pt-2 md:pt-3">
-              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-xs md:text-sm">
+              <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm flex-wrap justify-center lg:justify-start">
                 <div className="flex items-center gap-1">
                   <div className="flex text-yellow-500">
                     <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
@@ -117,10 +119,11 @@ const Hero = () => {
                     <Star className="w-3 h-3 md:w-4 md:h-4 fill-current" />
                   </div>
                   <span className="font-medium text-foreground ml-1">4.9/5</span>
-                  <span className="text-muted-foreground text-xs hidden md:inline">bei Google</span>
                 </div>
+                <span className="text-muted-foreground hidden sm:inline">|</span>
+                <span className="text-muted-foreground">100+ Caterings</span>
                 <span className="text-muted-foreground hidden md:inline">|</span>
-                <span className="text-muted-foreground text-center">Seit 2022 am Start • 100+ Caterings geschmackvoll geliefert</span>
+                <span className="text-muted-foreground hidden md:inline">Seit 2022</span>
               </div>
             </div>
             
