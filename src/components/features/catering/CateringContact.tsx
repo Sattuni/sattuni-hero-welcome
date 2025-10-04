@@ -10,7 +10,7 @@ import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { cateringFormSchema } from '@/services/validation/schemas';
-import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight } from "lucide-react";
+import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight, Users } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import { FORM_CONSTANTS } from '@/constants';
 
@@ -25,7 +25,8 @@ const CateringContact = () => {
     address: "",
     comment: "",
     occasion: "",
-    date: ""
+    date: "",
+    guestCount: ""
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -154,10 +155,9 @@ const CateringContact = () => {
   const handleNextStep = () => {
     if (validateStep1()) {
       setCurrentStep(2);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       toast({
-        title: "Bitte füllen Sie alle Pflichtfelder aus",
+        title: "Bitte fülle alle Pflichtfelder aus",
         description: "Name, E-Mail und Telefon sind erforderlich.",
         variant: "destructive",
       });
@@ -167,7 +167,6 @@ const CateringContact = () => {
   // Handle previous step
   const handlePreviousStep = () => {
     setCurrentStep(1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Auto-restore on mount if saved data exists
@@ -222,6 +221,7 @@ const CateringContact = () => {
       address: "Musterstraße 123, 40210 Düsseldorf",
       occasion: "Firmenfeier",
       date: "2024-12-20",
+      guestCount: "30",
       comment: "Wir würden gerne eine Auswahl an vegetarischen und veganen Optionen haben."
     };
 
@@ -232,7 +232,7 @@ const CateringContact = () => {
       setCurrentStep(2); // Move to step 2 after demo fill
       toast({
         title: "Demo-Daten eingefügt",
-        description: "Sie können die Daten nun bearbeiten oder direkt absenden.",
+        description: "Du kannst die Daten nun bearbeiten oder direkt absenden.",
       });
     }, 100);
   };
@@ -247,6 +247,7 @@ const CateringContact = () => {
       address: '',
       occasion: '',
       date: '',
+      guestCount: '',
       comment: ''
     });
     setValidationErrors({});
@@ -302,7 +303,7 @@ const CateringContact = () => {
           });
           
           handleFormSuccess(
-            "Ihre Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+            "Deine Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei dir.",
             "Anfrage erfolgreich gesendet!"
           );
           
@@ -315,6 +316,7 @@ const CateringContact = () => {
             address: '',
             occasion: '',
             date: '',
+            guestCount: '',
             comment: ''
           });
           setValidationErrors({});
@@ -345,7 +347,7 @@ const CateringContact = () => {
             Catering anfragen
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
-            Erzähl uns von deinem Event – wir erstellen dir ein individuelles Angebot.
+            Erzähl uns von deinem Event – wir erstellen dir ein individuelles Angebot
           </p>
         </div>
 
@@ -354,9 +356,6 @@ const CateringContact = () => {
             <CardTitle className="text-2xl md:text-3xl font-display text-center">
               Catering-Anfrage
             </CardTitle>
-            <CardDescription className="text-center text-base">
-              Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen
-            </CardDescription>
             
             {/* Step Indicator */}
             <div className="flex items-center justify-center gap-2 pt-4">
@@ -497,12 +496,12 @@ const CateringContact = () => {
                   <div className="space-y-2">
                     <Label htmlFor="comment" className="flex items-center gap-2 text-base">
                       <MessageSquare className="w-4 h-4" />
-                      Ihre Wünsche & Anmerkungen <span className="text-muted-foreground text-sm">(optional)</span>
+                      Deine Wünsche & Anmerkungen <span className="text-muted-foreground text-sm">(optional)</span>
                     </Label>
                     <Textarea
                       id="comment"
                       name="comment"
-                      placeholder="Teilen Sie uns Ihre Wünsche mit..."
+                      placeholder="Teile uns deine Wünsche mit..."
                       value={formData.comment}
                       onChange={handleInputChange}
                       onFocus={() => trackFieldFocus('comment')}
@@ -567,7 +566,7 @@ const CateringContact = () => {
                         className={validationErrors.occasion ? "border-destructive" : ""}
                         onFocus={() => trackFieldFocus('occasion')}
                       >
-                        <SelectValue placeholder="Wählen Sie einen Anlass" />
+                        <SelectValue placeholder="Wähle einen Anlass" />
                       </SelectTrigger>
                       <SelectContent>
                         {FORM_CONSTANTS.occasions.map((occasion) => (
@@ -580,6 +579,24 @@ const CateringContact = () => {
                     {validationErrors.occasion && (
                       <p className="text-sm text-destructive">{validationErrors.occasion}</p>
                     )}
+                  </div>
+
+                  {/* Guest Count */}
+                  <div className="space-y-2">
+                    <Label htmlFor="guestCount" className="flex items-center gap-2 text-base">
+                      <Users className="w-4 h-4" />
+                      Anzahl Personen <span className="text-muted-foreground text-sm">(optional)</span>
+                    </Label>
+                    <Input
+                      id="guestCount"
+                      name="guestCount"
+                      type="number"
+                      min="1"
+                      placeholder="z.B. 30"
+                      value={formData.guestCount}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('guestCount')}
+                    />
                   </div>
 
                   {/* Date */}
@@ -665,7 +682,7 @@ const CateringContact = () => {
                   </p>
                   {hasSavedData() && (
                     <p className="text-xs mt-1 text-primary">
-                      Ihre Daten werden automatisch gespeichert
+                      Deine Daten werden automatisch gespeichert
                     </p>
                   )}
                 </div>
