@@ -6,9 +6,14 @@ import { useState } from "react";
 // Import buffet images
 import bowls1 from "@/assets/buffet-gallery/bowls/1.png";
 import bowls2 from "@/assets/buffet-gallery/bowls2/3.png";
+import bowls3 from "@/assets/buffet-gallery/bowls2/4.png";
+import bowls4 from "@/assets/buffet-gallery/bowls2/5.png";
 import dips1 from "@/assets/buffet-gallery/dips/7.png";
 import dips2 from "@/assets/buffet-gallery/dips2/14.png";
+import dips3 from "@/assets/buffet-gallery/dips/6.png";
+import dips4 from "@/assets/buffet-gallery/dips2/15.png";
 import falafel1 from "@/assets/buffet-gallery/falafel/12.png";
+import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
 
 const buffetImages = [
   { src: bowls1, title: "Bowl Buffet", description: "Gesunde Bowls mit frischen Zutaten" },
@@ -16,6 +21,11 @@ const buffetImages = [
   { src: falafel1, title: "Falafel & Teigtaschen", description: "Hausgemachte Spezialitäten" },
   { src: bowls2, title: "Orientalisches Buffet", description: "Vielfältige arabische Küche" },
   { src: dips2, title: "Mezze Platte", description: "Traditionelle Vorspeisen-Auswahl" },
+  { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
+  { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
+  { src: bowls4, title: "Fattoush Salat", description: "Knuspriger Brotsalat" },
+  { src: dips4, title: "Sandwich Platte", description: "Frische Sandwiches" },
+  { src: falafel2, title: "Falafel & Teigtaschen", description: "Knusprige Spezialitäten" },
 ];
 
 interface BuffetGalleryProps {
