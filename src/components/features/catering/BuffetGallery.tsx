@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 // Import buffet images
 import bowls1 from "@/assets/buffet-gallery/bowls/1.png";
@@ -33,28 +34,26 @@ interface BuffetGalleryProps {
 }
 
 export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: "center",
+      skipSnaps: false,
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
+  );
 
-  const openLightbox = (index: number) => {
-    setSelectedImage(index);
-  };
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % buffetImages.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage - 1 + buffetImages.length) % buffetImages.length);
-    }
-  };
-
+  useEffect(() => {
+    if (!emblaApi) return;
+  }, [emblaApi]);
 
   return (
     <div className={className}>
@@ -67,77 +66,56 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
         </p>
       </div>
 
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {buffetImages.map((image, index) => (
-          <div
-            key={index}
-            className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            // onClick={() => openLightbox(index)}
-          >
-            <img
-              src={image.src}
-              // alt={image.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute bottom-2 left-2 right-2 text-white">
-                {/* <h4 className="font-semibold text-sm mb-1">{image.title}</h4>
-                <p className="text-xs opacity-90 line-clamp-2">{image.description}</p> */}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Lightbox Modal */}
-      <Dialog open={selectedImage !== null} onOpenChange={() => closeLightbox()}>
-        <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
-          {selectedImage !== null && (
-            <div className="relative">
-              {/* <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 z-10 bg-black/50 text-white hover:bg-black/70"
-                onClick={closeLightbox}
+      {/* Carousel Container */}
+      <div className="relative">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex touch-pan-y">
+            {buffetImages.map((image, index) => (
+              <div
+                key={index}
+                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_50%] pl-4"
               >
-                <X className="w-5 h-5" />
-              </Button> */}
-
-              {/* Navigation Buttons */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
-                onClick={prevImage}
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
-                onClick={nextImage}
-              >
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-
-              <div className="relative">
-                <img
-                  src={buffetImages[selectedImage].src}
-                  alt={buffetImages[selectedImage].title}
-                  className="w-full h-auto max-h-[70vh] object-contain"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                  {/* <h3 className="text-xl font-bold mb-2">{buffetImages[selectedImage].title}</h3>
-                  <p className="text-sm opacity-90">{buffetImages[selectedImage].description}</p> */}
+                <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h4 className="font-semibold text-lg mb-1">{image.title}</h4>
+                      <p className="text-sm opacity-90">{image.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <Button
+          variant="outline"
+          size="icon"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90 shadow-lg"
+          onClick={scrollPrev}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </Button>
+
+        <Button
+          variant="outline"
+          size="icon"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90 shadow-lg"
+          onClick={scrollNext}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </Button>
+      </div>
+
+      <div className="text-center mt-6 text-sm text-muted-foreground">
+        Swipe oder nutze die Pfeile zum Durchblättern • Auto-Play aktiv
+      </div>
     </div>
   );
 };
