@@ -72,7 +72,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative min-h-[250px] lg:min-h-[200px] bg-muted/10 rounded-lg">
+      <div className="relative min-h-[250px] lg:min-h-[260px] bg-muted/10 rounded-lg">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y">
             {buffetImages.map((image, index) => (
@@ -80,7 +80,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
                 key={index}
                 className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_70%] lg:flex-[0_0_50%] pl-2"
               >
-                <div className="relative aspect-square lg:aspect-[16/9] lg:max-h-[220px] overflow-hidden rounded-lg shadow-lg">
+                <div className="relative aspect-square lg:aspect-[16/9] lg:max-h-[290px] overflow-hidden rounded-lg shadow-lg">
                   <img
                     src={image.src}
                     alt={image.title}
