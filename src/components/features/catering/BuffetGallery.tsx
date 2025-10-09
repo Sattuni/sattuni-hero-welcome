@@ -73,7 +73,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
             {buffetImages.map((image, index) => (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_50%] pl-4"
+                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_70%] lg:flex-[0_0_80%] pl-4"
               >
                 <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
                   <img
@@ -97,19 +97,19 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90 shadow-lg"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm hover:bg-background shadow-lg lg:w-12 lg:h-12 transition-all hover:scale-110"
           onClick={scrollPrev}
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
         </Button>
 
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90 shadow-lg"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm hover:bg-background shadow-lg lg:w-12 lg:h-12 transition-all hover:scale-110"
           onClick={scrollNext}
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
         </Button>
       </div>
 
