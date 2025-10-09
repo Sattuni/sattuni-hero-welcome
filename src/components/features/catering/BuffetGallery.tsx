@@ -19,14 +19,14 @@ import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
 const buffetImages = [
   { src: bowls1, title: "Kichererbsen Salat", description: "Gesunde Bowls mit frischen Zutaten" },
   { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
-  { src: falafel1, title: "Falafel & Teigtaschen", description: "Hausgemachte Spezialitäten" },
+  { src: falafel1, title: "Fingerfood Spezialität", description: "Hausgemachte Spezialitäten" },
   { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
   { src: dips2, title: "Fingerfood", description: "Traditionelle Vorspeisen-Auswahl" },
   { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
   { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
   { src: bowls4, title: "Fattoush Salat", description: "Petersilie mit Sonnenblumenkernen und Granatapfelkernen" },
   { src: dips4, title: "Sandwich Platte", description: "Frische Sandwiches" },
-  { src: falafel2, title: "Falafel & Teigtaschen", description: "Knusprige Spezialitäten" },
+  { src: falafel2, title: "Fingerfood Spezialität", description: "Knusprige Spezialitäten" },
 ];
 
 interface BuffetGalleryProps {
