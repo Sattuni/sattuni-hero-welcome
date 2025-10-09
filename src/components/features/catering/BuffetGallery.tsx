@@ -24,7 +24,7 @@ const buffetImages = [
   { src: dips2, title: "Fingerfood", description: "Traditionelle Vorspeisen-Auswahl" },
   { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
   { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
-  { src: bowls4, title: "Fattoush Salat", description: "Knuspriger Brotsalat" },
+  { src: bowls4, title: "Fattoush Salat", description: "Petersilie mit Sonnenblumenkernen und Granatapfelkernen" },
   { src: dips4, title: "Sandwich Platte", description: "Frische Sandwiches" },
   { src: falafel2, title: "Falafel & Teigtaschen", description: "Knusprige Spezialitäten" },
 ];
