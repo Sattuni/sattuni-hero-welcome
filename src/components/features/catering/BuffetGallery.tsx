@@ -21,7 +21,7 @@ const buffetImages = [
   { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
   { src: falafel1, title: "Falafel & Teigtaschen", description: "Hausgemachte Spezialitäten" },
   { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
-  { src: dips2, title: "Mezze Platte", description: "Traditionelle Vorspeisen-Auswahl" },
+  { src: dips2, title: "Fingerfood", description: "Traditionelle Vorspeisen-Auswahl" },
   { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
   { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
   { src: bowls4, title: "Fattoush Salat", description: "Knuspriger Brotsalat" },
