@@ -78,7 +78,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
             {buffetImages.map((image, index) => (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_70%] lg:flex-[0_0_50%] pl-4"
+                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_70%] lg:flex-[0_0_50%] pl-2"
               >
                 <div className="relative aspect-square lg:aspect-[16/9] lg:max-h-[220px] overflow-hidden rounded-lg shadow-lg">
                   <img
