@@ -87,7 +87,7 @@ const Services = () => {
                     "Ganz wie du's magst",
                     "100+ Caterings",
                     "Komplettservice", 
-                    "20-300+ Personen"
+                    "20-200 Personen"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></span>
