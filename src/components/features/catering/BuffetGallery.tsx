@@ -20,7 +20,7 @@ const buffetImages = [
   { src: bowls1, title: "Bowl Buffet", description: "Gesunde Bowls mit frischen Zutaten" },
   { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
   { src: falafel1, title: "Falafel & Teigtaschen", description: "Hausgemachte Spezialitäten" },
-  { src: bowls2, title: "Orientalisches Buffet", description: "Vielfältige arabische Küche" },
+  { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
   { src: dips2, title: "Mezze Platte", description: "Traditionelle Vorspeisen-Auswahl" },
   { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
   { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
