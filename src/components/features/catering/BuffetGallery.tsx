@@ -64,7 +64,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
     <div className={className}>
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-          Arabische Vielfalt für euer Event
+          Kulinarische Vielfalt für euer Event
         </h3>
         <p className="text-muted-foreground max-w-2xl mx-auto">
           Von frischen Salaten über cremige Dips bis zu knusprigen Spezialitäten – entdeckt unsere authentischen Buffet-Highlights
