@@ -4,7 +4,7 @@ import { useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// Import buffet images
+// Import buffet images - verified paths
 import bowls1 from "@/assets/buffet-gallery/bowls/1.png";
 import bowls2 from "@/assets/buffet-gallery/bowls2/3.png";
 import bowls3 from "@/assets/buffet-gallery/bowls2/4.png";
@@ -15,6 +15,8 @@ import dips3 from "@/assets/buffet-gallery/dips/6.png";
 import dips4 from "@/assets/buffet-gallery/dips2/15.png";
 import falafel1 from "@/assets/buffet-gallery/falafel/12.png";
 import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
+
+console.log('BuffetGallery images loaded:', { bowls1, bowls2, bowls3, bowls4, dips1, dips2, dips3, dips4, falafel1, falafel2 });
 
 const buffetImages = [
   { src: bowls1, title: "Kichererbsen Salat", description: "Gesunde Bowls mit frischen Zutaten" },
@@ -55,6 +57,9 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
     if (!emblaApi) return;
   }, [emblaApi]);
 
+  console.log('BuffetGallery rendering, images count:', buffetImages.length);
+  console.log('Embla API initialized:', !!emblaApi);
+
   return (
     <div className={className}>
       <div className="text-center mb-8">
@@ -67,7 +72,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative">
+      <div className="relative min-h-[400px] bg-muted/10 rounded-lg">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y">
             {buffetImages.map((image, index) => (
