@@ -17,7 +17,7 @@ import falafel1 from "@/assets/buffet-gallery/falafel/12.png";
 import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
 
 const buffetImages = [
-  { src: bowls1, title: "Bowl Buffet", description: "Gesunde Bowls mit frischen Zutaten" },
+  { src: bowls1, title: "Kichererbsen Salat", description: "Gesunde Bowls mit frischen Zutaten" },
   { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
   { src: falafel1, title: "Falafel & Teigtaschen", description: "Hausgemachte Spezialitäten" },
   { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
