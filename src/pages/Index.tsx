@@ -291,7 +291,7 @@ const Index = () => {
           "name": "Bietet Sattuni Catering für Events an?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ja, wir bieten professionelles Catering für Events ab 20 Personen. Von Fingerfood bis kompletten Buffets - alles frisch zubereitet."
+            "text": "Ja, unser Catering-Service beginnt ab 20 Personen. Von Fingerfood bis kompletten Buffets - alles frisch zubereitet und professionell aufgebaut."
           }
         },
         {

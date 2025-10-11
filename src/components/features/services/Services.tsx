@@ -75,7 +75,7 @@ const Services = () => {
                       Catering für Events
                     </h2>
                     <p className="text-muted-foreground text-sm md:text-lg leading-relaxed font-body">
-                      Ob 20 oder 200 Gäste – wir kümmern uns um alles. Fingerfood, Buffets, 
+                      Catering ab 20 Personen – wir kümmern uns um alles. Fingerfood, Buffets, 
                       vegane Optionen.
                     </p>
                   </div>
@@ -87,7 +87,7 @@ const Services = () => {
                     "Ganz wie du's magst",
                     "100+ Caterings",
                     "Komplettservice", 
-                    "20-200 Personen"
+                    "Ab 20 Personen"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></span>

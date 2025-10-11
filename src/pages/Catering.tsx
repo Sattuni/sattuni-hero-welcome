@@ -30,7 +30,7 @@ const Catering = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Arabisches Catering für Events in Düsseldorf: Buffets, Fingerfood & mehr. Frisch, hausgemacht. Für 20-300+ Personen.'
+      'Arabisches Catering für Events in Düsseldorf: Buffets, Fingerfood & mehr. Frisch, hausgemacht. Catering ab 20 Personen möglich.'
     );
 
     // Add structured JSON-LD data for SEO
@@ -182,8 +182,8 @@ const Catering = () => {
     },
     {
       icon: Users,
-      title: "Flexibel: 20 bis 300+ Personen",
-      description: "Kleine Runden bis große Feste",
+      title: "Catering ab 20 Personen",
+      description: "Von kleinen Runden bis zu großen Festen mit 300+ Gästen",
     },
     {
       icon: Sparkles,
@@ -455,7 +455,7 @@ const Catering = () => {
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-primary mb-2">Leichte Mahlzeit</h3>
                   <p className="text-3xl font-bold text-foreground">ab 25€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
-                  <p className="text-muted-foreground">ab 20 Personen</p>
+                  <p className="text-muted-foreground">Catering ab 20 Personen möglich</p>
                 </div>
                 
                 <div className="space-y-3">
@@ -481,7 +481,7 @@ const Catering = () => {
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-primary mb-2">Große Feiern</h3>
                   <p className="text-3xl font-bold text-foreground">ab 30€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
-                  <p className="text-muted-foreground">ab 40 Personen</p>
+                  <p className="text-muted-foreground">Empfohlen ab 40 Personen</p>
                 </div>
                 
                 <div className="space-y-3">
@@ -668,17 +668,17 @@ const Catering = () => {
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Gibt es einen Mindestbestellwert?
+                  Ab wie vielen Personen bietet ihr Catering an?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Ab 20 Personen</span> bieten wir 
-                    unser Catering-Service an. So können wir die beste Qualität und 
-                    Service-Level garantieren.
+                    <span className="font-semibold text-primary">Unser Catering-Service beginnt ab 20 Personen.</span>
+                    {" "}Ab dieser Gruppengröße können wir die beste Qualität, 
+                    Service-Level und ein umfangreiches Buffet-Angebot garantieren.
                   </p>
                   <p>
-                    <strong>Tipp:</strong> Für kleinere Gruppen empfehlen wir unseren 
-                    regulären Lieferservice über unser Online-Menü.
+                    <strong>Für kleinere Gruppen (unter 20 Personen):</strong> Nutzt gerne unseren 
+                    regulären Lieferservice über unser Online-Menü – perfekt für gemütliche Runden!
                   </p>
                 </AccordionContent>
               </AccordionItem>
