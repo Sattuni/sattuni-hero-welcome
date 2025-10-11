@@ -173,8 +173,7 @@ const Index = () => {
             }
           ],
           "sameAs": [
-            "https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65",
-            "https://purevent.de"
+            "https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65"
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",

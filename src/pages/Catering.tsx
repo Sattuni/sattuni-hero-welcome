@@ -187,8 +187,8 @@ const Catering = () => {
     },
     {
       icon: Sparkles,
-      title: "Mit Eventkompetenz",
-      description: "PurEvent macht dein Event unvergesslich",
+      title: "Professionelle Durchführung",
+      description: "Von der Planung bis zum Aufbau – alles aus einer Hand",
     },
   ];
 
@@ -413,43 +413,6 @@ const Catering = () => {
                 </Card>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* PurEvent Section */}
-      <section className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Mehr als Catering – unsere Agentur {" "}
-              <span className="text-primary">PurEvent</span>
-            </h2>
-            
-            <p className="text-xl text-muted-foreground">
-              Business-Events ohne Stress? Gibt's bei uns! Wir kümmern uns um alles – 
-              vom Menü bis zur perfekten Durchführung.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6 mt-12">
-              {[
-                "Stressfrei & organisiert",
-                "Persönliche Betreuung", 
-                "Kleine Teams bis große Feste",
-                "Mehr als Catering: Drinks & Programm"
-              ].map((feature, index) => (
-                <div key={index} className="flex items-center gap-3 text-left">
-                  <CheckCircle className="text-primary w-6 h-6 flex-shrink-0" />
-                  <span className="text-foreground text-lg">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <Button size="lg" className="mt-8">
-              <a href="https://purevent.de" target="_blank" rel="noopener noreferrer">
-                Mehr über PurEvent
-              </a>
-            </Button>
           </div>
         </div>
       </section>
