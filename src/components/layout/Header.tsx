@@ -1,7 +1,7 @@
 import sattunIcon from "@/assets/icons/sattuni-header-icon.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, UtensilsCrossed } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -132,13 +132,33 @@ const Header = () => {
           
           {/* CTA Button Desktop */}
           <div className="hidden md:block">
-            <Button 
-              size="sm" 
-              className="font-medium shadow-sm"
-              onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
-            >
-              Jetzt bestellen
-            </Button>
+            {location.pathname === '/catering' ? (
+              <Button 
+                size="sm" 
+                className="font-medium shadow-sm gap-2"
+                onClick={() => {
+                  const element = document.getElementById('catering-kontakt');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => {
+                      const nameInput = document.getElementById('name');
+                      nameInput?.focus();
+                    }, 500);
+                  }
+                }}
+              >
+                <UtensilsCrossed className="w-4 h-4" />
+                Catering anfragen
+              </Button>
+            ) : (
+              <Button 
+                size="sm" 
+                className="font-medium shadow-sm"
+                onClick={() => window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank')}
+              >
+                Jetzt bestellen
+              </Button>
+            )}
           </div>
           
           {/* Mobile Menu */}
@@ -204,16 +224,37 @@ const Header = () => {
                 </nav>
                 
                 <div className="pt-6 border-t border-border">
-                  <Button 
-                    className="w-full" 
-                    size="lg"
-                    onClick={() => {
-                      setIsOpen(false);
-                      window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
-                    }}
-                  >
-                    Jetzt bestellen
-                  </Button>
+                  {location.pathname === '/catering' ? (
+                    <Button 
+                      className="w-full gap-2" 
+                      size="lg"
+                      onClick={() => {
+                        setIsOpen(false);
+                        const element = document.getElementById('catering-kontakt');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          setTimeout(() => {
+                            const nameInput = document.getElementById('name');
+                            nameInput?.focus();
+                          }, 500);
+                        }
+                      }}
+                    >
+                      <UtensilsCrossed className="w-4 h-4" />
+                      Catering anfragen
+                    </Button>
+                  ) : (
+                    <Button 
+                      className="w-full" 
+                      size="lg"
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                      }}
+                    >
+                      Jetzt bestellen
+                    </Button>
+                  )}
                 </div>
               </div>
             </SheetContent>
