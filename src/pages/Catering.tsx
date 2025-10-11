@@ -596,6 +596,11 @@ const Catering = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 bg-gradient-subtle">
+        <Testimonials />
+      </section>
+
       {/* FAQ Section */}
       <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
         <div className="container mx-auto px-4">
@@ -815,11 +820,6 @@ const Catering = () => {
         
         {/* Internal Links Section */}
         <InternalLinks />
-        
-        {/* Testimonials */}
-      <section className="py-20 bg-gradient-subtle">
-        <Testimonials />
-      </section>
 
       {/* Final CTA */}
       <section className="py-20">
