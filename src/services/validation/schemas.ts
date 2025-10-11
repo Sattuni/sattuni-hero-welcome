@@ -17,6 +17,7 @@ export const cateringFormSchema = z.object({
   address: z.string().min(5, "Adresse ist erforderlich"),
   occasion: z.string().min(1, "Anlass ist erforderlich"),
   date: z.string().min(1, "Datum ist erforderlich"),
+  time: z.string().optional(),
   guestCount: z.number().min(1, "Anzahl Gäste muss mindestens 1 sein").optional(),
   budget: z.number().min(0, "Budget muss positiv sein").optional(),
   comment: z.string().optional(),

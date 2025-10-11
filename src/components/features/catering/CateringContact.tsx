@@ -10,7 +10,7 @@ import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { cateringFormSchema } from '@/services/validation/schemas';
-import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight, Users } from "lucide-react";
+import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight, Users, Clock } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import { FORM_CONSTANTS } from '@/constants';
 
@@ -26,6 +26,7 @@ const CateringContact = () => {
     comment: "",
     occasion: "",
     date: "",
+    time: "",
     guestCount: ""
   });
   
@@ -221,6 +222,7 @@ const CateringContact = () => {
       address: "Musterstraße 123, 40210 Düsseldorf",
       occasion: "Firmenfeier",
       date: "2024-12-20",
+      time: "18:00",
       guestCount: "30",
       comment: "Wir würden gerne eine Auswahl an vegetarischen und veganen Optionen haben."
     };
@@ -247,6 +249,7 @@ const CateringContact = () => {
       address: '',
       occasion: '',
       date: '',
+      time: '',
       guestCount: '',
       comment: ''
     });
@@ -316,6 +319,7 @@ const CateringContact = () => {
             address: '',
             occasion: '',
             date: '',
+            time: '',
             guestCount: '',
             comment: ''
           });
@@ -619,6 +623,22 @@ const CateringContact = () => {
                     {validationErrors.date && (
                       <p className="text-sm text-destructive">{validationErrors.date}</p>
                     )}
+                  </div>
+
+                  {/* Time */}
+                  <div className="space-y-2">
+                    <Label htmlFor="time" className="flex items-center gap-2 text-base">
+                      <Clock className="w-4 h-4" />
+                      Uhrzeit <span className="text-muted-foreground text-sm">(optional)</span>
+                    </Label>
+                    <Input
+                      id="time"
+                      name="time"
+                      type="time"
+                      value={formData.time}
+                      onChange={handleInputChange}
+                      onFocus={() => trackFieldFocus('time')}
+                    />
                   </div>
 
                   {/* Company (optional) */}
