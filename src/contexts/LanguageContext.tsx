@@ -27,7 +27,7 @@ const translations = {
   'nav.about': { de: 'Über uns', en: 'About Us' },
   'nav.catering': { de: 'Catering', en: 'Catering' },
   'nav.contact': { de: 'Kontakt', en: 'Contact' },
-  'nav.order_now': { de: 'Jetzt bestellen', en: 'Order Now' },
+  'nav.order_now': { de: 'Zum Online-Shop', en: 'To Online Shop' },
   
   // Settings
   'settings.title': { de: 'Einstellungen', en: 'Settings' },

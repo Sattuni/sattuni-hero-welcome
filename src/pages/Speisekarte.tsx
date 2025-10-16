@@ -242,7 +242,7 @@ const Speisekarte = () => {
                     size="lg" 
                     className="shadow-warm font-medium"
                   >
-                    Jetzt bestellen
+                    Zum Online-Shop
                   </SmartCTA>
                 </div>
               </div>

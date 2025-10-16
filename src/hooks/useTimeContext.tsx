@@ -6,7 +6,7 @@ export const useTimeContext = () => {
     ctaText: string;
   }>({
     period: 'other',
-    ctaText: 'Jetzt bestellen'
+    ctaText: 'Zum Online-Shop'
   });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const useTimeContext = () => {
       } else {
         setTimeContext({
           period: 'other',
-          ctaText: 'Jetzt bestellen'
+          ctaText: 'Zum Online-Shop'
         });
       }
     };

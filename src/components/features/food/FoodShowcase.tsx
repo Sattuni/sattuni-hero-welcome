@@ -97,7 +97,7 @@ const FoodShowcase = () => {
                     variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 font-medium"
                   >
-                    Jetzt bestellen
+                    Zum Online-Shop
                   </Button>
                 </div>
               </CardContent>

@@ -87,7 +87,7 @@ const FOMOElements = () => {
                 className="w-full gap-2 h-8 text-xs font-semibold"
               >
                 <ShoppingBag className="w-3 h-3" />
-                Jetzt bestellen
+                Zum Online-Shop
               </Button>
             </div>
           </div>

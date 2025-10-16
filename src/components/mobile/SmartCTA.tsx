@@ -27,7 +27,7 @@ const SmartCTA = ({
   };
 
   // Use smart CTA text only if requested and on mobile
-  const displayText = showTimeContext && isMobile ? ctaText : (children || 'Jetzt bestellen');
+  const displayText = showTimeContext && isMobile ? ctaText : (children || 'Zum Online-Shop');
   
   // Add time-based styling
   const timeContextClass = period === 'dinner' ? 'shadow-ornate' : '';
