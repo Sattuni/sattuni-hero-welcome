@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
+import heroImage from "@/assets/blog/office-lunch-hero.jpg";
 
 const Blog = () => {
   // Blog-Posts
@@ -16,7 +17,7 @@ const Blog = () => {
       excerpt: "Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team.",
       date: "2025-10-01",
       readTime: "8 min",
-      image: "/lovable-uploads/sattuni_logo.jpg",
+      image: heroImage,
       category: "Catering"
     }
   ];
