@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PartyPopper, Utensils } from "lucide-react";
 import { triggerGLFWidget } from "@/utils/glfHelper";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 
 const Services = () => {
+  const isMobile = useMobileDetection();
+  
   return (
     <section className="py-6 md:py-12 px-3 md:px-4 bg-gradient-subtle">
       <div className="container mx-auto max-w-6xl">
@@ -52,7 +55,14 @@ const Services = () => {
                   variant="hero" 
                   size="default"
                   className="w-full md:w-auto group-hover:shadow-glow transition-all duration-300 font-medium text-sm md:text-base"
-                  onClick={triggerGLFWidget}
+                  onClick={() => {
+                    // Mobile: Direct link, Desktop: GLF Widget
+                    if (isMobile) {
+                      window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+                    } else {
+                      triggerGLFWidget();
+                    }
+                  }}
                 >
                   Zum Online-Shop
                 </Button>

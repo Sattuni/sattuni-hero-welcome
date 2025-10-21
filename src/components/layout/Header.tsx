@@ -5,10 +5,12 @@ import { Menu, UtensilsCrossed } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { triggerGLFWidget } from "@/utils/glfHelper";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const isMobile = useMobileDetection();
   
   const navigation = [
     { 
@@ -155,7 +157,10 @@ const Header = () => {
               <Button 
                 size="sm" 
                 className="font-medium shadow-sm"
-                onClick={triggerGLFWidget}
+                onClick={() => {
+                  // Desktop: GLF Widget (this is desktop nav, but just to be safe)
+                  triggerGLFWidget();
+                }}
               >
                 Zum Online-Shop
               </Button>
@@ -250,7 +255,8 @@ const Header = () => {
                       size="lg"
                       onClick={() => {
                         setIsOpen(false);
-                        triggerGLFWidget();
+                        // Mobile menu: Open direct link
+                        window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                       }}
                     >
                       Zum Online-Shop
