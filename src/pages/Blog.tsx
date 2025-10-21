@@ -14,7 +14,7 @@ const Blog = () => {
       slug: "buero-lunch-ideen",
       title: "10 kreative Büro-Lunch-Ideen – wenn ihr keine Lust mehr auf Pizza & Pasta habt",
       excerpt: "Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team.",
-      date: "2024-01-15",
+      date: "2025-10-01",
       readTime: "8 min",
       image: "/lovable-uploads/sattuni_logo.jpg",
       category: "Catering"
@@ -53,7 +53,7 @@ const Blog = () => {
             <div className="prose prose-lg mx-auto text-center">
               <p className="text-muted-foreground">
                 Willkommen auf unserem Blog! Hier teilen wir mit dir die Geschichten hinter unseren Gerichten, 
-                geben Einblicke in die syrische Küche und teilen Tipps rund um Catering und Events.
+                geben Einblicke in die arabische Küche und teilen Tipps rund um Catering und Events.
               </p>
             </div>
           </div>
@@ -64,44 +64,44 @@ const Blog = () => {
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {blogPosts.map((post) => (
-                <Card 
-                  key={post.id}
-                  className="group hover:shadow-elegant transition-all duration-300 overflow-hidden border-border/50 bg-card/95 backdrop-blur-sm"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <LazyImage
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full">
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{post.readTime}</span>
+                <a href={`/blog/${post.slug}`} className="block">
+                  <Card 
+                    key={post.id}
+                    className="group hover:shadow-elegant transition-all duration-300 overflow-hidden border-border/50 bg-card/95 backdrop-blur-sm h-full"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <LazyImage
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full">
+                          {post.category}
+                        </span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    
-                    <a href={`/blog/${post.slug}`}>
+                    <CardContent className="p-6 space-y-4">
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {post.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      
                       <Button 
                         variant="ghost" 
                         className="w-full justify-between group/btn"
@@ -109,9 +109,9 @@ const Blog = () => {
                         <span>Weiterlesen</span>
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
-                    </a>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
           </div>
@@ -120,17 +120,16 @@ const Blog = () => {
         {/* Newsletter Section (Optional - Platzhalter) */}
         <section className="py-12 md:py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <Card className="bg-gradient-primary text-primary-foreground overflow-hidden">
+            <Card className="bg-card border-primary/20 overflow-hidden shadow-elegant">
               <CardContent className="p-8 md:p-12 text-center space-y-4">
-                <h2 className="text-2xl md:text-3xl font-bold">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                   Bleib auf dem Laufenden
                 </h2>
-                <p className="text-primary-foreground/90">
+                <p className="text-muted-foreground">
                   Erhalte regelmäßig Updates zu neuen Blog-Artikeln, Rezepten und Events.
                 </p>
                 <Button 
                   size="lg" 
-                  variant="secondary"
                   disabled
                   className="mt-4"
                 >

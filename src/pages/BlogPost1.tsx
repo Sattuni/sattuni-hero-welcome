@@ -35,7 +35,7 @@ const BlogPost1 = () => {
         {/* Hero Section */}
         <article className="pb-16">
           <header className="relative h-[400px] md:h-[500px] overflow-hidden">
-            <LazyImage
+            <img
               src={heroImage}
               alt="Modernes arabisches Fingerfood-Buffet in hellem Büroambiente"
               className="w-full h-full object-cover"
@@ -46,7 +46,7 @@ const BlogPost1 = () => {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <time dateTime="2024-01-15">15. Jan 2024</time>
+                    <time dateTime="2025-10-01">01. Okt 2025</time>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
