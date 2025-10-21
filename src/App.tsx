@@ -9,6 +9,7 @@ import CookieConsent from "./components/features/cookies/CookieConsent";
 import ChatbotPositioner from "./components/mobile/ChatbotPositioner";
 import GLFOrderButton from "./components/mobile/GLFOrderButton";
 import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
 import Catering from "./pages/Catering";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
@@ -30,6 +31,7 @@ const AppRoutes = () => {
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/catering" element={<Catering />} />
       <Route path="/ueber-uns" element={<AboutUs />} />
+      <Route path="/blog" element={<Blog />} />
       <Route path="/impressum" element={<Impressum />} />
       <Route path="/datenschutz" element={<Datenschutz />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
