@@ -7,32 +7,15 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
 
 const Blog = () => {
-  // Platzhalter Blog-Posts
-  const placeholderPosts = [
+  // Blog-Posts
+  const blogPosts = [
     {
       id: 1,
-      title: "Die Geschichte von Sattuni",
-      excerpt: "Erfahre mehr über unsere Reise und wie alles begann...",
+      slug: "buero-lunch-ideen",
+      title: "10 kreative Büro-Lunch-Ideen – wenn ihr keine Lust mehr auf Pizza & Pasta habt",
+      excerpt: "Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team.",
       date: "2024-01-15",
-      readTime: "5 min",
-      image: "/lovable-uploads/sattuni_logo.jpg",
-      category: "Über uns"
-    },
-    {
-      id: 2,
-      title: "Authentische syrische Küche",
-      excerpt: "Was macht syrisches Essen so besonders? Entdecke die Geheimnisse...",
-      date: "2024-01-10",
-      readTime: "7 min",
-      image: "/lovable-uploads/sattuni_logo.jpg",
-      category: "Kulinarisches"
-    },
-    {
-      id: 3,
-      title: "Catering-Tipps für Events",
-      excerpt: "So planst du das perfekte Event mit unserem Buffet-Catering...",
-      date: "2024-01-05",
-      readTime: "6 min",
+      readTime: "8 min",
       image: "/lovable-uploads/sattuni_logo.jpg",
       category: "Catering"
     }
@@ -80,7 +63,7 @@ const Blog = () => {
         <section className="py-8 md:py-16 px-4 bg-gradient-subtle">
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {placeholderPosts.map((post) => (
+              {blogPosts.map((post) => (
                 <Card 
                   key={post.id}
                   className="group hover:shadow-elegant transition-all duration-300 overflow-hidden border-border/50 bg-card/95 backdrop-blur-sm"
@@ -118,14 +101,15 @@ const Blog = () => {
                       {post.excerpt}
                     </p>
                     
-                    <Button 
-                      variant="ghost" 
-                      className="w-full justify-between group/btn"
-                      disabled
-                    >
-                      <span>Weiterlesen</span>
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    <a href={`/blog/${post.slug}`}>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-between group/btn"
+                      >
+                        <span>Weiterlesen</span>
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
               ))}
