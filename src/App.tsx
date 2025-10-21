@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CookieConsent from "./components/features/cookies/CookieConsent";
 import ChatbotPositioner from "./components/mobile/ChatbotPositioner";
+import GLFOrderButton from "./components/mobile/GLFOrderButton";
 import AboutUs from "./pages/AboutUs";
 import Catering from "./pages/Catering";
 import Datenschutz from "./pages/Datenschutz";
@@ -46,6 +47,7 @@ const App = () => (
           <Sonner />
           <ChatbotPositioner />
           <CookieConsent />
+          <GLFOrderButton />
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useTimeContext } from '@/hooks/useTimeContext';
+import { triggerGLFWidget } from '@/utils/glfHelper';
 
 const MobileCTABar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +32,7 @@ const MobileCTABar = () => {
   }, [isMobile, scrollProgress]);
 
   const handleOrder = () => {
-    window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+    triggerGLFWidget();
   };
 
   const handleCatering = () => {

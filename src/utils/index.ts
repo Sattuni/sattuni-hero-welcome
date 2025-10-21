@@ -5,3 +5,6 @@
 
 // ===== TAILWIND UTILITIES =====
 export * from '../lib/utils';
+
+// ===== GLF WIDGET UTILITIES =====
+export * from './glfHelper';

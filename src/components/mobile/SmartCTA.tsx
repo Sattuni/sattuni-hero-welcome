@@ -1,6 +1,7 @@
 import { Button, ButtonProps } from '@/components/ui/button';
 import { useTimeContext } from '@/hooks/useTimeContext';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
+import { triggerGLFWidget } from '@/utils/glfHelper';
 
 interface SmartCTAProps extends Omit<ButtonProps, 'onClick'> {
   onOrderClick?: () => void;
@@ -21,8 +22,8 @@ const SmartCTA = ({
     if (onOrderClick) {
       onOrderClick();
     } else {
-      // Use the same ordering URL as in the original Hero component
-      window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+      // Trigger GLF widget
+      triggerGLFWidget();
     }
   };
 
