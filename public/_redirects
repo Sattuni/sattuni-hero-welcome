@@ -1,2 +1,3 @@
 # Netlify redirects for SPA routing
+/AboutUs    /ueber-uns    301
 /*    /index.html   200
