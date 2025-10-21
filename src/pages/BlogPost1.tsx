@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Utensils, Salad, Pizza, Sandwich, Soup, ChefHat, Coffee, Lightbulb, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/common/LazyImage";
 import heroImage from "@/assets/blog/office-lunch-hero.jpg";
@@ -75,7 +75,11 @@ const BlogPost1 = () => {
                   {/* Idee 1 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🥙 1️⃣ Mini-Mezze für alle
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Utensils className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">1.</span>
+                      Mini-Mezze für alle
                     </h2>
                     <p className="text-muted-foreground">
                       Kleine Portionen, große Vielfalt: Hummus, Baba Ghanoush, Taboulé, Falafelbällchen und Dips – perfekt zum Teilen und Kombinieren. Ideal für Teams, die Abwechslung lieben und gemeinsam genießen wollen.
@@ -85,7 +89,11 @@ const BlogPost1 = () => {
                   {/* Idee 2 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🥗 2️⃣ Bowl-Bar im Büro
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Salad className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">2.</span>
+                      Bowl-Bar im Büro
                     </h2>
                     <p className="text-muted-foreground">
                       Selbst zusammengestellte Bowls mit Couscous, Ofengemüse, Granatapfel und hausgemachten Saucen. Jeder wählt, was er mag – frisch, gesund und perfekt für Meetings oder Teamtage.
@@ -95,7 +103,11 @@ const BlogPost1 = () => {
                   {/* Idee 3 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🫓 3️⃣ Warme Teigtaschen statt belegte Brötchen
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Pizza className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">3.</span>
+                      Warme Teigtaschen statt belegte Brötchen
                     </h2>
                     <p className="text-muted-foreground">
                       Käse, Spinat oder Hähnchenfüllung – unsere hausgemachten Teigtaschen sind warm, sättigend und lassen sich ganz unkompliziert servieren. Kein Besteck, kein Stress.
@@ -105,7 +117,11 @@ const BlogPost1 = () => {
                   {/* Idee 4 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🌯 4️⃣ Streetfood-Feeling im Office
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Sandwich className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">4.</span>
+                      Streetfood-Feeling im Office
                     </h2>
                     <p className="text-muted-foreground">
                       Hähnchen-Pita, Falafel oder Grillgemüse im frischen Pita – sattmachend, handlich und perfekt für kurze Pausen. Bringt Streetfood-Charme direkt an den Schreibtisch.
@@ -115,7 +131,11 @@ const BlogPost1 = () => {
                   {/* Idee 5 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🍲 5️⃣ Suppenstation im Winter
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Soup className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">5.</span>
+                      Suppenstation im Winter
                     </h2>
                     <p className="text-muted-foreground">
                       Linsencreme mit Kreuzkümmel, Karotte-Ingwer oder Kichererbsen-Curry – leicht, warm und sättigend. Ideal für kühle Tage, an denen das Team etwas Herzhaftes braucht.
@@ -125,7 +145,11 @@ const BlogPost1 = () => {
                   {/* Idee 6 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🍢 6️⃣ Fingerfood-Platten für Teammeetings
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <ChefHat className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">6.</span>
+                      Fingerfood-Platten für Teammeetings
                     </h2>
                     <p className="text-muted-foreground">
                       Kleine Häppchen, große Wirkung: Mini-Kebbeh, Halloumi-Sticks, Gemüse-Taschen, gefüllte Grießbällchen und bunte Dips. So wird jedes Meeting zum Genussmoment – unkompliziert und stilvoll.
@@ -135,7 +159,11 @@ const BlogPost1 = () => {
                   {/* Idee 7 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🍞 7️⃣ Belegte Brote im Sattuni-Stil
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Sandwich className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">7.</span>
+                      Belegte Brote im Sattuni-Stil
                     </h2>
                     <p className="text-muted-foreground">
                       Frisches Brot, kreativ belegt: cremiger Hummus, würziges Baba Ghanoush, Avocado, Frischkäse oder feine Fisch-Dips. Eine moderne Alternative zum klassischen Sandwichbuffet.
@@ -145,7 +173,11 @@ const BlogPost1 = () => {
                   {/* Idee 8 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      💡 8️⃣ Lunch & Learn-Buffet
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Lightbulb className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">8.</span>
+                      Lunch & Learn-Buffet
                     </h2>
                     <p className="text-muted-foreground">
                       Kombiniert Wissen mit Genuss – kleine Snacks, Smoothies und Fingerfood für kreative Pausen. So bleiben Energie und Stimmung im Team garantiert hoch.
@@ -155,7 +187,11 @@ const BlogPost1 = () => {
                   {/* Idee 9 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🫒 9️⃣ Orientalischer Brunch
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Coffee className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">9.</span>
+                      Orientalischer Brunch
                     </h2>
                     <p className="text-muted-foreground">
                       Dips, Salate, Omelette, Datteln, Granatapfel und Oliven – ideal für Teamtage, Kundenevents oder entspannte Office-Vormittage. Eine moderne Interpretation arabischer Gastfreundschaft im Büro.
@@ -165,7 +201,11 @@ const BlogPost1 = () => {
                   {/* Idee 10 */}
                   <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center gap-3">
-                      🎉 🔟 Office-Aktivierungen mit Motto
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                        <Sparkles className="w-5 h-5" />
+                      </span>
+                      <span className="bg-gradient-primary bg-clip-text text-transparent">10.</span>
+                      Office-Aktivierungen mit Motto
                     </h2>
                     <p className="text-muted-foreground">
                       Von Smoothie-Montag bis Hummus-Friday: kleine kulinarische Highlights schaffen Routine mit Spaßfaktor – und stärken die Office-Kultur nachhaltig.
@@ -176,7 +216,10 @@ const BlogPost1 = () => {
                 {/* Fazit */}
                 <section className="mt-16 p-8 bg-gradient-subtle rounded-lg border border-border/50">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    🍴 Fazit
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                      <Utensils className="w-5 h-5" />
+                    </span>
+                    Fazit
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p>
