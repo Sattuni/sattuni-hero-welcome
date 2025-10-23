@@ -274,15 +274,15 @@ const BlogPost1 = () => {
                 </section>
 
                 {/* CTA */}
-                <section className="mt-16 text-center p-8 bg-gradient-primary text-primary-foreground rounded-lg">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                <section className="mt-16 text-center p-8 md:p-12 bg-card border-2 border-primary/20 rounded-lg shadow-lg">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                     Bereit für frischen Wind in eurer Mittagspause?
                   </h2>
-                  <p className="text-lg mb-6 text-primary-foreground/90">
+                  <p className="text-lg mb-6 text-muted-foreground">
                     Lasst uns gemeinsam euer nächstes Office-Catering planen.
                   </p>
                   <Link to="/catering#contact">
-                    <Button size="lg" variant="secondary">
+                    <Button size="lg" className="gap-2">
                       Jetzt Kontakt aufnehmen
                     </Button>
                   </Link>
