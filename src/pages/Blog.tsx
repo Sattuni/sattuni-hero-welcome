@@ -40,7 +40,6 @@ const Blog = () => {
         <meta name="description" content="Entdecke Geschichten, Rezepte und Einblicke aus unserer Küche. Erfahre mehr über syrische Kulinarik und unsere Events." />
         <meta name="keywords" content="Sattuni Blog, arabische Küche, syrische Rezepte, Catering Düsseldorf, Mezze, orientalische Küche" />
         <meta name="robots" content="index, follow" />
-        <script id="mcjs">{`!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0df4bd1aa1267d269c74e6d43/796a3d0452ec6458a4bd57ab4.js")`}</script>
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
@@ -144,9 +143,10 @@ const Blog = () => {
                 </p>
                 <Button 
                   size="lg" 
+                  disabled
                   className="mt-4"
                 >
-                  Newsletter abonnieren
+                  Newsletter abonnieren (Coming Soon)
                 </Button>
               </CardContent>
             </Card>
