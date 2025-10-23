@@ -11,6 +11,7 @@ import GLFOrderButton from "./components/mobile/GLFOrderButton";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import BlogPost1 from "./pages/BlogPost1";
+import BlogPost2 from "./pages/BlogPost2";
 import Catering from "./pages/Catering";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path="/ueber-uns" element={<AboutUs />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
+      <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/impressum" element={<Impressum />} />
       <Route path="/datenschutz" element={<Datenschutz />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

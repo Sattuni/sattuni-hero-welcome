@@ -6,10 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
 import heroImage from "@/assets/blog/office-lunch-hero.jpg";
+import mezzeHeroImage from "@/assets/blog/mezze-sharing-hero.jpg";
 
 const Blog = () => {
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 2,
+      slug: "was-bedeutet-mezze",
+      title: "Was bedeutet eigentlich Mezze? Warum Teilen und Genießen der wahre Geschmack der arabischen Küche ist",
+      excerpt: "Erfahre, was Mezze bedeutet und wie Sattuni das arabische Prinzip des Teilens in moderne Küche bringt. Frisch, hausgemacht und perfekt für private und geschäftliche Anlässe.",
+      date: "2025-10-23",
+      readTime: "6 min",
+      image: mezzeHeroImage,
+      category: "Arabische Küche"
+    },
     {
       id: 1,
       slug: "buero-lunch-ideen",
