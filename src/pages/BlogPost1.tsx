@@ -230,8 +230,9 @@ const BlogPost1 = () => {
                     </p>
                     <div className="pt-6">
                       <Link to="/catering#contact">
-                        <Button size="lg" className="gap-2">
-                          👉 Jetzt Catering anfragen
+                        <Button size="lg" className="gap-2 w-full sm:w-auto">
+                          <span className="hidden sm:inline">👉 Jetzt Catering anfragen</span>
+                          <span className="sm:hidden">Catering anfragen</span>
                         </Button>
                       </Link>
                     </div>
@@ -282,7 +283,7 @@ const BlogPost1 = () => {
                     Lasst uns gemeinsam euer nächstes Office-Catering planen.
                   </p>
                   <Link to="/catering#contact">
-                    <Button size="lg" className="gap-2">
+                    <Button size="lg" className="gap-2 w-full sm:w-auto">
                       Jetzt Kontakt aufnehmen
                     </Button>
                   </Link>

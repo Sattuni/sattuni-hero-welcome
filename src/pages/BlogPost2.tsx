@@ -166,8 +166,9 @@ const BlogPost2 = () => {
                     </p>
                     <div className="pt-6">
                       <Link to="/catering#contact">
-                        <Button size="lg" className="gap-2">
-                          Jetzt mehr erfahren & Catering anfragen
+                        <Button size="lg" className="gap-2 w-full sm:w-auto">
+                          <span className="hidden sm:inline">Jetzt mehr erfahren & Catering anfragen</span>
+                          <span className="sm:hidden">Catering anfragen</span>
                         </Button>
                       </Link>
                     </div>
@@ -221,7 +222,7 @@ const BlogPost2 = () => {
                     Lasst uns gemeinsam euer nächstes Mezze-Erlebnis planen.
                   </p>
                   <Link to="/catering#contact">
-                    <Button size="lg" className="gap-2">
+                    <Button size="lg" className="gap-2 w-full sm:w-auto">
                       Jetzt Kontakt aufnehmen
                     </Button>
                   </Link>
