@@ -38,7 +38,8 @@ const Blog = () => {
       <Helmet>
         <title>Blog - Sattuni | Geschichten, Rezepte & Einblicke</title>
         <meta name="description" content="Entdecke Geschichten, Rezepte und Einblicke aus unserer Küche. Erfahre mehr über syrische Kulinarik und unsere Events." />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="keywords" content="Sattuni Blog, arabische Küche, syrische Rezepte, Catering Düsseldorf, Mezze, orientalische Küche" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">

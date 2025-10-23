@@ -14,7 +14,7 @@ const BlogPost1 = () => {
         <title>Büro-Lunch mal anders – 10 frische Catering-Ideen von Sattuni Düsseldorf</title>
         <meta name="description" content="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team." />
         <meta name="keywords" content="Büro Catering Düsseldorf, Fingerfood Catering, arabisches Buffet, Office Lunch Ideen" />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">

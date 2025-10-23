@@ -43,6 +43,12 @@ const Header = () => {
       current: location.pathname === "/catering",
       title: "Catering Service Düsseldorf - Arabische Küche für Events"
     },
+    { 
+      name: "Blog", 
+      href: "/blog", 
+      current: location.pathname.startsWith("/blog"),
+      title: "Blog - Geschichten, Rezepte & Einblicke aus unserer Küche"
+    },
   ];
 
   return (
