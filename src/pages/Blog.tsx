@@ -40,7 +40,6 @@ const Blog = () => {
         <meta name="description" content="Entdecke Geschichten, Rezepte und Einblicke aus unserer Küche. Erfahre mehr über syrische Kulinarik und unsere Events." />
         <meta name="keywords" content="Sattuni Blog, arabische Küche, syrische Rezepte, Catering Düsseldorf, Mezze, orientalische Küche" />
         <meta name="robots" content="index, follow" />
-        <script id="mcjs">{`!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0df4bd1aa1267d269c74e6d43/b17a3c25d31ee79cbc97c197c.js");`}</script>
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
@@ -131,7 +130,7 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Newsletter Section */}
+        {/* Newsletter Section (Optional - Platzhalter) */}
         <section className="py-12 md:py-16 px-4">
           <div className="container mx-auto max-w-4xl">
             <Card className="bg-card border-primary/20 overflow-hidden shadow-elegant">
@@ -142,21 +141,13 @@ const Blog = () => {
                 <p className="text-muted-foreground">
                   Erhalte regelmäßig Updates zu neuen Blog-Artikeln, Rezepten und Events.
                 </p>
-                <div id="mc_embed_shell" className="mt-6">
-                  <div id="mc_embed_signup">
-                    <form action="https://sattuni.us11.list-manage.com/subscribe/post?u=0df4bd1aa1267d269c74e6d43&amp;id=b17a3c25d3&amp;f_id=00e6f3e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank">
-                      <div id="mc_embed_signup_scroll" className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto">
-                        <input type="email" name="EMAIL" className="required email flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="mce-EMAIL" required placeholder="Deine E-Mail Adresse" />
-                        <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
-                          <input type="text" name="b_0df4bd1aa1267d269c74e6d43_b17a3c25d3" tabIndex={-1} />
-                        </div>
-                        <Button type="submit" size="lg" className="w-full sm:w-auto whitespace-nowrap">
-                          Anmelden
-                        </Button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
+                <Button 
+                  size="lg" 
+                  disabled
+                  className="mt-4"
+                >
+                  Newsletter abonnieren (Coming Soon)
+                </Button>
               </CardContent>
             </Card>
           </div>
