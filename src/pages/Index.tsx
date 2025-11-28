@@ -14,6 +14,8 @@ import MobileCTABar from "@/components/mobile/MobileCTABar";
 import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
 import SectionNav from "@/components/layout/SectionNav";
 import InternalLinks from "@/components/layout/InternalLinks";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Info } from "lucide-react";
 
 const Index = () => {
   // SEO Meta Tags and Structured Data
@@ -378,6 +380,21 @@ const Index = () => {
       
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
+        {/* Closure Notice */}
+        <div className="container mx-auto px-4 pt-6 pb-2">
+          <Alert className="bg-primary/10 border-primary/30">
+            <Info className="h-5 w-5 text-primary" />
+            <AlertTitle className="text-lg font-semibold text-foreground">
+              Kleine Pause – wir sind bald zurück! 🌙
+            </AlertTitle>
+            <AlertDescription className="text-foreground/80">
+              Liebe Gäste, vom <strong>27. November bis zum 3. Dezember</strong> bleibt unser Restaurant geschlossen. 
+              Ab dem <strong>4. Dezember</strong> sind wir wieder mit frischen Köstlichkeiten für euch da. 
+              Vielen Dank für euer Verständnis und bis bald! ❤️
+            </AlertDescription>
+          </Alert>
+        </div>
+        
         <Hero />
         
         {/* Section Navigation */}
