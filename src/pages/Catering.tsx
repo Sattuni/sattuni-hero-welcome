@@ -8,7 +8,7 @@ import InternalLinks from "@/components/layout/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, CheckCircle, ChevronRight, Gift, Heart, HelpCircle, Leaf, Mail, Phone, Salad, Sparkles, TreePine, Users, Utensils, UtensilsCrossed, Zap } from "lucide-react";
+import { ArrowUp, CheckCircle, ChevronRight, Heart, HelpCircle, Leaf, Mail, Phone, Salad, Sparkles, Users, Utensils, UtensilsCrossed, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
@@ -288,33 +288,6 @@ const Catering = () => {
               >
                 Schau, was wir kochen
               </Button>
-            </div>
-            
-            {/* Christmas Promo */}
-            <div 
-              className="mt-6 md:mt-8 p-3 md:p-5 bg-gradient-to-r from-emerald-700/20 via-red-700/20 to-emerald-700/20 rounded-lg md:rounded-xl border border-white/20 backdrop-blur-sm mx-2"
-              onClick={() => {
-                trackBusinessAction('christmas_promo_view', {
-                  promo_code: 'SATT25',
-                  discount_percentage: 10,
-                  event_type: 'christmas_catering'
-                });
-                addEngagementFactor('christmas_promo_interaction');
-              }}
-            >
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3 text-white">
-                <TreePine className="w-6 h-6 md:w-8 md:h-8 text-emerald-200 flex-shrink-0" />
-                <div className="text-center">
-                  <div className="font-bold text-base md:text-lg mb-1">Weihnachts-Special!</div>
-                  <div className="text-xs md:text-sm opacity-95 leading-relaxed break-words px-2">
-                    <span className="font-semibold">10% Rabatt auf Weihnachtsfeiern</span> mit Code{' '}
-                    <span className="font-bold bg-white/25 px-1.5 md:px-2 py-0.5 md:py-1 rounded-md text-emerald-100 whitespace-nowrap">
-                      SATT25
-                    </span>
-                  </div>
-                </div>
-                <Gift className="w-6 h-6 md:w-8 md:h-8 text-red-200 flex-shrink-0" />
-              </div>
             </div>
           </div>
         </div>
