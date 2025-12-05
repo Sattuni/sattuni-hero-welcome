@@ -14,22 +14,44 @@ export const GLF_CONFIG = {
  * Falls back to direct link if widget is not available
  */
 export const triggerGLFWidget = () => {
-  // Check if GLF widget is loaded
-  const glfButton = document.querySelector('[data-glf-cuid]');
+  // Try to use GLF API directly first
+  const glf = (window as any).glf;
   
-  if (glfButton) {
-    // GLF widget is available, trigger it
-    (glfButton as HTMLElement).click();
-  } else {
-    // Fallback: Open direct link
-    console.warn('GLF Widget not loaded, using fallback URL');
-    window.open(GLF_CONFIG.fallbackUrl, '_blank');
+  if (glf && typeof glf.open === 'function') {
+    try {
+      glf.open(GLF_CONFIG.ruid);
+      return;
+    } catch (error) {
+      console.warn('GLF API open failed:', error);
+    }
   }
+  
+  // Try clicking the button element
+  const glfButton = document.getElementById('glf-order-button') || document.querySelector('[data-glf-cuid]');
+  
+  if (glfButton && glf) {
+    try {
+      // Create and dispatch a click event
+      const clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      glfButton.dispatchEvent(clickEvent);
+      return;
+    } catch (error) {
+      console.warn('GLF button click failed:', error);
+    }
+  }
+  
+  // Fallback: Open direct link
+  console.warn('GLF Widget not available, using fallback URL');
+  window.open(GLF_CONFIG.fallbackUrl, '_blank');
 };
 
 /**
  * Check if GLF widget is loaded and ready
  */
 export const isGLFWidgetReady = (): boolean => {
-  return !!document.querySelector('[data-glf-cuid]');
+  return !!(window as any).glf && !!document.querySelector('[data-glf-cuid]');
 };
