@@ -11,7 +11,7 @@ import Contact from "@/components/features/contact/Contact";
 import OpeningHours from "@/components/layout/OpeningHours";
 import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
-import ChristmasPromo from "@/components/features/marketing/ChristmasPromo";
+
 import SectionNav from "@/components/layout/SectionNav";
 import InternalLinks from "@/components/layout/InternalLinks";
 
@@ -414,7 +414,6 @@ const Index = () => {
       </main>
       <Footer />
       <MobileCTABar />
-      <ChristmasPromo />
     </>
   );
 };
