@@ -82,10 +82,10 @@ const FOMOElements = () => {
               <div className="text-xs opacity-90 mb-1">
                 Leckere arabische Küche in 30-45 Min bei dir!
               </div>
-              <div className="text-xs font-semibold text-primary-foreground/95 mb-3 flex items-center gap-2">
-                <PartyPopper className="w-4 h-4" />
-                15% Nachlass auf Deine Gesamtrechnung
-              </div>
+                <div className="text-xs font-semibold text-primary-foreground/95 mb-3 flex items-center gap-2">
+                  <PartyPopper className="w-4 h-4" />
+                  10% Nachlass auf Deine Gesamtrechnung
+                </div>
               <Button
                 onClick={handleOrder}
                 size="sm"
