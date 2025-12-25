@@ -379,9 +379,9 @@ const Index = () => {
       <Header />
       <main className="min-h-screen pt-16 pb-safe-mobile">
         {/* Holiday Closure Notice */}
-        <div className="bg-amber-500 text-white py-4 px-4 text-center shadow-md">
+        <div className="bg-red-600 text-white py-4 px-4 text-center shadow-md">
           <p className="text-base md:text-lg font-semibold">
-            🎄 Betriebsferien: Wir sind vom 24.12. bis 31.12. geschlossen und ab dem 1.1.2026 wieder für euch da!
+            🎄 Frohe Weihnachten und einen guten Rutsch ins neue Jahr! Wir sind vom 24.12. bis 31.12. in den Betriebsferien und ab dem 1.1.2026 wieder für euch da! 🎆
           </p>
         </div>
         
