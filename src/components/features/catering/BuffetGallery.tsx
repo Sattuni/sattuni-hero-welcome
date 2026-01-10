@@ -10,25 +10,17 @@ import bowls2 from "@/assets/buffet-gallery/bowls2/3.png";
 import bowls3 from "@/assets/buffet-gallery/bowls2/4.png";
 import bowls4 from "@/assets/buffet-gallery/bowls2/5.png";
 import dips1 from "@/assets/buffet-gallery/dips/7.png";
-import dips2 from "@/assets/buffet-gallery/dips2/14.png";
 import dips3 from "@/assets/buffet-gallery/dips/6.png";
-import dips4 from "@/assets/buffet-gallery/dips2/15.png";
-import falafel1 from "@/assets/buffet-gallery/falafel/12.png";
-import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
 
-console.log('BuffetGallery images loaded:', { bowls1, bowls2, bowls3, bowls4, dips1, dips2, dips3, dips4, falafel1, falafel2 });
+console.log('BuffetGallery images loaded:', { bowls1, bowls2, bowls3, bowls4, dips1, dips3 });
 
 const buffetImages = [
   { src: bowls1, title: "Kichererbsen Salat", description: "Gesunde Bowls mit frischen Zutaten" },
   { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
-  { src: falafel1, title: "Fingerfood Spezialität", description: "Hausgemachte Spezialitäten" },
   { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
-  { src: dips2, title: "Fingerfood", description: "Traditionelle Vorspeisen-Auswahl" },
   { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
   { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
   { src: bowls4, title: "Fattoush Salat", description: "Petersilie mit Sonnenblumenkernen und Granatapfelkernen" },
-  { src: dips4, title: "Sandwich Platte", description: "Frische Sandwiches" },
-  { src: falafel2, title: "Fingerfood Spezialität", description: "Knusprige Spezialitäten" },
 ];
 
 interface BuffetGalleryProps {
