@@ -232,7 +232,7 @@ function generateCustomerEmailHtml(data: CateringInquiry): string {
         
         <p>Falls du in der Zwischenzeit Fragen hast, erreichst du uns jederzeit:</p>
         <ul>
-          <li>📞 Telefon: <a href="tel:+4921112345678">0211 1234567</a></li>
+          <li>📞 Telefon: <a href="tel:+492113618011">0211 36180115</a></li>
           <li>📧 E-Mail: <a href="mailto:info@sattuni.de">info@sattuni.de</a></li>
         </ul>
         
