@@ -1,4 +1,5 @@
 import heroAboutAbstract from '@/assets/hero-about-abstract.jpg';
+import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
@@ -387,6 +388,9 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
+
+        {/* Customer Reviews Section */}
+        <CustomerReviews />
 
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-gradient-hero">
