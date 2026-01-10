@@ -52,6 +52,11 @@ interface FormData {
   customMainCourses: string[];
   customSideDishes: string[];
   customDesserts: string[];
+  // Equipment
+  equipmentChafings: boolean;
+  equipmentBesteck: boolean;
+  equipmentTeller: boolean;
+  equipmentSchalen: boolean;
   comment: string;
 }
 
@@ -69,6 +74,10 @@ const initialFormData: FormData = {
   customMainCourses: [],
   customSideDishes: [],
   customDesserts: [],
+  equipmentChafings: false,
+  equipmentBesteck: false,
+  equipmentTeller: false,
+  equipmentSchalen: false,
   comment: '',
 };
 
@@ -901,6 +910,80 @@ const CateringBookingForm = () => {
                       rows={3}
                       className="resize-none"
                     />
+                  </div>
+
+                  {/* Equipment Section */}
+                  <div className="space-y-3">
+                    <Label className="text-base font-semibold">
+                      Equipment anfragen <span className="text-muted-foreground text-sm font-normal">(optional)</span>
+                    </Label>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        formData.equipmentChafings 
+                          ? 'border-primary bg-primary/5' 
+                          : 'border-muted hover:border-primary/50'
+                      }`}>
+                        <Checkbox
+                          checked={formData.equipmentChafings}
+                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentChafings: !!checked }))}
+                          className="mt-0.5"
+                        />
+                        <div>
+                          <span className="font-medium">Chafing Dishes</span>
+                          <p className="text-xs text-muted-foreground">
+                            +20€ {formData.guestCount >= 30 ? <span className="text-green-600 font-medium">(kostenlos ab 30 Pers.)</span> : '(ab 30 Pers. kostenlos)'}
+                          </p>
+                        </div>
+                      </label>
+
+                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        formData.equipmentBesteck 
+                          ? 'border-primary bg-primary/5' 
+                          : 'border-muted hover:border-primary/50'
+                      }`}>
+                        <Checkbox
+                          checked={formData.equipmentBesteck}
+                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentBesteck: !!checked }))}
+                          className="mt-0.5"
+                        />
+                        <div>
+                          <span className="font-medium">Besteck</span>
+                          <p className="text-xs text-muted-foreground">+1€ pro Person</p>
+                        </div>
+                      </label>
+
+                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        formData.equipmentTeller 
+                          ? 'border-primary bg-primary/5' 
+                          : 'border-muted hover:border-primary/50'
+                      }`}>
+                        <Checkbox
+                          checked={formData.equipmentTeller}
+                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentTeller: !!checked }))}
+                          className="mt-0.5"
+                        />
+                        <div>
+                          <span className="font-medium">Teller</span>
+                          <p className="text-xs text-muted-foreground">+1€ pro Person</p>
+                        </div>
+                      </label>
+
+                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        formData.equipmentSchalen 
+                          ? 'border-primary bg-primary/5' 
+                          : 'border-muted hover:border-primary/50'
+                      }`}>
+                        <Checkbox
+                          checked={formData.equipmentSchalen}
+                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentSchalen: !!checked }))}
+                          className="mt-0.5"
+                        />
+                        <div>
+                          <span className="font-medium">Porzellanschalen</span>
+                          <p className="text-xs text-muted-foreground">+20€</p>
+                        </div>
+                      </label>
+                    </div>
                   </div>
 
                   {/* Summary for Package */}
