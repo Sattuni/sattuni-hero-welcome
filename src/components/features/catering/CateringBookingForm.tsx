@@ -227,17 +227,15 @@ const CateringBookingForm = () => {
   // Handle custom item toggle
   const handleCustomItemToggle = (
     category: 'customAppetizers' | 'customMainCourses' | 'customDesserts',
-    itemId: string,
-    maxItems: number
+    itemId: string
   ) => {
     setFormData(prev => {
       const currentItems = prev[category];
       if (currentItems.includes(itemId)) {
         return { ...prev, [category]: currentItems.filter(id => id !== itemId) };
-      } else if (currentItems.length < maxItems) {
+      } else {
         return { ...prev, [category]: [...currentItems, itemId] };
       }
-      return prev;
     });
   };
 
@@ -408,11 +406,9 @@ const CateringBookingForm = () => {
   // Render custom menu item
   const renderMenuItem = (
     item: { id: string; name: string; description: string },
-    category: 'customAppetizers' | 'customMainCourses' | 'customDesserts',
-    maxItems: number
+    category: 'customAppetizers' | 'customMainCourses' | 'customDesserts'
   ) => {
     const isSelected = formData[category].includes(item.id);
-    const isDisabled = !isSelected && formData[category].length >= maxItems;
 
     return (
       <label
@@ -420,15 +416,12 @@ const CateringBookingForm = () => {
         className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
           isSelected 
             ? 'border-primary bg-primary/5' 
-            : isDisabled 
-              ? 'border-muted bg-muted/20 opacity-50 cursor-not-allowed'
-              : 'border-muted hover:border-primary/50'
+            : 'border-muted hover:border-primary/50'
         }`}
       >
         <Checkbox
           checked={isSelected}
-          disabled={isDisabled}
-          onCheckedChange={() => handleCustomItemToggle(category, item.id, maxItems)}
+          onCheckedChange={() => handleCustomItemToggle(category, item.id)}
           className="mt-0.5"
         />
         <div>
@@ -757,11 +750,11 @@ const CateringBookingForm = () => {
                             Vorspeisen
                           </span>
                           <Badge variant="outline">
-                            {formData.customAppetizers.length}/{CUSTOM_MENU_LIMITS.maxAppetizers}
+                            {formData.customAppetizers.length} ausgewählt
                           </Badge>
                         </h3>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {APPETIZERS.map(item => renderMenuItem(item, 'customAppetizers', CUSTOM_MENU_LIMITS.maxAppetizers))}
+                          {APPETIZERS.map(item => renderMenuItem(item, 'customAppetizers'))}
                         </div>
                         {validationErrors.customAppetizers && (
                           <p className="text-sm text-destructive">{validationErrors.customAppetizers}</p>
@@ -776,11 +769,11 @@ const CateringBookingForm = () => {
                             Hauptspeisen
                           </span>
                           <Badge variant="outline">
-                            {formData.customMainCourses.length}/{CUSTOM_MENU_LIMITS.maxMainCourses}
+                            {formData.customMainCourses.length} ausgewählt
                           </Badge>
                         </h3>
                         <div className="grid sm:grid-cols-2 gap-3">
-                          {MAIN_COURSES.map(item => renderMenuItem(item, 'customMainCourses', CUSTOM_MENU_LIMITS.maxMainCourses))}
+                          {MAIN_COURSES.map(item => renderMenuItem(item, 'customMainCourses'))}
                         </div>
                         {validationErrors.customMainCourses && (
                           <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
@@ -795,11 +788,11 @@ const CateringBookingForm = () => {
                             Desserts <span className="text-sm font-normal text-muted-foreground">(optional)</span>
                           </span>
                           <Badge variant="outline">
-                            {formData.customDesserts.length}/{CUSTOM_MENU_LIMITS.maxDesserts}
+                            {formData.customDesserts.length} ausgewählt
                           </Badge>
                         </h3>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {DESSERTS.map(item => renderMenuItem(item, 'customDesserts', CUSTOM_MENU_LIMITS.maxDesserts))}
+                          {DESSERTS.map(item => renderMenuItem(item, 'customDesserts'))}
                         </div>
                       </div>
                     </div>
