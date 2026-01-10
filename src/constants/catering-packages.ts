@@ -98,6 +98,26 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     desserts: ['baklava', 'frischer-obstsalat'],
     pricePerPerson: 29.90,
   },
+  {
+    id: 'business-lunch',
+    name: 'Business Lunch',
+    description: 'Professionelles Catering für Geschäftsveranstaltungen und Meetings',
+    courses: 2,
+    appetizers: ['hummus', 'tabouleh', 'fattoush', 'falafel', 'labneh', 'halloumi', 'sambousek'],
+    mainCourses: ['shish-taouk', 'shawarma-huhn'],
+    desserts: [],
+    pricePerPerson: 27.90,
+  },
+  {
+    id: 'oriental-deluxe',
+    name: 'Oriental Deluxe',
+    description: 'Das ultimative orientalische Erlebnis mit allen Highlights unserer Küche',
+    courses: 3,
+    appetizers: ['hummus', 'baba-ganoush', 'muhammara', 'kibbeh', 'sambousek', 'dolma', 'halloumi'],
+    mainCourses: ['mixed-grill', 'mansaf'],
+    desserts: ['baklava', 'kunafa'],
+    pricePerPerson: 49.90,
+  },
 ];
 
 // ===== CUSTOM MENU LIMITS =====
