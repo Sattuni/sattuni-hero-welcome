@@ -11,7 +11,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
-import { supabase } from "@/integrations/supabase/client";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
@@ -329,12 +328,36 @@ const CateringBookingForm = () => {
     };
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-catering-inquiry', {
-        body: submissionData,
+      const env = import.meta.env as any;
+      const projectId = env.VITE_SUPABASE_PROJECT_ID as string | undefined;
+      const backendUrl =
+        (env.VITE_SUPABASE_URL as string | undefined) ||
+        (projectId ? `https://${projectId}.supabase.co` : undefined);
+      const apiKey =
+        (env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined) ||
+        (env.VITE_SUPABASE_ANON_KEY as string | undefined);
+
+      if (!backendUrl || !apiKey) {
+        throw new Error("Backend-Konfiguration fehlt (URL/API-Key).");
+      }
+
+      const response = await fetch(`${backendUrl}/functions/v1/send-catering-inquiry`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: apiKey,
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify(submissionData),
       });
 
-      if (error) {
-        throw new Error(error.message || 'Fehler beim Senden der Anfrage');
+      const responseJson = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        const message =
+          (responseJson && (responseJson.error || responseJson.message)) ||
+          "Fehler beim Senden der Anfrage";
+        throw new Error(message);
       }
 
       trackSubmission({
