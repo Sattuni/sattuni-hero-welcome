@@ -73,6 +73,7 @@ const CateringBookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(1);
+  const [expandedPackages, setExpandedPackages] = useState<Record<string, boolean>>({});
   const { toast } = useToast();
 
   // Enhanced form tracking
@@ -342,7 +343,8 @@ const CateringBookingForm = () => {
     const isSelected = formData.selectedPackage === pkg.id;
     const total = calculateTotalPrice(pkg.pricePerPerson, formData.guestCount);
     const isAvailable = formData.guestCount >= pkg.minGuests;
-    const [isOpen, setIsOpen] = useState(false);
+    const isOpen = expandedPackages[pkg.id] || false;
+    const setIsOpen = (open: boolean) => setExpandedPackages(prev => ({ ...prev, [pkg.id]: open }));
 
     return (
       <div
