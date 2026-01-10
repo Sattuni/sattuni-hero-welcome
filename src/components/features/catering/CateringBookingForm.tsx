@@ -15,7 +15,7 @@ import { getBackendPublicConfig } from "@/config/backend-public.config";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle
+  ChefHat, Sparkles, Star, ChevronDown, Leaf
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -243,7 +243,7 @@ const CateringBookingForm = () => {
   // Get form progress
   const getFormProgress = () => {
     if (currentStep === 1) {
-      const fields = ['name', 'email', 'phone', 'address', 'date', 'guestCount'];
+      const fields = ['name', 'email', 'phone', 'address', 'eventType', 'date', 'guestCount'];
       const filled = fields.filter(f => {
         const value = formData[f as keyof FormData];
         return value && (typeof value === 'string' ? value.trim() !== '' : true);
