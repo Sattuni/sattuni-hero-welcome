@@ -1203,22 +1203,6 @@ const CateringBookingForm = () => {
                       )}
                     </Button>
                   </div>
-
-                  {/* WhatsApp Alternative */}
-                  <div className="text-center pt-4 border-t">
-                    <p className="text-sm text-muted-foreground mb-2">
-                      Lieber direkt sprechen?
-                    </p>
-                    <a 
-                      href="https://wa.me/4915738000863?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20euer%20Catering-Angebot."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      Per WhatsApp kontaktieren
-                    </a>
-                  </div>
                 </div>
               )}
             </form>
