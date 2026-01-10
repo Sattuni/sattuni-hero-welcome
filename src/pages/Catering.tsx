@@ -1,7 +1,7 @@
 import heroCatering from "@/assets/hero/hero-catering.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringContact from "@/components/features/catering/CateringContact";
-import Testimonials from "@/components/features/testimonials/Testimonials";
+import CustomerReviews from "@/components/features/about/CustomerReviews";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Header from "@/components/layout/Header";
 import InternalLinks from "@/components/layout/InternalLinks";
@@ -304,12 +304,6 @@ const Catering = () => {
               Services
             </button>
             <button 
-              onClick={() => document.getElementById('beispielmenus')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              Menüs
-            </button>
-            <button 
               onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
@@ -413,78 +407,6 @@ const Catering = () => {
         </div>
       </section>
 
-      {/* Example Menus */}
-      <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="beispielmenus">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              Beispielmenüs für Buffets
-            </h2>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="overflow-hidden">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-primary mb-2">Leichte Mahlzeit</h3>
-                  <p className="text-3xl font-bold text-foreground">ab 25€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
-                  <p className="text-muted-foreground">Catering ab 20 Personen möglich</p>
-                </div>
-                
-                <div className="space-y-3">
-                  {[
-                    "Fattoush & Tabouleh und andere Salate",
-                    "Hummus & Baba Ghanousch Dips", 
-                    "Fatayer Teigtaschen",
-                    "Kibbeh Bällchen",
-                    "Hähnchenbruststreifen",
-                    "Orientalischer Couscous"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="text-primary w-5 h-5 flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-primary mb-2">Große Feiern</h3>
-                  <p className="text-3xl font-bold text-foreground">ab 30€ <span className="text-lg font-normal text-muted-foreground">pro Person</span></p>
-                  <p className="text-muted-foreground">Empfohlen ab 40 Personen</p>
-                </div>
-                
-                <div className="space-y-3">
-                  {[
-                    "Fattoush & Tabouleh und andere Salate",
-                    "Hummus & Baba Ghanousch",
-                    "Fatayer & Sambousek", 
-                    "Kibbeh & gefüllte Weinblätter",
-                    "Bulgur & Reis Beilagen",
-                    "Lamm, Hähnchen & Fisch",
-                    "Gefüllte Zucchini",
-                    "Baklava Dessert"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="text-primary w-5 h-5 flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground italic">
-              Preise sind Richtwerte. Wir passen jedes Menü an Budget & Wünsche an.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Process Steps */}
       <section className="py-12 md:py-20 scroll-mt-24" id="prozess">
@@ -532,10 +454,8 @@ const Catering = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gradient-subtle">
-        <Testimonials />
-      </section>
+      {/* Customer Reviews */}
+      <CustomerReviews />
 
       {/* FAQ Section */}
       <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
