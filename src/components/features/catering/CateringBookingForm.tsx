@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
@@ -13,7 +14,7 @@ import { handleFormError, handleFormSuccess } from '@/services/utils/error-handl
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star
+  ChefHat, Sparkles, Star, ChevronDown, Leaf
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -336,69 +337,121 @@ const CateringBookingForm = () => {
     }
   };
 
-  // Render package card
+  // Render package card with collapsible details
   const renderPackageCard = (pkg: CateringPackage) => {
     const isSelected = formData.selectedPackage === pkg.id;
     const total = calculateTotalPrice(pkg.pricePerPerson, formData.guestCount);
+    const isAvailable = formData.guestCount >= pkg.minGuests;
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
       <div
         key={pkg.id}
-        onClick={() => handlePackageSelect(pkg.id)}
-        className={`relative cursor-pointer rounded-xl border-2 p-4 transition-all hover:shadow-lg ${
-          isSelected 
-            ? 'border-primary bg-primary/5 shadow-md' 
-            : 'border-muted hover:border-primary/50'
+        className={`relative rounded-xl border-2 transition-all ${
+          !isAvailable 
+            ? 'border-muted bg-muted/20 opacity-60'
+            : isSelected 
+              ? 'border-primary bg-primary/5 shadow-md' 
+              : 'border-muted hover:border-primary/50 hover:shadow-lg'
         }`}
       >
-        {pkg.popular && (
-          <Badge className="absolute -top-2 right-4 bg-primary">
-            <Star className="w-3 h-3 mr-1" />
-            Beliebt
-          </Badge>
-        )}
-        
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h4 className="font-semibold text-lg">{pkg.name}</h4>
-            <p className="text-sm text-muted-foreground">{pkg.courses}-Gänge-Menü</p>
-          </div>
-          <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-            isSelected ? 'border-primary bg-primary' : 'border-muted'
-          }`}>
-            {isSelected && <Check className="w-4 h-4 text-primary-foreground" />}
-          </div>
-        </div>
-        
-        <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
-        
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            <Utensils className="w-4 h-4 text-primary" />
-            <span>{pkg.appetizers.length} Vorspeisen</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ChefHat className="w-4 h-4 text-primary" />
-            <span>{pkg.mainCourses.length} Hauptgerichte</span>
-          </div>
-          {pkg.desserts.length > 0 && (
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span>{pkg.desserts.length} Desserts</span>
-            </div>
+        {/* Header - Clickable for selection */}
+        <div
+          onClick={() => isAvailable && handlePackageSelect(pkg.id)}
+          className={`p-4 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
+        >
+          {pkg.popular && (
+            <Badge className="absolute -top-2 right-4 bg-primary">
+              <Star className="w-3 h-3 mr-1" />
+              Beliebt
+            </Badge>
           )}
-        </div>
-        
-        <div className="mt-4 pt-4 border-t">
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">Pro Person</span>
-            <span className="font-semibold text-primary">{formatPrice(pkg.pricePerPerson)}</span>
+          
+          {pkg.isVegetarian && (
+            <Badge variant="secondary" className="absolute -top-2 left-4">
+              <Leaf className="w-3 h-3 mr-1" />
+              Vegetarisch
+            </Badge>
+          )}
+          
+          <div className="flex items-start justify-between mb-2">
+            <div className="flex-1 pr-4">
+              <h4 className="font-semibold text-base leading-tight">{pkg.name}</h4>
+              <p className="text-sm text-primary font-medium mt-1">{pkg.subtitle}</p>
+            </div>
+            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+              isSelected ? 'border-primary bg-primary' : 'border-muted'
+            }`}>
+              {isSelected && <Check className="w-4 h-4 text-primary-foreground" />}
+            </div>
           </div>
-          <div className="flex justify-between items-center mt-1">
-            <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
-            <span className="font-bold text-lg">{formatPrice(total)}</span>
+          
+          <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
+          
+          <div className="flex flex-wrap gap-2 mb-3">
+            <Badge variant="outline" className="text-xs">
+              ab {pkg.minGuests} Personen
+            </Badge>
+            {pkg.includesDessert && (
+              <Badge variant="outline" className="text-xs">
+                <Sparkles className="w-3 h-3 mr-1" />
+                inkl. Dessert
+              </Badge>
+            )}
+          </div>
+          
+          {!isAvailable && (
+            <p className="text-xs text-destructive mb-2">
+              Mindestens {pkg.minGuests} Personen erforderlich
+            </p>
+          )}
+          
+          <div className="pt-3 border-t">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-muted-foreground">Pro Person</span>
+              <span className="font-semibold text-primary">{formatPrice(pkg.pricePerPerson)}</span>
+            </div>
+            {isAvailable && (
+              <div className="flex justify-between items-center mt-1">
+                <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
+                <span className="font-bold text-lg">{formatPrice(total)}</span>
+              </div>
+            )}
           </div>
         </div>
+
+        {/* Collapsible Details */}
+        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+          <CollapsibleTrigger asChild>
+            <button
+              type="button"
+              onClick={(e) => e.stopPropagation()}
+              className="w-full px-4 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              <span>{isOpen ? 'Details ausblenden' : 'Details anzeigen'}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+            </button>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <div className="px-4 pb-4 pt-2 space-y-3 bg-muted/30">
+              {pkg.detailedItems.map((section, idx) => (
+                <div key={idx}>
+                  {section.category && (
+                    <h5 className="font-medium text-sm text-primary mb-1">{section.category}</h5>
+                  )}
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    {section.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     );
   };
@@ -680,7 +733,7 @@ const CateringBookingForm = () => {
                         <h3 className="font-semibold text-lg">Feste Pakete</h3>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Wähle aus unseren 4 vordefinierten Menüs mit festem Preis
+                        Wähle aus unseren 6 vordefinierten Menüs mit festem Preis
                       </p>
                     </button>
 
