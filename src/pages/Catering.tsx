@@ -393,6 +393,12 @@ const Catering = () => {
       </section>
 
 
+      {/* Customer Reviews */}
+      <CustomerReviews />
+
+      {/* Catering Booking Form */}
+      <CateringBookingForm />
+
       {/* FAQ Section */}
       <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
         <div className="container mx-auto px-4">
@@ -606,12 +612,6 @@ const Catering = () => {
           </div>
         </div>
       </section>
-
-      {/* Catering Booking Form */}
-        <CateringBookingForm />
-
-      {/* Customer Reviews */}
-      <CustomerReviews />
         
         {/* Internal Links Section */}
         <InternalLinks />
