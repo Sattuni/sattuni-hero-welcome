@@ -63,8 +63,8 @@ export interface CateringPackage {
 
 export const CATERING_PACKAGES: CateringPackage[] = [
   {
-    id: 'levantine-fingerfood',
-    name: 'Menü 1 – Levantine Fingerfood Selection',
+    id: 'mezze-mix',
+    name: 'Mezze Mix',
     subtitle: 'Orientalisches Fingerfood zum Teilen',
     description: 'Orientalisches Fingerfood zum Teilen – perfekt für lockere Events und Empfänge.',
     detailedItems: [
@@ -82,8 +82,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     includesDessert: false,
   },
   {
-    id: 'green-levant',
-    name: 'Menü 2 – Green Levant Buffet',
+    id: 'gruene-levante',
+    name: 'Grüne Levante',
     subtitle: 'Vegetarisch',
     description: 'Kalte vegetarische Vielfalt – ideal für gesundheitsbewusste Gäste.',
     detailedItems: [
@@ -105,8 +105,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     isVegetarian: true,
   },
   {
-    id: 'levantine-classic',
-    name: 'Menü 3 – Levantine Classic Buffet',
+    id: 'levante-klassik',
+    name: 'Levante Klassik',
     subtitle: 'Kalt & warm kombiniert',
     description: 'Der perfekte Mix aus kalten und warmen Speisen für jede Gelegenheit.',
     detailedItems: [
@@ -129,8 +129,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     popular: true,
   },
   {
-    id: 'levantine-comfort',
-    name: 'Menü 4 – Levantine Comfort Buffet',
+    id: 'levante-genuss',
+    name: 'Levante Genuss',
     subtitle: 'Klassiker mit süßem Abschluss',
     description: 'Klassiker mit süßem Abschluss – inklusive Dessert.',
     detailedItems: [
@@ -153,8 +153,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     includesDessert: true,
   },
   {
-    id: 'oriental-feast',
-    name: 'Menü 5 – Oriental Feast Buffet',
+    id: 'levante-festmahl',
+    name: 'Levante Festmahl',
     subtitle: 'Großzügiges Buffet – kalt & warm',
     description: 'Großzügiges Buffet mit kalten und warmen Speisen plus Dessert.',
     detailedItems: [
@@ -188,8 +188,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     includesDessert: true,
   },
   {
-    id: 'premium-levant',
-    name: 'Menü 6 – Premium Levant Buffet',
+    id: 'levante-royal',
+    name: 'Levante Royal',
     subtitle: 'Unsere umfangreichste Auswahl',
     description: 'Unser Premium-Erlebnis mit geschmorter Lammschulter und vollem Programm.',
     detailedItems: [
