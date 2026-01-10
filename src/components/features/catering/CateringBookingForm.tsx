@@ -15,7 +15,7 @@ import { getBackendPublicConfig } from "@/config/backend-public.config";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star, ChevronDown, Leaf
+  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -35,12 +35,28 @@ import {
 } from '@/constants/catering-packages';
 const MIN_GUESTS = 20;
 
+// Event types for catering
+const EVENT_TYPES = [
+  { value: 'firmenevent', label: 'Firmenevent / Meeting' },
+  { value: 'hochzeit', label: 'Hochzeit' },
+  { value: 'geburtstag', label: 'Geburtstag' },
+  { value: 'familienfeier', label: 'Familienfeier' },
+  { value: 'jubilaeum', label: 'Jubiläum' },
+  { value: 'trauerfeier', label: 'Trauerfeier' },
+  { value: 'sonstiges', label: 'Sonstiges' },
+] as const;
+
+// Minimum days in advance for booking
+const MIN_DAYS_ADVANCE = 3;
+
 interface FormData {
   // Step 1: Basic Info
   name: string;
+  company: string;
   email: string;
   phone: string;
   address: string;
+  eventType: string;
   date: string;
   time: string;
   guestCount: number;
@@ -57,13 +73,17 @@ interface FormData {
   equipmentTeller: boolean;
   equipmentSchalen: boolean;
   comment: string;
+  // Privacy
+  privacyAccepted: boolean;
 }
 
 const initialFormData: FormData = {
   name: '',
+  company: '',
   email: '',
   phone: '',
   address: '',
+  eventType: '',
   date: '',
   time: '',
   guestCount: MIN_GUESTS,
@@ -78,6 +98,14 @@ const initialFormData: FormData = {
   equipmentTeller: false,
   equipmentSchalen: false,
   comment: '',
+  privacyAccepted: false,
+};
+
+// Calculate minimum date (today + MIN_DAYS_ADVANCE)
+const getMinDate = () => {
+  const date = new Date();
+  date.setDate(date.getDate() + MIN_DAYS_ADVANCE);
+  return date.toISOString().split('T')[0];
 };
 
 const CateringBookingForm = () => {
@@ -108,9 +136,20 @@ const CateringBookingForm = () => {
         customMainCourses: restoredData.customMainCourses || [],
         customSideDishes: restoredData.customSideDishes || [],
         customDesserts: restoredData.customDesserts || [],
+        privacyAccepted: false, // Always require fresh consent
       }));
     }
   });
+
+  // Calculate equipment costs
+  const equipmentCosts = useMemo(() => {
+    let costs = 0;
+    if (formData.equipmentChafings && formData.guestCount < 30) costs += 20;
+    if (formData.equipmentBesteck) costs += formData.guestCount * 1;
+    if (formData.equipmentTeller) costs += formData.guestCount * 1;
+    if (formData.equipmentSchalen) costs += 20;
+    return costs;
+  }, [formData.equipmentChafings, formData.equipmentBesteck, formData.equipmentTeller, formData.equipmentSchalen, formData.guestCount]);
 
   // Calculate total price
   const totalPrice = useMemo(() => {
@@ -123,6 +162,14 @@ const CateringBookingForm = () => {
     return null;
   }, [formData.selectedPackage, formData.guestCount, formData.menuType]);
 
+  // Total with equipment
+  const totalWithEquipment = useMemo(() => {
+    if (totalPrice) {
+      return totalPrice + equipmentCosts;
+    }
+    return null;
+  }, [totalPrice, equipmentCosts]);
+
   // Check if custom menu is available
   const canUseCustomMenu = formData.guestCount >= CUSTOM_MENU_LIMITS.minGuests;
 
@@ -133,17 +180,26 @@ const CateringBookingForm = () => {
     if (!formData.name || formData.name.trim().length < 2) {
       errors.name = "Name ist erforderlich";
     }
-    if (!formData.email || !formData.email.includes('@')) {
+    if (!formData.email || !formData.email.includes('@') || !formData.email.includes('.')) {
       errors.email = "Bitte geben Sie eine gültige E-Mail-Adresse ein";
     }
-    if (!formData.phone || formData.phone.trim().length < 10) {
-      errors.phone = "Telefonnummer ist erforderlich";
+    if (!formData.phone || formData.phone.replace(/\D/g, '').length < 10) {
+      errors.phone = "Bitte geben Sie eine gültige Telefonnummer ein";
     }
     if (!formData.address || formData.address.trim().length < 5) {
       errors.address = "Adresse ist erforderlich";
     }
+    if (!formData.eventType) {
+      errors.eventType = "Bitte wählen Sie einen Anlass";
+    }
     if (!formData.date) {
       errors.date = "Datum ist erforderlich";
+    } else {
+      const selectedDate = new Date(formData.date);
+      const minDate = new Date(getMinDate());
+      if (selectedDate < minDate) {
+        errors.date = `Bitte wählen Sie ein Datum mindestens ${MIN_DAYS_ADVANCE} Tage im Voraus`;
+      }
     }
     if (formData.guestCount < MIN_GUESTS) {
       errors.guestCount = `Mindestens ${MIN_GUESTS} Personen erforderlich`;
@@ -173,6 +229,10 @@ const CateringBookingForm = () => {
       if (formData.customMainCourses.length === 0) {
         errors.customMainCourses = "Bitte wählen Sie mindestens eine Hauptspeise";
       }
+    }
+
+    if (!formData.privacyAccepted) {
+      errors.privacyAccepted = "Bitte akzeptieren Sie die Datenschutzerklärung";
     }
 
     setValidationErrors(errors);
@@ -300,9 +360,11 @@ const CateringBookingForm = () => {
     const submissionData = {
       // Basic info
       name: formData.name,
+      company: formData.company || '-',
       email: formData.email,
       phone: formData.phone,
       address: formData.address,
+      eventType: EVENT_TYPES.find(e => e.value === formData.eventType)?.label || formData.eventType,
       date: formData.date,
       time: formData.time || 'Nicht angegeben',
       guestCount: formData.guestCount,
@@ -311,7 +373,8 @@ const CateringBookingForm = () => {
       menuType: formData.menuType === 'package' ? 'Festes Paket' : 'Individuell zusammengestellt',
       selectedPackageName: selectedPackage?.name || 'Individuell',
       selectedPackagePrice: selectedPackage ? formatPrice(selectedPackage.pricePerPerson) : 'Auf Anfrage',
-      totalPrice: totalPrice ? formatPrice(totalPrice) : 'Auf Anfrage',
+      totalPrice: totalWithEquipment ? formatPrice(totalWithEquipment) : (totalPrice ? formatPrice(totalPrice) : 'Auf Anfrage'),
+      equipmentCosts: equipmentCosts > 0 ? formatPrice(equipmentCosts) : '-',
       
       // Custom menu items (if applicable)
       customAppetizers: formData.customAppetizers.map(id => getAppetizerById(id)?.name).filter(Boolean).join(', ') || '-',
@@ -536,6 +599,10 @@ const CateringBookingForm = () => {
           <p className="text-sm text-muted-foreground">
             Keine Buchung – einfach unverbindlich anfragen und Angebot erhalten
           </p>
+          <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+            <Clock className="w-3 h-3" />
+            Antwort innerhalb von 24 Stunden
+          </p>
         </div>
 
         <Card className="w-full shadow-xl border-2 border-primary/10">
@@ -601,6 +668,23 @@ const CateringBookingForm = () => {
                       {validationErrors.name && (
                         <p className="text-sm text-destructive">{validationErrors.name}</p>
                       )}
+                    </div>
+
+                    {/* Company (optional) */}
+                    <div className="space-y-2">
+                      <Label htmlFor="company" className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        Firma <span className="text-muted-foreground text-sm">(optional)</span>
+                      </Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        type="text"
+                        placeholder="Firma GmbH"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        onFocus={() => trackFieldFocus('company')}
+                      />
                     </div>
 
                     {/* Email */}
@@ -669,6 +753,32 @@ const CateringBookingForm = () => {
                         Ab {CUSTOM_MENU_LIMITS.minGuests} Personen: Individuelles Menü verfügbar
                       </p>
                     </div>
+
+                    {/* Event Type */}
+                    <div className="space-y-2">
+                      <Label htmlFor="eventType" className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4" />
+                        Anlass <span className="text-destructive">*</span>
+                      </Label>
+                      <select
+                        id="eventType"
+                        name="eventType"
+                        value={formData.eventType}
+                        onChange={(e) => setFormData(prev => ({ ...prev, eventType: e.target.value }))}
+                        onFocus={() => trackFieldFocus('eventType')}
+                        className={`flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                          validationErrors.eventType ? "border-destructive" : "border-input"
+                        }`}
+                      >
+                        <option value="">Bitte wählen...</option>
+                        {EVENT_TYPES.map(type => (
+                          <option key={type.value} value={type.value}>{type.label}</option>
+                        ))}
+                      </select>
+                      {validationErrors.eventType && (
+                        <p className="text-sm text-destructive">{validationErrors.eventType}</p>
+                      )}
+                    </div>
                   </div>
 
                   {/* Address */}
@@ -706,7 +816,7 @@ const CateringBookingForm = () => {
                         value={formData.date}
                         onChange={handleInputChange}
                         onFocus={() => trackFieldFocus('date')}
-                        min={new Date().toISOString().split('T')[0]}
+                        min={getMinDate()}
                         className={validationErrors.date ? "border-destructive" : ""}
                       />
                       {validationErrors.date && (
@@ -1002,21 +1112,65 @@ const CateringBookingForm = () => {
 
                   {/* Summary for Package */}
                   {formData.menuType === 'package' && formData.selectedPackage && totalPrice && (
-                    <div className="p-4 bg-primary/10 rounded-xl border border-primary/20">
-                      <div className="flex justify-between items-center">
+                    <div className="p-4 bg-primary/10 rounded-xl border border-primary/20 space-y-3">
+                      <div className="flex justify-between items-start">
                         <div>
                           <p className="font-semibold">Zusammenfassung</p>
                           <p className="text-sm text-muted-foreground">
-                            {CATERING_PACKAGES.find(p => p.id === formData.selectedPackage)?.name} • {formData.guestCount} Personen
+                            {CATERING_PACKAGES.find(p => p.id === formData.selectedPackage)?.name}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {formData.guestCount} Personen • {EVENT_TYPES.find(e => e.value === formData.eventType)?.label || 'Anlass'}
                           </p>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
-                          <p className="text-xs text-muted-foreground">Gesamtpreis</p>
+                          <p className="text-sm text-muted-foreground">Menü: {formatPrice(totalPrice)}</p>
+                          {equipmentCosts > 0 && (
+                            <p className="text-sm text-muted-foreground">Equipment: +{formatPrice(equipmentCosts)}</p>
+                          )}
+                          <p className="text-2xl font-bold text-primary mt-1">{formatPrice(totalWithEquipment || totalPrice)}</p>
+                          <p className="text-xs text-muted-foreground">Gesamtpreis (inkl. MwSt.)</p>
                         </div>
                       </div>
                     </div>
                   )}
+
+                  {/* Privacy Checkbox */}
+                  <div className="space-y-2">
+                    <label className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                      formData.privacyAccepted 
+                        ? 'border-primary bg-primary/5' 
+                        : validationErrors.privacyAccepted 
+                          ? 'border-destructive bg-destructive/5'
+                          : 'border-muted hover:border-primary/50'
+                    }`}>
+                      <Checkbox
+                        checked={formData.privacyAccepted}
+                        onCheckedChange={(checked) => {
+                          setFormData(prev => ({ ...prev, privacyAccepted: !!checked }));
+                          if (validationErrors.privacyAccepted) {
+                            setValidationErrors(prev => {
+                              const newErrors = { ...prev };
+                              delete newErrors.privacyAccepted;
+                              return newErrors;
+                            });
+                          }
+                        }}
+                        className="mt-0.5"
+                      />
+                      <div>
+                        <span className="font-medium">
+                          Ich akzeptiere die <a href="/datenschutz" target="_blank" className="text-primary underline hover:no-underline">Datenschutzerklärung</a> <span className="text-destructive">*</span>
+                        </span>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Deine Daten werden nur zur Bearbeitung deiner Anfrage verwendet.
+                        </p>
+                      </div>
+                    </label>
+                    {validationErrors.privacyAccepted && (
+                      <p className="text-sm text-destructive">{validationErrors.privacyAccepted}</p>
+                    )}
+                  </div>
 
                   {/* Navigation Buttons */}
                   <div className="flex gap-3 pt-4">
@@ -1032,7 +1186,7 @@ const CateringBookingForm = () => {
                     </Button>
                     <Button
                       type="submit"
-                      disabled={isSubmitting || !formData.menuType}
+                      disabled={isSubmitting || !formData.menuType || !formData.privacyAccepted}
                       className="flex-1 gap-2"
                       size="lg"
                     >
@@ -1048,6 +1202,22 @@ const CateringBookingForm = () => {
                         </>
                       )}
                     </Button>
+                  </div>
+
+                  {/* WhatsApp Alternative */}
+                  <div className="text-center pt-4 border-t">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Lieber direkt sprechen?
+                    </p>
+                    <a 
+                      href="https://wa.me/4915738000863?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20euer%20Catering-Angebot."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Per WhatsApp kontaktieren
+                    </a>
                   </div>
                 </div>
               )}

@@ -14,9 +14,11 @@ const ADMIN_EMAIL = "info@sattuni.de";
 interface CateringInquiry {
   // Basic info
   name: string;
+  company: string;
   email: string;
   phone: string;
   address: string;
+  eventType: string;
   date: string;
   time: string;
   guestCount: number;
@@ -26,6 +28,7 @@ interface CateringInquiry {
   selectedPackageName: string;
   selectedPackagePrice: string;
   totalPrice: string;
+  equipmentCosts: string;
   
   // Custom menu items
   customAppetizers: string;
@@ -98,6 +101,12 @@ function generateAdminEmailHtml(data: CateringInquiry): string {
             <span class="label">Name:</span>
             <span class="value">${data.name}</span>
           </div>
+          ${data.company && data.company !== '-' ? `
+          <div class="detail-row">
+            <span class="label">Firma:</span>
+            <span class="value">${data.company}</span>
+          </div>
+          ` : ''}
           <div class="detail-row">
             <span class="label">E-Mail:</span>
             <span class="value"><a href="mailto:${data.email}">${data.email}</a></span>
@@ -114,6 +123,10 @@ function generateAdminEmailHtml(data: CateringInquiry): string {
 
         <div class="section">
           <h3>📅 Event-Details</h3>
+          <div class="detail-row">
+            <span class="label">Anlass:</span>
+            <span class="value"><strong>${data.eventType}</strong></span>
+          </div>
           <div class="detail-row">
             <span class="label">Datum:</span>
             <span class="value">${data.date}</span>
@@ -143,9 +156,15 @@ function generateAdminEmailHtml(data: CateringInquiry): string {
               <span class="label">Preis pro Person:</span>
               <span class="value">${data.selectedPackagePrice}</span>
             </div>
+            ${data.equipmentCosts && data.equipmentCosts !== '-' ? `
+            <div class="detail-row">
+              <span class="label">Equipment-Kosten:</span>
+              <span class="value">${data.equipmentCosts}</span>
+            </div>
+            ` : ''}
             <div class="highlight">
               <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span>Geschätzter Gesamtpreis:</span>
+                <span>Geschätzter Gesamtpreis (inkl. Equipment):</span>
                 <span class="price-tag">${data.totalPrice}</span>
               </div>
             </div>
