@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
@@ -32,8 +33,6 @@ import {
   getDessertById,
   type CateringPackage
 } from '@/constants/catering-packages';
-
-const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
 const MIN_GUESTS = 20;
 
 interface FormData {
@@ -317,23 +316,25 @@ const CateringBookingForm = () => {
       // Custom menu items (if applicable)
       customAppetizers: formData.customAppetizers.map(id => getAppetizerById(id)?.name).filter(Boolean).join(', ') || '-',
       customMainCourses: formData.customMainCourses.map(id => getMainCourseById(id)?.name).filter(Boolean).join(', ') || '-',
+      customSideDishes: formData.customSideDishes.map(id => getSideDishById(id)?.name).filter(Boolean).join(', ') || '-',
       customDesserts: formData.customDesserts.map(id => getDessertById(id)?.name).filter(Boolean).join(', ') || '-',
+      
+      // Equipment
+      equipmentChafings: formData.equipmentChafings,
+      equipmentBesteck: formData.equipmentBesteck,
+      equipmentTeller: formData.equipmentTeller,
+      equipmentSchalen: formData.equipmentSchalen,
       
       comment: formData.comment || 'Keine weiteren Anmerkungen',
     };
 
     try {
-      const response = await fetch(CONTACT_US_ENDPOINT, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData),
+      const { data, error } = await supabase.functions.invoke('send-catering-inquiry', {
+        body: submissionData,
       });
 
-      if (response.status !== 200) {
-        throw new Error(response.statusText);
+      if (error) {
+        throw new Error(error.message || 'Fehler beim Senden der Anfrage');
       }
 
       trackSubmission({
