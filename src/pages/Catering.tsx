@@ -192,23 +192,6 @@ const Catering = () => {
     },
   ];
 
-  const processSteps = [
-    {
-      icon: Phone,
-      title: "Anfragen",
-      description: "Erzähl uns von deinem Event",
-    },
-    {
-      icon: Mail,
-      title: "Angebot erhalten", 
-      description: "Maßgeschneidertes Angebot in 24h",
-    },
-    {
-      icon: Heart,
-      title: "Genießen",
-      description: "Entspannt feiern, wir kümmern uns ums Essen",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -302,12 +285,6 @@ const Catering = () => {
               className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Services
-            </button>
-            <button 
-              onClick={() => document.getElementById('prozess')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              Ablauf
             </button>
             <button 
               onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
@@ -407,45 +384,6 @@ const Catering = () => {
         </div>
       </section>
 
-
-      {/* Process Steps */}
-      <section className="py-12 md:py-20 scroll-mt-24" id="prozess">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              So einfach geht's
-            </h2>
-          </div>
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
-              {processSteps.map((step, index) => (
-                <div key={index} className="flex items-center w-1/3">
-                  {/* Step Card */}
-                  <div className="flex flex-col items-center text-center space-y-4 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 w-full shadow-soft hover:shadow-warm transition-all duration-300">
-                    <div className="relative">
-                      <div className="mx-auto w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                        <step.icon className="w-8 h-8 text-primary" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                  
-                  {/* Chevron Arrow - Only in horizontal layout */}
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden md:flex items-center justify-center mx-2">
-                      <ChevronRight className="w-6 h-6 text-primary/60" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Buffet Gallery */}
       <section className="py-20 bg-background">
