@@ -1,7 +1,7 @@
 import heroCatering from "@/assets/hero/hero-catering.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringContact from "@/components/features/catering/CateringContact";
-import Testimonials from "@/components/features/testimonials/Testimonials";
+import CustomerReviews from "@/components/features/about/CustomerReviews";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Header from "@/components/layout/Header";
 import InternalLinks from "@/components/layout/InternalLinks";
@@ -454,10 +454,8 @@ const Catering = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gradient-subtle">
-        <Testimonials />
-      </section>
+      {/* Customer Reviews */}
+      <CustomerReviews />
 
       {/* FAQ Section */}
       <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
