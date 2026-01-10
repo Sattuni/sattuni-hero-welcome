@@ -45,6 +45,21 @@ interface CateringInquiry {
   comment: string;
 }
 
+// Format date from ISO to German format
+function formatDate(dateStr: string): string {
+  try {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('de-DE', {
+      weekday: 'long',
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    });
+  } catch {
+    return dateStr;
+  }
+}
+
 function formatEquipmentList(data: CateringInquiry, guestCount: number): string {
   const items: string[] = [];
   
@@ -129,7 +144,7 @@ function generateAdminEmailHtml(data: CateringInquiry): string {
           </div>
           <div class="detail-row">
             <span class="label">Datum:</span>
-            <span class="value">${data.date}</span>
+            <span class="value">${formatDate(data.date)}</span>
           </div>
           <div class="detail-row">
             <span class="label">Uhrzeit:</span>
@@ -240,7 +255,8 @@ function generateCustomerEmailHtml(data: CateringInquiry): string {
         
         <div class="summary">
           <h3>📋 Zusammenfassung deiner Anfrage</h3>
-          <div class="detail-item"><strong>Datum:</strong> ${data.date}</div>
+          <div class="detail-item"><strong>Anlass:</strong> ${data.eventType}</div>
+          <div class="detail-item"><strong>Datum:</strong> ${formatDate(data.date)}</div>
           <div class="detail-item"><strong>Anzahl Personen:</strong> ${data.guestCount}</div>
           <div class="detail-item"><strong>Menü:</strong> ${data.menuType === 'Festes Paket' ? data.selectedPackageName : 'Individuelles Menü'}</div>
           <div class="detail-item"><strong>Lieferadresse:</strong> ${data.address}</div>
