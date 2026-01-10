@@ -27,6 +27,10 @@ export const MAIN_COURSES = [
   { id: 'garnelen', name: 'Garnelen mit Knoblauch und Zitrone', description: 'Knoblauch-Zitronen-Garnelen' },
   { id: 'hackfleischbaellchen', name: 'Hackfleischbällchen', description: 'Hausgemachte Fleischbällchen' },
   { id: 'gefuellte-gemueserollen', name: 'Gefüllte Gemüserollen', description: 'Vegetarische Rollen' },
+] as const;
+
+// ===== BEILAGEN (für individuelles Menü) =====
+export const SIDE_DISHES = [
   { id: 'couscous-gemuese', name: 'Couscous mit Gemüse', description: 'Saisonales Gemüse' },
   { id: 'mahashi', name: 'Mahashi', description: 'Gefüllte Weinblätter & Zucchini' },
   { id: 'makloube', name: 'Makloube', description: 'Arabischer Gemüsereis' },
@@ -230,6 +234,7 @@ export const CUSTOM_MENU_LIMITS = {
 // ===== HELPER FUNCTIONS =====
 export const getAppetizerById = (id: string) => APPETIZERS.find(a => a.id === id);
 export const getMainCourseById = (id: string) => MAIN_COURSES.find(m => m.id === id);
+export const getSideDishById = (id: string) => SIDE_DISHES.find(s => s.id === id);
 export const getDessertById = (id: string) => DESSERTS.find(d => d.id === id);
 export const getPackageById = (id: string) => CATERING_PACKAGES.find(p => p.id === id);
 

@@ -21,12 +21,14 @@ import {
   CATERING_PACKAGES, 
   APPETIZERS, 
   MAIN_COURSES, 
+  SIDE_DISHES,
   DESSERTS,
   CUSTOM_MENU_LIMITS,
   formatPrice,
   calculateTotalPrice,
   getAppetizerById,
   getMainCourseById,
+  getSideDishById,
   getDessertById,
   type CateringPackage
 } from '@/constants/catering-packages';
@@ -48,6 +50,7 @@ interface FormData {
   selectedPackage: string;
   customAppetizers: string[];
   customMainCourses: string[];
+  customSideDishes: string[];
   customDesserts: string[];
   comment: string;
 }
@@ -64,6 +67,7 @@ const initialFormData: FormData = {
   selectedPackage: '',
   customAppetizers: [],
   customMainCourses: [],
+  customSideDishes: [],
   customDesserts: [],
   comment: '',
 };
@@ -228,7 +232,7 @@ const CateringBookingForm = () => {
 
   // Handle custom item toggle
   const handleCustomItemToggle = (
-    category: 'customAppetizers' | 'customMainCourses' | 'customDesserts',
+    category: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts',
     itemId: string
   ) => {
     setFormData(prev => {
@@ -461,7 +465,7 @@ const CateringBookingForm = () => {
   // Render custom menu item
   const renderMenuItem = (
     item: { id: string; name: string; description: string },
-    category: 'customAppetizers' | 'customMainCourses' | 'customDesserts'
+    category: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts'
   ) => {
     const isSelected = formData[category].includes(item.id);
 
@@ -832,6 +836,25 @@ const CateringBookingForm = () => {
                         </div>
                         {validationErrors.customMainCourses && (
                           <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
+                        )}
+                      </div>
+
+                      {/* Side Dishes */}
+                      <div className="space-y-3">
+                        <h3 className="font-semibold text-lg flex items-center justify-between">
+                          <span className="flex items-center gap-2">
+                            <Utensils className="w-5 h-5 text-primary" />
+                            Beilagen
+                          </span>
+                          <Badge variant="outline">
+                            {formData.customSideDishes.length} ausgewählt
+                          </Badge>
+                        </h3>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                          {SIDE_DISHES.map(item => renderMenuItem(item, 'customSideDishes'))}
+                        </div>
+                        {validationErrors.customSideDishes && (
+                          <p className="text-sm text-destructive">{validationErrors.customSideDishes}</p>
                         )}
                       </div>
 
