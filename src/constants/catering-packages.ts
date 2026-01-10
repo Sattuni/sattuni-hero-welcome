@@ -123,9 +123,6 @@ export const CATERING_PACKAGES: CateringPackage[] = [
 // ===== CUSTOM MENU LIMITS =====
 export const CUSTOM_MENU_LIMITS = {
   minGuests: 40,
-  maxAppetizers: 7,
-  maxMainCourses: 6,
-  maxDesserts: 2,
   courses: 3,
 } as const;
 
