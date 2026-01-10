@@ -505,10 +505,13 @@ const CateringBookingForm = () => {
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Catering buchen
+            Unverbindlich anfragen
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Stelle dein perfektes Menü zusammen – in nur 2 einfachen Schritten
+            Stelle dein perfektes Menü zusammen – wir melden uns mit einem individuellen Angebot
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Keine Buchung – einfach unverbindlich anfragen und Angebot erhalten
           </p>
         </div>
 
@@ -944,7 +947,7 @@ const CateringBookingForm = () => {
                       ) : (
                         <>
                           <Send className="w-5 h-5" />
-                          Anfrage senden
+                          Unverbindlich anfragen
                         </>
                       )}
                     </Button>
