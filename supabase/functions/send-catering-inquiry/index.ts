@@ -266,7 +266,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to admin
     const adminEmailResponse = await resend.emails.send({
-      from: "Sattuni Catering <onboarding@resend.dev>",
+      from: "Sattuni Catering <info@sattuni.de>",
       to: [ADMIN_EMAIL],
       subject: `🍽️ Neue Catering-Anfrage: ${data.name} - ${data.date} (${data.guestCount} Pers.)`,
       html: generateAdminEmailHtml(data),
@@ -276,7 +276,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Sattuni Catering <onboarding@resend.dev>",
+      from: "Sattuni Catering <info@sattuni.de>",
       to: [data.email],
       subject: "✅ Deine Catering-Anfrage bei Sattuni",
       html: generateCustomerEmailHtml(data),
