@@ -1,0 +1,4 @@
+project_id = "rfxjhjoouozyjcagaufa"
+
+[functions.send-catering-inquiry]
+verify_jwt = false
