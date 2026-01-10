@@ -9,7 +9,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const ADMIN_EMAIL = "info@sattuni.de";
+const ADMIN_EMAIL = "sattunidus@gmail.com";
 
 interface CateringInquiry {
   // Basic info
