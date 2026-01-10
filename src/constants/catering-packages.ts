@@ -6,36 +6,38 @@
 // ===== VORSPEISEN (für individuelles Menü) =====
 export const APPETIZERS = [
   { id: 'hummus', name: 'Hummus', description: 'Cremige Kichererbsenpaste mit Tahini' },
-  { id: 'baba-ganoush', name: 'Baba Ganoush', description: 'Geröstete Auberginencreme' },
+  { id: 'baba-ganoush', name: 'Baba Ganoush', description: 'Gegrillte Auberginen mit Tahini' },
   { id: 'tabouleh', name: 'Tabouleh', description: 'Frischer Petersiliensalat' },
-  { id: 'fattoush', name: 'Fattoush', description: 'Levantinischer Brotsalat' },
+  { id: 'fattoush', name: 'Fattoush', description: 'Petersilie Granatapfelsalat' },
   { id: 'kichererbsensalat', name: 'Kichererbsensalat', description: 'Mit Zitrone & Kräutern' },
   { id: 'couscoussalat', name: 'Couscoussalat', description: 'Mit Tomaten & Koriander' },
   { id: 'ananas-gurken-salat', name: 'Ananas-Gurken-Salat', description: 'Erfrischender Salat' },
   { id: 'fatayer', name: 'Fatayer', description: 'Gefüllte Teigtaschen (Käse, Hähnchen, Rind oder Spinat)' },
   { id: 'kibbeh', name: 'Kibbeh', description: 'Knusprige Bulgur-Kroketten (Rind oder Kartoffel)' },
-  { id: 'gefuellte-gemueserollen', name: 'Gefüllte Gemüserollen', description: 'Vegetarische Rollen' },
 ] as const;
 
 // ===== HAUPTSPEISEN (für individuelles Menü) =====
 export const MAIN_COURSES = [
-  { id: 'haehnchenbrust-reis', name: 'Hähnchenbruststreifen auf Reis', description: 'Zarte Hähnchenbrust auf orientalischem Reis' },
+  { id: 'haehnchenbrust', name: 'Hähnchenbruststreifen', description: 'Zarte Hähnchenbrust' },
   { id: 'rindfleischstreifen', name: 'Rindfleischstreifen', description: 'Zarte Rindfleischstreifen' },
   { id: 'ofen-haehnchenkeulen', name: 'Ofen-Hähnchenkeulen', description: 'Im Ofen gegart' },
   { id: 'lammschulter', name: 'Geschmorte Lammschulter', description: 'Langsam geschmort' },
+  { id: 'lammhaxe', name: 'Lammhaxe', description: 'Zart geschmort' },
+  { id: 'lachsfilets', name: 'Lachsfilets', description: 'Zartes Lachsfilet' },
+  { id: 'garnelen', name: 'Garnelen mit Knoblauch und Zitrone', description: 'Knoblauch-Zitronen-Garnelen' },
+  { id: 'hackfleischbaellchen', name: 'Hackfleischbällchen', description: 'Hausgemachte Fleischbällchen' },
+  { id: 'gefuellte-gemueserollen', name: 'Gefüllte Gemüserollen', description: 'Vegetarische Rollen' },
   { id: 'couscous-gemuese', name: 'Couscous mit Gemüse', description: 'Saisonales Gemüse' },
   { id: 'mahashi', name: 'Mahashi', description: 'Gefüllte Weinblätter & Zucchini' },
   { id: 'makloube', name: 'Makloube', description: 'Arabischer Gemüsereis' },
   { id: 'ofenkartoffeln', name: 'Ofenkartoffeln', description: 'Goldbraun gebacken' },
+  { id: 'ofengemuese', name: 'Ofengemüse', description: 'Im Ofen geröstetes Gemüse' },
+  { id: 'champignons', name: 'Champignons mit Knoblauch', description: 'Knoblauch-Champignons' },
 ] as const;
 
 // ===== DESSERTS (für individuelles Menü) =====
 export const DESSERTS = [
-  { id: 'baklava', name: 'Baklava', description: 'Blätterteig mit Pistazien und Honig' },
-  { id: 'kunafa', name: 'Kunafa', description: 'Fadennudeln mit Käse und Sirup' },
-  { id: 'muhallabia', name: 'Muhallabia', description: 'Milchpudding mit Rosenwasser' },
-  { id: 'obstsalat', name: 'Frischer Obstsalat', description: 'Saisonale Früchte' },
-  { id: 'orientalisches-dessert', name: 'Orientalisches Dessert', description: 'Auswahl orientalischer Süßspeisen' },
+  { id: 'dessert', name: 'Dessert', description: 'Auswahl orientalischer Süßspeisen' },
 ] as const;
 
 // ===== PAKETE/MENÜS =====
