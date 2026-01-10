@@ -392,8 +392,6 @@ const Catering = () => {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <CustomerReviews />
 
       {/* FAQ Section */}
       <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
@@ -611,6 +609,9 @@ const Catering = () => {
 
       {/* Catering Booking Form */}
         <CateringBookingForm />
+
+      {/* Customer Reviews */}
+      <CustomerReviews />
         
         {/* Internal Links Section */}
         <InternalLinks />
