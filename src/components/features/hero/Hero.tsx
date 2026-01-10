@@ -122,7 +122,7 @@ const Hero = () => {
                   <span className="text-muted-foreground text-xs hidden md:inline">bei Google</span>
                 </div>
                 <span className="text-muted-foreground hidden md:inline">|</span>
-                <span className="text-muted-foreground text-center">Seit 2022 am Start • 100+ Caterings geschmackvoll geliefert</span>
+                <span className="text-muted-foreground text-center">Seit 2022 am Start • 200+ Caterings geschmackvoll geliefert</span>
               </div>
             </div>
             
