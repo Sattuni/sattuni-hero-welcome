@@ -92,7 +92,15 @@ const CateringBookingForm = () => {
     data: formData,
     enabled: true,
     onRestore: (restoredData) => {
-      setFormData(prev => ({ ...prev, ...restoredData }));
+      setFormData(prev => ({ 
+        ...prev, 
+        ...restoredData,
+        // Ensure arrays are always initialized (for backwards compatibility)
+        customAppetizers: restoredData.customAppetizers || [],
+        customMainCourses: restoredData.customMainCourses || [],
+        customSideDishes: restoredData.customSideDishes || [],
+        customDesserts: restoredData.customDesserts || [],
+      }));
     }
   });
 
