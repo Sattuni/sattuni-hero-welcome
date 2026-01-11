@@ -114,7 +114,7 @@ const Catering = () => {
     {
       icon: Mail,
       title: "Anfrage senden",
-      description: "Teilen Sie uns Anlass, Datum und Gästezahl mit – wir melden uns innerhalb von 24 Stunden.",
+      description: "Teilt uns Anlass, Datum und Gästezahl mit – wir melden uns innerhalb von 24 Stunden.",
     },
     {
       icon: Phone, 
@@ -124,12 +124,12 @@ const Catering = () => {
     {
       icon: CheckCircle,
       title: "Bestätigung",
-      description: "Nach Ihrer Zusage erhalten Sie alle wichtigen Informationen schriftlich.",
+      description: "Nach eurer Zusage erhaltet ihr alle wichtigen Informationen schriftlich.",
     },
     {
       icon: Utensils,
       title: "Lieferung zum Termin",
-      description: "Wir liefern pünktlich im vereinbarten Zeitfenster – bereit für Ihr Event.",
+      description: "Wir liefern pünktlich im vereinbarten Zeitfenster – bereit für euer Event.",
     },
   ];
 
@@ -262,7 +262,7 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed px-4">
-              Wir übernehmen die Planung und Koordination – Sie konzentrieren sich auf Ihr Event.
+              Wir übernehmen die Planung und Koordination – ihr konzentriert euch auf euer Event.
               <span className="text-primary font-medium block mt-2">Ab 20 Personen, für Firmen und private Anlässe.</span>
             </p>
           </div>
@@ -277,7 +277,7 @@ const Catering = () => {
               So funktioniert es
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Von der Anfrage bis zur Lieferung – ein klarer Ablauf für Ihre Planungssicherheit.
+              Von der Anfrage bis zur Lieferung – ein klarer Ablauf für eure Planungssicherheit.
             </p>
           </div>
           
@@ -315,7 +315,7 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              Worauf Sie sich verlassen können
+              Worauf ihr euch verlassen könnt
             </h2>
           </div>
           
@@ -371,11 +371,11 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    Nach Eingang Ihrer Anfrage melden wir uns innerhalb von 24 Stunden. 
+                    Nach Eingang eurer Anfrage melden wir uns innerhalb von 24 Stunden. 
                     Gemeinsam klären wir Details wie Termin, Gästezahl und besondere Anforderungen.
                   </p>
                   <p>
-                    Sie erhalten anschließend ein verbindliches Angebot mit allen wichtigen Informationen.
+                    Ihr erhaltet anschließend ein verbindliches Angebot mit allen wichtigen Informationen.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -391,7 +391,7 @@ const Catering = () => {
                   <p className="mb-3">
                     Die Lieferung erfolgt in einem vorab vereinbarten Zeitfenster. 
                     So stellen wir sicher, dass alles rechtzeitig vor Ort ist – 
-                    bevor Ihr Meeting oder Event beginnt.
+                    bevor euer Meeting oder Event beginnt.
                   </p>
                   <p>
                     Bei Aufbau-Service kommen wir rechtzeitig, um alles vorzubereiten.
@@ -404,7 +404,7 @@ const Catering = () => {
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Ab wie vielen Personen bieten Sie Catering an?
+                  Ab wie vielen Personen bietet ihr Catering an?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
@@ -413,7 +413,7 @@ const Catering = () => {
                     mit entsprechendem Service-Level.
                   </p>
                   <p>
-                    <strong>Für kleinere Gruppen:</strong> Nutzen Sie gerne unseren 
+                    <strong>Für kleinere Gruppen:</strong> Nutzt gerne unseren 
                     regulären Lieferservice über den Online-Shop.
                   </p>
                 </AccordionContent>
@@ -429,7 +429,7 @@ const Catering = () => {
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
                     Ja, Anpassungen bei der Personenanzahl sind bis eine Woche vor dem Liefertag möglich. 
-                    Wir informieren Sie rechtzeitig über die Fristen.
+                    Wir informieren euch rechtzeitig über die Fristen.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -444,7 +444,7 @@ const Catering = () => {
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
                     Auf Wunsch stellen wir Geschirr, Besteck und Wärmebehälter bereit. 
-                    Die Details besprechen wir gemeinsam nach Ihrer Anfrage.
+                    Die Details besprechen wir gemeinsam nach eurer Anfrage.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -459,7 +459,7 @@ const Catering = () => {
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
                     Ja, unsere Küche bietet eine große Auswahl an vegetarischen und veganen Gerichten. 
-                    Teilen Sie uns Ihre Anforderungen in der Anfrage mit.
+                    Teilt uns eure Anforderungen einfach in der Anfrage mit.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -469,7 +469,7 @@ const Catering = () => {
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie weit liefern Sie?
+                  Wie weit liefert ihr?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
@@ -488,8 +488,8 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    Sie erhalten nach der Anfrage einen festen Ansprechpartner, 
-                    der Sie durch den gesamten Prozess begleitet – 
+                    Ihr erhaltet nach der Anfrage einen festen Ansprechpartner, 
+                    der euch durch den gesamten Prozess begleitet – 
                     von der Planung bis zur Durchführung.
                   </p>
                 </AccordionContent>
@@ -507,10 +507,10 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Haben Sie Fragen oder möchten eine Anfrage stellen?
+              Habt ihr Fragen oder möchtet eine Anfrage stellen?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+              Wir melden uns innerhalb von 24 Stunden bei euch.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
