@@ -8,7 +8,7 @@ import InternalLinks from "@/components/layout/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, CheckCircle, ChevronRight, Heart, HelpCircle, Leaf, Mail, Phone, Salad, Sparkles, Users, Utensils, UtensilsCrossed, Zap } from "lucide-react";
+import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phone, Salad, Users, Utensils, UtensilsCrossed } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
@@ -20,7 +20,7 @@ const Catering = () => {
 
   // SEO Meta Tags
   useEffect(() => {
-    document.title = "Catering in Düsseldorf – Buffets, Fingerfood & Events | Sattuni";
+    document.title = "Catering in Düsseldorf – Zuverlässig & Professionell | Sattuni";
     
     // Create or update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -30,15 +30,15 @@ const Catering = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Arabisches Catering für Events in Düsseldorf: Buffets, Fingerfood & mehr. Frisch, hausgemacht. Catering ab 20 Personen möglich.'
+      'Professionelles Catering in Düsseldorf ab 20 Personen. Klare Abläufe, zuverlässige Lieferung, persönliche Betreuung. Jetzt unverbindlich anfragen.'
     );
 
     // Add structured JSON-LD data for SEO
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "CateringBusiness",
-      "name": "Sattuni Catering - Arabische Küche Düsseldorf",
-      "description": "Professionelles Catering mit arabischer Küche für Events in Düsseldorf und Umgebung",
+      "name": "Sattuni Catering Düsseldorf",
+      "description": "Professionelles Catering für Business-Events und private Feiern in Düsseldorf und Umgebung",
       "url": "https://sattuni.de/catering",
       "telephone": "+49-211-36180115",
       "email": "catering@sattuni.de",
@@ -48,7 +48,6 @@ const Catering = () => {
         "addressCountry": "DE"
       },
       "servesCuisine": "Arabisch, Orientalisch, Libanesisch",
-      "priceRange": "27€-50€",
       "serviceArea": {
         "@type": "GeoCircle",
         "geoMidpoint": {
@@ -57,42 +56,6 @@ const Catering = () => {
           "longitude": "6.7735"
         },
         "geoRadius": "50000"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Catering Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Leichte Mahlzeit Catering",
-              "description": "Fattoush, Hummus, Teigtaschen, Hähnchenbruststreifen"
-            },
-            "price": "27",
-            "priceCurrency": "EUR",
-            "eligibleQuantity": {
-              "@type": "QuantitativeValue",
-              "unitText": "Person",
-              "minValue": "20"
-            }
-          },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Große Feiern Catering",
-              "description": "Komplettes Buffet mit Vorspeisen, Hauptgerichten und Dessert"
-            },
-            "price": "37",
-            "priceCurrency": "EUR",
-            "eligibleQuantity": {
-              "@type": "QuantitativeValue",
-              "unitText": "Person",
-              "minValue": "50"
-            }
-          }
-        ]
       }
     };
 
@@ -146,49 +109,50 @@ const Catering = () => {
       }, 100);
     }
   }, []);
-  const cateringServices = [
+  // How it works steps
+  const processSteps = [
     {
-      icon: UtensilsCrossed,
-      title: "Fingerfood",
-      description: "Kleine Häppchen mit großer Wirkung – für Events, die in Erinnerung bleiben.",
+      icon: Mail,
+      title: "Anfrage senden",
+      description: "Teilt uns Anlass, Datum und Gästezahl mit – wir melden uns innerhalb von 24 Stunden.",
     },
     {
-      icon: Utensils, 
-      title: "Buffets",
-      description: "Für alle was dabei – vom entspannten Lunch bis zur großen Sause.",
+      icon: Phone, 
+      title: "Abstimmung & Angebot",
+      description: "Wir besprechen Details, klären offene Fragen und erstellen ein verbindliches Angebot.",
     },
     {
-      icon: Salad,
-      title: "Veggie & Vegan", 
-      description: "Pflanzenpower, die auch Fleischfans überzeugt. Versprochen!",
+      icon: CheckCircle,
+      title: "Bestätigung",
+      description: "Nach eurer Zusage erhaltet ihr alle wichtigen Informationen schriftlich.",
     },
     {
-      icon: Zap,
-      title: "Dein Wunsch-Menü",
-      description: "Sag uns, was du brauchst – wir machen's möglich.",
+      icon: Utensils,
+      title: "Lieferung zum Termin",
+      description: "Wir liefern pünktlich im vereinbarten Zeitfenster – bereit für euer Event.",
     },
   ];
 
   const usps = [
     {
-      icon: Heart,
-      title: "Hausgemacht & frisch",
-      description: "Alles selbst gemacht, täglich frisch zubereitet",
+      icon: CheckCircle,
+      title: "Strukturierte Abläufe",
+      description: "Klare Prozesse von der Anfrage bis zur Lieferung",
     },
     {
-      icon: Leaf,
-      title: "Vielfalt für alle",
-      description: "Fleisch, vegetarisch & vegan – für jeden Geschmack",
+      icon: Phone,
+      title: "Feste Ansprechpartner",
+      description: "Persönliche Betreuung durch einen direkten Kontakt",
     },
     {
       icon: Users,
-      title: "Catering ab 20 Personen",
-      description: "Von kleinen Runden bis zu großen Festen mit 300+ Gästen",
+      title: "Ab 20 Personen",
+      description: "Für Meetings, Feiern und Veranstaltungen jeder Größe",
     },
     {
-      icon: Sparkles,
-      title: "Professionelle Durchführung",
-      description: "Von der Planung bis zum Aufbau – alles aus einer Hand",
+      icon: Clock,
+      title: "Pünktliche Lieferung",
+      description: "Koordinierte Zeitfenster für reibungslose Events",
     },
   ];
 
@@ -212,7 +176,7 @@ const Catering = () => {
         <div className="absolute inset-0">
           <img 
             src={heroCatering} 
-            alt="Sattuni Catering Setup" 
+            alt="Sattuni Catering Service" 
             className="w-full h-full object-cover"
             style={{
               filter: 'blur(0.8px)',
@@ -228,11 +192,11 @@ const Catering = () => {
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
-              Sattuni – Arabische Küche & Catering in Düsseldorf
+              Catering für Events in Düsseldorf
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-              Arabische Küche für private Feiern & Business-Events. Stressfrei für dich, lecker für alle.
+              Zuverlässige Planung, klare Abläufe und pünktliche Lieferung – für Business-Events und private Feiern.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -253,7 +217,6 @@ const Catering = () => {
                   const element = document.getElementById('catering-kontakt');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Focus the first input after scrolling
                     setTimeout(() => {
                       const nameInput = document.getElementById('name');
                       nameInput?.focus();
@@ -261,15 +224,7 @@ const Catering = () => {
                   }
                 }}
               >
-                Lass uns reden
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-white border-white/80 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary text-lg px-8 shadow-lg"
-                onClick={() => window.location.href = '/spezialitaeten'}
-              >
-                Schau, was wir kochen
+                Unverbindlich anfragen
               </Button>
             </div>
           </div>
@@ -281,10 +236,10 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
             <button 
-              onClick={() => document.getElementById('catering-services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              onClick={() => document.getElementById('so-funktioniert-es')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              Services
+              Ablauf
             </button>
             <button 
               onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
@@ -296,7 +251,7 @@ const Catering = () => {
               onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
             >
-              Anfragen
+              Anfrage senden
             </button>
           </div>
         </div>
@@ -307,54 +262,68 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed px-4">
-              Du feierst, wir kochen. Du entspannst, deine Gäste schwärmen. 
-              <span className="text-primary font-medium block md:inline mt-2 md:mt-0">So einfach kann Catering sein.</span> <a href="/ueber-uns" className="text-accent hover:underline font-medium">Lerne unser Team kennen</a>.
+              Wir übernehmen die Planung und Koordination – ihr konzentriert euch auf euer Event.
+              <span className="text-primary font-medium block mt-2">Ab 20 Personen, für Firmen und private Anlässe.</span>
             </p>
+            
+            {/* Subtle service offerings */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8">
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <UtensilsCrossed className="w-4 h-4 text-primary" />
+                <span>Fingerfood</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Utensils className="w-4 h-4 text-primary" />
+                <span>Buffets</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Salad className="w-4 h-4 text-primary" />
+                <span>Vegetarisch & Vegan</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Leaf className="w-4 h-4 text-primary" />
+                <span>Individuelle Menüs</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Catering Services */}
-      <section className="py-12 md:py-16 scroll-mt-24" id="catering-services">
+      {/* How it works - Process Steps */}
+      <section className="py-12 md:py-16 scroll-mt-24" id="so-funktioniert-es">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              Unsere Catering-Angebote
+              So funktioniert es
             </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Von der Anfrage bis zur Lieferung – ein klarer Ablauf für eure Planungssicherheit.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {cateringServices.map((service, index) => {
-              const IconComponent = service.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((step, index) => {
+              const IconComponent = step.icon;
               return (
-                <Card key={index} className="group hover:shadow-elegant transition-all duration-300 h-full">
-                  <CardContent className="p-5 text-center space-y-3 flex flex-col h-full">
-                    <div className="flex justify-center">
-                      <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                        <IconComponent className="w-7 h-7 text-white" />
+                <div key={index} className="relative">
+                  <Card className="h-full">
+                    <CardContent className="p-5 text-center space-y-3">
+                      <div className="flex justify-center">
+                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                          <IconComponent className="w-7 h-7 text-primary" />
+                        </div>
                       </div>
+                      <div className="text-sm font-medium text-primary">Schritt {index + 1}</div>
+                      <h3 className="text-base md:text-lg font-semibold text-foreground">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                    </CardContent>
+                  </Card>
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                      <ChevronRight className="w-6 h-6 text-muted-foreground/30" />
                     </div>
-                    <h3 className="text-base md:text-lg font-semibold text-foreground">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors mt-auto"
-                      onClick={() => {
-                        const element = document.getElementById('catering-kontakt');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                          setTimeout(() => {
-                            const nameInput = document.getElementById('name');
-                            nameInput?.focus();
-                          }, 500);
-                        }
-                      }}
-                    >
-                      Anfragen
-                    </Button>
-                  </CardContent>
-                </Card>
+                  )}
+                </div>
               );
             })}
           </div>
@@ -362,11 +331,11 @@ const Catering = () => {
       </section>
 
       {/* Why Sattuni USPs */}
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              Warum Sattuni?
+              Worauf ihr euch verlassen könnt
             </h2>
           </div>
           
@@ -414,92 +383,44 @@ const Catering = () => {
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem 
-                value="waermebehälter" 
+                value="ablauf" 
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Werden Wärmebehälter mitgeliefert?
+                  Wie läuft eine Catering-Anfrage ab?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Ja, kostenlos ab 30 Personen!</span>
-                    {" "}Wir liefern professionelle Wärmebehälter mit, damit euer Essen auch nach 
-                    Stunden noch perfekt temperiert ist.
+                    Nach Eingang eurer Anfrage melden wir uns innerhalb von 24 Stunden. 
+                    Gemeinsam klären wir Details wie Termin, Gästezahl und besondere Anforderungen.
                   </p>
                   <p>
-                    <strong>Service inklusive:</strong> Nach dem Event holen wir die Wärmebehälter 
-                    wieder ab – ihr müsst euch um nichts kümmern.
+                    Ihr erhaltet anschließend ein verbindliches Angebot mit allen wichtigen Informationen.
                   </p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem 
-                value="geschirr-besteck" 
+                value="lieferung" 
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Können wir über euch auch Geschirr und Besteck bestellen?
+                  Wie wird die Lieferung koordiniert?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Ja, wir kümmern uns darum!</span>
-                    {" "}Hochwertiges Geschirr, Besteck, Gläser und Servietten – 
-                    alles aus einer Hand für euer perfektes Event.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3 mt-4">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Elegantes Porzellan</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Hochwertiges Besteck</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Gläser & Getränke</span>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="aufbau-zeit" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie lange braucht ihr für den Aufbau?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    <span className="font-semibold text-primary">Wir kommen eine Stunde vor Eventbeginn</span>
-                    {" "}und bauen in Ruhe alles auf. So könnt ihr entspannt eure Gäste empfangen.
+                    Die Lieferung erfolgt in einem vorab vereinbarten Zeitfenster. 
+                    So stellen wir sicher, dass alles rechtzeitig vor Ort ist – 
+                    bevor euer Meeting oder Event beginnt.
                   </p>
                   <p>
-                    <strong>Ablauf:</strong> Buffet-Aufbau, Wärmebehälter installieren, 
-                    finale Dekoration – pünktlich zum Start ist alles perfekt vorbereitet.
+                    Bei Aufbau-Service kommen wir rechtzeitig, um alles vorzubereiten.
                   </p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem 
-                value="personenanzahl-flexibel" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie flexibel seid ihr bei der Personenanzahl?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    <span className="font-semibold text-primary">Bis eine Woche vor dem Liefertag</span>
-                    {" "}könnt ihr die Personenanzahl noch anpassen. Perfekt für Events mit 
-                    ungewisser Teilnehmerzahl.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="mindestbestellwert" 
+                value="mindestpersonen" 
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
@@ -507,47 +428,59 @@ const Catering = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Unser Catering-Service beginnt ab 20 Personen.</span>
-                    {" "}Ab dieser Gruppengröße können wir die beste Qualität, 
-                    Service-Level und ein umfangreiches Buffet-Angebot garantieren.
+                    Unser Catering-Service ist ab 20 Personen verfügbar. 
+                    Diese Mindestgröße ermöglicht uns eine professionelle Durchführung 
+                    mit entsprechendem Service-Level.
                   </p>
                   <p>
-                    <strong>Für kleinere Gruppen (unter 20 Personen):</strong> Nutzt gerne unseren 
-                    regulären Lieferservice über unser Online-Menü – perfekt für gemütliche Runden!
+                    <strong>Für kleinere Gruppen:</strong> Nutzt gerne unseren 
+                    regulären Lieferservice über den Online-Shop.
                   </p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem 
-                value="vegane-optionen" 
+                value="anpassungen" 
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Habt ihr auch vegane und vegetarische Optionen?
+                  Können Änderungen nach der Buchung vorgenommen werden?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Selbstverständlich!</span> 
-                    Unsere arabische Küche bietet natürlicherweise viele pflanzliche Gerichte.
+                    Ja, Anpassungen bei der Personenanzahl sind bis eine Woche vor dem Liefertag möglich. 
+                    Wir informieren euch rechtzeitig über die Fristen.
                   </p>
-                  <div className="grid md:grid-cols-2 gap-3 mt-4">
-                    <div className="flex items-center gap-2">
-                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      <span className="text-sm">Hummus & Baba Ghanousch</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      <span className="text-sm">Falafel & vegane Teigtaschen</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      <span className="text-sm">Tabouleh & Fattoush Salate</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Leaf className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      <span className="text-sm">Vegane Couscous Bowls</span>
-                    </div>
-                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="ausstattung" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Ist Geschirr und Ausstattung enthalten?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    Auf Wunsch stellen wir Geschirr, Besteck und Wärmebehälter bereit. 
+                    Die Details besprechen wir gemeinsam nach eurer Anfrage.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="ernaehrung" 
+                className="bg-background border border-border rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                  Gibt es vegetarische und vegane Optionen?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <p className="mb-3">
+                    Ja, unsere Küche bietet eine große Auswahl an vegetarischen und veganen Gerichten. 
+                    Teilt uns eure Anforderungen einfach in der Anfrage mit.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
 
@@ -556,55 +489,28 @@ const Catering = () => {
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie weit liefert ihr für Catering?
+                  Wie weit liefert ihr?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Düsseldorf und Umgebung</span>
-                    {" "}– bis zu 50km Radius von unserem Standort aus. Perfekt für 
-                    Firmenfeiern in der Region.
-                  </p>
-                  <p>
-                    <strong>Kostenlos:</strong> Innerhalb Düsseldorf ist die Anlieferung 
-                    bereits im Preis enthalten.
+                    Wir liefern in Düsseldorf und Umgebung – bis zu 50 km Radius. 
+                    Innerhalb Düsseldorfs ist die Anlieferung in der Regel inklusive.
                   </p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem 
-                value="anlass-wichtig" 
+                value="kontakt" 
                 className="bg-background border border-border rounded-lg px-6"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Warum ist es wichtig zu wissen, welchen Anlass das Buffet hat?
+                  Wer ist mein Ansprechpartner?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                   <p className="mb-3">
-                    <span className="font-semibold text-primary">Weil wir das Essen passend zum Anlass dekorieren und portionieren.</span>
-                    {" "}Für eine Hochzeit wird das Buffet anders präsentiert als für ein Team-Event.
-                  </p>
-                  <p>
-                    <strong>Beispiel:</strong> Bei einer Hochzeit dekorieren wir eleganter mit besonderen Tellern, 
-                    während ein Business-Event eher funktional und praktisch aufgebaut wird.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="catering-vs-lieferservice" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Ist euer Catering-Angebot anders als die normale Speisekarte?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    <span className="font-semibold text-primary">Ja, unser Catering ist vielfältiger!</span>
-                    {" "}Beim Catering bieten wir das Essen in Buffet-Form und saisonabhängig an.
-                  </p>
-                  <p>
-                    <strong>Catering-Vorteile:</strong> Größere Auswahl, spezielle Buffet-Gerichte, 
-                    saisonale Spezialitäten und auf Gruppengrößen angepasste Portionen.
+                    Ihr erhaltet nach der Anfrage einen festen Ansprechpartner, 
+                    der euch durch den gesamten Prozess begleitet – 
+                    von der Planung bis zur Durchführung.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -621,9 +527,11 @@ const Catering = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Ob Geburtstag, Hochzeit oder Firmenfeier – 
-              <span className="text-primary block">wir machen euch satt.</span>
+              Habt ihr Fragen oder möchtet eine Anfrage stellen?
             </h2>
+            <p className="text-lg text-muted-foreground">
+              Wir melden uns innerhalb von 24 Stunden bei euch.
+            </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -633,7 +541,6 @@ const Catering = () => {
                   const element = document.getElementById('catering-kontakt');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Focus the first input after scrolling
                     setTimeout(() => {
                       const nameInput = document.getElementById('name');
                       nameInput?.focus();
@@ -641,15 +548,7 @@ const Catering = () => {
                   }
                 }}
               >
-                Catering anfragen
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8"
-                onClick={() => window.location.href = '/spezialitaeten'}
-              >
-                Unsere Spezialitäten ansehen
+                Unverbindliche Anfrage stellen
               </Button>
             </div>
           </div>
@@ -672,7 +571,7 @@ const Catering = () => {
             }
           }}
         >
-          Jetzt Catering anfragen
+          Catering anfragen
         </Button>
       </div>
 
