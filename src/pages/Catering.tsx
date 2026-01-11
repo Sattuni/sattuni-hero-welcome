@@ -8,7 +8,7 @@ import InternalLinks from "@/components/layout/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phone, Users, Utensils } from "lucide-react";
+import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phone, Salad, Users, Utensils, UtensilsCrossed } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
@@ -265,6 +265,26 @@ const Catering = () => {
               Wir übernehmen die Planung und Koordination – ihr konzentriert euch auf euer Event.
               <span className="text-primary font-medium block mt-2">Ab 20 Personen, für Firmen und private Anlässe.</span>
             </p>
+            
+            {/* Subtle service offerings */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8">
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <UtensilsCrossed className="w-4 h-4 text-primary" />
+                <span>Fingerfood</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Utensils className="w-4 h-4 text-primary" />
+                <span>Buffets</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Salad className="w-4 h-4 text-primary" />
+                <span>Vegetarisch & Vegan</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
+                <Leaf className="w-4 h-4 text-primary" />
+                <span>Individuelle Menüs</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
