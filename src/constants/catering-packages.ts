@@ -105,8 +105,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     isVegetarian: true,
   },
   {
-    id: 'levante-klassik',
-    name: 'Levante Klassik',
+    id: 'sattuni-klassik',
+    name: 'Sattuni Klassik',
     subtitle: 'Kalt & warm kombiniert',
     description: 'Der perfekte Mix aus kalten und warmen Speisen für jede Gelegenheit.',
     detailedItems: [
@@ -129,8 +129,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     popular: true,
   },
   {
-    id: 'levante-genuss',
-    name: 'Levante Genuss',
+    id: 'sattuni-genuss',
+    name: 'Sattuni Genuss',
     subtitle: 'Klassiker mit süßem Abschluss',
     description: 'Klassiker mit süßem Abschluss – inklusive Dessert.',
     detailedItems: [
@@ -153,8 +153,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     includesDessert: true,
   },
   {
-    id: 'levante-festmahl',
-    name: 'Levante Festmahl',
+    id: 'sattuni-festmahl',
+    name: 'Sattuni Festmahl',
     subtitle: 'Großzügiges Buffet – kalt & warm',
     description: 'Großzügiges Buffet mit kalten und warmen Speisen plus Dessert.',
     detailedItems: [
@@ -188,8 +188,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     includesDessert: true,
   },
   {
-    id: 'levante-royal',
-    name: 'Levante Royal',
+    id: 'sattuni-royal',
+    name: 'Sattuni Royal',
     subtitle: 'Unsere umfangreichste Auswahl',
     description: 'Unser Premium-Erlebnis mit geschmorter Lammschulter und vollem Programm.',
     detailedItems: [

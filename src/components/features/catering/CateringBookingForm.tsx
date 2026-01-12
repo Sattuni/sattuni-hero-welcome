@@ -297,6 +297,8 @@ const CateringBookingForm = () => {
       ...prev,
       selectedPackage: packageId,
     }));
+    // Auto-expand the selected package details
+    setExpandedPackages(prev => ({ ...prev, [packageId]: true }));
     if (validationErrors.selectedPackage) {
       setValidationErrors(prev => {
         const newErrors = { ...prev };
@@ -528,7 +530,7 @@ const CateringBookingForm = () => {
               onClick={(e) => e.stopPropagation()}
               className="w-full px-4 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
             >
-              <span>{isOpen ? 'Details ausblenden' : 'Details anzeigen'}</span>
+              <span>{isOpen ? 'Speisen ausblenden' : 'Speisen anzeigen'}</span>
               <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
             </button>
           </CollapsibleTrigger>
@@ -1036,104 +1038,90 @@ const CateringBookingForm = () => {
                     />
                   </div>
 
-                  {/* Equipment Section */}
-                  <div className="space-y-3">
-                    <Label className="text-base font-semibold">
-                      Equipment anfragen <span className="text-muted-foreground text-sm font-normal">(optional)</span>
-                    </Label>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
-                        formData.equipmentChafings 
-                          ? 'border-primary bg-primary/5' 
-                          : 'border-muted hover:border-primary/50'
-                      }`}>
-                        <Checkbox
-                          checked={formData.equipmentChafings}
-                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentChafings: !!checked }))}
-                          className="mt-0.5"
-                        />
-                        <div>
-                          <span className="font-medium">Chafing Dishes</span>
-                          <p className="text-xs text-muted-foreground">
-                            +20€ {formData.guestCount >= 30 ? <span className="text-green-600 font-medium">(kostenlos ab 30 Pers.)</span> : '(ab 30 Pers. kostenlos)'}
-                          </p>
-                        </div>
-                      </label>
+                  {/* Equipment Section - Collapsible */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <button
+                        type="button"
+                        className="w-full flex items-center justify-between p-4 rounded-lg border border-muted hover:border-primary/50 transition-all"
+                      >
+                        <Label className="text-base font-semibold cursor-pointer">
+                          Equipment anfragen <span className="text-muted-foreground text-sm font-normal">(optional)</span>
+                        </Label>
+                        <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                      </button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="grid sm:grid-cols-2 gap-3 pt-3">
+                        <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          formData.equipmentChafings 
+                            ? 'border-primary bg-primary/5' 
+                            : 'border-muted hover:border-primary/50'
+                        }`}>
+                          <Checkbox
+                            checked={formData.equipmentChafings}
+                            onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentChafings: !!checked }))}
+                            className="mt-0.5"
+                          />
+                          <div>
+                            <span className="font-medium">Chafing Dishes</span>
+                            <p className="text-xs text-muted-foreground">
+                              +20€ {formData.guestCount >= 30 ? <span className="text-green-600 font-medium">(kostenlos ab 30 Pers.)</span> : '(ab 30 Pers. kostenlos)'}
+                            </p>
+                          </div>
+                        </label>
 
-                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
-                        formData.equipmentBesteck 
-                          ? 'border-primary bg-primary/5' 
-                          : 'border-muted hover:border-primary/50'
-                      }`}>
-                        <Checkbox
-                          checked={formData.equipmentBesteck}
-                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentBesteck: !!checked }))}
-                          className="mt-0.5"
-                        />
-                        <div>
-                          <span className="font-medium">Besteck</span>
-                          <p className="text-xs text-muted-foreground">+1€ pro Person</p>
-                        </div>
-                      </label>
+                        <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          formData.equipmentBesteck 
+                            ? 'border-primary bg-primary/5' 
+                            : 'border-muted hover:border-primary/50'
+                        }`}>
+                          <Checkbox
+                            checked={formData.equipmentBesteck}
+                            onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentBesteck: !!checked }))}
+                            className="mt-0.5"
+                          />
+                          <div>
+                            <span className="font-medium">Besteck</span>
+                            <p className="text-xs text-muted-foreground">+1€ pro Person</p>
+                          </div>
+                        </label>
 
-                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
-                        formData.equipmentTeller 
-                          ? 'border-primary bg-primary/5' 
-                          : 'border-muted hover:border-primary/50'
-                      }`}>
-                        <Checkbox
-                          checked={formData.equipmentTeller}
-                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentTeller: !!checked }))}
-                          className="mt-0.5"
-                        />
-                        <div>
-                          <span className="font-medium">Teller</span>
-                          <p className="text-xs text-muted-foreground">+1€ pro Person</p>
-                        </div>
-                      </label>
+                        <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          formData.equipmentTeller 
+                            ? 'border-primary bg-primary/5' 
+                            : 'border-muted hover:border-primary/50'
+                        }`}>
+                          <Checkbox
+                            checked={formData.equipmentTeller}
+                            onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentTeller: !!checked }))}
+                            className="mt-0.5"
+                          />
+                          <div>
+                            <span className="font-medium">Teller</span>
+                            <p className="text-xs text-muted-foreground">+1€ pro Person</p>
+                          </div>
+                        </label>
 
-                      <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
-                        formData.equipmentSchalen 
-                          ? 'border-primary bg-primary/5' 
-                          : 'border-muted hover:border-primary/50'
-                      }`}>
-                        <Checkbox
-                          checked={formData.equipmentSchalen}
-                          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentSchalen: !!checked }))}
-                          className="mt-0.5"
-                        />
-                        <div>
-                          <span className="font-medium">Porzellanschalen</span>
-                          <p className="text-xs text-muted-foreground">+20€</p>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Summary for Package */}
-                  {formData.menuType === 'package' && formData.selectedPackage && totalPrice && (
-                    <div className="p-4 bg-primary/10 rounded-xl border border-primary/20 space-y-3">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-semibold">Zusammenfassung</p>
-                          <p className="text-sm text-muted-foreground">
-                            {CATERING_PACKAGES.find(p => p.id === formData.selectedPackage)?.name}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {formData.guestCount} Personen • {EVENT_TYPES.find(e => e.value === formData.eventType)?.label || 'Anlass'}
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-sm text-muted-foreground">Menü: {formatPrice(totalPrice)}</p>
-                          {equipmentCosts > 0 && (
-                            <p className="text-sm text-muted-foreground">Equipment: +{formatPrice(equipmentCosts)}</p>
-                          )}
-                          <p className="text-2xl font-bold text-primary mt-1">{formatPrice(totalWithEquipment || totalPrice)}</p>
-                          <p className="text-xs text-muted-foreground">Gesamtpreis (inkl. MwSt.)</p>
-                        </div>
+                        <label className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          formData.equipmentSchalen 
+                            ? 'border-primary bg-primary/5' 
+                            : 'border-muted hover:border-primary/50'
+                        }`}>
+                          <Checkbox
+                            checked={formData.equipmentSchalen}
+                            onCheckedChange={(checked) => setFormData(prev => ({ ...prev, equipmentSchalen: !!checked }))}
+                            className="mt-0.5"
+                          />
+                          <div>
+                            <span className="font-medium">Porzellanschalen</span>
+                            <p className="text-xs text-muted-foreground">+20€</p>
+                          </div>
+                        </label>
                       </div>
-                    </div>
-                  )}
+                    </CollapsibleContent>
+                  </Collapsible>
+
 
                   {/* Privacy Checkbox */}
                   <div className="space-y-2">
