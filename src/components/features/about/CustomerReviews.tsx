@@ -180,7 +180,7 @@ const CustomerReviews = () => {
               Das sagen unsere Kunden
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-              Echte Bewertungen von Unternehmen, die uns ihr Vertrauen schenken.
+              Echte Bewertungen von zufriedenen Kunden – ob Firmenevents, Hochzeiten oder private Feiern.
             </p>
             <div className="flex items-center justify-center gap-2">
               <div className="flex gap-0.5">
@@ -189,7 +189,7 @@ const CustomerReviews = () => {
                 ))}
               </div>
               <span className="text-lg font-bold text-foreground">5.0</span>
-              <span className="text-muted-foreground">von Business-Kunden</span>
+              <span className="text-muted-foreground">auf Google</span>
             </div>
           </div>
 
