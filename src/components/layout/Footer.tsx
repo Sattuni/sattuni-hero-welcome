@@ -12,7 +12,6 @@ const Footer = () => {
     { name: "Spezialitäten", href: "/spezialitaeten" },
     { name: "Catering", href: "/catering" },
     { name: "Über uns", href: "/ueber-uns" },
-    { name: "Blog", href: "/blog" },
     { name: "Kontakt", href: "#kontakt" },
   ];
 

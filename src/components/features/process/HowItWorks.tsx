@@ -78,14 +78,6 @@ const HowItWorks = () => {
           })}
         </div>
 
-        {/* Bottom Message */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-3 px-8 py-4 bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-elegant">
-            <span className="text-lg font-medium text-foreground font-display">
-              Ready? Lass uns loslegen!
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

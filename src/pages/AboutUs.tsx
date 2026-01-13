@@ -347,9 +347,6 @@ const AboutUs = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                   Unsere Partner
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Wir sind stolz darauf, regelmäßig mit diesen Unternehmen zusammenzuarbeiten und ihre Events zu bereichern.
-                </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
