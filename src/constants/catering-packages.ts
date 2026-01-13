@@ -100,8 +100,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
   {
     id: 'gruene-levante',
     name: 'Grüne Levante',
-    subtitle: 'Vegetarisch',
-    description: 'Kalte vegetarische Vielfalt – ideal für gesundheitsbewusste Gäste.',
+    subtitle: 'Vegetarisch / Vegan möglich',
+    description: 'Kalte vegetarische Vielfalt – auf Wunsch auch komplett vegan. Ideal für gesundheitsbewusste Gäste.',
     detailedItems: [
       {
         items: [
