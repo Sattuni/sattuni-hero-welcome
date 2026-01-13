@@ -21,18 +21,15 @@ const InternalLinks = () => {
   ];
 
   return (
-    <section className="py-12 bg-muted/20">
+    <section className="py-8 md:py-12 bg-muted/20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <div className="text-center mb-4 md:mb-8">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
             Mehr entdecken
           </h2>
-          <p className="text-muted-foreground">
-            Tauche tiefer in die Welt der arabischen Küche ein
-          </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {links.map((link) => {
             const IconComponent = link.icon;
             return (

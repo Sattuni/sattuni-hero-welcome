@@ -97,21 +97,21 @@ const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 px-6 bg-background">
+    <section id="kontakt" className="py-10 md:py-20 px-4 md:px-6 bg-background">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className="text-center mb-6 md:mb-12 space-y-2 md:space-y-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Schreib uns kurz
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Ob Bestellung, Catering oder einfach eine Frage – wir melden uns schnell zurück.
           </p>
         </div>
 
         {/* Contact Form */}
         <Card className="border-border/50 bg-card/80 backdrop-blur-sm shadow-soft">
-          <CardContent className="p-8">
+          <CardContent className="p-4 md:p-8">
             {/* Progress Bar */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
@@ -246,35 +246,35 @@ const Contact = () => {
         </Card>
 
         {/* Quick Contact Info */}
-        <div className="mt-12 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <Mail className="w-5 h-5 text-white" />
+        <div className="mt-8 md:mt-12 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 md:gap-3 p-3 md:p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full flex items-center justify-center">
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">E-Mail</div>
-                <div className="font-medium text-foreground">info@sattuni.de</div>
+                <div className="text-xs md:text-sm text-muted-foreground">E-Mail</div>
+                <div className="text-sm md:text-base font-medium text-foreground">info@sattuni.de</div>
               </div>
             </div>
             
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
-              <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                <Phone className="w-5 h-5 text-white" />
+            <div className="flex items-center justify-center gap-2 md:gap-3 p-3 md:p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-accent rounded-full flex items-center justify-center">
+                <Phone className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">Telefon</div>
-                <div className="font-medium text-foreground">0211 36180115</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Telefon</div>
+                <div className="text-sm md:text-base font-medium text-foreground">0211 36180115</div>
               </div>
             </div>
             
-            <div className="flex items-center justify-center gap-3 p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
-              <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
-                <Clock className="w-5 h-5 text-primary" />
+            <div className="flex items-center justify-center gap-2 md:gap-3 p-3 md:p-4 bg-card/60 rounded-xl border border-border/50 shadow-sm">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-muted rounded-full flex items-center justify-center">
+                <Clock className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">Antwortzeit</div>
-                <div className="font-medium text-foreground">Meist &lt; 24h</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Antwortzeit</div>
+                <div className="text-sm md:text-base font-medium text-foreground">Meist &lt; 24h</div>
               </div>
             </div>
           </div>

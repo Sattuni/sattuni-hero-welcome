@@ -184,31 +184,31 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-hero overflow-hidden">
+    <section className="py-10 md:py-20 px-4 md:px-6 bg-gradient-hero overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Das sagen unsere Gäste
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground">
+          <p className="text-base md:text-xl lg:text-2xl text-muted-foreground">
             Echte Stimmen, direkt von Google.
           </p>
           
           {/* Overall Rating */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 md:mt-8">
+            <div className="flex items-center gap-1 md:gap-2">
               {renderStars(5)}
             </div>
-            <div className="text-3xl font-bold text-foreground">4.9</div>
-            <div className="text-muted-foreground">
-              (228 Bewertungen auf Google)
+            <div className="text-xl md:text-3xl font-bold text-foreground">4.9</div>
+            <div className="text-xs md:text-base text-muted-foreground">
+              (228 Bewertungen)
             </div>
           </div>
         </div>
 
         {/* Animated Reviews Carousel */}
-        <div className="relative mb-12">
+        <div className="relative mb-6 md:mb-12">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
@@ -216,7 +216,7 @@ const Testimonials = () => {
             >
               {Array.from({ length: Math.ceil(reviews.length / 3) }, (_, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-1 md:px-2">
                     {reviews.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, index) => (
                       <ReviewCard 
                         key={slideIndex * 3 + index}
@@ -231,12 +231,12 @@ const Testimonials = () => {
           </div>
           
           {/* Carousel Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-4 md:mt-8">
             {Array.from({ length: Math.ceil(reviews.length / 3) }, (_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex 
                     ? "bg-primary scale-125" 
                     : "bg-muted hover:bg-primary/50"
@@ -259,16 +259,6 @@ const Testimonials = () => {
             <span className="hidden sm:inline">Mehr Bewertungen auf Google lesen</span>
             <span className="sm:hidden">Google Bewertungen</span>
           </Button>
-          
-          {/* Trust Badge */}
-          <div className="mt-8 mx-2 inline-flex items-center gap-3 px-6 py-3 bg-card/60 backdrop-blur-sm rounded-full border border-border/30 box-border">
-            <div className="flex items-center gap-1">
-              {renderStars(5)}
-            </div>
-            <span className="text-sm font-medium text-foreground">
-              Verifizierte Google Bewertungen
-            </span>
-          </div>
         </div>
       </div>
     </section>
