@@ -191,6 +191,11 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Couscous mit Ofengemüse', description: 'Herzhaft, warm und ausgewogen.' },
           { name: 'Hähnchenbruststreifen', description: 'Zart gegart und orientalisch gewürzt.' },
           { name: 'Rindfleischstreifen', description: 'Saftig und langsam geschmort.' },
+        ],
+      },
+      {
+        category: 'Dessert',
+        items: [
           { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.' },
         ],
       },
@@ -227,6 +232,11 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Couscous mit Ofengemüse', description: 'Fein gewürzt und herzhaft.' },
           { name: 'Ofen-Hähnchenkeulen', description: 'Saftig gebacken mit orientalischen Gewürzen.' },
           { name: 'Geschmorte Lammschulter', description: 'Zart, intensiv und langsam gegart.' },
+        ],
+      },
+      {
+        category: 'Dessert',
+        items: [
           { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.' },
         ],
       },
