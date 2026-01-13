@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
@@ -557,16 +557,16 @@ const CateringBookingForm = () => {
                         <span className="text-primary mt-0.5">•</span>
                         <span className="font-medium text-foreground">{item.name}</span>
                         {item.description && (
-                          <Tooltip>
-                            <TooltipTrigger asChild>
+                          <Popover>
+                            <PopoverTrigger asChild>
                               <button type="button" className="shrink-0 mt-0.5">
                                 <Info className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
                               </button>
-                            </TooltipTrigger>
-                            <TooltipContent side="top" className="max-w-xs">
+                            </PopoverTrigger>
+                            <PopoverContent side="top" className="max-w-xs p-3">
                               <p className="text-sm">{item.description}</p>
-                            </TooltipContent>
-                          </Tooltip>
+                            </PopoverContent>
+                          </Popover>
                         )}
                       </li>
                     ))}
