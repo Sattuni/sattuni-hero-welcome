@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
@@ -15,7 +16,7 @@ import { getBackendPublicConfig } from "@/config/backend-public.config";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle
+  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle, Info
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -548,13 +549,25 @@ const CateringBookingForm = () => {
               {pkg.detailedItems.map((section, idx) => (
                 <div key={idx}>
                   {section.category && (
-                    <h5 className="font-medium text-sm text-primary mb-1">{section.category}</h5>
+                    <h5 className="font-medium text-sm text-primary mb-2">{section.category}</h5>
                   )}
-                  <ul className="text-sm text-muted-foreground space-y-1">
+                  <ul className="text-sm space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{item}</span>
+                        <span className="text-primary mt-0.5">•</span>
+                        <span className="font-medium text-foreground">{item.name}</span>
+                        {item.description && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <button type="button" className="shrink-0 mt-0.5">
+                                <Info className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+                              </button>
+                            </TooltipTrigger>
+                            <TooltipContent side="top" className="max-w-xs">
+                              <p className="text-sm">{item.description}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
                       </li>
                     ))}
                   </ul>
