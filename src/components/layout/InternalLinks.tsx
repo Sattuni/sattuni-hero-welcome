@@ -24,12 +24,9 @@ const InternalLinks = () => {
     <section className="py-12 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Mehr entdecken
           </h2>
-          <p className="text-muted-foreground">
-            Tauche tiefer in die Welt der arabischen Küche ein
-          </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">

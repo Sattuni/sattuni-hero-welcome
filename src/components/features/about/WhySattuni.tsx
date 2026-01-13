@@ -67,16 +67,6 @@ const WhySattuni = () => {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-6 md:mt-12">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-card/80 backdrop-blur-sm rounded-full border border-border/50 shadow-soft">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-foreground font-body">
-              Authentisch orientalisch in Düsseldorf
-            </span>
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse delay-1000"></span>
-          </div>
-        </div>
       </div>
     </section>
   );

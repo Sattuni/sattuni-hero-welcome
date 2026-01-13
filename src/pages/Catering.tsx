@@ -257,37 +257,6 @@ const Catering = () => {
         </div>
       </section>
 
-      {/* Kurz-Intro */}
-      <section className="py-8 md:py-16 bg-gradient-subtle">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed px-4">
-              Wir übernehmen die Planung und Koordination – ihr konzentriert euch auf euer Event.
-              <span className="text-primary font-medium block mt-2">Ab 20 Personen, für Firmen und private Anlässe.</span>
-            </p>
-            
-            {/* Subtle service offerings */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
-                <UtensilsCrossed className="w-4 h-4 text-primary" />
-                <span>Fingerfood</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
-                <Utensils className="w-4 h-4 text-primary" />
-                <span>Buffets</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
-                <Salad className="w-4 h-4 text-primary" />
-                <span>Vegetarisch & Vegan</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-sm text-muted-foreground">
-                <Leaf className="w-4 h-4 text-primary" />
-                <span>Individuelle Menüs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* How it works - Process Steps */}
       <section className="py-12 md:py-16 scroll-mt-24" id="so-funktioniert-es">

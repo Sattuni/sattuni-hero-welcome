@@ -259,16 +259,6 @@ const Testimonials = () => {
             <span className="hidden sm:inline">Mehr Bewertungen auf Google lesen</span>
             <span className="sm:hidden">Google Bewertungen</span>
           </Button>
-          
-          {/* Trust Badge */}
-          <div className="mt-8 mx-2 inline-flex items-center gap-3 px-6 py-3 bg-card/60 backdrop-blur-sm rounded-full border border-border/30 box-border">
-            <div className="flex items-center gap-1">
-              {renderStars(5)}
-            </div>
-            <span className="text-sm font-medium text-foreground">
-              Verifizierte Google Bewertungen
-            </span>
-          </div>
         </div>
       </div>
     </section>

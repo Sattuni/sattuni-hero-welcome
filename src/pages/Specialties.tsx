@@ -272,22 +272,13 @@ const Specialties = () => {
         </section>
 
         {/* Introduction Text */}
-        <section className="py-20 bg-background">
+        <section className="py-12 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
-                Schmeck die Welt der Aromen!
-              </h2>
-              <div className="text-lg leading-relaxed text-muted-foreground space-y-4 font-body">
-                <p>
-                  Arabische Küche ist wie eine Umarmung für den Gaumen. Jeder Bissen erzählt eine Geschichte 
-                  von Sonne, Gewürzen und Gastfreundschaft – täglich frisch für dich gemacht.
-                </p>
-                <p className="text-primary font-semibold">
-                  Ob cremiger Hummus, knusprige Falafel oder bunte Bowls – 
-                  hier findest du, worauf du Lust hast. Vegan, vegetarisch oder mit Fleisch. <a href="/speisekarte" className="text-accent hover:underline font-medium">Zur kompletten Speisekarte</a>.
-                </p>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-lg md:text-xl leading-relaxed text-muted-foreground font-body">
+                Hummus, Falafel, Bowls – vegan, vegetarisch oder mit Fleisch. 
+                <a href="/speisekarte" className="text-primary hover:underline font-medium ml-1">Zur kompletten Speisekarte</a>.
+              </p>
             </div>
           </div>
         </section>
