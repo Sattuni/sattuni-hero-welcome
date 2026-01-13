@@ -23,20 +23,20 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-background">
+    <section className="py-10 md:py-16 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
+        <div className="text-center mb-8 md:mb-12 space-y-2 md:space-y-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-foreground">
             So funktioniert's
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body">
             Ob Bestellung oder Catering – bei uns geht's easy in drei Schritten.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (

@@ -41,24 +41,24 @@ const FoodShowcase = () => {
   };
 
   return (
-    <section className="py-8 md:py-16 px-4 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-6 md:py-16 px-4 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-6 md:mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Utensils className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+        <div className="text-center mb-4 md:mb-12">
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-2 md:mb-4">
+            <Utensils className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground">
               Unsere Spezialitäten
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-lg text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
             Von cremigem Hummus bis zu knusprigen Falafel – 
             hier findest du alles, was das Herz begehrt.
           </p>
         </div>
 
         {/* Food Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-12">
           {foodCategories.map((category, index) => (
             <Card key={index} className="group hover:shadow-elegant transition-all duration-500 border-border/50 hover:border-primary/30 bg-card/95 backdrop-blur-sm overflow-hidden">
               <div className="relative h-36 md:h-48 overflow-hidden">

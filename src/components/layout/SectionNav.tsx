@@ -38,14 +38,14 @@ const SectionNav = () => {
   };
 
   return (
-    <section className="py-8 bg-gradient-subtle border-t border-border/50">
+    <section className="py-4 md:py-8 bg-gradient-subtle border-t border-border/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
-          <h2 className="text-lg font-semibold text-foreground mb-2">
+        <div className="text-center mb-3 md:mb-6">
+          <h2 className="text-base md:text-lg font-semibold text-foreground">
             Schnell zu
           </h2>
         </div>
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
           {sections.map((section) => {
             const IconComponent = section.icon;
             return (
