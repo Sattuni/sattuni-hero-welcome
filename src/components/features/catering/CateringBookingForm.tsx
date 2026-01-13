@@ -143,7 +143,7 @@ const CateringBookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(1);
-  const [expandedPackages, setExpandedPackages] = useState<Record<string, boolean>>({});
+  const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
   const { toast } = useToast();
 
   // Enhanced form tracking
@@ -331,7 +331,7 @@ const CateringBookingForm = () => {
       selectedPackage: packageId,
     }));
     // Auto-expand the selected package details
-    setExpandedPackages(prev => ({ ...prev, [packageId]: true }));
+    setExpandedPackage(packageId);
     if (validationErrors.selectedPackage) {
       setValidationErrors(prev => {
         const newErrors = { ...prev };
@@ -477,141 +477,152 @@ const CateringBookingForm = () => {
     }
   };
 
-  // Render package card with collapsible details
+  // Render compact accordion package card
   const renderPackageCard = (pkg: CateringPackage) => {
     const isSelected = formData.selectedPackage === pkg.id;
     const total = calculateTotalPrice(pkg.pricePerPerson, formData.guestCount);
     const isAvailable = formData.guestCount >= pkg.minGuests;
-    const isOpen = expandedPackages[pkg.id] || false;
-    const setIsOpen = (open: boolean) => setExpandedPackages(prev => ({ ...prev, [pkg.id]: open }));
+    const isExpanded = expandedPackage === pkg.id;
+
+    // Price display
+    const priceDisplay = pkg.pricePerPersonMax 
+      ? `${formatPrice(pkg.pricePerPerson)} – ${formatPrice(pkg.pricePerPersonMax)}`
+      : formatPrice(pkg.pricePerPerson);
 
     return (
       <div
         key={pkg.id}
-        className={`relative rounded-xl border-2 transition-all ${
+        className={`relative rounded-lg border-2 transition-all overflow-hidden ${
           !isAvailable 
             ? 'border-muted bg-muted/20 opacity-60'
             : isSelected 
               ? 'border-primary bg-primary/5 shadow-md' 
-              : 'border-muted hover:border-primary/50 hover:shadow-lg'
+              : 'border-muted hover:border-primary/50'
         }`}
       >
-        {/* Header - Clickable for selection */}
+        {/* Compact Header Row - Always visible */}
         <div
-          onClick={() => isAvailable && handlePackageSelect(pkg.id)}
-          className={`p-4 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
+          onClick={() => {
+            if (isAvailable) {
+              handlePackageSelect(pkg.id);
+              // Toggle expansion
+              setExpandedPackage(isExpanded ? null : pkg.id);
+            }
+          }}
+          className={`flex items-center justify-between p-3 gap-3 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
         >
-          {pkg.popular && (
-            <Badge className="absolute -top-2 right-4 bg-primary">
-              <Star className="w-3 h-3 mr-1" />
-              Beliebt
-            </Badge>
-          )}
-          
-          {pkg.isVegetarian && (
-            <Badge variant="secondary" className="absolute -top-2 left-4">
-              <Leaf className="w-3 h-3 mr-1" />
-              Vegetarisch
-            </Badge>
-          )}
-          
-          <div className="flex items-start justify-between mb-2">
-            <div className="flex-1 pr-4">
-              <h4 className="font-semibold text-base leading-tight">{pkg.name}</h4>
-              <p className="text-sm text-primary font-medium mt-1">{pkg.subtitle}</p>
-            </div>
-            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+          {/* Left: Selection circle + Name + Badges */}
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
               isSelected ? 'border-primary bg-primary' : 'border-muted'
             }`}>
-              {isSelected && <Check className="w-4 h-4 text-primary-foreground" />}
+              {isSelected && <Check className="w-3 h-3 text-primary-foreground" />}
+            </div>
+            <div className="flex items-center gap-2 min-w-0 flex-wrap">
+              <span className="font-semibold text-sm truncate">{pkg.name}</span>
+              {pkg.popular && (
+                <Badge className="bg-primary text-[10px] px-1.5 py-0 h-5">
+                  <Star className="w-2.5 h-2.5 mr-0.5" />
+                  Beliebt
+                </Badge>
+              )}
+              {pkg.isVegetarian && (
+                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-5">
+                  <Leaf className="w-2.5 h-2.5 mr-0.5" />
+                  Vegan
+                </Badge>
+              )}
             </div>
           </div>
-          
-          <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
-          
-          <div className="flex flex-wrap gap-2 mb-3">
-            <Badge variant="outline" className="text-xs">
-              ab {pkg.minGuests} Personen
-            </Badge>
-            {pkg.includesDessert && (
-              <Badge variant="outline" className="text-xs">
-                <Sparkles className="w-3 h-3 mr-1" />
-                inkl. Dessert
-              </Badge>
-            )}
-          </div>
-          
-          {!isAvailable && (
-            <p className="text-xs text-destructive mb-2">
-              Mindestens {pkg.minGuests} Personen erforderlich
-            </p>
-          )}
-          
-          <div className="pt-3 border-t">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground">Pro Person</span>
-              <span className="font-semibold text-primary">
-                {pkg.pricePerPersonMax 
-                  ? `${formatPrice(pkg.pricePerPerson)} – ${formatPrice(pkg.pricePerPersonMax)}`
-                  : formatPrice(pkg.pricePerPerson)
-                }
-              </span>
-            </div>
-            {isAvailable && !pkg.pricePerPersonMax && (
-              <div className="flex justify-between items-center mt-1">
-                <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
-                <span className="font-bold text-lg">{formatPrice(total)}</span>
-              </div>
-            )}
+
+          {/* Right: Price + Min Guests + Chevron */}
+          <div className="flex items-center gap-3 flex-shrink-0 text-sm">
+            <span className="font-semibold text-primary whitespace-nowrap">{priceDisplay}</span>
+            <span className="text-muted-foreground text-xs whitespace-nowrap hidden sm:inline">ab {pkg.minGuests}</span>
+            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
           </div>
         </div>
 
-        {/* Collapsible Details */}
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <CollapsibleTrigger asChild>
-            <button
-              type="button"
-              onClick={(e) => e.stopPropagation()}
-              className="w-full px-4 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-            >
-              <span>{isOpen ? 'Speisen ausblenden' : 'Speisen anzeigen'}</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-            </button>
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="px-4 pb-4 pt-2 space-y-3 bg-muted/30">
-              {pkg.detailedItems.map((section, idx) => (
-                <div key={idx}>
-                  {section.category && (
-                    <h5 className="font-medium text-sm text-primary mb-2">{section.category}</h5>
-                  )}
-                  <ul className="text-sm space-y-2">
-                    {section.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2">
-                        <span className="text-primary mt-0.5">•</span>
-                        <span className="font-medium text-foreground">{item.name}</span>
-                        {item.highlight && (
-                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium shrink-0 ${
-                            item.highlight === 'neu' 
-                              ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' 
-                              : item.highlight === 'upgrade' 
-                                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
-                                : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-                          }`}>
-                            {item.highlight === 'neu' ? '+ Extra' : item.highlight === 'upgrade' ? '↑ Upgrade' : '★ Premium'}
-                          </span>
-                        )}
-                        {item.description && (
-                          <DishInfoPopover description={item.description} />
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+        {/* Expanded Details - Only for expanded package */}
+        {isExpanded && (
+          <div className="border-t animate-in fade-in slide-in-from-top-2 duration-200">
+            {/* Description + Badges Row */}
+            <div className="px-3 py-3 space-y-2 bg-muted/20">
+              <p className="text-sm text-muted-foreground">{pkg.description}</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="text-xs">
+                  ab {pkg.minGuests} Personen
+                </Badge>
+                {pkg.includesDessert && (
+                  <Badge variant="outline" className="text-xs">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    inkl. Dessert
+                  </Badge>
+                )}
+                {!isAvailable && (
+                  <Badge variant="destructive" className="text-xs">
+                    Mindestens {pkg.minGuests} Pers. erforderlich
+                  </Badge>
+                )}
+              </div>
+              
+              {/* Price Summary */}
+              {isAvailable && !pkg.pricePerPersonMax && (
+                <div className="flex justify-between items-center pt-2 border-t border-muted">
+                  <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
+                  <span className="font-bold text-lg text-primary">{formatPrice(total)}</span>
                 </div>
-              ))}
+              )}
             </div>
-          </CollapsibleContent>
-        </Collapsible>
+
+            {/* Collapsible Dishes List */}
+            <Collapsible>
+              <CollapsibleTrigger asChild>
+                <button
+                  type="button"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full px-3 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  <span>Speisen anzeigen</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="px-3 pb-3 pt-2 space-y-2 bg-muted/30">
+                  {pkg.detailedItems.map((section, idx) => (
+                    <div key={idx}>
+                      {section.category && (
+                        <h5 className="font-medium text-xs text-primary mb-1">{section.category}</h5>
+                      )}
+                      <ul className="text-xs space-y-1">
+                        {section.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className="flex items-start gap-1.5">
+                            <span className="text-primary mt-0.5">•</span>
+                            <span className="font-medium text-foreground">{item.name}</span>
+                            {item.highlight && (
+                              <span className={`text-[9px] px-1 py-0.5 rounded-full font-medium shrink-0 ${
+                                item.highlight === 'neu' 
+                                  ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' 
+                                  : item.highlight === 'upgrade' 
+                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                    : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+                              }`}>
+                                {item.highlight === 'neu' ? '+ Extra' : item.highlight === 'upgrade' ? '↑ Upgrade' : '★ Premium'}
+                              </span>
+                            )}
+                            {item.description && (
+                              <DishInfoPopover description={item.description} />
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+        )}
       </div>
     );
   };
@@ -1018,7 +1029,7 @@ const CateringBookingForm = () => {
                         <Utensils className="w-5 h-5 text-primary" />
                         Wähle dein Paket
                       </h3>
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
                         {CATERING_PACKAGES.map(renderPackageCard)}
                       </div>
                       {validationErrors.selectedPackage && (
