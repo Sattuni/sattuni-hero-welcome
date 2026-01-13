@@ -144,6 +144,7 @@ const CateringBookingForm = () => {
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(1);
   const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>('appetizers');
   const { toast } = useToast();
 
   // Enhanced form tracking
@@ -629,32 +630,84 @@ const CateringBookingForm = () => {
     );
   };
 
-  // Render custom menu item
-  const renderMenuItem = (
+  // Render compact menu chip
+  const renderMenuChip = (
     item: { id: string; name: string; description: string },
     category: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts'
   ) => {
     const isSelected = formData[category].includes(item.id);
 
     return (
-      <label
+      <button
         key={item.id}
-        className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+        type="button"
+        onClick={() => handleCustomItemToggle(category, item.id)}
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all ${
           isSelected 
-            ? 'border-primary bg-primary/5' 
-            : 'border-muted hover:border-primary/50'
+            ? 'bg-primary text-primary-foreground border-primary shadow-sm' 
+            : 'bg-background border-muted hover:border-primary/50 hover:bg-muted/50'
         }`}
       >
-        <Checkbox
-          checked={isSelected}
-          onCheckedChange={() => handleCustomItemToggle(category, item.id)}
-          className="mt-0.5"
-        />
-        <div>
-          <span className="font-medium">{item.name}</span>
-          <p className="text-xs text-muted-foreground">{item.description}</p>
-        </div>
-      </label>
+        {isSelected && <Check className="w-3 h-3" />}
+        <span className="font-medium">{item.name}</span>
+        <span onClick={(e) => e.stopPropagation()}>
+          <DishInfoPopover description={item.description} />
+        </span>
+      </button>
+    );
+  };
+
+  // Render collapsible menu category
+  const renderMenuCategory = (
+    categoryKey: string,
+    categoryName: string,
+    icon: React.ReactNode,
+    items: readonly { readonly id: string; readonly name: string; readonly description: string }[],
+    formCategory: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts',
+    isOptional?: boolean
+  ) => {
+    const selectedCount = formData[formCategory].length;
+    const isExpanded = expandedCategory === categoryKey;
+
+    return (
+      <Collapsible 
+        open={isExpanded} 
+        onOpenChange={() => setExpandedCategory(isExpanded ? null : categoryKey)}
+      >
+        <CollapsibleTrigger asChild>
+          <button
+            type="button"
+            className={`w-full flex items-center justify-between p-3 rounded-lg border transition-all ${
+              isExpanded 
+                ? 'border-primary bg-primary/5' 
+                : selectedCount > 0 
+                  ? 'border-primary/50 bg-primary/5' 
+                  : 'border-muted hover:border-primary/50'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              {icon}
+              <span className="font-semibold">{categoryName}</span>
+              {isOptional && (
+                <span className="text-xs font-normal text-muted-foreground">(optional)</span>
+              )}
+            </span>
+            <span className="flex items-center gap-2">
+              {selectedCount > 0 && (
+                <Badge variant="secondary" className="text-xs">
+                  {selectedCount} ausgewählt
+                </Badge>
+              )}
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            </span>
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="pt-3 pb-1">
+          <div className="flex flex-wrap gap-2">
+            {items.map(item => renderMenuChip(item, formCategory))}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
     );
   };
 
@@ -1040,87 +1093,70 @@ const CateringBookingForm = () => {
                     </div>
                   )}
 
-                  {/* Custom Menu Selection */}
+                  {/* Custom Menu Selection - Compact Accordion + Chips Layout */}
                   {formData.menuType === 'custom' && (
-                    <div className="space-y-8">
-                      <div className="p-4 bg-muted/30 rounded-lg border">
+                    <div className="space-y-4">
+                      <div className="p-3 bg-muted/30 rounded-lg border">
                         <p className="text-sm text-muted-foreground text-center">
                           <strong>Preis auf Anfrage:</strong> Wir erstellen dir ein individuelles Angebot basierend auf deiner Auswahl.
                         </p>
                       </div>
 
                       {/* Appetizers */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Utensils className="w-5 h-5 text-primary" />
-                            Vorspeisen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customAppetizers.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {APPETIZERS.map(item => renderMenuItem(item, 'customAppetizers'))}
-                        </div>
-                        {validationErrors.customAppetizers && (
-                          <p className="text-sm text-destructive">{validationErrors.customAppetizers}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'appetizers',
+                        'Vorspeisen',
+                        <Utensils className="w-4 h-4 text-primary" />,
+                        APPETIZERS,
+                        'customAppetizers'
+                      )}
+                      {validationErrors.customAppetizers && (
+                        <p className="text-sm text-destructive">{validationErrors.customAppetizers}</p>
+                      )}
 
                       {/* Main Courses */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <ChefHat className="w-5 h-5 text-primary" />
-                            Hauptspeisen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customMainCourses.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 gap-3">
-                          {MAIN_COURSES.map(item => renderMenuItem(item, 'customMainCourses'))}
-                        </div>
-                        {validationErrors.customMainCourses && (
-                          <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'mainCourses',
+                        'Hauptspeisen',
+                        <ChefHat className="w-4 h-4 text-primary" />,
+                        MAIN_COURSES,
+                        'customMainCourses'
+                      )}
+                      {validationErrors.customMainCourses && (
+                        <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
+                      )}
 
                       {/* Side Dishes */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Utensils className="w-5 h-5 text-primary" />
-                            Beilagen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customSideDishes.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {SIDE_DISHES.map(item => renderMenuItem(item, 'customSideDishes'))}
-                        </div>
-                        {validationErrors.customSideDishes && (
-                          <p className="text-sm text-destructive">{validationErrors.customSideDishes}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'sideDishes',
+                        'Beilagen',
+                        <Utensils className="w-4 h-4 text-primary" />,
+                        SIDE_DISHES,
+                        'customSideDishes',
+                        true
+                      )}
 
                       {/* Desserts */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Sparkles className="w-5 h-5 text-primary" />
-                            Desserts <span className="text-sm font-normal text-muted-foreground">(optional)</span>
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customDesserts.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {DESSERTS.map(item => renderMenuItem(item, 'customDesserts'))}
+                      {renderMenuCategory(
+                        'desserts',
+                        'Desserts',
+                        <Sparkles className="w-4 h-4 text-primary" />,
+                        DESSERTS,
+                        'customDesserts',
+                        true
+                      )}
+
+                      {/* Selection Summary */}
+                      {(formData.customAppetizers.length > 0 || formData.customMainCourses.length > 0) && (
+                        <div className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+                          <p className="text-sm text-center">
+                            <span className="font-medium text-primary">
+                              {formData.customAppetizers.length + formData.customMainCourses.length + formData.customSideDishes.length + formData.customDesserts.length} Gerichte
+                            </span>
+                            <span className="text-muted-foreground"> ausgewählt</span>
+                          </p>
                         </div>
-                      </div>
+                      )}
                     </div>
                   )}
 
