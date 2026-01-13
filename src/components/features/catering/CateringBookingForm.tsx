@@ -594,28 +594,30 @@ const CateringBookingForm = () => {
                       {section.category && (
                         <h5 className="font-medium text-xs text-primary mb-1">{section.category}</h5>
                       )}
-                      <ul className="text-xs space-y-1">
+                      <div className="flex flex-wrap gap-x-1 gap-y-0.5 text-xs">
                         {section.items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="flex items-start gap-1.5">
-                            <span className="text-primary mt-0.5">•</span>
+                          <span key={itemIdx} className="inline-flex items-center gap-1">
                             <span className="font-medium text-foreground">{item.name}</span>
                             {item.highlight && (
-                              <span className={`text-[9px] px-1 py-0.5 rounded-full font-medium shrink-0 ${
+                              <span className={`text-[9px] px-1 py-0.5 rounded-full font-medium ${
                                 item.highlight === 'neu' 
                                   ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' 
                                   : item.highlight === 'upgrade' 
                                     ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
                                     : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
                               }`}>
-                                {item.highlight === 'neu' ? '+ Extra' : item.highlight === 'upgrade' ? '↑ Upgrade' : '★ Premium'}
+                                {item.highlight === 'neu' ? '+' : item.highlight === 'upgrade' ? '↑' : '★'}
                               </span>
                             )}
                             {item.description && (
                               <DishInfoPopover description={item.description} />
                             )}
-                          </li>
+                            {itemIdx < section.items.length - 1 && (
+                              <span className="text-muted-foreground">·</span>
+                            )}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   ))}
                 </div>
