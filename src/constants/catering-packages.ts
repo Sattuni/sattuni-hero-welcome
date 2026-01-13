@@ -48,6 +48,8 @@ export const DESSERTS = [
 export interface PackageDishItem {
   name: string;
   description?: string;
+  /** Highlights differences between packages: 'neu' = new in this tier, 'upgrade' = improved version, 'premium' = exclusive to premium */
+  highlight?: 'neu' | 'upgrade' | 'premium';
 }
 
 // ===== PAKETE/MENÜS =====
@@ -124,11 +126,11 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Fattoush', description: 'Petersiliensalat mit Granatapfel und Cranberries.' },
           { name: 'Hummus', description: 'Cremiger Klassiker aus Kichererbsen und Tahini.' },
           { name: 'Baba Ghanoush', description: 'Auberginencreme mit feiner Rauchnote.' },
-          { name: 'Mini-Fatayer', description: 'Hausgemachte Teigtaschen (Spinat / Käse / Hähnchen / Hackfleisch).' },
-          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung (Kartoffel oder Hackfleisch).' },
-          { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.' },
-          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.' },
-          { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.' },
+          { name: 'Mini-Fatayer', description: 'Hausgemachte Teigtaschen (Spinat / Käse / Hähnchen / Hackfleisch).', highlight: 'upgrade' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung (Kartoffel oder Hackfleisch).', highlight: 'upgrade' },
+          { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.', highlight: 'neu' },
+          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.', highlight: 'neu' },
+          { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.', highlight: 'neu' },
         ],
       },
     ],
@@ -155,7 +157,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.' },
           { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.' },
           { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.' },
-          { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.' },
+          { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.', highlight: 'neu' },
         ],
       },
     ],
@@ -178,16 +180,16 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Baba Ghanoush', description: 'Geröstete Aubergine, mild und aromatisch.' },
           { name: 'Mini-Fatayer', description: 'Gefüllte Teigtaschen in verschiedenen Variationen.' },
           { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung.' },
-          { name: 'Ananas-Gurken-Salat', description: 'Fruchtig-frisch mit Koriander und Limette.' },
-          { name: 'Couscoussalat', description: 'Mit Tomaten, Koriander und feiner Würze.' },
+          { name: 'Ananas-Gurken-Salat', description: 'Fruchtig-frisch mit Koriander und Limette.', highlight: 'neu' },
+          { name: 'Couscoussalat', description: 'Mit Tomaten, Koriander und feiner Würze.', highlight: 'neu' },
         ],
       },
       {
         category: 'Warme Speisen',
         items: [
-          { name: 'Mahashi', description: 'Gefüllte Weinblätter und Zucchini, klassisch gewürzt.' },
-          { name: 'Makloube', description: 'Traditioneller arabischer Gemüse-Reis.' },
-          { name: 'Ofenkartoffeln', description: 'Goldbraun gebacken und aromatisch gewürzt.' },
+          { name: 'Mahashi', description: 'Gefüllte Weinblätter und Zucchini, klassisch gewürzt.', highlight: 'neu' },
+          { name: 'Makloube', description: 'Traditioneller arabischer Gemüse-Reis.', highlight: 'neu' },
+          { name: 'Ofenkartoffeln', description: 'Goldbraun gebacken und aromatisch gewürzt.', highlight: 'neu' },
           { name: 'Couscous mit Ofengemüse', description: 'Herzhaft, warm und ausgewogen.' },
           { name: 'Hähnchenbruststreifen', description: 'Zart gegart und orientalisch gewürzt.' },
           { name: 'Rindfleischstreifen', description: 'Saftig und langsam geschmort.' },
@@ -230,8 +232,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Makloube', description: 'Aromatischer Gemüsereis nach traditioneller Art.' },
           { name: 'Ofenkartoffeln', description: 'Knusprig gebacken.' },
           { name: 'Couscous mit Ofengemüse', description: 'Fein gewürzt und herzhaft.' },
-          { name: 'Ofen-Hähnchenkeulen', description: 'Saftig gebacken mit orientalischen Gewürzen.' },
-          { name: 'Geschmorte Lammschulter', description: 'Zart, intensiv und langsam gegart.' },
+          { name: 'Ofen-Hähnchenkeulen', description: 'Saftig gebacken mit orientalischen Gewürzen.', highlight: 'upgrade' },
+          { name: 'Geschmorte Lammschulter', description: 'Zart, intensiv und langsam gegart.', highlight: 'premium' },
         ],
       },
       {
