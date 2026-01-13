@@ -63,6 +63,8 @@ export interface CateringPackage {
     items: PackageDishItem[];
   }[];
   pricePerPerson: number;
+  /** Optional: Maximum price for packages with variable pricing */
+  pricePerPersonMax?: number;
   minGuests: number;
   includesDessert: boolean;
   popular?: boolean;
@@ -73,19 +75,25 @@ export const CATERING_PACKAGES: CateringPackage[] = [
   {
     id: 'mezze-mix',
     name: 'Mezze Mix',
-    subtitle: 'Orientalisches Fingerfood zum Teilen',
-    description: 'Orientalisches Fingerfood zum Teilen – perfekt für lockere Events und Empfänge.',
+    subtitle: 'Fingerfood für Meetings & Events',
+    description: 'Unsere Fingerfood-Pakete passen sich Budget, Anlass und Gruppengröße an. Ideal für Meetings, Team-Events oder lockere Office-Get-togethers – unkompliziert, abwechslungsreich und voller Geschmack.',
     detailedItems: [
       {
         items: [
-          { name: 'Belegte Brote', description: 'Mit Hummus, Baba Ghanoush, Frischkäse, Avocado & Fisch-Dips' },
-          { name: 'Hausgemachte Fatayer', description: 'Gefüllte Teigtaschen (Käse, Hähnchen, Rind oder Spinat)' },
-          { name: 'Knusprige Kibbeh', description: 'Grießbällchen mit Rind- oder Kartoffelfüllung' },
-          { name: 'Frische Salatauswahl', description: 'Tabouleh, Fattoush & Couscoussalat' },
+          { name: 'Belegte Brote', description: 'Frisch gebackenes Brot, liebevoll belegt mit cremigem Hummus, würzigem Baba Ghanoush, Frischkäse, Avocado oder feinen Fisch-Dips.' },
+          { name: 'Gefüllte Teigtaschen (Fatayer)', description: 'Hausgemachte, goldbraun gebackene Teigtaschen – wahlweise gefüllt mit Käse, Hähnchen, Rindfleisch oder aromatischem Spinat.' },
+          { name: 'Gefüllte Grießbällchen (Kibbeh)', description: 'Knusprige Bulgurbällchen mit herzhafter Rindfleisch- oder zarter Kartoffelfüllung – ein klassischer orientalischer Snack.' },
+          { name: 'Verschiedene Salate', description: 'Frische Auswahl an mediterranen und orientalischen Salaten wie Tabouleh, Fattoush oder Couscous mit Cherry-Tomaten.' },
+          { name: 'Lahmacun', description: 'Dünn gebackener Teigfladen mit fein gewürzter Hackfleischmischung – aromatisch und handlich serviert.' },
+          { name: 'Thymianbrot (Zaatar)', description: 'Fluffiges Fladenbrot mit Olivenöl und orientalischem Thymian – perfekt zum Teilen oder Dippen.' },
+          { name: 'Käsesticks', description: 'Knusprig gebackene Sticks mit zartschmelzendem Käse – beliebt bei jedem Anlass.' },
+          { name: 'Gemüsesticks', description: 'Frisch geschnittenes saisonales Gemüse, ideal als leichter Snack oder in Kombination mit Dips.' },
+          { name: 'Gemüse-Wraps', description: 'Weiche Wraps, gefüllt mit knackigem, mariniertem Gemüse, frischen Kräutern und feiner Sauce – leicht, aromatisch und ideal als vegetarische Fingerfood-Option.' },
         ],
       },
     ],
-    pricePerPerson: 26.75,
+    pricePerPerson: 24.61,
+    pricePerPersonMax: 32.10,
     minGuests: 20,
     includesDessert: false,
   },

@@ -550,9 +550,14 @@ const CateringBookingForm = () => {
           <div className="pt-3 border-t">
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Pro Person</span>
-              <span className="font-semibold text-primary">{formatPrice(pkg.pricePerPerson)}</span>
+              <span className="font-semibold text-primary">
+                {pkg.pricePerPersonMax 
+                  ? `${formatPrice(pkg.pricePerPerson)} – ${formatPrice(pkg.pricePerPersonMax)}`
+                  : formatPrice(pkg.pricePerPerson)
+                }
+              </span>
             </div>
-            {isAvailable && (
+            {isAvailable && !pkg.pricePerPersonMax && (
               <div className="flex justify-between items-center mt-1">
                 <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
                 <span className="font-bold text-lg">{formatPrice(total)}</span>
