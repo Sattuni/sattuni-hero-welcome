@@ -15,7 +15,7 @@ import { getBackendPublicConfig } from "@/config/backend-public.config";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star, ChevronDown, Leaf
+  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -61,7 +61,7 @@ interface FormData {
   time: string;
   guestCount: number;
   // Step 2: Menu Selection
-  menuType: 'package' | 'custom' | '';
+  menuType: 'package' | 'custom' | 'consultation' | '';
   selectedPackage: string;
   customAppetizers: string[];
   customMainCourses: string[];
@@ -218,6 +218,7 @@ const CateringBookingForm = () => {
       errors.menuType = "Bitte wählen Sie eine Menü-Option";
     }
     
+    // Consultation mode doesn't require package/menu selection
     if (formData.menuType === 'package' && !formData.selectedPackage) {
       errors.selectedPackage = "Bitte wählen Sie ein Paket";
     }
@@ -252,6 +253,7 @@ const CateringBookingForm = () => {
     } else {
       let step2Progress = 0;
       if (formData.menuType) step2Progress += 25;
+      if (formData.menuType === 'consultation') step2Progress += 25; // Consultation is complete selection
       if (formData.menuType === 'package' && formData.selectedPackage) step2Progress += 25;
       if (formData.menuType === 'custom') {
         if (formData.customAppetizers.length > 0) step2Progress += 10;
@@ -280,14 +282,15 @@ const CateringBookingForm = () => {
   };
 
   // Handle menu type selection
-  const handleMenuTypeChange = (type: 'package' | 'custom') => {
+  const handleMenuTypeChange = (type: 'package' | 'custom' | 'consultation') => {
     setFormData(prev => ({
       ...prev,
       menuType: type,
-      selectedPackage: type === 'custom' ? '' : prev.selectedPackage,
-      customAppetizers: type === 'package' ? [] : prev.customAppetizers,
-      customMainCourses: type === 'package' ? [] : prev.customMainCourses,
-      customDesserts: type === 'package' ? [] : prev.customDesserts,
+      selectedPackage: type === 'custom' || type === 'consultation' ? '' : prev.selectedPackage,
+      customAppetizers: type === 'package' || type === 'consultation' ? [] : prev.customAppetizers,
+      customMainCourses: type === 'package' || type === 'consultation' ? [] : prev.customMainCourses,
+      customSideDishes: type === 'package' || type === 'consultation' ? [] : prev.customSideDishes,
+      customDesserts: type === 'package' || type === 'consultation' ? [] : prev.customDesserts,
     }));
   };
 
@@ -372,8 +375,14 @@ const CateringBookingForm = () => {
       guestCount: formData.guestCount,
       
       // Menu info
-      menuType: formData.menuType === 'package' ? 'Festes Paket' : 'Individuell zusammengestellt',
-      selectedPackageName: selectedPackage?.name || 'Individuell',
+      menuType: formData.menuType === 'package' 
+        ? 'Festes Paket' 
+        : formData.menuType === 'consultation' 
+          ? 'Beratung gewünscht' 
+          : 'Individuell zusammengestellt',
+      selectedPackageName: formData.menuType === 'consultation' 
+        ? 'Beratung angefragt' 
+        : (selectedPackage?.name || 'Individuell'),
       selectedPackagePrice: selectedPackage ? formatPrice(selectedPackage.pricePerPerson) : 'Auf Anfrage',
       totalPrice: totalWithEquipment ? formatPrice(totalWithEquipment) : (totalPrice ? formatPrice(totalPrice) : 'Auf Anfrage'),
       equipmentCosts: equipmentCosts > 0 ? formatPrice(equipmentCosts) : '-',
@@ -866,11 +875,11 @@ const CateringBookingForm = () => {
               {currentStep === 2 && (
                 <div className="space-y-8 animate-in fade-in slide-in-from-left-5 duration-300">
                   {/* Menu Type Selection */}
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <button
                       type="button"
                       onClick={() => handleMenuTypeChange('package')}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
                         formData.menuType === 'package'
                           ? 'border-primary bg-primary/5'
                           : 'border-muted hover:border-primary/50'
@@ -882,10 +891,10 @@ const CateringBookingForm = () => {
                         }`}>
                           <Utensils className="w-5 h-5" />
                         </div>
-                        <h3 className="font-semibold text-lg">Feste Pakete</h3>
+                        <h3 className="font-semibold text-base">Feste Pakete</h3>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Wähle aus unseren 6 vordefinierten Menüs mit festem Preis
+                        Wähle aus 6 vordefinierten Menüs
                       </p>
                     </button>
 
@@ -893,7 +902,7 @@ const CateringBookingForm = () => {
                       type="button"
                       onClick={() => canUseCustomMenu && handleMenuTypeChange('custom')}
                       disabled={!canUseCustomMenu}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
                         !canUseCustomMenu 
                           ? 'border-muted bg-muted/20 opacity-60 cursor-not-allowed'
                           : formData.menuType === 'custom'
@@ -907,16 +916,47 @@ const CateringBookingForm = () => {
                         }`}>
                           <ChefHat className="w-5 h-5" />
                         </div>
-                        <h3 className="font-semibold text-lg">Individuell</h3>
+                        <h3 className="font-semibold text-base">Individuell</h3>
                         {!canUseCustomMenu && (
-                          <Badge variant="secondary" className="text-xs">Ab {CUSTOM_MENU_LIMITS.minGuests} Pers.</Badge>
+                          <Badge variant="secondary" className="text-xs">Ab {CUSTOM_MENU_LIMITS.minGuests}</Badge>
                         )}
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Stelle dein 3-Gänge-Menü selbst zusammen – Preis auf Anfrage
+                        Stelle dein Menü selbst zusammen
+                      </p>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleMenuTypeChange('consultation')}
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
+                        formData.menuType === 'consultation'
+                          ? 'border-primary bg-primary/5'
+                          : 'border-muted hover:border-primary/50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          formData.menuType === 'consultation' ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                        }`}>
+                          <MessageCircle className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-semibold text-base">Beratung</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Ihr wisst noch nicht genau? Wir beraten euch gerne!
                       </p>
                     </button>
                   </div>
+
+                  {/* Consultation Info */}
+                  {formData.menuType === 'consultation' && (
+                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <p className="text-sm text-muted-foreground text-center">
+                        <strong className="text-foreground">Persönliche Beratung:</strong> Wir rufen euch zurück und besprechen gemeinsam eure Wünsche – völlig unverbindlich.
+                      </p>
+                    </div>
+                  )}
 
                   {validationErrors.menuType && (
                     <p className="text-sm text-destructive text-center">{validationErrors.menuType}</p>
