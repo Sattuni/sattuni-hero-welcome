@@ -11,6 +11,26 @@ interface Review {
 
 const reviews: Review[] = [
   {
+    name: "mrsjennii",
+    company: "Google Bewertung",
+    text: "Wir waren schon mehrfach dort essen und haben auch schon dreimal das Catering nach Hause bestellt jedes Mal einfach nur mega lecker! 😍 Die Qualität und der Geschmack sind wirklich top, und unsere Gäste waren jedes Mal begeistert die haben sich buchstäblich die Finger geleckt! 🤭 Das Team ist super freundlich und zuverlässig. Wir freuen uns jetzt schon aufs nächste Mal und können das Catering wirklich von Herzen weiterempfehlen! 💕✨"
+  },
+  {
+    name: "Sabrina Möllenberg",
+    company: "Google Bewertung",
+    text: "Wir können gar nicht in Worte packen, wie toll alles war! Sattuni hat das Catering für unsere Hochzeit gemacht und es war einfach alles so lecker und perfekt! Wir hatten ein rein vegetarisches Buffet und viele haben vorher \"gezweifelt\", aber alle, wirklich alle waren begeistert! Das Team hat einen weiten Weg auf sich genommen, bei uns in der Küche Sachen noch frisch zubereitet – also wirklich Wahnsinn! Und auch die Kontaktaufnahme, das Probeessen und der Kontakt am Tag selbst war super einfach und es wurde immer auf unsere Wünsche eingegangen! Vielen Dank, dass ihr unseren besonderen Tag durch euer Essen nur besser gemacht habt! 100% weiterzuempfehlen!"
+  },
+  {
+    name: "Katharina K.",
+    company: "Google Bewertung",
+    text: "Danke für das Catering, es war sehr lecker auf jeden Fall für Workshops zu empfehlen. Sehr unkomplizierte Bestellung, pünktliche Lieferung und freundlicher Service."
+  },
+  {
+    name: "Pino T.",
+    company: "Google Bewertung",
+    text: "Wir hatten ein echt super Catering von Sattuni gehabt, ich muss sagen so etwas leckeres hatten wir selten im Büro. Von der Kommunikation bis zur Umsetzung war alles TOP! Wir werden in Zukunft unsere Meetings und Feiern öfters bei euch machen. Echt klasse kann man nur sagen. Macht weiter so! Vielen Dank!!!!"
+  },
+  {
     name: "Linda A.",
     company: "WHU",
     text: "Die Zusammenarbeit ist jedes Mal eine große Freude. Die Kommunikation ist stets unkompliziert, klar und verlässlich. Das Essen ist durchgehend hervorragend und kommt bei allen Teilnehmenden sehr gut an. Besonders schätzen wir die hohe Flexibilität und absolute Zuverlässigkeit – auch bei kurzfristigen Änderungen. Das Team bringt immer tolle Ideen und passende Lösungen ein und ist offen dafür, Neues auszuprobieren. Ein Catering-Partner, auf den man sich jederzeit verlassen kann."
