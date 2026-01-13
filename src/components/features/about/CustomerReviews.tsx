@@ -11,24 +11,9 @@ interface Review {
 
 const reviews: Review[] = [
   {
-    name: "mrsjennii",
-    company: "Google Bewertung",
-    text: "Wir waren schon mehrfach dort essen und haben auch schon dreimal das Catering nach Hause bestellt jedes Mal einfach nur mega lecker! 😍 Die Qualität und der Geschmack sind wirklich top, und unsere Gäste waren jedes Mal begeistert die haben sich buchstäblich die Finger geleckt! 🤭 Das Team ist super freundlich und zuverlässig. Wir freuen uns jetzt schon aufs nächste Mal und können das Catering wirklich von Herzen weiterempfehlen! 💕✨"
-  },
-  {
     name: "Sabrina Möllenberg",
     company: "Google Bewertung",
     text: "Wir können gar nicht in Worte packen, wie toll alles war! Sattuni hat das Catering für unsere Hochzeit gemacht und es war einfach alles so lecker und perfekt! Wir hatten ein rein vegetarisches Buffet und viele haben vorher \"gezweifelt\", aber alle, wirklich alle waren begeistert! Das Team hat einen weiten Weg auf sich genommen, bei uns in der Küche Sachen noch frisch zubereitet – also wirklich Wahnsinn! Und auch die Kontaktaufnahme, das Probeessen und der Kontakt am Tag selbst war super einfach und es wurde immer auf unsere Wünsche eingegangen! Vielen Dank, dass ihr unseren besonderen Tag durch euer Essen nur besser gemacht habt! 100% weiterzuempfehlen!"
-  },
-  {
-    name: "Katharina K.",
-    company: "Google Bewertung",
-    text: "Danke für das Catering, es war sehr lecker auf jeden Fall für Workshops zu empfehlen. Sehr unkomplizierte Bestellung, pünktliche Lieferung und freundlicher Service."
-  },
-  {
-    name: "Pino T.",
-    company: "Google Bewertung",
-    text: "Wir hatten ein echt super Catering von Sattuni gehabt, ich muss sagen so etwas leckeres hatten wir selten im Büro. Von der Kommunikation bis zur Umsetzung war alles TOP! Wir werden in Zukunft unsere Meetings und Feiern öfters bei euch machen. Echt klasse kann man nur sagen. Macht weiter so! Vielen Dank!!!!"
   },
   {
     name: "Linda A.",
@@ -36,9 +21,9 @@ const reviews: Review[] = [
     text: "Die Zusammenarbeit ist jedes Mal eine große Freude. Die Kommunikation ist stets unkompliziert, klar und verlässlich. Das Essen ist durchgehend hervorragend und kommt bei allen Teilnehmenden sehr gut an. Besonders schätzen wir die hohe Flexibilität und absolute Zuverlässigkeit – auch bei kurzfristigen Änderungen. Das Team bringt immer tolle Ideen und passende Lösungen ein und ist offen dafür, Neues auszuprobieren. Ein Catering-Partner, auf den man sich jederzeit verlassen kann."
   },
   {
-    name: "Natalie S.",
-    company: "Ranger",
-    text: "Hamudi hat uns bei unserem letzten Gesundheitstag mit drei leckeren Smoothies und einem orientalischen Catering unterstützt. Schon die Vorbereitung auf den Tag war total angenehm, Hamudi war super freundlich und kundenorientiert und ging auf all unsere Wünsche sofort ein. Am Tag selbst war er zuverlässig, schnell und hat sich um alles gekümmert – wir mussten uns um nichts sorgen. Hamudi hat alles aufgebaut, abgeräumt und währenddessen die Mitarbeitenden hervorragend betreut. Er war auf einer Wellenlänge mit unseren Kollegen und hat eine tolle Atmosphäre geschaffen. Ich kann die Zusammenarbeit nur wärmstens empfehlen."
+    name: "Pino T.",
+    company: "Google Bewertung",
+    text: "Wir hatten ein echt super Catering von Sattuni gehabt, ich muss sagen so etwas leckeres hatten wir selten im Büro. Von der Kommunikation bis zur Umsetzung war alles TOP! Wir werden in Zukunft unsere Meetings und Feiern öfters bei euch machen. Echt klasse kann man nur sagen. Macht weiter so! Vielen Dank!!!!"
   },
   {
     name: "Sylvia G.",
@@ -46,9 +31,29 @@ const reviews: Review[] = [
     text: "Die Zusammenarbeit mit Hamudi und seiner Crew im Rahmen unseres Team-Events war ein echtes Highlight! Das Essen war hervorragend - es blieben keine Wünsche offen und es wurde an jedes Detail gedacht. Der Service war herzlich, zuvorkommend und durchweg professionell. Schon in der Vorbesprechung hat Hamudi viele kreative Ideen eingebracht, die weit über klassisches Catering hinausgingen - und wir wurden nicht enttäuscht. Im Gegenteil: Wir haben sehr begeistertes Feedback vom gesamten Team erhalten! Hamudi steht für Qualität, Begeisterung und die berühmte Extrameile - absolut empfehlenswert und jederzeit wieder!"
   },
   {
+    name: "mrsjennii",
+    company: "Google Bewertung",
+    text: "Wir waren schon mehrfach dort essen und haben auch schon dreimal das Catering nach Hause bestellt jedes Mal einfach nur mega lecker! 😍 Die Qualität und der Geschmack sind wirklich top, und unsere Gäste waren jedes Mal begeistert die haben sich buchstäblich die Finger geleckt! 🤭 Das Team ist super freundlich und zuverlässig. Wir freuen uns jetzt schon aufs nächste Mal und können das Catering wirklich von Herzen weiterempfehlen! 💕✨"
+  },
+  {
+    name: "Natalie S.",
+    company: "Ranger",
+    text: "Hamudi hat uns bei unserem letzten Gesundheitstag mit drei leckeren Smoothies und einem orientalischen Catering unterstützt. Schon die Vorbereitung auf den Tag war total angenehm, Hamudi war super freundlich und kundenorientiert und ging auf all unsere Wünsche sofort ein. Am Tag selbst war er zuverlässig, schnell und hat sich um alles gekümmert – wir mussten uns um nichts sorgen. Hamudi hat alles aufgebaut, abgeräumt und währenddessen die Mitarbeitenden hervorragend betreut. Er war auf einer Wellenlänge mit unseren Kollegen und hat eine tolle Atmosphäre geschaffen. Ich kann die Zusammenarbeit nur wärmstens empfehlen."
+  },
+  {
+    name: "Katharina K.",
+    company: "Google Bewertung",
+    text: "Danke für das Catering, es war sehr lecker auf jeden Fall für Workshops zu empfehlen. Sehr unkomplizierte Bestellung, pünktliche Lieferung und freundlicher Service."
+  },
+  {
     name: "Valerie T.",
     company: "BCG",
     text: "Wir haben schon mehrfach Essen für unsere Events bei Hamudi bestellt und jedes Mal war der Service SUPER. Von der Planung bis zur Anlieferung verlief alles reibungslos. Hamudi ist unglaublich zuverlässig und als uns bei einem Event der Barkeeper kurzfristig abgesprungen ist, hat sein Team spontan ausgeholfen. Das Essen ist großartig und die Kommunikation immer schnell, unkompliziert und sehr freundlich. Vielen Dank an Hammudi und sein Team! Ich kann ihn nur wärmstens empfehlen!"
+  },
+  {
+    name: "Silke E.",
+    company: "Leonardo",
+    text: "Unsere Firma hat nun schon mehrmals bei Hamudi Essen für Gäste unseres Unternehmens bestellt. Die Anlieferung erfolgte immer pünktlich und das Essen ist immer frisch und sehr appetitlich angerichtet. Sowohl die Gäste, als auch unsere eigenen Mitarbeiter(inklusive mir) sind begeistert. Es macht Spaß mit ihm zusammenzuarbeiten und ich empfehle ihn zu 100% weiter. Wer auf gutes Essen UND guten, freundlichen, zuverlässigen Service Wert legt, ist hier richtig."
   },
   {
     name: "Elham N.",
@@ -59,11 +64,6 @@ const reviews: Review[] = [
     name: "Silke B.",
     company: "BCG",
     text: "Sehr professionell und absolut zuverlässig. Die Gerichte sind köstlich und qualitativ sehr hochwertig. Die Zusammenarbeit ist äußerst angenehm"
-  },
-  {
-    name: "Silke E.",
-    company: "Leonardo",
-    text: "Unsere Firma hat nun schon mehrmals bei Hamudi Essen für Gäste unseres Unternehmens bestellt. Die Anlieferung erfolgte immer pünktlich und das Essen ist immer frisch und sehr appetitlich angerichtet. Sowohl die Gäste, als auch unsere eigenen Mitarbeiter(inklusive mir) sind begeistert. Es macht Spaß mit ihm zusammenzuarbeiten und ich empfehle ihn zu 100% weiter. Wer auf gutes Essen UND guten, freundlichen, zuverlässigen Service Wert legt, ist hier richtig."
   }
 ];
 
