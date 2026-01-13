@@ -34,6 +34,35 @@ import {
   getDessertById,
   type CateringPackage
 } from '@/constants/catering-packages';
+
+// Dish Info Popover - supports both click and hover
+const DishInfoPopover = ({ description }: { description: string }) => {
+  const [open, setOpen] = React.useState(false);
+  
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button 
+          type="button" 
+          className="shrink-0 mt-0.5"
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
+        >
+          <Info className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent 
+        side="top" 
+        className="max-w-xs p-3 z-50 bg-popover"
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
+        <p className="text-sm">{description}</p>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
 const MIN_GUESTS = 20;
 
 // Event types for catering
@@ -557,16 +586,7 @@ const CateringBookingForm = () => {
                         <span className="text-primary mt-0.5">•</span>
                         <span className="font-medium text-foreground">{item.name}</span>
                         {item.description && (
-                          <Popover>
-                            <PopoverTrigger asChild>
-                              <button type="button" className="shrink-0 mt-0.5">
-                                <Info className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
-                              </button>
-                            </PopoverTrigger>
-                            <PopoverContent side="top" className="max-w-xs p-3">
-                              <p className="text-sm">{item.description}</p>
-                            </PopoverContent>
-                          </Popover>
+                          <DishInfoPopover description={item.description} />
                         )}
                       </li>
                     ))}
