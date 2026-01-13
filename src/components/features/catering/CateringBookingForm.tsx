@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useToast } from "@/hooks/use-toast";
 import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
@@ -15,7 +16,7 @@ import { getBackendPublicConfig } from "@/config/backend-public.config";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
-  ChefHat, Sparkles, Star, ChevronDown, Leaf
+  ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle, Info
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
 import { 
@@ -33,6 +34,35 @@ import {
   getDessertById,
   type CateringPackage
 } from '@/constants/catering-packages';
+
+// Dish Info Popover - supports both click and hover
+const DishInfoPopover = ({ description }: { description: string }) => {
+  const [open, setOpen] = React.useState(false);
+  
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button 
+          type="button" 
+          className="shrink-0 mt-0.5"
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
+        >
+          <Info className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent 
+        side="top" 
+        className="max-w-xs p-3 z-50 bg-popover"
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
+        <p className="text-sm">{description}</p>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
 const MIN_GUESTS = 20;
 
 // Event types for catering
@@ -61,7 +91,7 @@ interface FormData {
   time: string;
   guestCount: number;
   // Step 2: Menu Selection
-  menuType: 'package' | 'custom' | '';
+  menuType: 'package' | 'custom' | 'consultation' | '';
   selectedPackage: string;
   customAppetizers: string[];
   customMainCourses: string[];
@@ -113,7 +143,8 @@ const CateringBookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(1);
-  const [expandedPackages, setExpandedPackages] = useState<Record<string, boolean>>({});
+  const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>('appetizers');
   const { toast } = useToast();
 
   // Enhanced form tracking
@@ -218,6 +249,7 @@ const CateringBookingForm = () => {
       errors.menuType = "Bitte wählen Sie eine Menü-Option";
     }
     
+    // Consultation mode doesn't require package/menu selection
     if (formData.menuType === 'package' && !formData.selectedPackage) {
       errors.selectedPackage = "Bitte wählen Sie ein Paket";
     }
@@ -252,6 +284,7 @@ const CateringBookingForm = () => {
     } else {
       let step2Progress = 0;
       if (formData.menuType) step2Progress += 25;
+      if (formData.menuType === 'consultation') step2Progress += 25; // Consultation is complete selection
       if (formData.menuType === 'package' && formData.selectedPackage) step2Progress += 25;
       if (formData.menuType === 'custom') {
         if (formData.customAppetizers.length > 0) step2Progress += 10;
@@ -280,14 +313,15 @@ const CateringBookingForm = () => {
   };
 
   // Handle menu type selection
-  const handleMenuTypeChange = (type: 'package' | 'custom') => {
+  const handleMenuTypeChange = (type: 'package' | 'custom' | 'consultation') => {
     setFormData(prev => ({
       ...prev,
       menuType: type,
-      selectedPackage: type === 'custom' ? '' : prev.selectedPackage,
-      customAppetizers: type === 'package' ? [] : prev.customAppetizers,
-      customMainCourses: type === 'package' ? [] : prev.customMainCourses,
-      customDesserts: type === 'package' ? [] : prev.customDesserts,
+      selectedPackage: type === 'custom' || type === 'consultation' ? '' : prev.selectedPackage,
+      customAppetizers: type === 'package' || type === 'consultation' ? [] : prev.customAppetizers,
+      customMainCourses: type === 'package' || type === 'consultation' ? [] : prev.customMainCourses,
+      customSideDishes: type === 'package' || type === 'consultation' ? [] : prev.customSideDishes,
+      customDesserts: type === 'package' || type === 'consultation' ? [] : prev.customDesserts,
     }));
   };
 
@@ -298,7 +332,7 @@ const CateringBookingForm = () => {
       selectedPackage: packageId,
     }));
     // Auto-expand the selected package details
-    setExpandedPackages(prev => ({ ...prev, [packageId]: true }));
+    setExpandedPackage(packageId);
     if (validationErrors.selectedPackage) {
       setValidationErrors(prev => {
         const newErrors = { ...prev };
@@ -372,8 +406,14 @@ const CateringBookingForm = () => {
       guestCount: formData.guestCount,
       
       // Menu info
-      menuType: formData.menuType === 'package' ? 'Festes Paket' : 'Individuell zusammengestellt',
-      selectedPackageName: selectedPackage?.name || 'Individuell',
+      menuType: formData.menuType === 'package' 
+        ? 'Festes Paket' 
+        : formData.menuType === 'consultation' 
+          ? 'Beratung gewünscht' 
+          : 'Individuell zusammengestellt',
+      selectedPackageName: formData.menuType === 'consultation' 
+        ? 'Beratung angefragt' 
+        : (selectedPackage?.name || 'Individuell'),
       selectedPackagePrice: selectedPackage ? formatPrice(selectedPackage.pricePerPerson) : 'Auf Anfrage',
       totalPrice: totalWithEquipment ? formatPrice(totalWithEquipment) : (totalPrice ? formatPrice(totalPrice) : 'Auf Anfrage'),
       equipmentCosts: equipmentCosts > 0 ? formatPrice(equipmentCosts) : '-',
@@ -438,152 +478,236 @@ const CateringBookingForm = () => {
     }
   };
 
-  // Render package card with collapsible details
+  // Render compact accordion package card
   const renderPackageCard = (pkg: CateringPackage) => {
     const isSelected = formData.selectedPackage === pkg.id;
     const total = calculateTotalPrice(pkg.pricePerPerson, formData.guestCount);
     const isAvailable = formData.guestCount >= pkg.minGuests;
-    const isOpen = expandedPackages[pkg.id] || false;
-    const setIsOpen = (open: boolean) => setExpandedPackages(prev => ({ ...prev, [pkg.id]: open }));
+    const isExpanded = expandedPackage === pkg.id;
+
+    // Price display
+    const priceDisplay = pkg.pricePerPersonMax 
+      ? `${formatPrice(pkg.pricePerPerson)} – ${formatPrice(pkg.pricePerPersonMax)}`
+      : formatPrice(pkg.pricePerPerson);
 
     return (
       <div
         key={pkg.id}
-        className={`relative rounded-xl border-2 transition-all ${
+        className={`relative rounded-lg border-2 transition-all overflow-hidden ${
           !isAvailable 
             ? 'border-muted bg-muted/20 opacity-60'
             : isSelected 
               ? 'border-primary bg-primary/5 shadow-md' 
-              : 'border-muted hover:border-primary/50 hover:shadow-lg'
+              : 'border-muted hover:border-primary/50'
         }`}
       >
-        {/* Header - Clickable for selection */}
+        {/* Compact Header Row - Always visible */}
         <div
-          onClick={() => isAvailable && handlePackageSelect(pkg.id)}
-          className={`p-4 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
+          onClick={() => {
+            if (isAvailable) {
+              handlePackageSelect(pkg.id);
+              // Toggle expansion
+              setExpandedPackage(isExpanded ? null : pkg.id);
+            }
+          }}
+          className={`flex items-center justify-between p-3 gap-3 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
         >
-          {pkg.popular && (
-            <Badge className="absolute -top-2 right-4 bg-primary">
-              <Star className="w-3 h-3 mr-1" />
-              Beliebt
-            </Badge>
-          )}
-          
-          {pkg.isVegetarian && (
-            <Badge variant="secondary" className="absolute -top-2 left-4">
-              <Leaf className="w-3 h-3 mr-1" />
-              Vegetarisch
-            </Badge>
-          )}
-          
-          <div className="flex items-start justify-between mb-2">
-            <div className="flex-1 pr-4">
-              <h4 className="font-semibold text-base leading-tight">{pkg.name}</h4>
-              <p className="text-sm text-primary font-medium mt-1">{pkg.subtitle}</p>
-            </div>
-            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+          {/* Left: Selection circle + Name + Badges */}
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
               isSelected ? 'border-primary bg-primary' : 'border-muted'
             }`}>
-              {isSelected && <Check className="w-4 h-4 text-primary-foreground" />}
+              {isSelected && <Check className="w-3 h-3 text-primary-foreground" />}
+            </div>
+            <div className="flex items-center gap-2 min-w-0 flex-wrap">
+              <span className="font-semibold text-sm truncate">{pkg.name}</span>
+              {pkg.popular && (
+                <Badge className="bg-primary text-[10px] px-1.5 py-0 h-5">
+                  <Star className="w-2.5 h-2.5 mr-0.5" />
+                  Beliebt
+                </Badge>
+              )}
+              {pkg.isVegetarian && (
+                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-5">
+                  <Leaf className="w-2.5 h-2.5 mr-0.5" />
+                  Vegan
+                </Badge>
+              )}
             </div>
           </div>
-          
-          <p className="text-sm text-muted-foreground mb-3">{pkg.description}</p>
-          
-          <div className="flex flex-wrap gap-2 mb-3">
-            <Badge variant="outline" className="text-xs">
-              ab {pkg.minGuests} Personen
-            </Badge>
-            {pkg.includesDessert && (
-              <Badge variant="outline" className="text-xs">
-                <Sparkles className="w-3 h-3 mr-1" />
-                inkl. Dessert
-              </Badge>
-            )}
-          </div>
-          
-          {!isAvailable && (
-            <p className="text-xs text-destructive mb-2">
-              Mindestens {pkg.minGuests} Personen erforderlich
-            </p>
-          )}
-          
-          <div className="pt-3 border-t">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground">Pro Person</span>
-              <span className="font-semibold text-primary">{formatPrice(pkg.pricePerPerson)}</span>
-            </div>
-            {isAvailable && (
-              <div className="flex justify-between items-center mt-1">
-                <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
-                <span className="font-bold text-lg">{formatPrice(total)}</span>
-              </div>
-            )}
+
+          {/* Right: Price + Min Guests + Chevron */}
+          <div className="flex items-center gap-3 flex-shrink-0 text-sm">
+            <span className="font-semibold text-primary whitespace-nowrap">{priceDisplay}</span>
+            <span className="text-muted-foreground text-xs whitespace-nowrap hidden sm:inline">ab {pkg.minGuests}</span>
+            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
           </div>
         </div>
 
-        {/* Collapsible Details */}
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <CollapsibleTrigger asChild>
-            <button
-              type="button"
-              onClick={(e) => e.stopPropagation()}
-              className="w-full px-4 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-            >
-              <span>{isOpen ? 'Speisen ausblenden' : 'Speisen anzeigen'}</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-            </button>
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="px-4 pb-4 pt-2 space-y-3 bg-muted/30">
-              {pkg.detailedItems.map((section, idx) => (
-                <div key={idx}>
-                  {section.category && (
-                    <h5 className="font-medium text-sm text-primary mb-1">{section.category}</h5>
-                  )}
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {section.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+        {/* Expanded Details - Only for expanded package */}
+        {isExpanded && (
+          <div className="border-t animate-in fade-in slide-in-from-top-2 duration-200">
+            {/* Description + Badges Row */}
+            <div className="px-3 py-3 space-y-2 bg-muted/20">
+              <p className="text-sm text-muted-foreground">{pkg.description}</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="text-xs">
+                  ab {pkg.minGuests} Personen
+                </Badge>
+                {pkg.includesDessert && (
+                  <Badge variant="outline" className="text-xs">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    inkl. Dessert
+                  </Badge>
+                )}
+                {!isAvailable && (
+                  <Badge variant="destructive" className="text-xs">
+                    Mindestens {pkg.minGuests} Pers. erforderlich
+                  </Badge>
+                )}
+              </div>
+              
+              {/* Price Summary */}
+              {isAvailable && !pkg.pricePerPersonMax && (
+                <div className="flex justify-between items-center pt-2 border-t border-muted">
+                  <span className="text-sm text-muted-foreground">Gesamt ({formData.guestCount} Pers.)</span>
+                  <span className="font-bold text-lg text-primary">{formatPrice(total)}</span>
                 </div>
-              ))}
+              )}
             </div>
-          </CollapsibleContent>
-        </Collapsible>
+
+            {/* Collapsible Dishes List */}
+            <Collapsible>
+              <CollapsibleTrigger asChild>
+                <button
+                  type="button"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full px-3 py-2 border-t flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  <span>Speisen anzeigen</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="px-3 pb-3 pt-2 space-y-2 bg-muted/30">
+                  {pkg.detailedItems.map((section, idx) => (
+                    <div key={idx}>
+                      {section.category && (
+                        <h5 className="font-medium text-xs text-primary mb-1">{section.category}</h5>
+                      )}
+                      <div className="flex flex-wrap gap-x-1 gap-y-0.5 text-xs">
+                        {section.items.map((item, itemIdx) => (
+                          <span key={itemIdx} className="inline-flex items-center gap-1">
+                            <span className="font-medium text-foreground">{item.name}</span>
+                            {item.highlight && (
+                              <span className={`text-[9px] px-1 py-0.5 rounded-full font-medium ${
+                                item.highlight === 'neu' 
+                                  ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' 
+                                  : item.highlight === 'upgrade' 
+                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                    : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+                              }`}>
+                                {item.highlight === 'neu' ? '+' : item.highlight === 'upgrade' ? '↑' : '★'}
+                              </span>
+                            )}
+                            {item.description && (
+                              <DishInfoPopover description={item.description} />
+                            )}
+                            {itemIdx < section.items.length - 1 && (
+                              <span className="text-muted-foreground">·</span>
+                            )}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+        )}
       </div>
     );
   };
 
-  // Render custom menu item
-  const renderMenuItem = (
+  // Render compact menu chip
+  const renderMenuChip = (
     item: { id: string; name: string; description: string },
     category: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts'
   ) => {
     const isSelected = formData[category].includes(item.id);
 
     return (
-      <label
+      <button
         key={item.id}
-        className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+        type="button"
+        onClick={() => handleCustomItemToggle(category, item.id)}
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all ${
           isSelected 
-            ? 'border-primary bg-primary/5' 
-            : 'border-muted hover:border-primary/50'
+            ? 'bg-primary text-primary-foreground border-primary shadow-sm' 
+            : 'bg-background border-muted hover:border-primary/50 hover:bg-muted/50'
         }`}
       >
-        <Checkbox
-          checked={isSelected}
-          onCheckedChange={() => handleCustomItemToggle(category, item.id)}
-          className="mt-0.5"
-        />
-        <div>
-          <span className="font-medium">{item.name}</span>
-          <p className="text-xs text-muted-foreground">{item.description}</p>
-        </div>
-      </label>
+        {isSelected && <Check className="w-3 h-3" />}
+        <span className="font-medium">{item.name}</span>
+        <span onClick={(e) => e.stopPropagation()}>
+          <DishInfoPopover description={item.description} />
+        </span>
+      </button>
+    );
+  };
+
+  // Render collapsible menu category
+  const renderMenuCategory = (
+    categoryKey: string,
+    categoryName: string,
+    icon: React.ReactNode,
+    items: readonly { readonly id: string; readonly name: string; readonly description: string }[],
+    formCategory: 'customAppetizers' | 'customMainCourses' | 'customSideDishes' | 'customDesserts',
+    isOptional?: boolean
+  ) => {
+    const selectedCount = formData[formCategory].length;
+    const isExpanded = expandedCategory === categoryKey;
+
+    return (
+      <Collapsible 
+        open={isExpanded} 
+        onOpenChange={() => setExpandedCategory(isExpanded ? null : categoryKey)}
+      >
+        <CollapsibleTrigger asChild>
+          <button
+            type="button"
+            className={`w-full flex items-center justify-between p-3 rounded-lg border transition-all ${
+              isExpanded 
+                ? 'border-primary bg-primary/5' 
+                : selectedCount > 0 
+                  ? 'border-primary/50 bg-primary/5' 
+                  : 'border-muted hover:border-primary/50'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              {icon}
+              <span className="font-semibold">{categoryName}</span>
+              {isOptional && (
+                <span className="text-xs font-normal text-muted-foreground">(optional)</span>
+              )}
+            </span>
+            <span className="flex items-center gap-2">
+              {selectedCount > 0 && (
+                <Badge variant="secondary" className="text-xs">
+                  {selectedCount} ausgewählt
+                </Badge>
+              )}
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            </span>
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="pt-3 pb-1">
+          <div className="flex flex-wrap gap-2">
+            {items.map(item => renderMenuChip(item, formCategory))}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
     );
   };
 
@@ -866,11 +990,11 @@ const CateringBookingForm = () => {
               {currentStep === 2 && (
                 <div className="space-y-8 animate-in fade-in slide-in-from-left-5 duration-300">
                   {/* Menu Type Selection */}
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <button
                       type="button"
                       onClick={() => handleMenuTypeChange('package')}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
                         formData.menuType === 'package'
                           ? 'border-primary bg-primary/5'
                           : 'border-muted hover:border-primary/50'
@@ -882,10 +1006,10 @@ const CateringBookingForm = () => {
                         }`}>
                           <Utensils className="w-5 h-5" />
                         </div>
-                        <h3 className="font-semibold text-lg">Feste Pakete</h3>
+                        <h3 className="font-semibold text-base">Feste Pakete</h3>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Wähle aus unseren 6 vordefinierten Menüs mit festem Preis
+                        Wähle aus 6 vordefinierten Menüs
                       </p>
                     </button>
 
@@ -893,7 +1017,7 @@ const CateringBookingForm = () => {
                       type="button"
                       onClick={() => canUseCustomMenu && handleMenuTypeChange('custom')}
                       disabled={!canUseCustomMenu}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
                         !canUseCustomMenu 
                           ? 'border-muted bg-muted/20 opacity-60 cursor-not-allowed'
                           : formData.menuType === 'custom'
@@ -907,16 +1031,47 @@ const CateringBookingForm = () => {
                         }`}>
                           <ChefHat className="w-5 h-5" />
                         </div>
-                        <h3 className="font-semibold text-lg">Individuell</h3>
+                        <h3 className="font-semibold text-base">Individuell</h3>
                         {!canUseCustomMenu && (
-                          <Badge variant="secondary" className="text-xs">Ab {CUSTOM_MENU_LIMITS.minGuests} Pers.</Badge>
+                          <Badge variant="secondary" className="text-xs">Ab {CUSTOM_MENU_LIMITS.minGuests}</Badge>
                         )}
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Stelle dein 3-Gänge-Menü selbst zusammen – Preis auf Anfrage
+                        Stelle dein Menü selbst zusammen
+                      </p>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleMenuTypeChange('consultation')}
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${
+                        formData.menuType === 'consultation'
+                          ? 'border-primary bg-primary/5'
+                          : 'border-muted hover:border-primary/50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          formData.menuType === 'consultation' ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                        }`}>
+                          <MessageCircle className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-semibold text-base">Beratung</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Ihr wisst noch nicht genau? Wir beraten euch gerne!
                       </p>
                     </button>
                   </div>
+
+                  {/* Consultation Info */}
+                  {formData.menuType === 'consultation' && (
+                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <p className="text-sm text-muted-foreground text-center">
+                        <strong className="text-foreground">Persönliche Beratung:</strong> Wir rufen euch zurück und besprechen gemeinsam eure Wünsche – völlig unverbindlich.
+                      </p>
+                    </div>
+                  )}
 
                   {validationErrors.menuType && (
                     <p className="text-sm text-destructive text-center">{validationErrors.menuType}</p>
@@ -929,7 +1084,7 @@ const CateringBookingForm = () => {
                         <Utensils className="w-5 h-5 text-primary" />
                         Wähle dein Paket
                       </h3>
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
                         {CATERING_PACKAGES.map(renderPackageCard)}
                       </div>
                       {validationErrors.selectedPackage && (
@@ -938,87 +1093,70 @@ const CateringBookingForm = () => {
                     </div>
                   )}
 
-                  {/* Custom Menu Selection */}
+                  {/* Custom Menu Selection - Compact Accordion + Chips Layout */}
                   {formData.menuType === 'custom' && (
-                    <div className="space-y-8">
-                      <div className="p-4 bg-muted/30 rounded-lg border">
+                    <div className="space-y-4">
+                      <div className="p-3 bg-muted/30 rounded-lg border">
                         <p className="text-sm text-muted-foreground text-center">
                           <strong>Preis auf Anfrage:</strong> Wir erstellen dir ein individuelles Angebot basierend auf deiner Auswahl.
                         </p>
                       </div>
 
                       {/* Appetizers */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Utensils className="w-5 h-5 text-primary" />
-                            Vorspeisen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customAppetizers.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {APPETIZERS.map(item => renderMenuItem(item, 'customAppetizers'))}
-                        </div>
-                        {validationErrors.customAppetizers && (
-                          <p className="text-sm text-destructive">{validationErrors.customAppetizers}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'appetizers',
+                        'Vorspeisen',
+                        <Utensils className="w-4 h-4 text-primary" />,
+                        APPETIZERS,
+                        'customAppetizers'
+                      )}
+                      {validationErrors.customAppetizers && (
+                        <p className="text-sm text-destructive">{validationErrors.customAppetizers}</p>
+                      )}
 
                       {/* Main Courses */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <ChefHat className="w-5 h-5 text-primary" />
-                            Hauptspeisen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customMainCourses.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 gap-3">
-                          {MAIN_COURSES.map(item => renderMenuItem(item, 'customMainCourses'))}
-                        </div>
-                        {validationErrors.customMainCourses && (
-                          <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'mainCourses',
+                        'Hauptspeisen',
+                        <ChefHat className="w-4 h-4 text-primary" />,
+                        MAIN_COURSES,
+                        'customMainCourses'
+                      )}
+                      {validationErrors.customMainCourses && (
+                        <p className="text-sm text-destructive">{validationErrors.customMainCourses}</p>
+                      )}
 
                       {/* Side Dishes */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Utensils className="w-5 h-5 text-primary" />
-                            Beilagen
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customSideDishes.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {SIDE_DISHES.map(item => renderMenuItem(item, 'customSideDishes'))}
-                        </div>
-                        {validationErrors.customSideDishes && (
-                          <p className="text-sm text-destructive">{validationErrors.customSideDishes}</p>
-                        )}
-                      </div>
+                      {renderMenuCategory(
+                        'sideDishes',
+                        'Beilagen',
+                        <Utensils className="w-4 h-4 text-primary" />,
+                        SIDE_DISHES,
+                        'customSideDishes',
+                        true
+                      )}
 
                       {/* Desserts */}
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-lg flex items-center justify-between">
-                          <span className="flex items-center gap-2">
-                            <Sparkles className="w-5 h-5 text-primary" />
-                            Desserts <span className="text-sm font-normal text-muted-foreground">(optional)</span>
-                          </span>
-                          <Badge variant="outline">
-                            {formData.customDesserts.length} ausgewählt
-                          </Badge>
-                        </h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                          {DESSERTS.map(item => renderMenuItem(item, 'customDesserts'))}
+                      {renderMenuCategory(
+                        'desserts',
+                        'Desserts',
+                        <Sparkles className="w-4 h-4 text-primary" />,
+                        DESSERTS,
+                        'customDesserts',
+                        true
+                      )}
+
+                      {/* Selection Summary */}
+                      {(formData.customAppetizers.length > 0 || formData.customMainCourses.length > 0) && (
+                        <div className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+                          <p className="text-sm text-center">
+                            <span className="font-medium text-primary">
+                              {formData.customAppetizers.length + formData.customMainCourses.length + formData.customSideDishes.length + formData.customDesserts.length} Gerichte
+                            </span>
+                            <span className="text-muted-foreground"> ausgewählt</span>
+                          </p>
                         </div>
-                      </div>
+                      )}
                     </div>
                   )}
 

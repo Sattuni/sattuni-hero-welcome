@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
+import { z } from "npm:zod@3.23.8";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -11,38 +12,102 @@ const corsHeaders = {
 
 const ADMIN_EMAIL = "info@sattuni.de";
 
-interface CateringInquiry {
+// Rate limiting using in-memory store (resets on function cold start)
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 5; // Max requests per window
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour window
+
+function checkRateLimit(identifier: string): { allowed: boolean; remaining: number } {
+  const now = Date.now();
+  const record = rateLimitStore.get(identifier);
+  
+  if (!record || now > record.resetAt) {
+    rateLimitStore.set(identifier, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, remaining: RATE_LIMIT_MAX - 1 };
+  }
+  
+  if (record.count >= RATE_LIMIT_MAX) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  record.count++;
+  return { allowed: true, remaining: RATE_LIMIT_MAX - record.count };
+}
+
+// Sanitize string input to prevent HTML/script injection
+function sanitizeHtml(input: string): string {
+  if (!input) return '';
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;');
+}
+
+// Zod schema for input validation
+const CateringInquirySchema = z.object({
   // Basic info
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  address: string;
-  eventType: string;
-  date: string;
-  time: string;
-  guestCount: number;
+  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  company: z.string().max(200, "Company name must be less than 200 characters").optional().default(''),
+  email: z.string().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string()
+    .min(10, "Phone number must be at least 10 digits")
+    .max(20, "Phone number must be less than 20 characters")
+    .regex(/^[+\d\s\-()]+$/, "Phone number contains invalid characters"),
+  address: z.string().min(5, "Address must be at least 5 characters").max(500, "Address must be less than 500 characters"),
+  eventType: z.string().min(1, "Event type is required").max(100, "Event type must be less than 100 characters"),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format"),
+  time: z.string().max(20, "Time must be less than 20 characters").optional().default(''),
+  guestCount: z.number().int().min(1, "Guest count must be at least 1").max(10000, "Guest count must be less than 10000"),
   
   // Menu info
-  menuType: string;
-  selectedPackageName: string;
-  selectedPackagePrice: string;
-  totalPrice: string;
-  equipmentCosts: string;
+  menuType: z.string().max(100, "Menu type must be less than 100 characters").optional().default(''),
+  selectedPackageName: z.string().max(200, "Package name must be less than 200 characters").optional().default(''),
+  selectedPackagePrice: z.string().max(50, "Package price must be less than 50 characters").optional().default(''),
+  totalPrice: z.string().max(50, "Total price must be less than 50 characters").optional().default(''),
+  equipmentCosts: z.string().max(50, "Equipment costs must be less than 50 characters").optional().default(''),
   
   // Custom menu items
-  customAppetizers: string;
-  customMainCourses: string;
-  customSideDishes: string;
-  customDesserts: string;
+  customAppetizers: z.string().max(1000, "Custom appetizers must be less than 1000 characters").optional().default(''),
+  customMainCourses: z.string().max(1000, "Custom main courses must be less than 1000 characters").optional().default(''),
+  customSideDishes: z.string().max(1000, "Custom side dishes must be less than 1000 characters").optional().default(''),
+  customDesserts: z.string().max(1000, "Custom desserts must be less than 1000 characters").optional().default(''),
   
   // Equipment
-  equipmentChafings: boolean;
-  equipmentBesteck: boolean;
-  equipmentTeller: boolean;
-  equipmentSchalen: boolean;
+  equipmentChafings: z.boolean().optional().default(false),
+  equipmentBesteck: z.boolean().optional().default(false),
+  equipmentTeller: z.boolean().optional().default(false),
+  equipmentSchalen: z.boolean().optional().default(false),
   
-  comment: string;
+  comment: z.string().max(2000, "Comment must be less than 2000 characters").optional().default(''),
+});
+
+type CateringInquiry = z.infer<typeof CateringInquirySchema>;
+
+// Sanitize all string fields in the data object
+function sanitizeInquiryData(data: CateringInquiry): CateringInquiry {
+  return {
+    ...data,
+    name: sanitizeHtml(data.name),
+    company: sanitizeHtml(data.company || ''),
+    email: data.email, // Email is validated, no need to sanitize
+    phone: sanitizeHtml(data.phone),
+    address: sanitizeHtml(data.address),
+    eventType: sanitizeHtml(data.eventType),
+    time: sanitizeHtml(data.time || ''),
+    menuType: sanitizeHtml(data.menuType || ''),
+    selectedPackageName: sanitizeHtml(data.selectedPackageName || ''),
+    selectedPackagePrice: sanitizeHtml(data.selectedPackagePrice || ''),
+    totalPrice: sanitizeHtml(data.totalPrice || ''),
+    equipmentCosts: sanitizeHtml(data.equipmentCosts || ''),
+    customAppetizers: sanitizeHtml(data.customAppetizers || ''),
+    customMainCourses: sanitizeHtml(data.customMainCourses || ''),
+    customSideDishes: sanitizeHtml(data.customSideDishes || ''),
+    customDesserts: sanitizeHtml(data.customDesserts || ''),
+    comment: sanitizeHtml(data.comment || ''),
+  };
 }
 
 // Format date from ISO to German format
@@ -295,7 +360,63 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const data: CateringInquiry = await req.json();
+    // Get client identifier for rate limiting (IP or fallback)
+    const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
+                     req.headers.get("x-real-ip") || 
+                     "unknown";
+    
+    // Check rate limit
+    const rateLimit = checkRateLimit(clientIp);
+    if (!rateLimit.allowed) {
+      console.log(`Rate limit exceeded for: ${clientIp}`);
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please try again later." }),
+        {
+          status: 429,
+          headers: { 
+            "Content-Type": "application/json",
+            "Retry-After": "3600",
+            ...corsHeaders 
+          },
+        }
+      );
+    }
+
+    // Parse JSON body
+    let rawData: unknown;
+    try {
+      rawData = await req.json();
+    } catch {
+      return new Response(
+        JSON.stringify({ error: "Invalid JSON in request body" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // Validate input with Zod schema
+    const validationResult = CateringInquirySchema.safeParse(rawData);
+    if (!validationResult.success) {
+      console.log("Validation failed:", validationResult.error.format());
+      return new Response(
+        JSON.stringify({ 
+          error: "Invalid input data",
+          details: validationResult.error.issues.map(issue => ({
+            field: issue.path.join('.'),
+            message: issue.message
+          }))
+        }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // Sanitize validated data to prevent XSS in emails
+    const data = sanitizeInquiryData(validationResult.data);
 
     console.log("Processing catering inquiry from:", data.email);
 
@@ -307,7 +428,7 @@ const handler = async (req: Request): Promise<Response> => {
       html: generateAdminEmailHtml(data),
     });
 
-    console.log("Admin email sent:", adminEmailResponse);
+    console.log("Admin email sent successfully");
 
     // Send confirmation email to customer
     const customerEmailResponse = await resend.emails.send({
@@ -317,14 +438,12 @@ const handler = async (req: Request): Promise<Response> => {
       html: generateCustomerEmailHtml(data),
     });
 
-    console.log("Customer email sent:", customerEmailResponse);
+    console.log("Customer email sent successfully");
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Emails sent successfully",
-        adminEmailId: adminEmailResponse.data?.id,
-        customerEmailId: customerEmailResponse.data?.id
+        message: "Emails sent successfully"
       }),
       {
         status: 200,
@@ -334,10 +453,11 @@ const handler = async (req: Request): Promise<Response> => {
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-catering-inquiry function:", error);
+    // Return generic error message without exposing internal details
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "An error occurred processing your request. Please try again." }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

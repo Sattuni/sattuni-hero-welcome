@@ -44,6 +44,14 @@ export const DESSERTS = [
   { id: 'dessert', name: 'Dessert', description: 'Auswahl orientalischer Süßspeisen' },
 ] as const;
 
+// ===== PAKET DISH ITEM =====
+export interface PackageDishItem {
+  name: string;
+  description?: string;
+  /** Highlights differences between packages: 'neu' = new in this tier, 'upgrade' = improved version, 'premium' = exclusive to premium */
+  highlight?: 'neu' | 'upgrade' | 'premium';
+}
+
 // ===== PAKETE/MENÜS =====
 export interface CateringPackage {
   id: string;
@@ -52,9 +60,11 @@ export interface CateringPackage {
   description: string;
   detailedItems: {
     category?: string;
-    items: string[];
+    items: PackageDishItem[];
   }[];
   pricePerPerson: number;
+  /** Optional: Maximum price for packages with variable pricing */
+  pricePerPersonMax?: number;
   minGuests: number;
   includesDessert: boolean;
   popular?: boolean;
@@ -65,37 +75,44 @@ export const CATERING_PACKAGES: CateringPackage[] = [
   {
     id: 'mezze-mix',
     name: 'Mezze Mix',
-    subtitle: 'Orientalisches Fingerfood zum Teilen',
-    description: 'Orientalisches Fingerfood zum Teilen – perfekt für lockere Events und Empfänge.',
+    subtitle: 'Fingerfood für Meetings & Events',
+    description: 'Unsere Fingerfood-Pakete passen sich Budget, Anlass und Gruppengröße an. Ideal für Meetings, Team-Events oder lockere Office-Get-togethers – unkompliziert, abwechslungsreich und voller Geschmack.',
     detailedItems: [
       {
         items: [
-          'Belegte Brote mit Hummus, Baba Ghanoush, Frischkäse, Avocado & Fisch-Dips',
-          'Hausgemachte Fatayer (Käse, Hähnchen, Rind oder Spinat)',
-          'Knusprige Kibbeh (Rind oder Kartoffel)',
-          'Frische Salatauswahl wie Tabouleh, Fattoush & Couscoussalat',
+          { name: 'Belegte Brote', description: 'Frisch gebackenes Brot, liebevoll belegt mit cremigem Hummus, würzigem Baba Ghanoush, Frischkäse, Avocado oder feinen Fisch-Dips.' },
+          { name: 'Gefüllte Teigtaschen (Fatayer)', description: 'Hausgemachte, goldbraun gebackene Teigtaschen – wahlweise gefüllt mit Käse, Hähnchen, Rindfleisch oder aromatischem Spinat.' },
+          { name: 'Gefüllte Grießbällchen (Kibbeh)', description: 'Knusprige Bulgurbällchen mit herzhafter Rindfleisch- oder zarter Kartoffelfüllung – ein klassischer orientalischer Snack.' },
+          { name: 'Verschiedene Salate', description: 'Frische Auswahl an mediterranen und orientalischen Salaten wie Tabouleh, Fattoush oder Couscous mit Cherry-Tomaten.' },
+          { name: 'Lahmacun', description: 'Dünn gebackener Teigfladen mit fein gewürzter Hackfleischmischung – aromatisch und handlich serviert.' },
+          { name: 'Thymianbrot (Zaatar)', description: 'Fluffiges Fladenbrot mit Olivenöl und orientalischem Thymian – perfekt zum Teilen oder Dippen.' },
+          { name: 'Käsesticks', description: 'Knusprig gebackene Sticks mit zartschmelzendem Käse – beliebt bei jedem Anlass.' },
+          { name: 'Gemüsesticks', description: 'Frisch geschnittenes saisonales Gemüse, ideal als leichter Snack oder in Kombination mit Dips.' },
+          { name: 'Gemüse-Wraps', description: 'Weiche Wraps, gefüllt mit knackigem, mariniertem Gemüse, frischen Kräutern und feiner Sauce – leicht, aromatisch und ideal als vegetarische Fingerfood-Option.' },
         ],
       },
     ],
-    pricePerPerson: 26.75,
+    pricePerPerson: 24.61,
+    pricePerPersonMax: 32.10,
     minGuests: 20,
     includesDessert: false,
   },
   {
     id: 'gruene-levante',
     name: 'Grüne Levante',
-    subtitle: 'Vegetarisch',
-    description: 'Kalte vegetarische Vielfalt – ideal für gesundheitsbewusste Gäste.',
+    subtitle: 'Vegetarisch / Vegan möglich',
+    description: 'Kalte vegetarische Vielfalt – auf Wunsch auch komplett vegan. Ideal für gesundheitsbewusste Gäste.',
     detailedItems: [
       {
         items: [
-          'Kichererbsensalat mit Zitrone & Kräutern',
-          'Tabouleh',
-          'Fattoush mit Granatapfel & Pita-Chips',
-          'Hummus & Baba Ghanoush',
-          'Mini-Fatayer (Spinat & Käse)',
-          'Kibbeh mit Kartoffelfüllung',
-          'Gefüllte Gemüserollen',
+          { name: 'Kichererbsensalat', description: 'Kichererbsen mit Eisberg, Tomaten, frischen Kräutern, Zitrone und feinem Tahini-Dressing.' },
+          { name: 'Tabouleh', description: 'Frischer Petersiliensalat mit Tomaten, Bulgur und Zitronensaft.' },
+          { name: 'Fattoush', description: 'Knackiger Petersiliensalat mit Granatapfel und Cranberries.' },
+          { name: 'Hummus', description: 'Cremiges Kichererbsenpüree mit Tahini.' },
+          { name: 'Baba Ghanoush', description: 'Geröstete Aubergine, fein püriert mit Tahini.' },
+          { name: 'Mini-Fatayer', description: 'Goldbraun gebackene, gefüllte Teigtaschen (Spinat & Käse).' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Kartoffelfüllung.' },
+          { name: 'Gefüllte Gemüserollen / Wraps', description: 'Leicht gefüllte Rollen mit aromatischer Gemüsefüllung.' },
         ],
       },
     ],
@@ -112,14 +129,16 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     detailedItems: [
       {
         items: [
-          'Kichererbsensalat',
-          'Tabouleh',
-          'Fattoush',
-          'Hummus & Baba Ghanoush',
-          'Fatayer & Kibbeh',
-          'Hähnchenbruststreifen auf orientalischem Reis',
-          'Zarte Rindfleischstreifen',
-          'Couscous mit saisonalem Gemüse',
+          { name: 'Kichererbsensalat', description: 'Frisch mariniert mit Kräutern, Zitrone und Tahini.' },
+          { name: 'Tabouleh', description: 'Petersilie, Tomaten, Bulgur und Zitrone – klassisch & frisch.' },
+          { name: 'Fattoush', description: 'Petersiliensalat mit Granatapfel und Cranberries.' },
+          { name: 'Hummus', description: 'Cremiger Klassiker aus Kichererbsen und Tahini.' },
+          { name: 'Baba Ghanoush', description: 'Auberginencreme mit feiner Rauchnote.' },
+          { name: 'Mini-Fatayer', description: 'Hausgemachte Teigtaschen (Spinat / Käse / Hähnchen / Hackfleisch).', highlight: 'upgrade' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung (Kartoffel oder Hackfleisch).', highlight: 'upgrade' },
+          { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.', highlight: 'neu' },
+          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.', highlight: 'neu' },
+          { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.', highlight: 'neu' },
         ],
       },
     ],
@@ -136,15 +155,17 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     detailedItems: [
       {
         items: [
-          'Tabouleh',
-          'Fattoush',
-          'Hummus & Baba Ghanoush',
-          'Couscoussalat mit Tomaten & Koriander',
-          'Fatayer & Kibbeh',
-          'Hähnchenbruststreifen auf Reis',
-          'Rindfleischstreifen',
-          'Couscous mit Gemüse',
-          'Dessert',
+          { name: 'Kichererbsensalat', description: 'Frisch mariniert mit Kräutern, Zitrone und Tahini.' },
+          { name: 'Tabouleh', description: 'Petersilie, Tomaten, Bulgur und Zitrone – klassisch & frisch.' },
+          { name: 'Fattoush', description: 'Petersiliensalat mit Granatapfel und Cranberries.' },
+          { name: 'Hummus', description: 'Cremiger Klassiker aus Kichererbsen und Tahini.' },
+          { name: 'Baba Ghanoush', description: 'Auberginencreme mit feiner Rauchnote.' },
+          { name: 'Mini-Fatayer', description: 'Hausgemachte Teigtaschen (Spinat / Käse / Hähnchen / Hackfleisch).' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung (Kartoffel oder Hackfleisch).' },
+          { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.' },
+          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.' },
+          { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.' },
+          { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.', highlight: 'neu' },
         ],
       },
     ],
@@ -159,27 +180,33 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     description: 'Großzügiges Buffet mit kalten und warmen Speisen plus Dessert.',
     detailedItems: [
       {
-        category: 'Kalt',
+        category: 'Kalte Vorspeisen',
         items: [
-          'Kichererbsensalat',
-          'Tabouleh',
-          'Fattoush',
-          'Ananas-Gurken-Salat',
-          'Couscoussalat',
-          'Hummus & Baba Ghanoush',
-          'Fatayer & Kibbeh',
+          { name: 'Tabouleh', description: 'Frischer Petersiliensalat mit Zitrone und Bulgur.' },
+          { name: 'Fattoush', description: 'Knackiger Salat mit Granatapfel und Cranberries.' },
+          { name: 'Hummus', description: 'Cremig, fein abgeschmeckt mit Tahini.' },
+          { name: 'Baba Ghanoush', description: 'Geröstete Aubergine, mild und aromatisch.' },
+          { name: 'Mini-Fatayer', description: 'Gefüllte Teigtaschen in verschiedenen Variationen.' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung.' },
+          { name: 'Ananas-Gurken-Salat', description: 'Fruchtig-frisch mit Koriander und Limette.', highlight: 'neu' },
+          { name: 'Couscoussalat', description: 'Mit Tomaten, Koriander und feiner Würze.', highlight: 'neu' },
         ],
       },
       {
-        category: 'Warm',
+        category: 'Warme Speisen',
         items: [
-          'Mahashi (gefüllte Weinblätter & Zucchini)',
-          'Makloube (arabischer Gemüsereis)',
-          'Ofenkartoffeln',
-          'Couscous mit Gemüse',
-          'Ofen-Hähnchenkeulen',
-          'Rindfleischstreifen',
-          'Dessert',
+          { name: 'Mahashi', description: 'Gefüllte Weinblätter und Zucchini, klassisch gewürzt.', highlight: 'neu' },
+          { name: 'Makloube', description: 'Traditioneller arabischer Gemüse-Reis.', highlight: 'neu' },
+          { name: 'Ofenkartoffeln', description: 'Goldbraun gebacken und aromatisch gewürzt.', highlight: 'neu' },
+          { name: 'Couscous mit Ofengemüse', description: 'Herzhaft, warm und ausgewogen.' },
+          { name: 'Hähnchenbruststreifen', description: 'Zart gegart und orientalisch gewürzt.' },
+          { name: 'Rindfleischstreifen', description: 'Saftig und langsam geschmort.' },
+        ],
+      },
+      {
+        category: 'Dessert',
+        items: [
+          { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.' },
         ],
       },
     ],
@@ -196,25 +223,31 @@ export const CATERING_PACKAGES: CateringPackage[] = [
       {
         category: 'Kalte Vorspeisen',
         items: [
-          'Kichererbsensalat',
-          'Tabouleh',
-          'Fattoush',
-          'Ananas-Gurken-Salat',
-          'Couscoussalat',
-          'Hummus & Baba Ghanoush',
-          'Fatayer & Kibbeh',
+          { name: 'Tabouleh', description: 'Frischer Petersiliensalat mit Zitrone und Bulgur.' },
+          { name: 'Fattoush', description: 'Knackiger Salat mit Granatapfel und Cranberries.' },
+          { name: 'Hummus', description: 'Cremig, fein abgeschmeckt mit Tahini.' },
+          { name: 'Baba Ghanoush', description: 'Geröstete Aubergine, mild und aromatisch.' },
+          { name: 'Mini-Fatayer', description: 'Gefüllte Teigtaschen in verschiedenen Variationen.' },
+          { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung.' },
+          { name: 'Ananas-Gurken-Salat', description: 'Fruchtig-frisch mit Koriander und Limette.' },
+          { name: 'Couscoussalat', description: 'Mit Tomaten, Koriander und feiner Würze.' },
         ],
       },
       {
         category: 'Warme Speisen',
         items: [
-          'Mahashi',
-          'Makloube',
-          'Ofenkartoffeln',
-          'Couscous mit Gemüse',
-          'Ofen-Hähnchenkeulen',
-          'Geschmorte Lammschulter',
-          'Dessert',
+          { name: 'Mahashi', description: 'Gefüllte Weinblätter und Zucchini, klassisch gewürzt.' },
+          { name: 'Makloube', description: 'Aromatischer Gemüsereis nach traditioneller Art.' },
+          { name: 'Ofenkartoffeln', description: 'Knusprig gebacken.' },
+          { name: 'Couscous mit Ofengemüse', description: 'Fein gewürzt und herzhaft.' },
+          { name: 'Ofen-Hähnchenkeulen', description: 'Saftig gebacken mit orientalischen Gewürzen.', highlight: 'upgrade' },
+          { name: 'Geschmorte Lammschulter', description: 'Zart, intensiv und langsam gegart.', highlight: 'premium' },
+        ],
+      },
+      {
+        category: 'Dessert',
+        items: [
+          { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.' },
         ],
       },
     ],
@@ -224,6 +257,12 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     popular: true,
   },
 ];
+
+// ===== TYPE EXPORTS =====
+export type Appetizer = typeof APPETIZERS[number];
+export type MainCourse = typeof MAIN_COURSES[number];
+export type SideDish = typeof SIDE_DISHES[number];
+export type Dessert = typeof DESSERTS[number];
 
 // ===== CUSTOM MENU LIMITS =====
 export const CUSTOM_MENU_LIMITS = {
