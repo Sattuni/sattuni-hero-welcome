@@ -179,18 +179,6 @@ const CustomerReviews = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
               Das sagen unsere Kunden
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-              Echte Bewertungen von zufriedenen Kunden – ob Firmenevents, Hochzeiten oder private Feiern.
-            </p>
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                ))}
-              </div>
-              <span className="text-lg font-bold text-foreground">5.0</span>
-              <span className="text-muted-foreground">auf Google</span>
-            </div>
           </div>
 
           {/* Carousel Container */}
