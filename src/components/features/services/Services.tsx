@@ -108,16 +108,26 @@ const Services = () => {
                 </div>
               </div>
               
-              <div className="pt-2 md:pt-4 mt-auto">
+              <div className="pt-2 md:pt-4 mt-auto flex flex-col sm:flex-row gap-2">
                 <Button 
                   variant="outline" 
                   size="default"
-                  className="w-full md:w-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 font-medium border-2 text-sm md:text-base"
+                  className="w-full sm:w-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 font-medium border-2 text-sm md:text-base"
                   onClick={() => {
                     window.location.href = '/catering?scrollTo=contact';
                   }}
                 >
                   Catering anfragen
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="default"
+                  className="w-full sm:w-auto text-sm md:text-base text-muted-foreground hover:text-foreground"
+                  onClick={() => {
+                    window.location.href = '/menus';
+                  }}
+                >
+                  Menüs ansehen
                 </Button>
               </div>
             </CardContent>
