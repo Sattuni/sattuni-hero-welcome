@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
 import CateringDanke from "./pages/CateringDanke";
+import Menus from "./pages/Menus";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/catering" element={<Catering />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
+      <Route path="/menus" element={<Menus />} />
       <Route path="/ueber-uns" element={<AboutUs />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
