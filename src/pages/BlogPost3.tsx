@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Users, Coffee, Lightbulb, Timer, Utensils, Zap, CheckCircle, Target } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/blog/workshop-catering-hero.jpg";
+import heroImage from "@/assets/blog/workshop-minimal.jpg";
 
 const BlogPost3 = () => {
   return (
