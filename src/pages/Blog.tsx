@@ -97,11 +97,11 @@ const Blog = () => {
                       <LazyImage
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 saturate-[0.85] contrast-[0.95]"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 saturate-[0.7] contrast-[0.9] brightness-[0.95]"
                       />
-                      {/* Overlay to soften AI-generated look */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-transparent to-primary/10 mix-blend-overlay"></div>
-                      <div className="absolute inset-0 bg-foreground/5"></div>
+                      {/* Stronger overlay to soften AI-generated look */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/10 to-primary/15 mix-blend-overlay"></div>
+                      <div className="absolute inset-0 bg-foreground/10"></div>
                       <div className="absolute top-4 left-4 z-10">
                         <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full">
                           {post.category}
