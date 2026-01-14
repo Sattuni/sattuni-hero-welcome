@@ -199,7 +199,7 @@ const BlogPost3 = () => {
                           </li>
                         </ul>
                         <p className="mt-4 text-sm">
-                          Bei Sattuni beraten wir dich gerne individuell – basierend auf Teilnehmerzahl, 
+                          Wir beraten dich gerne individuell – basierend auf Teilnehmerzahl, 
                           Dauer und Art des Workshops.
                         </p>
                       </div>
@@ -296,7 +296,7 @@ const BlogPost3 = () => {
                       Präsentation sorgst du dafür, dass dein Team den ganzen Tag leistungsfähig bleibt.
                     </p>
                     <p>
-                      Bei <strong>Sattuni</strong> verstehen wir, was produktive Teams brauchen: 
+                      Bei uns verstehen wir, was produktive Teams brauchen: 
                       frisches, hausgemachtes Essen, das Energie gibt ohne zu belasten – 
                       und das ganz nebenbei für gute Gespräche sorgt.
                     </p>
@@ -319,7 +319,7 @@ const BlogPost3 = () => {
                   <div className="space-y-6">
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Ab wie vielen Personen bietet Sattuni Workshop-Catering an?
+                        Ab wie vielen Personen bietet ihr Workshop-Catering an?
                       </h3>
                       <p className="text-muted-foreground">
                         Unser Catering ist ab 20 Personen möglich – perfekt für mittlere bis große Workshops und Seminare.
