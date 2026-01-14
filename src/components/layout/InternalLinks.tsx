@@ -1,34 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Building2, PartyPopper, Salad, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Utensils, UtensilsCrossed } from "lucide-react";
 
 const InternalLinks = () => {
-  const cateringLinks = [
+  const links = [
     {
-      title: "Firmen-Catering",
-      description: "Meetings, Tagungen & Mitarbeiter-Events professionell versorgt",
-      href: "/catering",
-      icon: Building2,
+      title: "Unsere Spezialitäten",
+      description: "Entdecke authentische arabische Gerichte: Hummus, Falafel, Couscous Bowls und mehr",
+      href: "/spezialitaeten",
+      icon: Utensils,
+      cta: "Zur Speisekarte"
     },
     {
-      title: "Private Feiern",
-      description: "Geburtstage, Hochzeiten & Familienevents mit orientalischem Flair",
+      title: "Event Catering",
+      description: "Professionelles Catering für deine Feier oder Firmen-Event - individuell & hausgemacht",
       href: "/catering",
-      icon: PartyPopper,
-    },
-    {
-      title: "Buffet-Service",
-      description: "Reichhaltige Buffets für 20 bis 500 Gäste – alles hausgemacht",
-      href: "/catering",
-      icon: Users,
-    },
-    {
-      title: "Fingerfood & Mezze",
-      description: "Elegante Häppchen für Empfänge, Vernissagen & Networking",
-      href: "/catering",
-      icon: Salad,
-    },
+      icon: UtensilsCrossed,
+      cta: "Catering anfragen"
+    }
   ];
 
   return (
@@ -36,38 +25,39 @@ const InternalLinks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-4 md:mb-8">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
-            Catering für jeden Anlass
+            Mehr entdecken
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
-          {cateringLinks.map((link, index) => {
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {links.map((link) => {
             const IconComponent = link.icon;
             return (
-              <Link key={index} to={link.href} className="group">
-                <Card className="h-full hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-4 md:p-5 h-full flex flex-col">
-                    <div className="flex items-center gap-2 mb-2 md:mb-3">
-                      <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <IconComponent className="w-4 h-4 md:w-5 md:h-5" />
-                      </div>
+              <Card key={link.href} className="group hover:shadow-elegant transition-all duration-300 h-full">
+                <CardContent className="p-6 h-full flex flex-col">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    
-                    <h3 className="text-sm md:text-base font-semibold text-foreground mb-1 md:mb-2">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {link.title}
                     </h3>
-                    
-                    <p className="text-xs md:text-sm text-muted-foreground flex-grow line-clamp-2">
-                      {link.description}
-                    </p>
-                    
-                    <div className="flex items-center gap-1 text-primary text-xs md:text-sm font-medium mt-2 md:mt-3 group-hover:gap-2 transition-all">
-                      Mehr erfahren
-                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 flex-grow">
+                    {link.description}
+                  </p>
+                  
+                  <Button 
+                    variant="outline" 
+                    className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors w-full"
+                    onClick={() => window.location.href = link.href}
+                  >
+                    {link.cta}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
