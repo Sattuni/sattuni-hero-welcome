@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
-import heroImage from "@/assets/blog/office-lunch-hero.jpg";
-import mezzeHeroImage from "@/assets/blog/mezze-sharing-hero.jpg";
-import workshopHeroImage from "@/assets/blog/workshop-catering-hero.jpg";
+import workshopHeroImage from "@/assets/blog/workshop-atmosphere.jpg";
+import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
+import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 
 const Blog = () => {
   // Blog-Posts
@@ -39,7 +39,7 @@ const Blog = () => {
       excerpt: "Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team.",
       date: "2025-10-01",
       readTime: "8 min",
-      image: heroImage,
+      image: officeHeroImage,
       category: "Catering"
     }
   ];
