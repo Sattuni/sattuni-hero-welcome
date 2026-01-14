@@ -97,7 +97,7 @@ const Catering = () => {
     
     if (scrollTo === 'contact') {
       setTimeout(() => {
-        const element = document.getElementById('catering-kontakt');
+        const element = document.getElementById('anfrage');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           // Focus the first input after scrolling
@@ -214,7 +214,7 @@ const Catering = () => {
                   
                   addEngagementFactor('catering_cta_hero');
                   
-                  const element = document.getElementById('catering-kontakt');
+                  const element = document.getElementById('anfrage');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
@@ -236,7 +236,7 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
             <button 
-              onClick={() => document.getElementById('so-funktioniert-es')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              onClick={() => document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Ablauf
@@ -248,7 +248,7 @@ const Catering = () => {
               FAQ
             </button>
             <button 
-              onClick={() => document.getElementById('catering-kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              onClick={() => document.getElementById('anfrage')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
             >
               Anfrage senden
@@ -259,7 +259,7 @@ const Catering = () => {
 
 
       {/* How it works - Process Steps */}
-      <section className="py-12 md:py-16 scroll-mt-24" id="so-funktioniert-es">
+      <section className="py-12 md:py-16 scroll-mt-24" id="ablauf">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
@@ -324,7 +324,7 @@ const Catering = () => {
 
 
       {/* Buffet Gallery */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background scroll-mt-24" id="angebote">
         <div className="container mx-auto px-4">
           <BuffetGallery />
         </div>
@@ -507,7 +507,7 @@ const Catering = () => {
                 size="lg" 
                 className="text-lg px-8"
                 onClick={() => {
-                  const element = document.getElementById('catering-kontakt');
+                  const element = document.getElementById('anfrage');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
@@ -530,7 +530,7 @@ const Catering = () => {
           size="lg" 
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
           onClick={() => {
-            const element = document.getElementById('catering-kontakt');
+            const element = document.getElementById('anfrage');
             if (element) {
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               setTimeout(() => {
