@@ -17,7 +17,7 @@ const Blog = () => {
       slug: "workshop-catering",
       title: "Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert",
       excerpt: "Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl – frisch, leicht & energiereich.",
-      date: "2025-01-14",
+      date: "2026-01-14",
       readTime: "7 min",
       image: workshopHeroImage,
       category: "Catering"
