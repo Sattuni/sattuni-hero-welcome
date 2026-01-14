@@ -19,6 +19,7 @@ import {
   ChefHat, Sparkles, Star, ChevronDown, Leaf, MessageCircle, Info
 } from "lucide-react";
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   CATERING_PACKAGES, 
   APPETIZERS, 
@@ -146,6 +147,7 @@ const CateringBookingForm = () => {
   const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>('appetizers');
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   // Enhanced form tracking
   const { trackFieldFocus, trackValidationError, trackSubmission } = useFormTracking({
@@ -460,16 +462,19 @@ const CateringBookingForm = () => {
         submissionMethod: 'web_form'
       });
 
-      handleFormSuccess(
-        "Deine Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei dir.",
-        "Anfrage erfolgreich gesendet!"
-      );
-
-      // Reset form
+      // Reset form before redirect
       setFormData(initialFormData);
       setValidationErrors({});
       setCurrentStep(1);
       clearSavedData();
+
+      // Redirect to thank you page for conversion tracking
+      navigate('/catering/danke', { 
+        state: { 
+          name: submissionData.name?.split(' ')[0] || '',
+          eventType: submissionData.eventType 
+        } 
+      });
 
     } catch (error) {
       handleFormError(error, "Catering-Anfrage");

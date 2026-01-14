@@ -19,6 +19,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
+import CateringDanke from "./pages/CateringDanke";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const AppRoutes = () => {
       <Route path="/spezialitaeten" element={<Specialties />} />
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/catering" element={<Catering />} />
+      <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/ueber-uns" element={<AboutUs />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
