@@ -96,7 +96,7 @@ const Services = () => {
                 <div className="hidden sm:grid grid-cols-2 gap-2 md:gap-3 pt-3 md:pt-4 text-xs md:text-sm font-body">
                   {[
                     "Ganz wie du's magst",
-                    "100+ Caterings",
+                    "+200 Caterings",
                     "Komplettservice", 
                     "Ab 20 Personen"
                   ].map((item, index) => (
