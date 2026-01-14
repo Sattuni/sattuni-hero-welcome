@@ -156,7 +156,7 @@ const Menus = () => {
         <header className="bg-gradient-to-b from-primary/5 to-background py-8 sm:py-12 print:py-4">
           <div className="container max-w-5xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
+              <a href="/catering" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                 <img 
                   src={sattLogo} 
                   alt="Sattuni Logo" 
@@ -166,7 +166,7 @@ const Menus = () => {
                   <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
                   <p className="text-muted-foreground text-sm sm:text-base">Orientalische Vielfalt für jeden Anlass</p>
                 </div>
-              </div>
+              </a>
               
               {/* Action buttons - hidden on print */}
               <div className="flex gap-2 print:hidden">
