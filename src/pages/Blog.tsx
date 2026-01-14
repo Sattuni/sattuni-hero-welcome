@@ -7,10 +7,21 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
 import heroImage from "@/assets/blog/office-lunch-hero.jpg";
 import mezzeHeroImage from "@/assets/blog/mezze-sharing-hero.jpg";
+import workshopHeroImage from "@/assets/blog/workshop-catering-hero.jpg";
 
 const Blog = () => {
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 3,
+      slug: "workshop-catering",
+      title: "Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert",
+      excerpt: "Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl – frisch, leicht & energiereich.",
+      date: "2025-01-14",
+      readTime: "7 min",
+      image: workshopHeroImage,
+      category: "Catering"
+    },
     {
       id: 2,
       slug: "was-bedeutet-mezze",
