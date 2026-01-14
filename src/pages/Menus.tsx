@@ -147,7 +147,7 @@ const Menus = () => {
   return (
     <>
       <Helmet>
-        <title>Catering-Menüs | Sattuni</title>
+        <title>Buffet Catering Menüs | Sattuni</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -163,7 +163,7 @@ const Menus = () => {
                   className="h-16 sm:h-20 w-auto print:h-12"
                 />
                 <div>
-                  <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Unsere Catering-Menüs</h1>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
                   <p className="text-muted-foreground text-sm sm:text-base">Orientalische Vielfalt für jeden Anlass</p>
                 </div>
               </div>
