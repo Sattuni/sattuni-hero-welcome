@@ -5,12 +5,23 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
-import heroImage from "@/assets/blog/office-lunch-hero.jpg";
-import mezzeHeroImage from "@/assets/blog/mezze-sharing-hero.jpg";
+import workshopHeroImage from "@/assets/blog/workshop-minimal.jpg";
+import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
+import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 
 const Blog = () => {
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 3,
+      slug: "workshop-catering",
+      title: "Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert",
+      excerpt: "Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl – frisch, leicht & energiereich.",
+      date: "2026-01-14",
+      readTime: "7 min",
+      image: workshopHeroImage,
+      category: "Catering"
+    },
     {
       id: 2,
       slug: "was-bedeutet-mezze",
@@ -28,7 +39,7 @@ const Blog = () => {
       excerpt: "Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team.",
       date: "2025-10-01",
       readTime: "8 min",
-      image: heroImage,
+      image: officeHeroImage,
       category: "Catering"
     }
   ];
@@ -86,9 +97,12 @@ const Blog = () => {
                       <LazyImage
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 saturate-[0.7] contrast-[0.9] brightness-[0.95]"
                       />
-                      <div className="absolute top-4 left-4">
+                      {/* Stronger overlay to soften AI-generated look */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/10 to-primary/15 mix-blend-overlay"></div>
+                      <div className="absolute inset-0 bg-foreground/10"></div>
+                      <div className="absolute top-4 left-4 z-10">
                         <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full">
                           {post.category}
                         </span>
