@@ -95,11 +95,11 @@ const CateringDanke = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="tel:+4917624547646" 
+                  href="tel:+492113618115" 
                   className="inline-flex items-center justify-center gap-2 text-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>0176 2454 7646</span>
+                  <span>0211 36180115</span>
                 </a>
                 <a 
                   href="mailto:info@sattuni.de" 
