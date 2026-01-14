@@ -235,6 +235,12 @@ const Catering = () => {
       <section className="sticky top-16 md:top-20 z-40 py-3 md:py-6 bg-background/95 backdrop-blur-sm border-b shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
+            <a 
+              href="/menus"
+              className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Menüs ansehen
+            </a>
             <button 
               onClick={() => document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
