@@ -712,7 +712,7 @@ const CateringBookingForm = () => {
   };
 
   return (
-    <section id="catering-kontakt" className="py-12 md:py-20 px-4 bg-gradient-subtle">
+    <section id="anfrage" className="py-12 md:py-20 px-4 bg-gradient-subtle scroll-mt-24">
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 space-y-3 md:space-y-4">
