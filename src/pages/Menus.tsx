@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CATERING_PACKAGES, formatPrice, type CateringPackage, type PackageDishItem } from '@/constants/catering-packages';
-import sattLogo from '@/assets/sattuni-logo.png';
+import sattLogo from '@/assets/sattuni-sticker-logo.jpg';
 
 const Menus = () => {
   const handlePrint = () => {
