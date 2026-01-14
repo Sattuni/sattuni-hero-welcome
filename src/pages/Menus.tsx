@@ -198,7 +198,7 @@ const Menus = () => {
         {/* Legend */}
         <section className="container max-w-5xl mx-auto px-4 py-4 print:py-2">
           <div className="flex flex-wrap gap-3 text-xs">
-            <span className="text-muted-foreground font-medium">Legende:</span>
+            <span className="text-muted-foreground font-medium">Symbole:</span>
             <div className="flex items-center gap-1">
               <Badge variant="outline" className="bg-green-100 text-green-700 border-green-200 text-xs">+ Extra</Badge>
               <span className="text-muted-foreground">Zusätzliches Gericht</span>
