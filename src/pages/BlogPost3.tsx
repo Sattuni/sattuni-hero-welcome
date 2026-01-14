@@ -45,7 +45,7 @@ const BlogPost3 = () => {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <time dateTime="2025-01-14">14. Jan 2025</time>
+                    <time dateTime="2026-01-14">14. Jan 2026</time>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
