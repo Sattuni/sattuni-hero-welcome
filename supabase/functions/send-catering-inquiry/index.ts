@@ -1,8 +1,14 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 import { z } from "npm:zod@3.23.8";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+
+// Initialize Supabase client with service role key for database operations
+const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
+const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -439,6 +445,50 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     console.log("Customer email sent successfully");
+
+    // Save inquiry to database for follow-up tracking
+    try {
+      const { error: dbError } = await supabase
+        .from("catering_inquiries")
+        .insert({
+          name: data.name,
+          company: data.company || null,
+          email: data.email,
+          phone: data.phone,
+          address: data.address,
+          event_type: data.eventType,
+          event_date: data.date,
+          event_time: data.time || null,
+          guest_count: data.guestCount,
+          menu_type: data.menuType || "Nicht angegeben",
+          selected_package_name: data.selectedPackageName || null,
+          selected_package_price: data.selectedPackagePrice || null,
+          total_price: data.totalPrice || null,
+          equipment_costs: data.equipmentCosts || null,
+          custom_appetizers: data.customAppetizers || null,
+          custom_main_courses: data.customMainCourses || null,
+          custom_side_dishes: data.customSideDishes || null,
+          custom_desserts: data.customDesserts || null,
+          equipment_chafings: data.equipmentChafings || false,
+          equipment_besteck: data.equipmentBesteck || false,
+          equipment_teller: data.equipmentTeller || false,
+          equipment_schalen: data.equipmentSchalen || false,
+          comment: data.comment || null,
+          status: "pending",
+          ip_address: clientIp,
+          source: "website",
+        });
+
+      if (dbError) {
+        console.error("Error saving to database:", dbError);
+        // Don't fail the request - email was already sent successfully
+      } else {
+        console.log("Inquiry saved to database for follow-up tracking");
+      }
+    } catch (dbSaveError) {
+      console.error("Database save error:", dbSaveError);
+      // Don't fail the request - email was already sent successfully
+    }
 
     return new Response(
       JSON.stringify({ 
