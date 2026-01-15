@@ -14,7 +14,105 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      catering_inquiries: {
+        Row: {
+          address: string
+          admin_notes: string | null
+          comment: string | null
+          company: string | null
+          created_at: string
+          custom_appetizers: string | null
+          custom_desserts: string | null
+          custom_main_courses: string | null
+          custom_side_dishes: string | null
+          email: string
+          equipment_besteck: boolean | null
+          equipment_chafings: boolean | null
+          equipment_costs: string | null
+          equipment_schalen: boolean | null
+          equipment_teller: boolean | null
+          event_date: string
+          event_time: string | null
+          event_type: string
+          followup_sent_at: string | null
+          guest_count: number
+          id: string
+          ip_address: string | null
+          menu_type: string
+          name: string
+          phone: string
+          selected_package_name: string | null
+          selected_package_price: string | null
+          source: string | null
+          status: string
+          total_price: string | null
+        }
+        Insert: {
+          address: string
+          admin_notes?: string | null
+          comment?: string | null
+          company?: string | null
+          created_at?: string
+          custom_appetizers?: string | null
+          custom_desserts?: string | null
+          custom_main_courses?: string | null
+          custom_side_dishes?: string | null
+          email: string
+          equipment_besteck?: boolean | null
+          equipment_chafings?: boolean | null
+          equipment_costs?: string | null
+          equipment_schalen?: boolean | null
+          equipment_teller?: boolean | null
+          event_date: string
+          event_time?: string | null
+          event_type: string
+          followup_sent_at?: string | null
+          guest_count: number
+          id?: string
+          ip_address?: string | null
+          menu_type: string
+          name: string
+          phone: string
+          selected_package_name?: string | null
+          selected_package_price?: string | null
+          source?: string | null
+          status?: string
+          total_price?: string | null
+        }
+        Update: {
+          address?: string
+          admin_notes?: string | null
+          comment?: string | null
+          company?: string | null
+          created_at?: string
+          custom_appetizers?: string | null
+          custom_desserts?: string | null
+          custom_main_courses?: string | null
+          custom_side_dishes?: string | null
+          email?: string
+          equipment_besteck?: boolean | null
+          equipment_chafings?: boolean | null
+          equipment_costs?: string | null
+          equipment_schalen?: boolean | null
+          equipment_teller?: boolean | null
+          event_date?: string
+          event_time?: string | null
+          event_type?: string
+          followup_sent_at?: string | null
+          guest_count?: number
+          id?: string
+          ip_address?: string | null
+          menu_type?: string
+          name?: string
+          phone?: string
+          selected_package_name?: string | null
+          selected_package_price?: string | null
+          source?: string | null
+          status?: string
+          total_price?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

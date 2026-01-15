@@ -69,6 +69,7 @@ export interface CateringPackage {
   includesDessert: boolean;
   popular?: boolean;
   isVegetarian?: boolean;
+  isFingerFood?: boolean;
 }
 
 export const CATERING_PACKAGES: CateringPackage[] = [
@@ -96,6 +97,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     pricePerPersonMax: 32.10,
     minGuests: 20,
     includesDessert: false,
+    isFingerFood: true,
   },
   {
     id: 'gruene-levante',

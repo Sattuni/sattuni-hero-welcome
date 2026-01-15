@@ -538,6 +538,12 @@ const CateringBookingForm = () => {
                   Vegan
                 </Badge>
               )}
+              {pkg.isFingerFood && (
+                <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-5 border-orange-400 text-orange-600">
+                  <Utensils className="w-2.5 h-2.5 mr-0.5" />
+                  Fingerfood
+                </Badge>
+              )}
             </div>
           </div>
 
