@@ -146,7 +146,7 @@ const Header = () => {
                 size="sm" 
                 className="font-medium shadow-sm gap-2"
                 onClick={() => {
-                  const element = document.getElementById('catering-kontakt');
+                  const element = document.getElementById('anfrage');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
@@ -242,7 +242,7 @@ const Header = () => {
                       size="lg"
                       onClick={() => {
                         setIsOpen(false);
-                        const element = document.getElementById('catering-kontakt');
+                        const element = document.getElementById('anfrage');
                         if (element) {
                           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                           setTimeout(() => {
