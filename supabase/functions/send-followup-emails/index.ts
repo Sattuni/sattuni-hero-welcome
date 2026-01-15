@@ -16,7 +16,7 @@ const corsHeaders = {
 };
 
 const ADMIN_EMAIL = "info@sattuni.de";
-const FOLLOW_UP_DAYS = 0.0007; // ~1 minute for testing (change back to 4 after testing)
+const FOLLOW_UP_DAYS = 4; // Send follow-up after 4 days
 
 interface CateringInquiry {
   id: string;
