@@ -340,6 +340,53 @@ const Catering = () => {
       {/* Customer Reviews */}
       <CustomerReviews />
 
+      {/* Trusted Partners Section */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
+                Unsere Partner
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center">
+              <div className="flex items-center justify-center p-4 md:p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
+                <img 
+                  src="/lovable-uploads/6b6ec1ce-974f-4e6f-b23e-61aacd2fdf8d.png" 
+                  alt="WHU Otto Beisheim School of Management - Partner von Sattuni" 
+                  className="max-h-12 md:max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+              
+              <div className="flex items-center justify-center p-4 md:p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
+                <img 
+                  src="/lovable-uploads/Leonardo.png" 
+                  alt="Leonardo - Partner von Sattuni" 
+                  className="max-h-12 md:max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+              
+              <div className="flex items-center justify-center p-4 md:p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
+                <img 
+                  src="/lovable-uploads/da1a1dd5-81c8-4349-83f7-43f66d08e68e.png" 
+                  alt="Rockwell Automation - Partner von Sattuni" 
+                  className="max-h-12 md:max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+              
+              <div className="flex items-center justify-center p-4 md:p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
+                <img 
+                  src="/lovable-uploads/49b2979a-a9be-41b9-85ba-4f3e33283c4a.png" 
+                  alt="BCG Boston Consulting Group - Partner von Sattuni" 
+                  className="max-h-12 md:max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Catering Booking Form */}
       <CateringBookingForm />
 
