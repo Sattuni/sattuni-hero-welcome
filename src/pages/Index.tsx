@@ -44,14 +44,14 @@ const Index = () => {
           "url": "https://sattuni.de",
           "logo": "https://sattuni.de/sattuni-logo.png",
           "image": "https://sattuni.de/hero-food.jpg",
-          "telephone": "+49-211-XXXXXXX",
+          "telephone": "+49-211-36180115",
           "email": "info@sattuni.de",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Musterstraße 123",
+            "streetAddress": "Johannstraße 40",
             "addressLocality": "Düsseldorf",
-            "addressRegion": "NRW",
-            "postalCode": "40000",
+            "addressRegion": "Nordrhein-Westfalen",
+            "postalCode": "40476",
             "addressCountry": "DE"
           },
           "geo": {
@@ -232,13 +232,13 @@ const Index = () => {
           "@id": "https://sattuni.de/#localbusiness",
           "name": "Sattuni",
           "image": "https://sattuni.de/hero-food.jpg",
-          "telephone": "+49-211-XXXXXXX",
+          "telephone": "+49-211-36180115",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Musterstraße 123",
+            "streetAddress": "Johannstraße 40",
             "addressLocality": "Düsseldorf",
             "addressRegion": "Nordrhein-Westfalen",
-            "postalCode": "40000",
+            "postalCode": "40476",
             "addressCountry": "Deutschland"
           },
           "geo": {
