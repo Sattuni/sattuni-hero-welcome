@@ -2,6 +2,7 @@ import heroCatering from "@/assets/hero/hero-catering.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
+import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Header from "@/components/layout/Header";
 import InternalLinks from "@/components/layout/InternalLinks";
@@ -12,7 +13,6 @@ import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phon
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
-
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
@@ -160,6 +160,7 @@ const Catering = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
+      <FreeDeliveryBanner />
       
       {/* Breadcrumb Navigation */}
       <div className="pt-20">

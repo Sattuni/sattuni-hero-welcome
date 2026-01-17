@@ -13,8 +13,7 @@ import { cateringFormSchema } from '@/services/validation/schemas';
 import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight, Users, Clock } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import { FORM_CONSTANTS } from '@/constants';
-
-const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
+import { supabase } from "@/lib/supabase";
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
@@ -283,61 +282,65 @@ const CateringContact = () => {
     setIsSubmitting(true);
     
     try {
-      fetch(CONTACT_US_ENDPOINT, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+      // Use secure edge function instead of external service
+      const { data, error } = await supabase.functions.invoke('send-catering-inquiry', {
+        body: {
+          name: formData.name,
+          company: formData.company || undefined,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          eventType: formData.occasion,
+          date: formData.date,
+          time: formData.time || undefined,
+          guestCount: formData.guestCount ? parseInt(formData.guestCount) : 10,
+          menuType: 'Festes Paket',
+          comment: formData.comment || undefined,
         },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => {
-          if (response.status !== 200) {
-            throw new Error(response.statusText);
-          }
-          
-          // Track successful form submission with enhanced data
-          trackSubmission({
-            ...formData,
-            estimatedValue: calculateEstimatedValue(formData),
-            guestCount: estimateGuestCount(formData),
-            eventType: formData.occasion,
-            submissionMethod: 'web_form'
-          });
-          
-          handleFormSuccess(
-            "Deine Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei dir.",
-            "Anfrage erfolgreich gesendet!"
-          );
-          
-          // Reset form on success
-          setFormData({
-            name: '',
-            company: '',
-            email: '',
-            phone: '',
-            address: '',
-            occasion: '',
-            date: '',
-            time: '',
-            guestCount: '',
-            comment: ''
-          });
-          setValidationErrors({});
-          setCurrentStep(1);
-          clearSavedData();
-          
-          return response.json();
-        })
-        .catch((err) => {
-          console.error(err);
-          handleFormError(err, "Catering-Anfrage");
-        }).finally(() => {
-          setIsSubmitting(false);
-        });
-  
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+      
+      // Track successful form submission with enhanced data
+      trackSubmission({
+        ...formData,
+        estimatedValue: calculateEstimatedValue(formData),
+        guestCount: estimateGuestCount(formData),
+        eventType: formData.occasion,
+        submissionMethod: 'web_form'
+      });
+      
+      handleFormSuccess(
+        "Deine Catering-Anfrage wurde erfolgreich gesendet! Wir melden uns innerhalb von 24 Stunden bei dir.",
+        "Anfrage erfolgreich gesendet!"
+      );
+      
+      // Reset form on success
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        address: '',
+        occasion: '',
+        date: '',
+        time: '',
+        guestCount: '',
+        comment: ''
+      });
+      setValidationErrors({});
+      setCurrentStep(1);
+      clearSavedData();
     } catch (error) {
+      console.error("Catering form error:", error);
       handleFormError(error, "Catering-Anfrage");
+    } finally {
       setIsSubmitting(false);
     }
   };

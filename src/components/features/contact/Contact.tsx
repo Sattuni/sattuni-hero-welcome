@@ -6,9 +6,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, Clock, Mail, MessageCircle, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "../../ui/use-toast";
+import { supabase } from "@/lib/supabase";
+import { z } from "zod";
 
-const CONTACT_US_ENDPOINT = "https://submit-form.com/iDr8mtDk";
-// https://submit-form.com/iDr8mtDk
+// Validation schema matching the edge function
+const contactFormSchema = z.object({
+  name: z.string().max(100, "Name darf maximal 100 Zeichen lang sein").optional(),
+  email: z.string().email("Bitte gib eine gültige E-Mail-Adresse ein").max(255, "E-Mail darf maximal 255 Zeichen lang sein"),
+  phone: z.string().max(30, "Telefonnummer darf maximal 30 Zeichen lang sein").optional(),
+  message: z.string().min(1, "Nachricht ist erforderlich").max(2000, "Nachricht darf maximal 2000 Zeichen lang sein"),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +25,7 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const { toast } = useToast();
 
@@ -43,57 +51,86 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
+    
+    // Clear validation error for this field when user types
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setValidationErrors({});
 
-    if (!formData.email || !formData.message) {
+    // Client-side validation
+    const validationResult = contactFormSchema.safeParse({
+      name: formData.name || undefined,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      message: formData.message,
+    });
+
+    if (!validationResult.success) {
+      const errors: Record<string, string> = {};
+      validationResult.error.issues.forEach((issue) => {
+        if (issue.path[0]) {
+          errors[issue.path[0].toString()] = issue.message;
+        }
+      });
+      setValidationErrors(errors);
+      setIsSubmitting(false);
       toast({
-        title: "Bitte Pflichtfelder ausfüllen",
-        description: "E-Mail und Nachricht sind erforderlich.",
+        title: "Bitte korrigiere die Fehler",
+        description: "Einige Felder sind nicht korrekt ausgefüllt.",
         variant: "destructive"
       });
-      setIsSubmitting(false);
       return;
     }
-    
-    const data = {name:formData.name, email:formData.email, message:formData.message, phone:formData.phone};
-    fetch(CONTACT_US_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error(response.statusText);
-        }
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: ""
-        });
-        toast({
-          title: "Nachricht gesendet! ✅",
-          description: "Wir melden uns innerhalb von 24 Stunden bei dir zurück.",
-        });
-        return response.json();
-      })
-      .catch((err) => {
-        console.error(err);
-        toast({
-          title: "Fehler beim Senden",
-          description: "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
-          variant: "destructive"
-        });
-      }).finally(() => {
-        setIsSubmitting(false);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-inquiry', {
+        body: {
+          name: formData.name || undefined,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          message: formData.message,
+        },
       });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+      
+      toast({
+        title: "Nachricht gesendet! ✅",
+        description: "Wir melden uns innerhalb von 24 Stunden bei dir zurück.",
+      });
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast({
+        title: "Fehler beim Senden",
+        description: "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -146,11 +183,14 @@ const Contact = () => {
                   placeholder="deine@email.de"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                  className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${validationErrors.email ? 'border-destructive' : ''}`}
                   disabled={isSubmitting}
                   autoComplete="email"
                   required
                 />
+                {validationErrors.email && (
+                  <p className="text-sm text-destructive">{validationErrors.email}</p>
+                )}
               </div>
 
               {/* Message Field - Required */}
@@ -165,10 +205,13 @@ const Contact = () => {
                   placeholder="Erzähl uns, womit wir dir helfen können..."
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="min-h-[120px] text-lg border-border/50 focus:border-primary transition-colors resize-none"
+                  className={`min-h-[120px] text-lg border-border/50 focus:border-primary transition-colors resize-none ${validationErrors.message ? 'border-destructive' : ''}`}
                   disabled={isSubmitting}
                   required
                 />
+                {validationErrors.message && (
+                  <p className="text-sm text-destructive">{validationErrors.message}</p>
+                )}
               </div>
 
               {/* Optional Fields Section */}
@@ -190,10 +233,13 @@ const Contact = () => {
                     placeholder="Wie heißt du?"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${validationErrors.name ? 'border-destructive' : ''}`}
                     disabled={isSubmitting}
                     autoComplete="name"
                   />
+                  {validationErrors.name && (
+                    <p className="text-sm text-destructive">{validationErrors.name}</p>
+                  )}
                 </div>
 
                 {/* Phone Field - Optional */}
@@ -209,10 +255,13 @@ const Contact = () => {
                     placeholder="+49 xxx xxx xxxx"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="h-12 text-lg border-border/50 focus:border-primary transition-colors"
+                    className={`h-12 text-lg border-border/50 focus:border-primary transition-colors ${validationErrors.phone ? 'border-destructive' : ''}`}
                     disabled={isSubmitting}
                     autoComplete="tel"
                   />
+                  {validationErrors.phone && (
+                    <p className="text-sm text-destructive">{validationErrors.phone}</p>
+                  )}
                 </div>
               </div>
 
