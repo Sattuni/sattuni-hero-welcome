@@ -13,7 +13,7 @@ import { cateringFormSchema } from '@/services/validation/schemas';
 import { Send, Loader2, User, Mail, Phone, MapPin, Calendar, PartyPopper, MessageSquare, Building2, Sparkles, X, ArrowRight, Users, Clock } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import { FORM_CONSTANTS } from '@/constants';
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 
 const CateringContact = () => {
   const [formData, setFormData] = useState({
