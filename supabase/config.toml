@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.send-followup-emails]
 verify_jwt = false
+
+[functions.send-contact-inquiry]
+verify_jwt = false
