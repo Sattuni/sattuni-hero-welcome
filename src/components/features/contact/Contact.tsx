@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, Clock, Mail, MessageCircle, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "../../ui/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { z } from "zod";
 
 // Validation schema matching the edge function
