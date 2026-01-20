@@ -439,9 +439,6 @@ const Catering = () => {
 
       {/* FAQ Section */}
       <FAQSection />
-        
-        {/* Internal Links Section */}
-        <InternalLinks />
 
       {/* Final CTA */}
       <section className="py-20">
