@@ -45,28 +45,28 @@ const MobileCTABar = () => {
   return (
     <div className={`
       fixed bottom-0 left-0 right-0 z-50 
-      bg-background/95 backdrop-blur-sm border-t border-border/50 shadow-soft
-      p-4 safe-area-inset-bottom
+      bg-background/95 backdrop-blur-md border-t border-border/50 shadow-lg
+      px-4 py-3 safe-area-inset-bottom
       transform transition-transform duration-300 ease-out
       ${isVisible ? 'translate-y-0' : 'translate-y-full'}
     `}>
-      <div className="flex gap-3 max-w-sm mx-auto">
+      <div className="flex gap-3 max-w-md mx-auto">
         <Button
           onClick={handleOrder}
           variant="hero"
           size="lg"
-          className="flex-1 gap-2 h-10 text-sm font-semibold"
+          className="flex-1 gap-2 h-12 text-sm font-semibold min-h-[48px]"
         >
-          <ShoppingBag className="w-4 h-4" />
+          <ShoppingBag className="w-5 h-5" />
           {ctaText}
         </Button>
         <Button
           onClick={handleCatering}
           variant="hero-secondary"
           size="lg"
-          className="gap-2 h-10 px-3 text-sm"
+          className="gap-2 h-12 px-4 text-sm min-h-[48px]"
         >
-          <CalendarCheck className="w-4 h-4" />
+          <CalendarCheck className="w-5 h-5" />
           Catering
         </Button>
       </div>

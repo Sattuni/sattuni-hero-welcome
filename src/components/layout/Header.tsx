@@ -175,23 +175,15 @@ const Header = () => {
           
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild >
-              <div className="md:hidden flex items-center space-x-2">
-                <Link
-                  key="Catering"
-                  to="/catering"
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 "text-muted-foreground hover:text-primary hover:bg-primary/5"`}
-                >Catering</Link>
-                <Link
-                  key="Spezialitäten"
-                  to="/spezialitaeten"
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 "text-muted-foreground hover:text-primary hover:bg-primary/5"`}
-                >Spezialitäten</Link>
-                <Button variant="ghost" size="icon" className="h-12 w-12 p-0 hover:bg-primary/10">
-                  <Menu className="w-8 h-8 text-foreground" style={{ width: 22, height: 22 }}/>
-                  <span className="sr-only">Menü öffnen</span>
-                </Button>
-              </div>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden min-h-[44px] min-w-[44px] h-11 w-11 p-0 hover:bg-primary/10 active:bg-primary/20 transition-colors touch-manipulation"
+                aria-label="Menü öffnen"
+              >
+                <Menu className="w-6 h-6 text-foreground" />
+              </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-6 mt-8">
