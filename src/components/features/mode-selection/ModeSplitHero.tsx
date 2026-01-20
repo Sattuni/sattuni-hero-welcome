@@ -1,13 +1,25 @@
 import { useSiteMode } from '@/contexts/SiteModeContext';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Building2, UtensilsCrossed, Users, Truck, Star, ChefHat, Clock, MapPin } from 'lucide-react';
+import { Building2, UtensilsCrossed, Users, Truck, Star, ChefHat, Clock, MapPin, ShoppingBag } from 'lucide-react';
+import { triggerGLFWidget } from '@/utils/glfHelper';
+import { useMobileDetection } from '@/hooks/useMobileDetection';
 import sattunLogo from '@/assets/icons/sattuni-header-icon.png';
 import { useNavigate } from 'react-router-dom';
 
 const ModeSplitHero = () => {
   const { setMode } = useSiteMode();
   const navigate = useNavigate();
+  const isMobile = useMobileDetection();
+
+  const handleOrderNow = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isMobile) {
+      window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
+    } else {
+      triggerGLFWidget();
+    }
+  };
 
   const handleCateringSelect = () => {
     setMode('catering');
@@ -136,19 +148,30 @@ const ModeSplitHero = () => {
                 </div>
               </div>
 
-              {/* CTA */}
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="w-full font-semibold group-hover:shadow-md transition-all"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleRestaurantSelect();
-                }}
-              >
-                <UtensilsCrossed className="w-4 h-4 mr-2" />
-                Zum Restaurant
-              </Button>
+              {/* CTAs */}
+              <div className="flex flex-col gap-2">
+                <Button 
+                  size="lg" 
+                  variant="hero"
+                  className="w-full font-semibold shadow-md transition-all"
+                  onClick={handleOrderNow}
+                >
+                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  Jetzt bestellen
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="w-full font-semibold group-hover:shadow-md transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRestaurantSelect();
+                  }}
+                >
+                  <UtensilsCrossed className="w-4 h-4 mr-2" />
+                  Mehr erfahren
+                </Button>
+              </div>
             </div>
           </Card>
         </div>
