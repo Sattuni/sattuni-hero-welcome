@@ -1,4 +1,4 @@
-import heroCatering from "@/assets/hero/hero-catering.jpg";
+import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
