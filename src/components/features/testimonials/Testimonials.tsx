@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronDown, ChevronUp, ExternalLink, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useMobileDetection();
 
   const reviews = [
     {
@@ -157,13 +159,17 @@ const Testimonials = () => {
     );
   };
 
+  // Items per slide based on screen size
+  const itemsPerSlide = isMobile ? 1 : 3;
+  const totalSlides = Math.ceil(reviews.length / itemsPerSlide);
+
   // Auto-advance carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.ceil(reviews.length / 3));
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
     }, 4000);
     return () => clearInterval(timer);
-  }, [reviews.length]);
+  }, [totalSlides]);
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -179,8 +185,8 @@ const Testimonials = () => {
   };
 
   const getVisibleReviews = () => {
-    const startIndex = currentIndex * 3;
-    return reviews.slice(startIndex, startIndex + 3);
+    const startIndex = currentIndex * itemsPerSlide;
+    return reviews.slice(startIndex, startIndex + itemsPerSlide);
   };
 
   return (
@@ -214,14 +220,14 @@ const Testimonials = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {Array.from({ length: Math.ceil(reviews.length / 3) }, (_, slideIndex) => (
+              {Array.from({ length: totalSlides }, (_, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-1 md:px-2">
-                    {reviews.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, index) => (
+                  <div className={`grid gap-4 md:gap-6 px-1 md:px-2 ${isMobile ? 'grid-cols-1' : 'grid-cols-3'}`}>
+                    {reviews.slice(slideIndex * itemsPerSlide, slideIndex * itemsPerSlide + itemsPerSlide).map((review, index) => (
                       <ReviewCard 
-                        key={slideIndex * 3 + index}
+                        key={slideIndex * itemsPerSlide + index}
                         review={review}
-                        index={slideIndex * 3 + index}
+                        index={slideIndex * itemsPerSlide + index}
                       />
                     ))}
                   </div>
@@ -231,25 +237,24 @@ const Testimonials = () => {
           </div>
           
           {/* Carousel Indicators - Touch-optimized */}
-          <div className="flex justify-center gap-3 mt-4 md:mt-8">
-            {Array.from({ length: Math.ceil(reviews.length / 3) }, (_, index) => (
+          <div className="flex justify-center gap-2 mt-4 md:mt-8 flex-wrap max-w-xs mx-auto md:max-w-none">
+            {Array.from({ length: Math.min(totalSlides, isMobile ? 10 : totalSlides) }, (_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center ${
-                  index === currentIndex 
-                    ? "" 
-                    : ""
-                }`}
-                aria-label={`Gehe zu Bewertungsgruppe ${index + 1}`}
+                className="w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 touch-manipulation"
+                aria-label={`Gehe zu Bewertung ${index + 1}`}
               >
-                <span className={`w-3 h-3 md:w-4 md:h-4 rounded-full block transition-all duration-300 ${
+                <span className={`w-2 h-2 md:w-3 md:h-3 rounded-full block transition-all duration-300 ${
                   index === currentIndex 
                     ? "bg-primary scale-125" 
                     : "bg-muted hover:bg-primary/50"
                 }`} />
               </button>
             ))}
+            {isMobile && totalSlides > 10 && (
+              <span className="text-xs text-muted-foreground ml-2">+{totalSlides - 10}</span>
+            )}
           </div>
         </div>
 
