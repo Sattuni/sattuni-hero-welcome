@@ -3,11 +3,9 @@ import { Helmet } from "react-helmet";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
-import MobileCTABar from "@/components/mobile/MobileCTABar";
 
 // Import restaurant-focused components
 import RestaurantHero from "@/components/features/hero/RestaurantHero";
-import RestaurantServices from "@/components/features/services/RestaurantServices";
 import FoodShowcase from "@/components/features/food/FoodShowcase";
 import WhySattuni from "@/components/features/about/WhySattuni";
 import Testimonials from "@/components/features/testimonials/Testimonials";
