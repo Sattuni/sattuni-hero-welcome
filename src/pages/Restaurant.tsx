@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 
 // Import restaurant-focused components
-import Hero from "@/components/features/hero/Hero";
+import RestaurantHero from "@/components/features/hero/RestaurantHero";
 import RestaurantServices from "@/components/features/services/RestaurantServices";
 import FoodShowcase from "@/components/features/food/FoodShowcase";
 import WhySattuni from "@/components/features/about/WhySattuni";
@@ -51,7 +51,7 @@ const Restaurant = () => {
       
       <ModeHeader />
       <main className="min-h-screen pt-16 pb-safe-mobile">
-        <Hero />
+        <RestaurantHero />
         
         <div id="services">
           <RestaurantServices />
