@@ -5,6 +5,7 @@ import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import Breadcrumb from "@/components/layout/Breadcrumb";
+import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useMobileDetection } from "@/hooks/useMobileDetection";
@@ -392,7 +393,7 @@ const Catering = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-                Unsere Partner
+                Diese Unternehmen vertrauen uns
               </h2>
             </div>
 
@@ -502,6 +503,8 @@ const Catering = () => {
           <ArrowUp className="w-5 h-5 mx-auto" />
         </button>
       )}
+      
+      <Footer />
     </div>
   );
 };
