@@ -50,10 +50,10 @@ const ModeSplitHero = () => {
             />
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-3">
-            Willkommen bei Sattuni
+            Hey, schön dass ihr da seid
           </h1>
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-            Was suchst du heute bei uns?
+            Was darf's sein?
           </p>
         </div>
 
@@ -77,7 +77,7 @@ const ModeSplitHero = () => {
                 Restaurant & Lieferservice
               </h2>
               <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                Arabische Küche in Düsseldorf – frisch, hausgemacht & authentisch
+                Frisch, hausgemacht, direkt zu dir geliefert
               </p>
 
               {/* Features */}
@@ -141,7 +141,7 @@ const ModeSplitHero = () => {
                 Catering & Buffets
               </h2>
               <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                Für Unternehmen, Events & besondere Anlässe – ab 20 Personen
+                Fürs Büro, fürs Event, für besondere Anlässe – ab 20 Leuten
               </p>
 
               {/* Features */}

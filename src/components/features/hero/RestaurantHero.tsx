@@ -59,8 +59,8 @@ const RestaurantHero = () => {
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display font-bold leading-tight tracking-tight"
               itemProp="name"
             >
-              <span className="md:hidden">Arabische Küche in Düsseldorf</span>
-              <span className="hidden md:inline">Sattuni – Arabische Küche & Lieferservice in Düsseldorf</span>
+              <span className="md:hidden">Arabisch essen in Düsseldorf</span>
+              <span className="hidden md:inline">Sattuni – Arabische Küche in Düsseldorf</span>
             </h1>
             
             {/* Subline */}
@@ -68,16 +68,15 @@ const RestaurantHero = () => {
               className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed font-body"
               itemProp="description"
             >
-              <span className="md:hidden">Hausgemacht, frisch & authentisch</span>
-              <span className="hidden md:inline">Lust auf authentisch arabisches Essen? Hausgemacht, frisch und mit Liebe zubereitet – 
-              direkt zu dir nach Hause oder ins Büro geliefert.</span>
+              <span className="md:hidden">Frisch gemacht, schnell geliefert</span>
+              <span className="hidden md:inline">Hunger? Wir machen alles frisch und bringen's dir – nach Hause oder ins Büro.</span>
             </p>
             
             {/* Urgency Badge */}
             <div className="flex justify-center lg:justify-start mb-1 md:mb-2">
               <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full" aria-hidden="true"></span>
-                <span className="text-xs md:text-sm font-medium text-primary">Heute bestellt, heute geliefert!</span>
+                <span className="text-xs md:text-sm font-medium text-primary">In 30-45 Min bei dir</span>
               </div>
             </div>
 

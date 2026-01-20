@@ -6,79 +6,73 @@ import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 const faqs = [
   {
     value: "ablauf",
-    question: "Wie läuft eine Catering-Anfrage ab?",
+    question: "Wie läuft so eine Anfrage ab?",
     answer: (
       <>
         <p className="mb-3">
-          Nach Eingang eurer Anfrage melden wir uns innerhalb von 24 Stunden. 
-          Gemeinsam klären wir Details wie Termin, Gästezahl und besondere Anforderungen.
+          Ziemlich unkompliziert: Ihr schickt uns eine Anfrage, wir melden uns innerhalb von einem Tag. 
+          Dann quatschen wir kurz über die Details – Termin, wie viele Leute, ob's was Besonderes gibt.
         </p>
         <p>
-          Ihr erhaltet anschließend ein verbindliches Angebot mit allen wichtigen Informationen.
+          Danach kriegt ihr ein Angebot mit allem drin. Wenn's passt, läuft's.
         </p>
       </>
     )
   },
   {
     value: "lieferung",
-    question: "Wie wird die Lieferung koordiniert?",
+    question: "Und wie ist das mit der Lieferung?",
     answer: (
       <>
         <p className="mb-3">
-          Die Lieferung erfolgt in einem vorab vereinbarten Zeitfenster. 
-          So stellen wir sicher, dass alles rechtzeitig vor Ort ist – 
-          bevor euer Meeting oder Event beginnt.
+          Wir machen vorher ein Zeitfenster aus – damit das Essen da ist, bevor euer Meeting oder Event losgeht. 
+          Nicht zu früh, nicht zu spät.
         </p>
         <p>
-          Bei Aufbau-Service kommen wir rechtzeitig, um alles vorzubereiten.
+          Wenn ihr wollt, bauen wir auch auf. Dann ist alles fertig, wenn ihr's braucht.
         </p>
       </>
     )
   },
   {
     value: "mindestpersonen",
-    question: "Ab wie vielen Personen bietet ihr Catering an?",
+    question: "Ab wie vielen Leuten macht ihr das?",
     answer: (
       <>
         <p className="mb-3">
-          Unser Catering-Service ist ab 20 Personen verfügbar. 
-          Diese Mindestgröße ermöglicht uns eine professionelle Durchführung 
-          mit entsprechendem Service-Level.
+          Ab 20 Personen. Das ist die Größe, ab der sich's für uns lohnt und ihr auch was davon habt.
         </p>
         <p>
-          <strong>Für kleinere Gruppen:</strong> Nutzt gerne unseren 
-          regulären Lieferservice über den Online-Shop.
+          <strong>Weniger Leute?</strong> Kein Problem – dann bestellt einfach über unseren normalen Lieferservice.
         </p>
       </>
     )
   },
   {
     value: "anpassungen",
-    question: "Können Änderungen nach der Buchung vorgenommen werden?",
+    question: "Kann man noch was ändern, wenn's schon gebucht ist?",
     answer: (
       <p className="mb-3">
-        Ja, Anpassungen bei der Personenanzahl sind bis eine Woche vor dem Liefertag möglich. 
-        Wir informieren euch rechtzeitig über die Fristen.
+        Klar, Anzahl anpassen geht noch bis eine Woche vorher. Wir sagen euch Bescheid, welche Fristen gelten.
       </p>
     )
   },
   {
     value: "ausstattung",
-    question: "Ist Geschirr und Ausstattung enthalten?",
+    question: "Bringt ihr auch Geschirr mit?",
     answer: (
       <p className="mb-3">
-        Auf Wunsch stellen wir Geschirr, Besteck und Wärmebehälter bereit. 
-        Die Details besprechen wir gemeinsam nach eurer Anfrage.
+        Wenn ihr wollt, ja. Teller, Besteck, Wärmebehälter – alles kein Thema. Sagt einfach Bescheid.
       </p>
     )
   },
   {
     value: "ernaehrung",
-    question: "Gibt es vegetarische und vegane Optionen?",
+    question: "Gibt's auch was Veganes?",
     answer: (
       <p className="mb-3">
-        Ja, unsere Küche bietet eine große Auswahl an vegetarischen und veganen Gerichten. 
-        Teilt uns eure Anforderungen einfach in der Anfrage mit.
+        Jede Menge. Falafel, Hummus, die ganzen Salate – vieles ist bei uns von Natur aus vegan oder vegetarisch. 
+        Schreibt uns einfach, was ihr braucht.
       </p>
     )
   },
@@ -87,19 +81,17 @@ const faqs = [
     question: "Wie weit liefert ihr?",
     answer: (
       <p className="mb-3">
-        Wir liefern in Düsseldorf und Umgebung – bis zu 50 km Radius. 
-        Innerhalb Düsseldorfs ist die Anlieferung in der Regel inklusive.
+        Düsseldorf und drumherum – so etwa 50 km. In Düsseldorf selbst ist die Lieferung meistens inklusive.
       </p>
     )
   },
   {
     value: "kontakt",
-    question: "Wer ist mein Ansprechpartner?",
+    question: "Mit wem rede ich eigentlich?",
     answer: (
       <p className="mb-3">
-        Ihr erhaltet nach der Anfrage einen festen Ansprechpartner, 
-        der euch durch den gesamten Prozess begleitet – 
-        von der Planung bis zur Durchführung.
+        Ihr kriegt einen festen Ansprechpartner. Der bleibt auch dran – von der ersten Nachricht bis zum fertigen Buffet. 
+        Kein ständiges Weiterleiten.
       </p>
     )
   }

@@ -4,23 +4,23 @@ const WhySattuni = () => {
   const benefits = [
     {
       icon: ChefHat,
-      title: "Hausgemacht & frisch",
-      description: "Jeden Tag frisch gemacht – schmeckst du sofort."
+      title: "Frisch gemacht",
+      description: "Alles am selben Tag zubereitet. Schmeckt man."
     },
     {
       icon: Leaf,
-      title: "Vielfalt für alle",
-      description: "Fleisch-Fan oder Veggie-Lover? Hier wird jeder glücklich."
+      title: "Für jeden was",
+      description: "Fleisch, vegetarisch, vegan – hier findet jeder was."
     },
     {
       icon: Truck,
-      title: "Schnell & zuverlässig",
-      description: "In Düsseldorf bringen wir's dir – schnell und zuverlässig."
+      title: "Schnell da",
+      description: "In Düsseldorf liefern wir fix zu dir."
     },
     {
       icon: Calendar,
-      title: "Für jeden Anlass",
-      description: "Kleiner Hunger oder Familienessen – wir sind dabei."
+      title: "Klein oder groß",
+      description: "Einzelbestellung oder fürs ganze Team – kein Problem."
     }
   ];
 
@@ -30,10 +30,10 @@ const WhySattuni = () => {
         {/* Header */}
         <div className="text-center mb-6 md:mb-12 space-y-2 md:space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
-            Warum Sattuni?
+            Warum bei uns bestellen?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            Weil's bei uns nicht nur lecker ist, sondern auch easy.
+            Ganz einfach: Weil's schmeckt und unkompliziert ist.
           </p>
         </div>
 
