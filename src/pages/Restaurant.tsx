@@ -53,9 +53,6 @@ const Restaurant = () => {
       <main className="min-h-screen pt-16 pb-safe-mobile">
         <RestaurantHero />
         
-        <div id="services">
-          <RestaurantServices />
-        </div>
         
         <div id="spezialitaeten">
           <FoodShowcase />
