@@ -32,7 +32,7 @@ const ModeSplitHero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-8 md:py-12 bg-gradient-hero relative">
+    <section className="min-h-screen flex items-center justify-center px-4 py-4 md:py-12 bg-gradient-hero relative">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-warm rounded-full opacity-10 blur-3xl"></div>
@@ -41,24 +41,24 @@ const ModeSplitHero = () => {
 
       <div className="container relative z-10 max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <div className="flex justify-center mb-4">
+        <div className="text-center mb-4 md:mb-12">
+          <div className="flex justify-center mb-2 md:mb-4">
             <img 
               src={sattunLogo} 
               alt="Sattuni Logo" 
-              className="h-16 md:h-20 w-auto drop-shadow-lg"
+              className="h-12 md:h-20 w-auto drop-shadow-lg"
             />
           </div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-3">
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-1 md:mb-3">
             Hey, schön dass ihr da seid
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-sm md:text-lg text-muted-foreground max-w-xl mx-auto">
             Was darf's sein?
           </p>
         </div>
 
         {/* Mode Selection Cards */}
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-3 md:gap-6 lg:gap-8">
           {/* Restaurant Card */}
           <Card 
             className="group relative overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all duration-300 cursor-pointer bg-card/95 backdrop-blur-sm hover:shadow-elegant"
@@ -66,22 +66,27 @@ const ModeSplitHero = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <div className="relative p-6 md:p-8">
-              {/* Icon */}
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                <UtensilsCrossed className="w-7 h-7 md:w-8 md:h-8 text-accent-foreground" />
+            <div className="relative p-4 md:p-8">
+              {/* Mobile: Compact horizontal layout */}
+              <div className="flex items-start gap-3 md:block">
+                {/* Icon */}
+                <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 md:mb-5 group-hover:bg-accent/20 transition-colors">
+                  <UtensilsCrossed className="w-5 h-5 md:w-8 md:h-8 text-accent-foreground" />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-base md:text-2xl font-display font-bold text-foreground mb-0.5 md:mb-2">
+                    Restaurant & Lieferservice
+                  </h2>
+                  <p className="text-muted-foreground text-xs md:text-base md:mb-6">
+                    Frisch, hausgemacht, direkt zu dir
+                  </p>
+                </div>
               </div>
 
-              {/* Content */}
-              <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2">
-                Restaurant & Lieferservice
-              </h2>
-              <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                Frisch, hausgemacht, direkt zu dir geliefert
-              </p>
-
-              {/* Features */}
-              <div className="space-y-2 mb-6">
+              {/* Features - Hidden on mobile */}
+              <div className="hidden md:block space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Truck className="w-4 h-4 text-accent-foreground/70" />
                   <span>Lieferung in 30-45 Min</span>
@@ -97,20 +102,20 @@ const ModeSplitHero = () => {
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 mt-3 md:mt-0">
                 <Button 
-                  size="lg" 
+                  size="default"
                   variant="hero"
-                  className="w-full font-semibold shadow-md transition-all"
+                  className="w-full font-semibold shadow-md transition-all text-sm md:text-base md:h-11"
                   onClick={handleOrderNow}
                 >
                   <ShoppingBag className="w-4 h-4 mr-2" />
                   Jetzt bestellen
                 </Button>
                 <Button 
-                  size="lg" 
+                  size="default"
                   variant="secondary"
-                  className="w-full font-semibold group-hover:shadow-md transition-all"
+                  className="w-full font-semibold group-hover:shadow-md transition-all text-sm md:text-base md:h-11"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleRestaurantSelect();
@@ -130,22 +135,27 @@ const ModeSplitHero = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <div className="relative p-6 md:p-8">
-              {/* Icon */}
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <Building2 className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+            <div className="relative p-4 md:p-8">
+              {/* Mobile: Compact horizontal layout */}
+              <div className="flex items-start gap-3 md:block">
+                {/* Icon */}
+                <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 md:mb-5 group-hover:bg-primary/20 transition-colors">
+                  <Building2 className="w-5 h-5 md:w-8 md:h-8 text-primary" />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-base md:text-2xl font-display font-bold text-foreground mb-0.5 md:mb-2">
+                    Catering & Buffets
+                  </h2>
+                  <p className="text-muted-foreground text-xs md:text-base md:mb-6">
+                    Fürs Büro, fürs Event – ab 20 Leuten
+                  </p>
+                </div>
               </div>
 
-              {/* Content */}
-              <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2">
-                Catering & Buffets
-              </h2>
-              <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                Fürs Büro, fürs Event, für besondere Anlässe – ab 20 Leuten
-              </p>
-
-              {/* Features */}
-              <div className="space-y-2 mb-6">
+              {/* Features - Hidden on mobile */}
+              <div className="hidden md:block space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="w-4 h-4 text-primary/70" />
                   <span>Firmenfeiern & Meetings</span>
@@ -162,8 +172,8 @@ const ModeSplitHero = () => {
 
               {/* CTA */}
               <Button 
-                size="lg" 
-                className="w-full font-semibold group-hover:shadow-md transition-all"
+                size="default"
+                className="w-full font-semibold group-hover:shadow-md transition-all mt-3 md:mt-0 text-sm md:text-base md:h-11"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleCateringSelect();
@@ -177,23 +187,22 @@ const ModeSplitHero = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-8 md:mt-12 text-center">
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-xs md:text-sm text-muted-foreground">
+        <div className="mt-4 md:mt-12 text-center">
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-8 text-xs md:text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <div className="flex text-yellow-500">
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
+                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
+                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
+                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
+                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
               </div>
               <span className="font-medium text-foreground">4.9/5</span>
-              <span className="hidden sm:inline">bei Google</span>
             </div>
-            <span className="hidden md:inline text-muted-foreground/50">|</span>
-            <span>Seit 2022 in Düsseldorf</span>
-            <span className="hidden md:inline text-muted-foreground/50">|</span>
-            <span>Frisch & Hausgemacht</span>
+            <span className="text-muted-foreground/50">•</span>
+            <span>Seit 2022</span>
+            <span className="hidden md:inline text-muted-foreground/50">•</span>
+            <span className="hidden md:inline">Frisch & Hausgemacht</span>
           </div>
         </div>
       </div>
