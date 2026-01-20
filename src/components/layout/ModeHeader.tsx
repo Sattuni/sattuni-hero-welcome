@@ -11,9 +11,9 @@ const ModeHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { mode, setMode, isCateringMode, isRestaurantMode } = useSiteMode();
+  const { setMode, isCateringMode, isRestaurantMode } = useSiteMode();
 
-  // Mode-specific navigation
+  // Mode-specific navigation with correct URL paths
   const cateringNavigation = [
     { 
       name: "Catering", 
@@ -23,29 +23,35 @@ const ModeHeader = () => {
     },
     { 
       name: "Menüs & Buffets", 
-      href: "/menus", 
-      current: location.pathname === "/menus",
+      href: "/catering/menus", 
+      current: location.pathname === "/catering/menus",
       title: "Buffet Menüs ansehen"
     },
     { 
       name: "Über uns", 
-      href: "/ueber-uns", 
-      current: location.pathname === "/ueber-uns",
+      href: "/catering/ueber-uns", 
+      current: location.pathname === "/catering/ueber-uns",
       title: "Das Team hinter Sattuni"
+    },
+    { 
+      name: "Blog", 
+      href: "/catering/blog", 
+      current: location.pathname.startsWith("/catering/blog"),
+      title: "Blog & Einblicke"
     },
   ];
 
   const restaurantNavigation = [
     { 
       name: "Speisekarte", 
-      href: "/speisekarte", 
-      current: location.pathname === "/speisekarte",
+      href: "/restaurant/speisekarte", 
+      current: location.pathname === "/restaurant/speisekarte",
       title: "Unsere Speisekarte"
     },
     { 
       name: "Spezialitäten", 
-      href: "/spezialitaeten", 
-      current: location.pathname === "/spezialitaeten",
+      href: "/restaurant/spezialitaeten", 
+      current: location.pathname === "/restaurant/spezialitaeten",
       title: "Arabische Spezialitäten"
     },
     { 
@@ -53,12 +59,6 @@ const ModeHeader = () => {
       href: "/restaurant#oeffnungszeiten", 
       current: false,
       title: "Unsere Öffnungszeiten"
-    },
-    { 
-      name: "Über uns", 
-      href: "/ueber-uns", 
-      current: location.pathname === "/ueber-uns",
-      title: "Das Team hinter Sattuni"
     },
   ];
 
@@ -200,7 +200,7 @@ const ModeHeader = () => {
                   <div>
                     <span className="text-lg font-semibold font-display">sattuni</span>
                     <p className="text-xs text-muted-foreground">
-                      {isCateringMode ? 'Catering-Modus' : 'Restaurant-Modus'}
+                      {isCateringMode ? 'Catering' : 'Restaurant'}
                     </p>
                   </div>
                 </div>

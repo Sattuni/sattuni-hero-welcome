@@ -11,10 +11,9 @@ import falafelTeigtaschen3 from "@/assets/falafel/falafel-teigtaschen-3.jpg";
 import falafelTeigtaschen4 from "@/assets/falafel/falafel-teigtaschen-4.jpg";
 import falafelTeigtaschen from "@/assets/falafel/falafel-teigtaschen.jpg";
 import heroSpecialties from "@/assets/hero/hero-specialties.jpg";
-import FOMOElements from "@/components/features/marketing/FOMOElements";
-import Breadcrumb from "@/components/layout/Breadcrumb";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import InternalLinks from "@/components/layout/InternalLinks";
+import { useSiteMode } from "@/contexts/SiteModeContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -30,6 +29,12 @@ const Specialties = () => {
   const { trackOrderButton, trackCateringInquiry, trackImageInteraction, trackBusinessAction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
   const { trackItemView, trackItemClick } = useMenuTracking();
+  const { setMode } = useSiteMode();
+
+  // Set restaurant mode on page load
+  useEffect(() => {
+    setMode('restaurant');
+  }, [setMode]);
 
   // SEO Meta Tags and Structured Data
   useEffect(() => {
@@ -213,15 +218,8 @@ const Specialties = () => {
         <link rel="canonical" href="https://sattuni.de/spezialitaeten" />
       </Helmet>
       
-      <Header />
+      <ModeHeader />
       <main className="min-h-screen pt-16 pb-safe-mobile">
-        {/* Breadcrumb Navigation */}
-        <Breadcrumb 
-          items={[
-            { name: "Startseite", href: "/" },
-            { name: "Spezialitäten", href: "/spezialitaeten", current: true }
-          ]}
-        />
         {/* Hero Section - Optimized Height */}
         <section 
           className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
@@ -536,8 +534,6 @@ const Specialties = () => {
       
       {/* Internal Links Section */}
       <InternalLinks />
-      
-      <FOMOElements />
     </>
   );
 };

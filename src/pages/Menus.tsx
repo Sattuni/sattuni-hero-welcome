@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Phone, Mail, MessageCircle, Printer, Leaf, Sparkles, ArrowUp, Star, Users, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,8 +7,17 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CATERING_PACKAGES, formatPrice, type CateringPackage, type PackageDishItem } from '@/constants/catering-packages';
 import sattLogo from '@/assets/sattuni-sticker-logo.jpg';
+import ModeHeader from '@/components/layout/ModeHeader';
+import Footer from '@/components/layout/Footer';
+import { useSiteMode } from '@/contexts/SiteModeContext';
 
 const Menus = () => {
+  const { setMode } = useSiteMode();
+
+  // Set catering mode on page load
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
   const handlePrint = () => {
     window.print();
   };
