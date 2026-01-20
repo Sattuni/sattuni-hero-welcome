@@ -175,18 +175,31 @@ const ModeHeader = () => {
             )}
           </div>
           
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="md:hidden min-h-[44px] min-w-[44px] h-11 w-11 p-0 hover:bg-primary/10 active:bg-primary/20 transition-colors touch-manipulation"
-                aria-label="Menü öffnen"
-              >
-                <Menu className="w-6 h-6 text-foreground" />
-              </Button>
-            </SheetTrigger>
+          {/* Mobile Mode Switch + Menu */}
+          <div className="flex items-center gap-2 md:hidden">
+            {/* Mode Switch Button - Mobile */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleModeSwitch}
+              className="text-xs font-medium gap-1.5 h-9 px-2.5"
+            >
+              <ArrowLeftRight className="w-3.5 h-3.5" />
+              {isCateringMode ? "Restaurant" : "Catering"}
+            </Button>
+            
+            {/* Hamburger Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="min-h-[44px] min-w-[44px] h-11 w-11 p-0 hover:bg-primary/10 active:bg-primary/20 transition-colors touch-manipulation"
+                  aria-label="Menü öffnen"
+                >
+                  <Menu className="w-6 h-6 text-foreground" />
+                </Button>
+              </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-6 mt-8">
                 <div className="flex items-center space-x-3">
@@ -263,6 +276,7 @@ const ModeHeader = () => {
               </div>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </div>
     </header>
