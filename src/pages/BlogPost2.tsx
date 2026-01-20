@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Leaf, Salad, Users, Heart, Utensils, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSiteMode } from "@/contexts/SiteModeContext";
 import heroImage from "@/assets/blog/mezze-sharing-hero.jpg";
 
 const BlogPost2 = () => {
+  const { setMode } = useSiteMode();
+
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
+
   return (
     <>
       <Helmet>
@@ -17,12 +25,12 @@ const BlogPost2 = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
-        <Header />
+        <ModeHeader />
         
         {/* Back to Blog */}
-        <section className="py-6 px-4">
+        <section className="py-6 px-4 pt-24">
           <div className="container mx-auto max-w-4xl">
-            <Link to="/blog">
+            <Link to="/catering/blog">
               <Button variant="ghost" className="gap-2">
                 <ArrowLeft className="w-4 h-4" />
                 Zurück zum Blog
