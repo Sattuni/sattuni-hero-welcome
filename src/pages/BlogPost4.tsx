@@ -33,7 +33,7 @@ const BlogPost4 = () => {
     },
     {
       title: "Frische Salate: Taboulé & Fattoush",
-      description: "Keine Mezze-Platte ist komplett ohne diese beiden Salat-Klassiker. Taboulé besticht durch frische Petersilie, Minze, Bulgur und sonnengereiften Tomaten. Fattoush bringt mit knusprigen Fladenbrot-Chips und dem säuerlichen Sumak-Dressing eine ganz eigene Textur ins Spiel. Beide Salate sind leicht, erfrischend und voller Vitamine.",
+      description: "Keine Mezze-Platte ist komplett ohne diese beiden Salat-Klassiker. Taboulé besticht durch frische Petersilie, Minze, Bulgur und sonnengereiften Tomaten. Fattoush bringt mit knusprigen Fladenbrot-Chips, Sonnenblumen- und Granatapfelkernen eine ganz eigene Textur ins Spiel. Beide Salate sind leicht, erfrischend und voller Vitamine.",
       tip: "Ideal als Ausgleich zu reichhaltigeren Gerichten – bringt Frische auf den Teller."
     },
     {
