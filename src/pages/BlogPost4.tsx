@@ -38,7 +38,7 @@ const BlogPost4 = () => {
     },
     {
       title: "Ofengemüse & gefüllte Teigtaschen",
-      description: "Bunt, aromatisch und sättigend: Unser Ofengemüse wird mit orientalischen Gewürzen wie Ras el Hanout und Za'atar geröstet. Dazu servieren wir hausgemachte Teigtaschen – gefüllt mit Spinat und Zwiebeln oder würzigem Kürbis. Diese Kombination zeigt, wie vielfältig und befriedigend vegane Küche sein kann.",
+      description: "Bunt, aromatisch und sättigend: Unser Ofengemüse wird mit orientalischen Gewürzen wie Za'atar geröstet. Dazu servieren wir hausgemachte Teigtaschen – gefüllt mit Kartoffeln oder Spinat. Diese Kombination zeigt, wie vielfältig und befriedigend vegane Küche sein kann.",
       tip: "Die Teigtaschen eignen sich perfekt als Fingerfood für Stehempfänge."
     }
   ];
