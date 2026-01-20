@@ -1,7 +1,12 @@
-import { Clock, Calendar, CheckCircle, X } from "lucide-react";
+import { useState } from "react";
+import { Clock, Calendar, CheckCircle, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const OpeningHours = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const getCurrentDay = () => {
     return new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
   };
@@ -63,94 +68,114 @@ const OpeningHours = () => {
 
   const currentDay = getCurrentDay();
   const isOpen = isCurrentlyOpen();
+  
+  // Find today's entry
+  const todayEntry = openingHours.find(item => item.dayNumbers.includes(currentDay));
+  const otherDays = openingHours.filter(item => !item.dayNumbers.includes(currentDay));
 
   return (
-    <section className="py-8 md:py-16 px-4 bg-gradient-to-b from-muted/30 to-background">
+    <section className="py-6 md:py-12 px-4 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-6 md:mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Clock className="w-8 h-8 text-primary" />
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground">
-              Öffnungszeiten
-            </h2>
-          </div>
-          
-          {/* Current Status */}
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 ${
-            isOpen 
-              ? 'bg-green-50 border-green-200 text-green-800' 
-              : 'bg-red-50 border-red-200 text-red-800'
-          }`}>
-            {isOpen ? (
-              <>
-                <CheckCircle className="w-4 h-4" />
-                <span className="font-semibold">Jetzt geöffnet</span>
-              </>
-            ) : (
-              <>
-                <X className="w-4 h-4" />
-                <span className="font-semibold">Geschlossen</span>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Opening Hours Grid */}
         <Card className="border-border/50 bg-card/90 backdrop-blur-sm shadow-soft overflow-hidden">
-          <CardContent className="p-6">
-            <div className="space-y-4">
-              {openingHours.map((item, index) => {
-                const isToday = item.dayNumbers.includes(currentDay);
+          <CardContent className="p-4 md:p-6">
+            {/* Header with Status */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-primary" />
+                <h2 className="text-lg md:text-xl font-display font-bold text-foreground">
+                  Öffnungszeiten
+                </h2>
+              </div>
+              
+              {/* Current Status */}
+              <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
+                isOpen 
+                  ? 'bg-green-100 text-green-800' 
+                  : 'bg-red-100 text-red-800'
+              }`}>
+                {isOpen ? (
+                  <>
+                    <CheckCircle className="w-3 h-3" />
+                    <span>Geöffnet</span>
+                  </>
+                ) : (
+                  <>
+                    <X className="w-3 h-3" />
+                    <span>Geschlossen</span>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Today's Hours - Always Visible */}
+            {todayEntry && (
+              <div 
+                className="flex items-center justify-between p-3 rounded-lg bg-primary/10 border-2 border-primary/30 mb-3"
+              >
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-primary" />
+                  <span className="font-semibold text-foreground">
+                    Heute
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    ({todayEntry.days.includes('-') ? new Date().toLocaleDateString('de-DE', { weekday: 'long' }) : todayEntry.days})
+                  </span>
+                </div>
                 
-                return (
+                <span className={`font-mono text-sm font-semibold ${
+                  todayEntry.isClosed ? 'text-red-600' : 'text-primary'
+                }`}>
+                  {todayEntry.hours}
+                </span>
+              </div>
+            )}
+
+            {/* Collapsible Other Days */}
+            <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
+              <CollapsibleTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="w-full justify-between text-muted-foreground hover:text-foreground"
+                >
+                  <span className="text-sm">Alle Öffnungszeiten anzeigen</span>
+                  {isExpanded ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </Button>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent className="space-y-2 mt-3 animate-accordion-down">
+                {otherDays.map((item, index) => (
                   <div 
                     key={index}
-                    className={`flex items-center justify-between p-3 rounded-lg transition-all duration-200 ${
-                      isToday 
-                        ? 'bg-primary/10 border-2 border-primary/30' 
-                        : 'bg-muted/50 border border-border/30'
-                    }`}
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-muted/50 border border-border/30"
                   >
-                    <div className="flex items-center gap-3">
-                      <Calendar className={`w-4 h-4 ${isToday ? 'text-primary' : 'text-muted-foreground'}`} />
-                      <span className={`font-medium ${
-                        isToday ? 'text-foreground font-semibold' : 'text-foreground'
-                      }`}>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-3.5 h-3.5 text-muted-foreground" />
+                      <span className="text-sm text-foreground">
                         {item.days}
                       </span>
-                      {isToday && (
-                        <span className="px-2 py-1 text-xs bg-primary text-primary-foreground rounded-full font-medium">
-                          Heute
-                        </span>
-                      )}
                     </div>
                     
-                    <span className={`font-mono text-sm ${
+                    <span className={`font-mono text-xs ${
                       item.isClosed 
                         ? 'text-red-600 font-medium' 
-                        : isToday 
-                          ? 'text-primary font-semibold' 
-                          : 'text-muted-foreground'
+                        : 'text-muted-foreground'
                     }`}>
                       {item.hours}
                     </span>
                   </div>
-                );
-              })}
-            </div>
+                ))}
 
-            {/* Additional Info */}
-            <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
-              <div className="flex items-start gap-2">
-                <Clock className="w-4 h-4 text-accent mt-0.5" />
-                <div className="text-sm text-muted-foreground">
-                  <p className="font-medium text-foreground mb-1">Hinweis:</p>
-                  <p>Letzte Bestellung 30 Minuten vor Schließung möglich.</p>
-                  <p>Catering nach Vereinbarung auch außerhalb der Öffnungszeiten.</p>
+                {/* Additional Info */}
+                <div className="mt-3 p-3 bg-accent/10 rounded-lg border border-accent/20 text-xs text-muted-foreground">
+                  <p>Letzte Bestellung 30 Min vor Schließung.</p>
                 </div>
-              </div>
-            </div>
+              </CollapsibleContent>
+            </Collapsible>
           </CardContent>
         </Card>
       </div>
