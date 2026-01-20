@@ -74,16 +74,13 @@ const BlogPost3 = () => {
                 {/* Einleitung */}
                 <div className="text-lg text-muted-foreground space-y-4 mb-12">
                   <p>
-                    Ein Workshop lebt von Konzentration, Kreativität und Zusammenarbeit. 
-                    Doch was passiert, wenn nach zwei Stunden die Energie sinkt und der Magen knurrt?
+                    Kennt ihr das? Der Workshop läuft super, alle sind voll dabei – und dann kommt die Mittagspause mit labbrigem Pizzakarton. Danach kämpft die Hälfte gegen das Suppenkoma.
                   </p>
                   <p>
-                    Das richtige Catering macht den Unterschied: Es hält dein Team fokussiert, 
-                    fördert den Austausch in den Pausen und sorgt für gute Stimmung – den ganzen Tag lang.
+                    Wir haben schon einige Workshops beliefert und dabei ein paar Sachen gelernt. Zum Beispiel: Das richtige Essen zur richtigen Zeit macht echt einen Unterschied. Nicht nur für die Stimmung, sondern auch für die Energie danach.
                   </p>
                   <p>
-                    In diesem Artikel zeigen wir dir, worauf es beim Workshop-Catering wirklich ankommt 
-                    und wie du mit der richtigen Verpflegung das Beste aus eurem Tag herausholst.
+                    Hier ein paar Gedanken dazu, was wir in der Praxis beobachtet haben.
                   </p>
                 </div>
 
@@ -94,23 +91,20 @@ const BlogPost3 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Zap className="w-5 h-5" />
                       </span>
-                      Warum gutes Catering Workshops erfolgreicher macht
+                      Warum das Essen so wichtig ist
                     </h2>
                     <div className="text-muted-foreground space-y-4">
                       <p>
-                        Studien zeigen: Unser Gehirn verbraucht etwa 20% unserer täglichen Energie – 
-                        und bei intensiver geistiger Arbeit noch mehr. Wer hungrig oder mit schwerem Magen 
-                        in eine Session geht, verliert schnell die Konzentration.
+                        Klingt vielleicht übertrieben, aber: Wer hungrig oder mit Bleimagen in eine Session geht, der ist gedanklich nicht wirklich dabei. Das merkt man spätestens nach dem Mittagessen, wenn alle nur noch aufs Handy starren.
                       </p>
                       <p>
-                        Das richtige Essen zur richtigen Zeit kann:
+                        Das richtige Essen kann helfen:
                       </p>
                       <ul className="list-none space-y-2 pl-0">
                         {[
-                          "Die Aufmerksamkeit über den gesamten Tag halten",
-                          "Kreative Phasen mit neuer Energie beflügeln",
-                          "Networking und Teambuilding in Pausen fördern",
-                          "Das Gesamterlebnis des Workshops positiv prägen"
+                          "Die Konzentration bleibt den ganzen Tag da",
+                          "In den Pausen kommt man ins Gespräch",
+                          "Alle erinnern sich später positiv an den Tag"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -127,7 +121,7 @@ const BlogPost3 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Timer className="w-5 h-5" />
                       </span>
-                      Die 3 Phasen eines Workshop-Tages – und das passende Essen
+                      Was wir wann empfehlen
                     </h2>
                     
                     <div className="space-y-8 mt-6">
@@ -135,14 +129,13 @@ const BlogPost3 = () => {
                       <div className="p-6 bg-card border border-border/50 rounded-lg">
                         <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                           <Coffee className="w-5 h-5 text-primary" />
-                          Morgens: Energie tanken, ohne zu belasten
+                          Morgens: Nicht zu schwer
                         </h3>
                         <p className="text-muted-foreground mb-3">
-                          Der Morgen braucht leichte Energie: frisches Obst, Joghurt, Nüsse und kleine Häppchen. 
-                          Zu schweres Frühstück macht müde – lieber öfter kleine Snacks anbieten.
+                          Morgens reicht oft was Leichtes. Frisches Obst, ein paar Nüsse, vielleicht kleine Häppchen. Wer sich morgens schon vollstopft, ist um elf schon müde.
                         </p>
                         <p className="text-sm text-primary font-medium">
-                          💡 Unser Tipp: Orientalischer Brunch mit Dips, Oliven, frischem Brot und Datteln
+                          Was wir gerne machen: Ein kleiner orientalischer Brunch mit Dips, Oliven und frischem Brot.
                         </p>
                       </div>
 
@@ -150,14 +143,13 @@ const BlogPost3 = () => {
                       <div className="p-6 bg-card border border-border/50 rounded-lg">
                         <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                           <Utensils className="w-5 h-5 text-primary" />
-                          Mittags: Satt werden, aber nicht einschlafen
+                          Mittags: Satt, aber nicht erschlagen
                         </h3>
                         <p className="text-muted-foreground mb-3">
-                          Das klassische Mittagstief ist real! Schwere Gerichte mit viel Fett und Kohlenhydraten 
-                          machen träge. Besser: Proteinreiche, bunte Gerichte mit viel Gemüse.
+                          Das klassische Mittagstief – ihr wisst was ich meine. Das passiert vor allem bei schweren, fettigen Sachen. Besser: Viel Gemüse, Proteine, bunte Sachen, die leicht sind aber trotzdem sättigen.
                         </p>
                         <p className="text-sm text-primary font-medium">
-                          💡 Unser Tipp: Mezze-Buffet mit Falafel, Hummus, bunten Salaten und Couscous-Bowls
+                          Unsere Empfehlung: Ein Mezze-Buffet. Falafel, Hummus, Salate, Couscous-Bowls. Leicht genug, um danach noch arbeiten zu können.
                         </p>
                       </div>
 
@@ -165,14 +157,13 @@ const BlogPost3 = () => {
                       <div className="p-6 bg-card border border-border/50 rounded-lg">
                         <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                           <Lightbulb className="w-5 h-5 text-primary" />
-                          Nachmittags: Der Energie-Boost für die Zielgerade
+                          Nachmittags: Der kleine Boost
                         </h3>
                         <p className="text-muted-foreground mb-3">
-                          Ab 15 Uhr sinkt die Konzentration – Zeit für einen kleinen Pick-me-up: 
-                          Süße Snacks in Maßen, frisches Obst, Nüsse oder ein Smoothie.
+                          Ab 15 Uhr wird's meistens zäh. Da hilft ein kleiner Snack: Was Süßes in Maßen, frisches Obst, vielleicht ein Smoothie. Kein Zuckerschock, aber genug um durchzuhalten.
                         </p>
                         <p className="text-sm text-primary font-medium">
-                          💡 Unser Tipp: Baklava, Datteln mit Nüssen, frische Fruchtsäfte
+                          Läuft bei uns: Baklava, Datteln mit Nüssen, frische Säfte.
                         </p>
                       </div>
                     </div>
@@ -184,14 +175,14 @@ const BlogPost3 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Users className="w-5 h-5" />
                       </span>
-                      Wie viel Essen braucht ein Workshop wirklich?
+                      Wie viel braucht man eigentlich?
                     </h2>
                     <div className="text-muted-foreground space-y-4">
                       <p>
-                        Eine häufige Frage – und eine wichtige: Zu wenig Essen frustriert, zu viel wird verschwendet.
+                        Die Frage kommt immer: "Wie viel sollen wir bestellen?" Zu wenig ist blöd, zu viel wird weggeschmissen.
                       </p>
                       <div className="bg-gradient-subtle p-6 rounded-lg border border-border/50">
-                        <h4 className="font-bold text-foreground mb-3">Unsere Faustregel für Ganztags-Workshops:</h4>
+                        <h4 className="font-bold text-foreground mb-3">Unsere Faustregel für einen ganzen Tag:</h4>
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-primary rounded-full"></span>
@@ -199,16 +190,15 @@ const BlogPost3 = () => {
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-primary rounded-full"></span>
-                            <span><strong>Mittagessen:</strong> Buffet mit 4-5 verschiedenen Komponenten</span>
+                            <span><strong>Mittag:</strong> Buffet mit 4-5 verschiedenen Sachen</span>
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-primary rounded-full"></span>
-                            <span><strong>Nachmittag:</strong> Süße & herzhafte Snacks + Getränke</span>
+                            <span><strong>Nachmittag:</strong> Mix aus süß und herzhaft</span>
                           </li>
                         </ul>
                         <p className="mt-4 text-sm">
-                          Wir beraten dich gerne individuell – basierend auf Teilnehmerzahl, 
-                          Dauer und Art des Workshops.
+                          Aber das hängt natürlich auch davon ab, wie hungrig eure Leute sind. Am besten einfach fragen.
                         </p>
                       </div>
                     </div>
@@ -220,30 +210,30 @@ const BlogPost3 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Target className="w-5 h-5" />
                       </span>
-                      5 praktische Tipps für dein Workshop-Catering
+                      Ein paar praktische Tipps
                     </h2>
                     
                     <div className="space-y-4 mt-6">
                       {[
                         {
                           title: "Fingerfood statt Tellergerichte",
-                          desc: "Niemand will mit Messer und Gabel in der Pause hantieren. Fingerfood ist praktisch, sauber und fördert den Austausch."
+                          desc: "Niemand will in der Pause mit Messer und Gabel hantieren. Lieber was, das man mit einer Hand essen kann."
                         },
                         {
-                          title: "Ernährungsbedürfnisse früh abfragen",
-                          desc: "Vegan, vegetarisch, halal, Allergien – kläre das im Voraus. Bei Sattuni sind alle Speisen halal, viele auch vegan."
+                          title: "Vorher fragen, wer was isst",
+                          desc: "Vegan, halal, Allergien – klärt das vorher. Nichts ist blöder als wenn jemand nichts essen kann."
                         },
                         {
-                          title: "Pausen bewusst einplanen",
-                          desc: "Das beste Catering hilft nichts, wenn keine Zeit zum Essen bleibt. Plane mindestens 30 Minuten für die Mittagspause."
+                          title: "Genug Zeit einplanen",
+                          desc: "Das beste Catering bringt nichts, wenn alle in 10 Minuten essen müssen. Mindestens 30 Minuten für Mittag."
                         },
                         {
-                          title: "Raum für Networking schaffen",
-                          desc: "Stelle das Buffet so auf, dass Teilnehmer ins Gespräch kommen können – nicht in einer Ecke versteckt."
+                          title: "Das Buffet zugänglich aufstellen",
+                          desc: "Nicht in die Ecke quetschen. Stellt es so hin, dass Leute drumherum stehen und quatschen können."
                         },
                         {
-                          title: "Nachhaltigkeit mitdenken",
-                          desc: "Mehrweggeschirr, regionale Zutaten und die richtige Menge – gut fürs Gewissen und den CO2-Fußabdruck."
+                          title: "Nicht zu viel bestellen",
+                          desc: "Besser einmal nachfragen als hinterher die Hälfte wegschmeißen."
                         }
                       ].map((tip, index) => (
                         <div key={index} className="flex gap-4 p-4 bg-card border border-border/50 rounded-lg">
@@ -265,19 +255,18 @@ const BlogPost3 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Utensils className="w-5 h-5" />
                       </span>
-                      Warum Sattuni perfekt für Workshop-Catering ist
+                      Was wir mitbringen
                     </h2>
                     <div className="text-muted-foreground space-y-4">
                       <p>
-                        Unsere arabisch inspirierten Mezze-Buffets sind wie gemacht für produktive Workshop-Tage:
+                        Falls ihr jetzt denkt, das klingt nach viel Aufwand – nee, nicht wirklich. Wir machen das ja nicht zum ersten Mal.
                       </p>
                       <ul className="list-none space-y-2 pl-0">
                         {[
-                          "Leicht & bekömmlich – keine Mittagsmüdigkeit",
-                          "Vielfältig – für jeden Geschmack etwas dabei",
-                          "Teilen verbindet – fördert den Austausch im Team",
-                          "Flexibel – von 20 bis 200 Personen",
-                          "Komplett-Service – wir kümmern uns um alles"
+                          "Leichte Sachen, die nicht müde machen",
+                          "Genug Auswahl für jeden Geschmack",
+                          "Alles an dem Tag frisch gemacht",
+                          "Wir kommen, bauen auf, und sind wieder weg"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -295,24 +284,20 @@ const BlogPost3 = () => {
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                       <Lightbulb className="w-5 h-5" />
                     </span>
-                    Fazit: Gutes Essen = bessere Ergebnisse
+                    Kurz zusammengefasst
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p>
-                      Ein durchdachtes Catering ist keine Nebensache – es ist Teil des Workshop-Erfolgs. 
-                      Mit dem richtigen Timing, leichten aber sättigenden Gerichten und einer einladenden 
-                      Präsentation sorgst du dafür, dass dein Team den ganzen Tag leistungsfähig bleibt.
+                      Das Essen ist nicht das Wichtigste an einem Workshop – aber es kann echt viel kaputtmachen, wenn's schief geht. Umgekehrt: Mit dem richtigen Timing und leichten, aber leckeren Sachen bleibt das Team den ganzen Tag fit.
                     </p>
                     <p>
-                      Bei uns verstehen wir, was produktive Teams brauchen: 
-                      frisches, hausgemachtes Essen, das Energie gibt ohne zu belasten – 
-                      und das ganz nebenbei für gute Gespräche sorgt.
+                      Wir machen das jetzt schon eine Weile und haben ein Gefühl dafür entwickelt, was funktioniert. Wenn ihr Fragen habt oder was Konkretes plant, dann meldet euch einfach.
                     </p>
                     <div className="pt-6">
                       <Link to="/catering?scrollTo=contact">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
-                          <span className="hidden sm:inline">👉 Jetzt Workshop-Catering anfragen</span>
-                          <span className="sm:hidden">Catering anfragen</span>
+                          <span className="hidden sm:inline">Schreibt uns</span>
+                          <span className="sm:hidden">Kontakt</span>
                         </Button>
                       </Link>
                     </div>
@@ -322,45 +307,42 @@ const BlogPost3 = () => {
                 {/* FAQ */}
                 <section className="mt-16">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                    💬 Häufige Fragen zum Workshop-Catering
+                    Noch ein paar Fragen?
                   </h2>
                   <div className="space-y-6">
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Ab wie vielen Personen bietet ihr Workshop-Catering an?
+                        Ab wie vielen Leuten macht ihr das?
                       </h3>
                       <p className="text-muted-foreground">
-                        Unser Catering ist ab 20 Personen möglich – perfekt für mittlere bis große Workshops und Seminare.
+                        Ab 20 Personen. Weniger geht manchmal auch – einfach fragen.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Kann das Catering auch komplett vegan sein?
+                        Geht das auch komplett vegan?
                       </h3>
                       <p className="text-muted-foreground">
-                        Ja! Wir haben ein spezielles vegetarisch-veganes Paket "Grüne Levante" – 
-                        auf Wunsch auch komplett vegan anpassbar.
+                        Klar. Wir haben ein veganes Paket, und ehrlich gesagt – viele unserer Sachen sind sowieso vegan. Falafel, Hummus, die ganzen Salate...
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Wie weit im Voraus sollte ich buchen?
+                        Wie früh muss ich buchen?
                       </h3>
                       <p className="text-muted-foreground">
-                        Idealerweise 1-2 Wochen im Voraus. Bei kurzfristigen Anfragen versuchen wir trotzdem, 
-                        eine Lösung zu finden – schreib uns einfach!
+                        Idealerweise 1-2 Wochen vorher. Aber wenn's mal schneller gehen muss, fragen wir trotzdem – manchmal geht noch was.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Liefert Sattuni auch Geschirr und Besteck?
+                        Bringt ihr auch Geschirr mit?
                       </h3>
                       <p className="text-muted-foreground">
-                        Ja, auf Wunsch liefern wir alles mit – inklusive Servietten, Teller und Besteck. 
-                        Einfach bei der Anfrage angeben.
+                        Wenn ihr wollt, ja. Teller, Besteck, Servietten – sagt einfach Bescheid, dann packen wir's mit ein.
                       </p>
                     </div>
                   </div>
@@ -369,20 +351,20 @@ const BlogPost3 = () => {
                 {/* CTA */}
                 <section className="mt-16 text-center p-8 md:p-12 bg-card border-2 border-primary/20 rounded-lg shadow-lg">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                    Euer nächster Workshop steht an?
+                    Workshop geplant?
                   </h2>
                   <p className="text-lg mb-6 text-muted-foreground">
-                    Lass uns gemeinsam das perfekte Catering planen – frisch, lecker und auf euer Team abgestimmt.
+                    Dann lasst uns kurz reden. Wir finden was Passendes für euch.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link to="/catering?scrollTo=contact">
                       <Button size="lg" className="w-full sm:w-auto">
-                        Jetzt Catering anfragen
+                        Anfrage schicken
                       </Button>
                     </Link>
                     <Link to="/menus">
                       <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                        Menüs ansehen
+                        Menüs anschauen
                       </Button>
                     </Link>
                   </div>

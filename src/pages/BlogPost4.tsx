@@ -17,29 +17,29 @@ const BlogPost4 = () => {
 
   const veganClassics = [
     {
-      title: "Falafel mit Sesam & Kräutern",
-      description: "Die knusprigen Kichererbsen-Bällchen sind DER Klassiker schlechthin. Bei uns werden sie täglich frisch zubereitet – mit einer perfekten Balance aus Petersilie, Koriander, Kreuzkümmel und geröstetem Sesam. Die goldbraune Kruste und der saftige Kern machen sie zum absoluten Liebling auf jedem Buffet.",
-      tip: "Serviert mit frischer Tahinisauce und eingelegtem Gemüse – ein Muss!"
+      title: "Falafel",
+      description: "Der Klassiker. Bei uns gibt's die jeden Tag frisch – mit Petersilie, Koriander und ordentlich Sesam drauf. Die Kruste knusprig, innen saftig. Ehrlich gesagt, die gehen immer als erstes weg, egal bei welchem Event.",
+      tip: "Am besten mit frischer Tahini-Sauce. Ohne geht's nicht."
     },
     {
-      title: "Cremiger Hummus – klassisch & modern",
-      description: "Hummus ist mehr als nur ein Dip – er ist das Herzstück der arabischen Mezze-Kultur. Unser klassischer Hummus überzeugt durch seine samtige Textur und den intensiven Tahini-Geschmack. Für Abwechslung sorgen unsere Variationen: mit gerösteter Paprika, Rote Bete oder frischen Kräutern.",
-      tip: "Perfekt als Basis für Wraps oder als Dip für frisches Fladenbrot."
+      title: "Hummus",
+      description: "Ein guter Hummus braucht eigentlich nicht viel: Kichererbsen, Tahini, Zitrone, Knoblauch. Aber die Balance muss stimmen. Wir machen auch Varianten – mit Rote Bete oder gerösteter Paprika, wenn ihr mal was anderes wollt.",
+      tip: "Mit warmem Fladenbrot. Kalt ist er auch gut, aber warm ist besser."
     },
     {
-      title: "Baba Ghanoush mit Rauch-Aroma",
-      description: "Geröstete Auberginen, über offener Flamme gegrillt, verleihen diesem Klassiker sein unverwechselbares Raucharoma. Kombiniert mit Tahini, Zitrone und einem Hauch Knoblauch entsteht ein cremiger Dip, der selbst Skeptiker überzeugt. Die rauchige Note macht ihn zum perfekten Begleiter für würzige Gerichte.",
-      tip: "Das Geheimnis liegt im langsamen Rösten – so entfaltet sich das volle Aroma."
+      title: "Baba Ghanoush",
+      description: "Das ist dieser Auberginen-Dip mit dem rauchigen Geschmack. Der kommt daher, dass wir die Auberginen über offener Flamme rösten. Manche kennen das nicht, aber wer's einmal probiert hat, will's immer wieder.",
+      tip: "Passt überraschend gut zu würzigen Sachen. Probiert's mal mit Falafel zusammen."
     },
     {
-      title: "Frische Salate: Taboulé & Fattoush",
-      description: "Keine Mezze-Platte ist komplett ohne diese beiden Salat-Klassiker. Taboulé besticht durch frische Petersilie, Minze, Bulgur und sonnengereiften Tomaten. Fattoush bringt mit knusprigen Fladenbrot-Chips, Sonnenblumen- und Granatapfelkernen eine ganz eigene Textur ins Spiel. Beide Salate sind leicht, erfrischend und voller Vitamine.",
-      tip: "Ideal als Ausgleich zu reichhaltigeren Gerichten – bringt Frische auf den Teller."
+      title: "Taboulé & Fattoush",
+      description: "Zwei Salate, die fast immer dabei sind. Taboulé ist hauptsächlich Petersilie mit ein bisschen Bulgur, Tomaten, Zitrone. Super frisch. Fattoush hat knusprige Fladenbrot-Chips drin und Sonnenblumen- und Granatapfelkerne für den Crunch.",
+      tip: "Perfekt als Ausgleich, wenn's sonst eher reichhaltig wird."
     },
     {
-      title: "Ofengemüse & gefüllte Teigtaschen",
-      description: "Bunt, aromatisch und sättigend: Unser Ofengemüse wird mit orientalischen Gewürzen wie Za'atar geröstet. Dazu servieren wir hausgemachte Teigtaschen – gefüllt mit Kartoffeln oder Spinat. Diese Kombination zeigt, wie vielfältig und befriedigend vegane Küche sein kann.",
-      tip: "Die Teigtaschen eignen sich perfekt als Fingerfood für Stehempfänge."
+      title: "Ofengemüse & Teigtaschen",
+      description: "Buntes Gemüse aus dem Ofen, mit Za'atar gewürzt. Dazu hausgemachte Teigtaschen – mit Kartoffel oder Spinat gefüllt. Die lassen sich super mit einer Hand essen, ideal für Stehempfänge.",
+      tip: "Die Teigtaschen sind auch kalt noch gut. Falls was übrig bleibt."
     }
   ];
 
@@ -103,10 +103,7 @@ const BlogPost4 = () => {
             {/* Intro */}
             <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
               <p className="text-xl leading-relaxed">
-                <strong className="text-foreground">Keine Experimente – nur bewährte Lieblingsgerichte.</strong> Wenn es um veganes Catering geht, 
-                muss niemand auf Geschmack oder Vielfalt verzichten. Die arabische Küche bietet von Haus aus 
-                unzählige pflanzliche Klassiker, die seit Generationen begeistern. Hier sind fünf Gerichte, 
-                die bei jedem Firmenevent garantiert für leere Teller sorgen.
+                Wenn wir für Firmenevents kochen, stellen wir oft fest: Die veganen Sachen gehen als erstes weg. Und das sind keine fancy Experimente – sondern einfach die Klassiker, die schon unsere Großeltern gemacht haben. Hier sind fünf davon, die eigentlich immer funktionieren.
               </p>
             </div>
           </div>
@@ -124,12 +121,10 @@ const BlogPost4 = () => {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-foreground mb-2">
-                    Warum arabische Küche ideal für veganes Catering ist
+                    Warum das so gut funktioniert
                   </h2>
                   <p className="text-muted-foreground">
-                    Anders als bei vielen westlichen Küchen, wo vegane Alternativen oft als "Ersatz" wahrgenommen werden, 
-                    sind pflanzliche Gerichte in der arabischen Küche seit jeher die Stars. Hülsenfrüchte, Gemüse, Kräuter 
-                    und Gewürze stehen im Mittelpunkt – nicht als Kompromiss, sondern als kulinarische Tradition.
+                    In der arabischen Küche sind pflanzliche Gerichte keine Alternative oder Ersatz für irgendwas – sie sind einfach Teil der Tradition. Hülsenfrüchte, Gemüse, Kräuter, Gewürze – das war schon immer so. Deswegen schmeckt's auch nicht nach "Ersatzprodukt", sondern einfach nach gutem Essen.
                   </p>
                 </div>
               </div>
@@ -177,24 +172,24 @@ const BlogPost4 = () => {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-foreground mb-3">
-                    Warum Teams diese Gerichte lieben
+                    Warum Teams das mögen
                   </h2>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      <span><strong className="text-foreground">Inklusiv:</strong> Vegane Gerichte funktionieren für alle – egal ob vegan, vegetarisch oder flexitarisch.</span>
+                      <span><strong className="text-foreground">Funktioniert für alle:</strong> Egal ob jemand vegan lebt oder nicht – diese Gerichte schmecken jedem.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      <span><strong className="text-foreground">Leicht verdaulich:</strong> Kein Nachmittagstief nach dem Mittagessen – perfekt für produktive Workshops.</span>
+                      <span><strong className="text-foreground">Macht nicht müde:</strong> Kein Food-Koma nach dem Mittagessen. Das ist bei Workshops oder langen Meetings echt wichtig.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      <span><strong className="text-foreground">Sharing-Kultur:</strong> Mezze-Style fördert den Austausch und lockert die Atmosphäre.</span>
+                      <span><strong className="text-foreground">Zum Teilen gemacht:</strong> Mezze-Style fördert Gespräche. Man nimmt sich, tauscht, redet dabei.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      <span><strong className="text-foreground">Visuell ansprechend:</strong> Die Farben und Texturen machen jedes Buffet zum Hingucker.</span>
+                      <span><strong className="text-foreground">Sieht gut aus:</strong> Die Farben, die Texturen – so ein Buffet macht halt was her.</span>
                     </li>
                   </ul>
                 </div>
@@ -204,17 +199,13 @@ const BlogPost4 = () => {
             {/* Fazit */}
             <div className="prose prose-lg max-w-none mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Fazit: Bewährte Klassiker statt Experimente
+                Kurz gesagt
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Bei Sattuni setzen wir auf das, was funktioniert. Unsere veganen Klassiker sind keine 
-                Notlösung, sondern die Essenz der arabischen Küche. Jedes Gericht wird täglich frisch 
-                zubereitet, mit hochwertigen Zutaten und nach traditionellen Rezepten – modern interpretiert 
-                für den heutigen Geschmack.
+                Diese Gerichte sind keine Notlösung für "die eine vegane Kollegin". Sie sind einfach richtig gut. Das war schon so, als unsere Omas die gemacht haben – und daran hat sich nichts geändert.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Ob Falafel, Hummus oder Taboulé: Diese Gerichte haben sich über Jahrhunderte bewährt. 
-                Und genau das ist es, was sie so perfekt für euer nächstes Teamevent macht.
+                Wir machen alles an dem Tag frisch, mit ordentlichen Zutaten. Wenn ihr euer nächstes Event plant und was Vernünftiges zu essen haben wollt – meldet euch.
               </p>
             </div>
           </div>
@@ -224,37 +215,34 @@ const BlogPost4 = () => {
         <section className="py-12 md:py-16 px-4">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-              Häufige Fragen zu veganem Catering
+              Ein paar Fragen, die oft kommen
             </h2>
             
             <div className="space-y-6">
               <div className="bg-card rounded-xl p-6 border border-border/50">
                 <h3 className="font-bold text-foreground mb-2">
-                  Sind alle Sattuni-Gerichte vegan?
+                  Ist bei euch alles vegan?
                 </h3>
                 <p className="text-muted-foreground">
-                  Nein, aber ein großer Teil unserer Speisekarte ist von Natur aus vegan oder vegetarisch. 
-                  Wir können jedes Buffet vollständig vegan gestalten – sprecht uns einfach bei der Anfrage darauf an.
+                  Nee, aber viel davon. Die Klassiker – Falafel, Hummus, die Salate – sind von Natur aus vegan. Wir können aber auch komplett vegane Buffets machen, wenn ihr das wollt.
                 </p>
               </div>
               
               <div className="bg-card rounded-xl p-6 border border-border/50">
                 <h3 className="font-bold text-foreground mb-2">
-                  Kann ich vegane und nicht-vegane Gerichte kombinieren?
+                  Kann man das auch mischen?
                 </h3>
                 <p className="text-muted-foreground">
-                  Absolut! Die meisten unserer Buffets bestehen aus einem Mix. So findet jeder Gast etwas 
-                  nach seinem Geschmack – und die veganen Klassiker sind oft die ersten, die leer werden.
+                  Klar, die meisten Buffets haben einen Mix. Und ehrlich gesagt – oft gehen die veganen Sachen zuerst weg, auch bei Leuten die sonst Fleisch essen.
                 </p>
               </div>
               
               <div className="bg-card rounded-xl p-6 border border-border/50">
                 <h3 className="font-bold text-foreground mb-2">
-                  Wie kennzeichnet ihr Allergene?
+                  Was ist mit Allergien?
                 </h3>
                 <p className="text-muted-foreground">
-                  Bei jeder Lieferung erhaltet ihr eine klare Übersicht aller Allergene und Inhaltsstoffe. 
-                  Unsere veganen Gerichte sind selbstverständlich frei von tierischen Produkten – viele auch glutenfrei.
+                  Bei jeder Lieferung bekommt ihr eine Übersicht, was wo drin ist. Wenn jemand bestimmte Sachen nicht verträgt, sagt einfach Bescheid.
                 </p>
               </div>
             </div>
@@ -267,18 +255,17 @@ const BlogPost4 = () => {
             <div className="bg-card rounded-2xl p-8 md:p-12 text-center border border-primary/20 shadow-elegant">
               <Leaf className="w-12 h-12 text-primary mx-auto mb-4" />
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Veganes Catering für euer Team?
+                Interesse?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Lasst euch von unseren Klassikern überzeugen. Wir beraten euch gerne und stellen 
-                ein Buffet zusammen, das alle begeistert – garantiert ohne Kompromisse beim Geschmack.
+                Erzählt uns, was ihr plant. Wir machen euch einen Vorschlag.
               </p>
               <Button 
                 size="lg"
                 className="bg-primary hover:bg-primary/90"
                 onClick={() => window.location.href = '/catering?scrollTo=contact'}
               >
-                Jetzt Catering anfragen
+                Anfrage schicken
               </Button>
             </div>
           </div>

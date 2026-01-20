@@ -73,9 +73,9 @@ const BlogPost2 = () => {
               <div className="prose prose-lg max-w-none">
                 {/* Einleitung */}
                 <div className="text-lg text-muted-foreground space-y-4 mb-12">
-                  <p>In der arabischen Welt beginnt jede Mahlzeit mit einem Lächeln – und einem Tisch voller Mezze.</p>
-                  <p>Aber was genau steckt dahinter?</p>
-                  <p>Sind Mezze nur kleine Vorspeisen – oder eine Lebensart, die man im Alltag – im Büro wie zuhause – wiederentdecken kann?</p>
+                  <p>Wir werden das oft gefragt: "Was genau sind eigentlich Mezze?"</p>
+                  <p>Die kurze Antwort: kleine Gerichte zum Teilen. Aber das ist nur die halbe Wahrheit.</p>
+                  <p>Denn eigentlich geht es bei Mezze um etwas anderes. Es geht darum, sich Zeit zu nehmen. Zusammenzusitzen. Zu probieren. Zu reden. Und dabei ganz nebenbei richtig gut zu essen.</p>
                 </div>
 
                 <div className="space-y-12">
@@ -85,16 +85,16 @@ const BlogPost2 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Leaf className="w-5 h-5" />
                       </span>
-                      Was „Mezze" bedeutet
+                      Woher kommt das Wort?
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                      „Mezze" (oder Meze) kommt aus dem Arabischen مزّة – und bedeutet „Geschmack" oder „Genuss".
+                      "Mezze" kommt aus dem Arabischen – مزّة – und bedeutet so viel wie "Geschmack" oder "kleiner Genuss".
                     </p>
                     <p className="text-muted-foreground mb-4">
-                      Gemeint ist nicht ein einzelnes Gericht, sondern eine Sammlung kleiner Speisen, die gemeinsam serviert und geteilt werden – ähnlich wie Tapas, nur aromatischer und vielfältiger.
+                      Im Prinzip ist es ähnlich wie Tapas, nur eben mit anderen Aromen. Statt Oliven und Manchego gibt's Hummus und Baba Ghanoush. Statt Patatas Bravas kommt Falafel auf den Tisch.
                     </p>
                     <p className="text-muted-foreground">
-                      Im Mittelpunkt steht nicht das Essen an sich, sondern das Miteinander: probieren, reden, lachen, Zeit verbringen. In der arabischen Küche bedeutet Teilen immer auch – Verbindung schaffen.
+                      Aber der Kern ist derselbe: Man bestellt nicht ein Gericht für sich allein, sondern viele kleine Sachen für alle. Und dann teilt man. Das klingt einfach, aber es verändert irgendwie die ganze Atmosphäre am Tisch.
                     </p>
                   </section>
 
@@ -104,18 +104,18 @@ const BlogPost2 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Salad className="w-5 h-5" />
                       </span>
-                      Was alles zu Mezze gehört
+                      Was gehört alles dazu?
                     </h2>
-                    <p className="text-muted-foreground mb-4">Typische arabische Mezze sind:</p>
+                    <p className="text-muted-foreground mb-4">Die Klassiker kennt ihr wahrscheinlich:</p>
                     <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
-                      <li>Hummus – cremig und mild mit Olivenöl verfeinert</li>
-                      <li>Baba Ghanoush – geröstete Aubergine mit Tahina</li>
-                      <li>Taboulé – frischer Petersiliensalat mit Zitrone und Couscous</li>
-                      <li>Gefüllte Weinblätter, Falafel, Halloumi-Sticks</li>
-                      <li>Oliven, Datteln und hausgemachtes Fladenbrot</li>
+                      <li>Hummus – cremig, mild, mit gutem Olivenöl drauf</li>
+                      <li>Baba Ghanoush – geröstete Aubergine, leicht rauchig</li>
+                      <li>Taboulé – Petersiliensalat mit Zitrone, super frisch</li>
+                      <li>Falafel – braucht man glaub ich nicht zu erklären</li>
+                      <li>Dazu Oliven, ein paar Datteln, frisches Fladenbrot</li>
                     </ul>
                     <p className="text-muted-foreground">
-                      Alles wird in kleinen Schalen serviert – zum Greifen nah und zum Teilen. Es geht nicht um Portionen, sondern um Vielfalt auf dem Tisch.
+                      Das Schöne daran: Es kommen immer wieder neue Schälchen auf den Tisch. Hier ein Dip, da ein paar gefüllte Weinblätter. Man entdeckt die ganze Zeit was Neues.
                     </p>
                   </section>
 
@@ -125,13 +125,13 @@ const BlogPost2 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Users className="w-5 h-5" />
                       </span>
-                      Warum Mezze mehr als Essen ist
+                      Warum das so gut funktioniert
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                      Mezze ist keine Mahlzeit – es ist eine Haltung. Ein Moment, in dem die Welt kurz stillsteht, weil Menschen am selben Tisch sitzen.
+                      Ehrlich gesagt – wir wissen selbst nicht genau, warum es so einen Unterschied macht. Aber es macht einen.
                     </p>
                     <p className="text-muted-foreground">
-                      Ob beim Familienbrunch, beim Team-Lunch oder beim Sommerfest im Büro – Mezze verbindet. Es erinnert uns daran, dass gutes Essen Nähe schafft – ganz ohne großen Aufwand.
+                      Vielleicht liegt's daran, dass man beim Teilen automatisch ins Gespräch kommt. "Probier mal davon!" "Ist das scharf?" "Kannst du mir noch was von dem Hummus rüberschieben?" Plötzlich redet man miteinander, obwohl man eigentlich nur zusammen essen wollte.
                     </p>
                   </section>
 
@@ -141,18 +141,18 @@ const BlogPost2 = () => {
                       <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                         <Heart className="w-5 h-5" />
                       </span>
-                      Wie Sattuni Mezze modern interpretiert
+                      Was wir daraus machen
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                      Bei <strong>Sattuni</strong> leben wir das Prinzip von Mezze jeden Tag. Wir bringen den Gedanken des Teilens in die moderne Küche – für Privatfeste, Team-Lunches oder Business-Caterings gleichermaßen.
+                      Bei uns ist Mezze nicht nur ein Menü-Punkt – es ist die Art, wie wir an Essen denken. Auch wenn wir fürs Büro liefern oder ein Firmenevent beliefern: Die Grundidee bleibt die gleiche.
                     </p>
                     <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
-                      <li>Gemeinsame Platten statt Einzelportionen</li>
-                      <li>Frische, hausgemachte Dips & Fingerfood statt Standardbuffets</li>
-                      <li>Abwechslungsreich, vegan, halal & immer mit Liebe zubereitet</li>
+                      <li>Keine traurigen Einzelportionen in Plastikschalen</li>
+                      <li>Sondern Platten zum Teilen, Schüsseln zum Weiterreichen</li>
+                      <li>Alles frisch, alles an dem Tag gemacht</li>
                     </ul>
                     <p className="text-muted-foreground">
-                      So entsteht Essen, das Geschichten erzählt – und Menschen verbindet.
+                      Wir glauben einfach, dass Essen besser schmeckt, wenn man es teilt. So simpel ist das eigentlich.
                     </p>
                   </section>
                 </div>
@@ -163,20 +163,20 @@ const BlogPost2 = () => {
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                       <Utensils className="w-5 h-5" />
                     </span>
-                    Fazit
+                    Kurz gesagt
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p>
-                      Mezze ist mehr als ein Wort für kleine Gerichte. Es ist eine Einladung, gemeinsam zu genießen – ob im Büro, zuhause oder bei einem besonderen Anlass.
+                      Mezze ist mehr als ein Wort für "kleine Gerichte". Es ist eine Art, zusammen zu essen. Entspannt, gesellig, ohne Stress.
                     </p>
                     <p>
-                      Und genau das lebt <strong>Sattuni</strong>: hausgemachte Küche, die verbindet – frisch, ehrlich, gemeinsam.
+                      Und falls ihr das mal ausprobieren wollt – ob für ein Firmenevent, eine Feier oder einfach einen Team-Lunch – dann meldet euch bei uns. Wir zeigen euch, wie das geht.
                     </p>
                     <div className="pt-6">
                       <Link to="/catering#contact">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
-                          <span className="hidden sm:inline">Jetzt mehr erfahren & Catering anfragen</span>
-                          <span className="sm:hidden">Catering anfragen</span>
+                          <span className="hidden sm:inline">Sprecht uns an</span>
+                          <span className="sm:hidden">Kontakt</span>
                         </Button>
                       </Link>
                     </div>
@@ -189,33 +189,33 @@ const BlogPost2 = () => {
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                       <HelpCircle className="w-5 h-5" />
                     </span>
-                    Häufige Fragen
+                    Ein paar Fragen, die uns oft gestellt werden
                   </h2>
                   <div className="space-y-6">
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Ist Mezze vegan oder vegetarisch?
+                        Ist das alles vegetarisch?
                       </h3>
                       <p className="text-muted-foreground">
-                        Viele Mezze sind rein pflanzlich oder vegetarisch – z. B. Hummus, Baba Ghanoush oder Taboulé.
+                        Vieles davon, ja. Hummus, Baba Ghanoush, Taboulé, Falafel – alles pflanzlich. Aber wir haben auch Fleischgerichte, wenn ihr das wollt.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Wie viele Mezze sollte man pro Person planen?
+                        Wie viel sollte man bestellen?
                       </h3>
                       <p className="text-muted-foreground">
-                        Für Buffets oder Familienrunden empfehlen wir 5–7 verschiedene Sorten – für Firmenlunches eher mehr kleine Portionen zum Teilen.
+                        Kommt drauf an, wie hungrig alle sind. Als Faustregel: 5-7 verschiedene Sachen für eine normale Runde. Aber wir beraten euch da gerne.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Kann Sattuni Mezze auch liefern oder aufbauen?
+                        Liefert ihr das auch?
                       </h3>
                       <p className="text-muted-foreground">
-                        Ja. Wir liefern frische Mezze-Buffets für private Feiern und Firmenevents in Düsseldorf und Umgebung – auf Wunsch mit Aufbau & Präsentation.
+                        Klar. In Düsseldorf und Umgebung. Auf Wunsch bauen wir das Buffet auch bei euch auf und machen alles hübsch.
                       </p>
                     </div>
                   </div>
@@ -224,14 +224,14 @@ const BlogPost2 = () => {
                 {/* CTA */}
                 <section className="mt-16 text-center p-8 md:p-12 bg-card border-2 border-primary/20 rounded-lg shadow-lg">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                    Bereit für echte arabische Gastfreundschaft?
+                    Neugierig geworden?
                   </h2>
                   <p className="text-lg mb-6 text-muted-foreground">
-                    Lasst uns gemeinsam euer nächstes Mezze-Erlebnis planen.
+                    Dann lasst uns reden. Erzählt uns, was ihr plant – wir machen euch ein Angebot.
                   </p>
                   <Link to="/catering#contact">
                     <Button size="lg" className="gap-2 w-full sm:w-auto">
-                      Jetzt Kontakt aufnehmen
+                      Anfrage schicken
                     </Button>
                   </Link>
                 </section>
