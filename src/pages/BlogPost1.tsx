@@ -74,9 +74,9 @@ const BlogPost1 = () => {
               <div className="prose prose-lg max-w-none">
                 {/* Einleitung */}
                 <div className="text-lg text-muted-foreground space-y-4 mb-12">
-                  <p>Immer dieselbe Pizza im Meeting? Schon wieder Wraps von gestern?</p>
-                  <p>Wenn's um Büro-Lunch geht, ist Abwechslung selten – dabei kann gutes Essen echte Team-Momente schaffen.</p>
-                  <p>Hier sind 10 frische Ideen, die euer Mittagessen im Büro verändern – inspiriert von der modernen arabischen Küche.</p>
+                  <p>Hand aufs Herz: Wie oft stand bei euch schon wieder die gleiche Pizza auf dem Tisch? Oder diese traurigen Wraps, die aussehen, als hätten sie schon bessere Tage gesehen?</p>
+                  <p>Wir kennen das. Und wir finden: Das geht besser.</p>
+                  <p>Denn mal ehrlich – wenn man schon mal zusammen isst, dann sollte es doch auch was Besonderes sein, oder? Hier sind ein paar Ideen, die wir über die Jahre gesammelt haben. Nicht alle davon müsst ihr bei uns bestellen – aber vielleicht inspiriert euch das ein oder andere ja für euren nächsten Team-Lunch.</p>
                 </div>
 
                 <div className="space-y-12">
@@ -90,7 +90,7 @@ const BlogPost1 = () => {
                       Mini-Mezze für alle
                     </h2>
                     <p className="text-muted-foreground">
-                      Kleine Portionen, große Vielfalt: Hummus, Baba Ghanoush, Taboulé, Falafelbällchen und Dips – perfekt zum Teilen und Kombinieren. Ideal für Teams, die Abwechslung lieben und gemeinsam genießen wollen.
+                      Das Schöne an Mezze: Jeder nimmt sich, was er mag. Ein bisschen Hummus hier, ein Falafel dort, vielleicht noch etwas Taboulé dazu. Man probiert, tauscht, redet dabei. Klingt simpel – macht aber einen riesigen Unterschied, wenn man es mal erlebt hat.
                     </p>
                   </section>
 
@@ -104,7 +104,7 @@ const BlogPost1 = () => {
                       Bowl-Bar im Büro
                     </h2>
                     <p className="text-muted-foreground">
-                      Selbst zusammengestellte Bowls mit Couscous, Ofengemüse, Granatapfel und hausgemachten Saucen. Jeder wählt, was er mag – frisch, gesund und perfekt für Meetings oder Teamtage.
+                      Stellt euch vor: Couscous, Ofengemüse, ein paar Granatapfelkerne, verschiedene Saucen – und jeder baut sich seine eigene Bowl. Das macht nicht nur Spaß, sondern sorgt auch dafür, dass wirklich jeder zufrieden ist. Selbst der Kollege, der "nur Salat" essen will.
                     </p>
                   </section>
 
@@ -118,7 +118,7 @@ const BlogPost1 = () => {
                       Warme Teigtaschen statt belegte Brötchen
                     </h2>
                     <p className="text-muted-foreground">
-                      Käse, Spinat oder Hähnchenfüllung – unsere hausgemachten Teigtaschen sind warm, sättigend und lassen sich ganz unkompliziert servieren. Kein Besteck, kein Stress.
+                      Wir lieben Teigtaschen. Ehrlich. Die sind warm, die sättigen, und man braucht kein Besteck. Perfekt, wenn es mal schnell gehen muss zwischen zwei Meetings. Mit Käse, Spinat oder Kartoffeln gefüllt – je nachdem, worauf ihr Lust habt.
                     </p>
                   </section>
 
@@ -132,7 +132,7 @@ const BlogPost1 = () => {
                       Streetfood-Feeling im Office
                     </h2>
                     <p className="text-muted-foreground">
-                      Hähnchen-Pita, Falafel oder Grillgemüse im frischen Pita – sattmachend, handlich und perfekt für kurze Pausen. Bringt Streetfood-Charme direkt an den Schreibtisch.
+                      Manchmal braucht man einfach was Handfestes. Eine gute Pita mit Falafel oder Hähnchen, ein bisschen Salat dazu, frische Sauce – und schon fühlt sich die Mittagspause an wie ein kleiner Kurzurlaub. Klingt übertrieben? Probiert's aus.
                     </p>
                   </section>
 
@@ -146,7 +146,7 @@ const BlogPost1 = () => {
                       Suppenstation im Winter
                     </h2>
                     <p className="text-muted-foreground">
-                      Linsencreme mit Kreuzkümmel, Karotte-Ingwer oder Kichererbsen-Curry – leicht, warm und sättigend. Ideal für kühle Tage, an denen das Team etwas Herzhaftes braucht.
+                      Wenn's draußen kalt ist, geht doch nichts über eine gute Suppe. Wir machen zum Beispiel eine Linsensuppe mit Kreuzkümmel, die... naja, die ist einfach richtig gut. Wärmt von innen, macht satt, aber nicht müde. Genau das, was man an grauen Wintertagen braucht.
                     </p>
                   </section>
 
@@ -157,10 +157,10 @@ const BlogPost1 = () => {
                         <ChefHat className="w-5 h-5" />
                       </span>
                       <span className="bg-gradient-primary bg-clip-text text-transparent">6.</span>
-                      Fingerfood-Platten für Teammeetings
+                      Fingerfood für Meetings
                     </h2>
                     <p className="text-muted-foreground">
-                      Kleine Häppchen, große Wirkung: Mini-Kebbeh, Halloumi-Sticks, Gemüse-Taschen, gefüllte Grießbällchen und bunte Dips. So wird jedes Meeting zum Genussmoment – unkompliziert und stilvoll.
+                      Nicht jedes Meeting braucht ein volles Buffet. Manchmal reichen ein paar kleine Häppchen – Mini-Kebbeh, Halloumi-Sticks, ein paar Dips. Das Schöne daran: Man kann nebenher essen und muss nicht extra Pause machen. Praktisch, wenn's mal eng wird.
                     </p>
                   </section>
 
@@ -171,10 +171,10 @@ const BlogPost1 = () => {
                         <Sandwich className="w-5 h-5" />
                       </span>
                       <span className="bg-gradient-primary bg-clip-text text-transparent">7.</span>
-                      Belegte Brote im Sattuni-Stil
+                      Belegte Brote – aber anders
                     </h2>
                     <p className="text-muted-foreground">
-                      Frisches Brot, kreativ belegt: cremiger Hummus, würziges Baba Ghanoush, Avocado, Frischkäse oder feine Fisch-Dips. Eine moderne Alternative zum klassischen Sandwichbuffet.
+                      Okay, belegte Brote klingen erstmal nicht spektakulär. Aber wenn man statt langweiligem Aufschnitt einen cremigen Hummus nimmt, dazu ein bisschen Baba Ghanoush, frische Kräuter... dann ist das plötzlich was ganz anderes. Vertraut uns da einfach mal.
                     </p>
                   </section>
 
@@ -185,10 +185,10 @@ const BlogPost1 = () => {
                         <Lightbulb className="w-5 h-5" />
                       </span>
                       <span className="bg-gradient-primary bg-clip-text text-transparent">8.</span>
-                      Lunch & Learn-Buffet
+                      Lunch & Learn mit Snacks
                     </h2>
                     <p className="text-muted-foreground">
-                      Kombiniert Wissen mit Genuss – kleine Snacks, Smoothies und Fingerfood für kreative Pausen. So bleiben Energie und Stimmung im Team garantiert hoch.
+                      Wenn ihr sowieso bei der Arbeit lernt, dann darf das Essen nicht ablenken. Kleine Snacks, vielleicht ein Smoothie, ein paar Nüsse – das hält die Energie oben, ohne dass jemand in ein Food-Koma fällt. Win-win, sozusagen.
                     </p>
                   </section>
 
@@ -202,7 +202,7 @@ const BlogPost1 = () => {
                       Orientalischer Brunch
                     </h2>
                     <p className="text-muted-foreground">
-                      Dips, Salate, Omelette, Datteln, Granatapfel und Oliven – ideal für Teamtage, Kundenevents oder entspannte Office-Vormittage. Eine moderne Interpretation arabischer Gastfreundschaft im Büro.
+                      Ein Brunch ist immer eine gute Idee. Dips, Salate, vielleicht ein Omelette, dazu Datteln, Oliven, frisches Brot... Das ist genau das Richtige, wenn ihr mal einen entspannten Vormittag plant. Oder einen Kundenevent, bei dem ihr Eindruck machen wollt.
                     </p>
                   </section>
 
@@ -213,10 +213,10 @@ const BlogPost1 = () => {
                         <Sparkles className="w-5 h-5" />
                       </span>
                       <span className="bg-gradient-primary bg-clip-text text-transparent">10.</span>
-                      Office-Aktivierungen mit Motto
+                      Kleine Rituale schaffen
                     </h2>
                     <p className="text-muted-foreground">
-                      Von Smoothie-Montag bis Hummus-Friday: kleine kulinarische Highlights schaffen Routine mit Spaßfaktor – und stärken die Office-Kultur nachhaltig.
+                      Das hier ist mehr ein Tipp als eine konkrete Idee: Macht was Regelmäßiges draus. "Hummus-Freitag" oder sowas. Klingt albern, funktioniert aber erstaunlich gut. Gibt der Woche Struktur und alle freuen sich auf was.
                     </p>
                   </section>
                 </div>
@@ -227,20 +227,20 @@ const BlogPost1 = () => {
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
                       <Utensils className="w-5 h-5" />
                     </span>
-                    Fazit
+                    Zum Schluss
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p>
-                      Bei <strong>Sattuni</strong> bringen wir genau diese Vielfalt ins Büro: frisch, hausgemacht und perfekt portioniert – ob als Buffet, Bowl-Bar oder Fingerfood-Catering.
+                      Falls ihr jetzt denkt "Klingt gut, aber wer macht das alles?" – dafür sind wir ja da. Wir bringen das Essen, bauen auf Wunsch auf und räumen hinterher wieder ab. Ihr müsst euch um nichts kümmern.
                     </p>
                     <p>
-                      Wir liefern direkt zu euch, bauen auf Wunsch auf und sorgen dafür, dass eure Mittagspause zum Highlight wird.
+                      Schreibt uns einfach, was ihr euch vorstellt. Wir finden gemeinsam was Passendes.
                     </p>
                     <div className="pt-6">
                       <Link to="/catering#contact">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
-                          <span className="hidden sm:inline">👉 Jetzt Catering anfragen</span>
-                          <span className="sm:hidden">Catering anfragen</span>
+                          <span className="hidden sm:inline">Schreibt uns – wir melden uns zurück</span>
+                          <span className="sm:hidden">Kontakt aufnehmen</span>
                         </Button>
                       </Link>
                     </div>
@@ -250,33 +250,33 @@ const BlogPost1 = () => {
                 {/* FAQ */}
                 <section className="mt-16">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                    💬 Häufige Fragen
+                    Kurze Antworten auf häufige Fragen
                   </h2>
                   <div className="space-y-6">
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Was kostet ein Büro-Catering bei Sattuni?
+                        Was kostet das ungefähr?
                       </h3>
                       <p className="text-muted-foreground">
-                        Je nach Auswahl ab 25 € pro Person – individuell anpassbar.
+                        Je nachdem was ihr braucht, ab etwa 25 € pro Person. Aber das hängt natürlich davon ab, was ihr euch vorstellt. Am besten einfach fragen.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Ab wie vielen Personen liefert Sattuni?
+                        Ab wie vielen Leuten geht das?
                       </h3>
                       <p className="text-muted-foreground">
-                        Ab 20 Personen – für kleinere Gruppen auf Anfrage.
+                        Normalerweise ab 20 Personen. Aber wenn ihr weniger seid, fragt trotzdem – manchmal lässt sich was machen.
                       </p>
                     </div>
 
                     <div className="p-6 bg-card border border-border/50 rounded-lg">
                       <h3 className="text-xl font-bold text-foreground mb-2">
-                        Kann das Catering auch vegan oder halal sein?
+                        Gibt's auch was Veganes oder Halal?
                       </h3>
                       <p className="text-muted-foreground">
-                        Ja, selbstverständlich. Alle unsere Speisen sind halal, viele auch vegan oder vegetarisch.
+                        Klar. Bei uns ist alles halal. Und viele unserer Gerichte sind von Natur aus vegan oder vegetarisch – Hummus, Falafel, Taboulé und so weiter.
                       </p>
                     </div>
                   </div>
@@ -285,14 +285,14 @@ const BlogPost1 = () => {
                 {/* CTA */}
                 <section className="mt-16 text-center p-8 md:p-12 bg-card border-2 border-primary/20 rounded-lg shadow-lg">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                    Bereit für frischen Wind in eurer Mittagspause?
+                    Klingt gut?
                   </h2>
                   <p className="text-lg mb-6 text-muted-foreground">
-                    Lasst uns gemeinsam euer nächstes Office-Catering planen.
+                    Dann lasst uns reden. Erzählt uns, was ihr braucht – wir kümmern uns um den Rest.
                   </p>
                   <Link to="/catering#contact">
                     <Button size="lg" className="gap-2 w-full sm:w-auto">
-                      Jetzt Kontakt aufnehmen
+                      Jetzt anfragen
                     </Button>
                   </Link>
                 </section>
