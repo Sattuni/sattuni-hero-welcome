@@ -59,58 +59,6 @@ const ModeSplitHero = () => {
 
         {/* Mode Selection Cards */}
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-          {/* Catering Card */}
-          <Card 
-            className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-300 cursor-pointer bg-card/95 backdrop-blur-sm hover:shadow-elegant"
-            onClick={handleCateringSelect}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            <div className="relative p-6 md:p-8">
-              {/* Icon */}
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <Building2 className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-              </div>
-
-              {/* Content */}
-              <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2">
-                Catering & Buffets
-              </h2>
-              <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                Für Unternehmen, Events & besondere Anlässe – ab 20 Personen
-              </p>
-
-              {/* Features */}
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Users className="w-4 h-4 text-primary/70" />
-                  <span>Firmenfeiern & Meetings</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <ChefHat className="w-4 h-4 text-primary/70" />
-                  <span>Buffet-Service & Full-Service</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Star className="w-4 h-4 text-primary/70" />
-                  <span>200+ Events erfolgreich beliefert</span>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Button 
-                size="lg" 
-                className="w-full font-semibold group-hover:shadow-md transition-all"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleCateringSelect();
-                }}
-              >
-                <Building2 className="w-4 h-4 mr-2" />
-                Zum Catering
-              </Button>
-            </div>
-          </Card>
-
           {/* Restaurant Card */}
           <Card 
             className="group relative overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all duration-300 cursor-pointer bg-card/95 backdrop-blur-sm hover:shadow-elegant"
@@ -172,6 +120,58 @@ const ModeSplitHero = () => {
                   Mehr erfahren
                 </Button>
               </div>
+            </div>
+          </Card>
+
+          {/* Catering Card */}
+          <Card 
+            className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-300 cursor-pointer bg-card/95 backdrop-blur-sm hover:shadow-elegant"
+            onClick={handleCateringSelect}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <div className="relative p-6 md:p-8">
+              {/* Icon */}
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <Building2 className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+              </div>
+
+              {/* Content */}
+              <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2">
+                Catering & Buffets
+              </h2>
+              <p className="text-muted-foreground mb-6 text-sm md:text-base">
+                Für Unternehmen, Events & besondere Anlässe – ab 20 Personen
+              </p>
+
+              {/* Features */}
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Users className="w-4 h-4 text-primary/70" />
+                  <span>Firmenfeiern & Meetings</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <ChefHat className="w-4 h-4 text-primary/70" />
+                  <span>Buffet-Service & Full-Service</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Star className="w-4 h-4 text-primary/70" />
+                  <span>200+ Events erfolgreich beliefert</span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <Button 
+                size="lg" 
+                className="w-full font-semibold group-hover:shadow-md transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCateringSelect();
+                }}
+              >
+                <Building2 className="w-4 h-4 mr-2" />
+                Zum Catering
+              </Button>
             </div>
           </Card>
         </div>
