@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="w-full flex items-center justify-between py-4 text-left"
+              className="w-full flex items-center justify-between py-4 text-left min-h-[48px] touch-manipulation active:bg-muted/50 rounded-lg transition-colors"
             >
               <div className="flex items-center space-x-3">
                 <img 
@@ -48,9 +48,9 @@ const Footer = () => {
                 </div>
               </div>
               {isExpanded ? (
-                <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                <ChevronUp className="w-6 h-6 text-muted-foreground" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                <ChevronDown className="w-6 h-6 text-muted-foreground" />
               )}
             </button>
             

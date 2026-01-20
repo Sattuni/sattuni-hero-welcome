@@ -3,10 +3,12 @@ import sattunLogo from "@/assets/icons/sattuni-header-icon.png";
 import SmartCTA from "@/components/mobile/SmartCTA";
 import { Button } from "@/components/ui/button";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 import { Star, Timer, Truck, Utensils } from "lucide-react";
 
 const Hero = () => {
   const { scrollY } = useScrollPosition();
+  const isMobile = useMobileDetection();
   
   return (
     <section 
@@ -16,11 +18,11 @@ const Hero = () => {
       role="banner"
       aria-label="Sattuni Hauptbereich"
     >
-      {/* Background Image with Overlay */}
+      {/* Background Image with Overlay - Parallax disabled on mobile for performance */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
+          transform: isMobile ? 'none' : `translateY(${scrollY * 0.5}px)`,
         }}
       >
         <img 
@@ -126,19 +128,19 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Trust Indicators - Reduced on Mobile */}
-            <div className="hidden md:flex flex-wrap gap-4 justify-center lg:justify-start pt-6 text-xs font-body">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+            {/* Trust Indicators - Compact on Mobile, Full on Desktop */}
+            <div className="flex flex-wrap gap-2 md:gap-4 justify-center lg:justify-start pt-3 md:pt-6 text-xs font-body">
+              <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <Utensils className="w-3 h-3"/>
-                <span className="text-foreground font-medium">Frisch zubereitet</span>
+                <span className="text-foreground font-medium">Frisch</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+              <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <Timer className="w-3 h-3"/>
                 <span className="text-foreground font-medium">30-45 Min</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
+              <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-card/90 backdrop-blur-sm rounded-full border border-border/50">
                 <Truck className="w-3 h-3"/>
-                <span className="text-foreground font-medium">Event-Catering</span>
+                <span className="text-foreground font-medium">Catering</span>
               </div>
             </div>
           </div>

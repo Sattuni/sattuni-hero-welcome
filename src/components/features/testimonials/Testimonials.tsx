@@ -125,17 +125,17 @@ const Testimonials = () => {
               {shouldTruncate && (
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="inline-flex items-center gap-1 mt-2 text-xs text-primary hover:text-primary/80 transition-colors font-medium"
+                  className="inline-flex items-center gap-1 mt-2 text-xs text-primary hover:text-primary/80 transition-colors font-medium min-h-[44px] min-w-[44px] touch-manipulation"
                 >
                   {isExpanded ? (
                     <>
                       <span>Weniger lesen</span>
-                      <ChevronUp className="w-3 h-3" />
+                      <ChevronUp className="w-4 h-4" />
                     </>
                   ) : (
                     <>
                       <span>Mehr lesen</span>
-                      <ChevronDown className="w-3 h-3" />
+                      <ChevronDown className="w-4 h-4" />
                     </>
                   )}
                 </button>
@@ -230,19 +230,25 @@ const Testimonials = () => {
             </div>
           </div>
           
-          {/* Carousel Indicators */}
-          <div className="flex justify-center gap-2 mt-4 md:mt-8">
+          {/* Carousel Indicators - Touch-optimized */}
+          <div className="flex justify-center gap-3 mt-4 md:mt-8">
             {Array.from({ length: Math.ceil(reviews.length / 3) }, (_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                  index === currentIndex 
+                    ? "" 
+                    : ""
+                }`}
+                aria-label={`Gehe zu Bewertungsgruppe ${index + 1}`}
+              >
+                <span className={`w-3 h-3 md:w-4 md:h-4 rounded-full block transition-all duration-300 ${
                   index === currentIndex 
                     ? "bg-primary scale-125" 
                     : "bg-muted hover:bg-primary/50"
-                }`}
-                aria-label={`Gehe zu Bewertungsgruppe ${index + 1}`}
-              />
+                }`} />
+              </button>
             ))}
           </div>
         </div>
