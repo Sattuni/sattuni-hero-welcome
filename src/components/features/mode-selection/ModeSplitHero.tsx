@@ -20,7 +20,7 @@ const ModeSplitHero = () => {
   };
 
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-8 md:py-12 bg-gradient-hero">
+    <section className="min-h-screen flex items-center justify-center px-4 py-8 md:py-12 bg-gradient-hero relative">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-warm rounded-full opacity-10 blur-3xl"></div>
@@ -170,7 +170,7 @@ const ModeSplitHero = () => {
             <span className="hidden md:inline text-muted-foreground/50">|</span>
             <span>Seit 2022 in Düsseldorf</span>
             <span className="hidden md:inline text-muted-foreground/50">|</span>
-            <span>100% Halal</span>
+            <span>Frisch & Hausgemacht</span>
           </div>
         </div>
       </div>

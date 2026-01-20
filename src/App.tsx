@@ -33,20 +33,38 @@ const AppRoutes = () => {
   
   return (
     <Routes>
+      {/* Landing / Mode Selection */}
       <Route path="/" element={<Landing />} />
+      
+      {/* ===== RESTAURANT ROUTES ===== */}
       <Route path="/restaurant" element={<Restaurant />} />
-      <Route path="/spezialitaeten" element={<Specialties />} />
-      <Route path="/speisekarte" element={<Speisekarte />} />
+      <Route path="/restaurant/spezialitaeten" element={<Specialties />} />
+      <Route path="/restaurant/speisekarte" element={<Speisekarte />} />
+      
+      {/* ===== CATERING ROUTES ===== */}
       <Route path="/catering" element={<Catering />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
+      <Route path="/catering/menus" element={<Menus />} />
+      <Route path="/catering/ueber-uns" element={<AboutUs />} />
+      <Route path="/catering/blog" element={<Blog />} />
+      <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
+      <Route path="/catering/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
+      <Route path="/catering/blog/workshop-catering" element={<BlogPost3 />} />
+      
+      {/* ===== SHARED / LEGAL ROUTES ===== */}
+      <Route path="/impressum" element={<Impressum />} />
+      <Route path="/datenschutz" element={<Datenschutz />} />
+      
+      {/* Legacy redirects for old URLs */}
+      <Route path="/spezialitaeten" element={<Specialties />} />
+      <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/menus" element={<Menus />} />
       <Route path="/ueber-uns" element={<AboutUs />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/blog/workshop-catering" element={<BlogPost3 />} />
-      <Route path="/impressum" element={<Impressum />} />
-      <Route path="/datenschutz" element={<Datenschutz />} />
+      
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

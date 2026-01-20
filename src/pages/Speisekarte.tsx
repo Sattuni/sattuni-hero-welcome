@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Header from "@/components/layout/Header";
-import Breadcrumb from "@/components/layout/Breadcrumb";
+import ModeHeader from "@/components/layout/ModeHeader";
 import InternalLinks from "@/components/layout/InternalLinks";
+import { useSiteMode } from "@/contexts/SiteModeContext";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
 import SmartCTA from "@/components/mobile/SmartCTA";
 import { ArrowUp, UtensilsCrossed, Utensils, Salad, Coffee, Wheat, Sandwich } from "lucide-react";
@@ -13,6 +13,12 @@ import heroImage from "@/assets/hero-food.jpg";
 
 const Speisekarte = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { setMode } = useSiteMode();
+
+  // Set restaurant mode on page load
+  useEffect(() => {
+    setMode('restaurant');
+  }, [setMode]);
 
   useEffect(() => {
     // SEO Meta Tags
@@ -206,13 +212,9 @@ const Speisekarte = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
-        <Header />
+        <ModeHeader />
         
         <main className="pt-20" role="main">
-          <Breadcrumb items={[
-            { name: "Home", href: "/" },
-            { name: "Speisekarte", href: "/speisekarte", current: true }
-          ]} />
           
           {/* Hero Section */}
           <section 

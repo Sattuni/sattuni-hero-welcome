@@ -5,17 +5,14 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import MobileCTABar from "@/components/mobile/MobileCTABar";
 
-// Import existing restaurant-focused components
+// Import restaurant-focused components
 import Hero from "@/components/features/hero/Hero";
-import Services from "@/components/features/services/Services";
+import RestaurantServices from "@/components/features/services/RestaurantServices";
 import FoodShowcase from "@/components/features/food/FoodShowcase";
 import WhySattuni from "@/components/features/about/WhySattuni";
-import HowItWorks from "@/components/features/process/HowItWorks";
 import Testimonials from "@/components/features/testimonials/Testimonials";
 import Contact from "@/components/features/contact/Contact";
 import OpeningHours from "@/components/layout/OpeningHours";
-import SectionNav from "@/components/layout/SectionNav";
-import InternalLinks from "@/components/layout/InternalLinks";
 
 const Restaurant = () => {
   const { setMode } = useSiteMode();
@@ -56,10 +53,8 @@ const Restaurant = () => {
       <main className="min-h-screen pt-16 pb-safe-mobile">
         <Hero />
         
-        <SectionNav />
-        
         <div id="services">
-          <Services />
+          <RestaurantServices />
         </div>
         
         <div id="spezialitaeten">
@@ -72,15 +67,11 @@ const Restaurant = () => {
           <OpeningHours />
         </div>
         
-        <HowItWorks />
-        
         <Testimonials />
         
         <div id="kontakt" className="bg-gradient-subtle">
           <Contact />
         </div>
-        
-        <InternalLinks />
       </main>
       <Footer />
       <MobileCTABar />
