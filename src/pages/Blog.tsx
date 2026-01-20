@@ -1,17 +1,37 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
+import { useSiteMode } from "@/contexts/SiteModeContext";
 import workshopHeroImage from "@/assets/blog/workshop-minimal.jpg";
 import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
+import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 
 const Blog = () => {
+  const { setMode } = useSiteMode();
+
+  // Set catering mode on page load
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
+
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 4,
+      slug: "vegane-arabische-klassiker",
+      title: "5 vegane Klassiker der arabischen Küche, die jedes Team liebt",
+      excerpt: "Keine Experimente – bewährte Lieblingsgerichte: Falafel, Hummus, Baba Ghanoush, Taboulé und mehr. Perfekt für inklusives Team-Catering.",
+      date: "2026-01-20",
+      readTime: "6 min",
+      image: veganHeroImage,
+      category: "Veganes Catering"
+    },
     {
       id: 3,
       slug: "workshop-catering",
@@ -54,10 +74,10 @@ const Blog = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
-        <Header />
+        <ModeHeader />
         
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 px-4 overflow-hidden">
+        <section className="relative py-16 md:py-24 px-4 overflow-hidden pt-24 md:pt-32">
           <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
           <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center space-y-4">
@@ -88,7 +108,7 @@ const Blog = () => {
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {blogPosts.map((post) => (
-                <a href={`/blog/${post.slug}`} className="block">
+                <a href={`/catering/blog/${post.slug}`} className="block" key={post.id}>
                   <Card 
                     key={post.id}
                     className="group hover:shadow-elegant transition-all duration-300 overflow-hidden border-border/50 bg-card/95 backdrop-blur-sm h-full"

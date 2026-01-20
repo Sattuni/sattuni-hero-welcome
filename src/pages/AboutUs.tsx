@@ -3,8 +3,9 @@ import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
-import InternalLinks from "@/components/layout/InternalLinks";
+import ModeHeader from "@/components/layout/ModeHeader";
+
+import { useSiteMode } from "@/contexts/SiteModeContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Heart, Leaf, Truck } from "lucide-react";
@@ -18,6 +19,12 @@ import hamudi from "@/assets/about-us/hamudi.png";
 const AboutUs = () => {
   const navigate = useNavigate();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { setMode } = useSiteMode();
+
+  // Set catering mode on page load
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
 
   useEffect(() => {
     // SEO Meta Tags
@@ -137,7 +144,7 @@ const AboutUs = () => {
   };
 
   const handleSpecialtiesClick = () => {
-    navigate('/spezialitaeten');
+    navigate('/catering/menus');
   };
 
   return (
@@ -147,13 +154,13 @@ const AboutUs = () => {
         <meta name="description" content="Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!" />
       </Helmet>
 
-      <Header />
+      <ModeHeader />
       
-      <main className="min-h-screen">
+      <main className="min-h-screen pt-20">
         <Breadcrumb 
           items={[
-            { name: "Startseite", href: "/" },
-            { name: "Über uns", href: "/ueber-uns", current: true }
+            { name: "Catering", href: "/catering" },
+            { name: "Über uns", href: "/catering/ueber-uns", current: true }
           ]} 
         />
 
@@ -186,7 +193,7 @@ const AboutUs = () => {
                 size="xl"
                 className="text-lg px-8 py-4"
               >
-                Unsere Spezialitäten entdecken
+                Unsere Menüs entdecken
               </Button>
             </div>
           </div>
@@ -408,7 +415,6 @@ const AboutUs = () => {
           </div>
         </section>
 
-        <InternalLinks />
         <FOMOElements />
       </main>
 

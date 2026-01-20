@@ -4,6 +4,7 @@ import { ShoppingBag, X, Heart, PartyPopper } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import { useFOMO } from '@/contexts/FOMOContext';
+import { useSiteMode } from '@/contexts/SiteModeContext';
 import { triggerGLFWidget } from '@/utils/glfHelper';
 
 const FOMOElements = () => {
@@ -12,6 +13,12 @@ const FOMOElements = () => {
   const { scrollProgress } = useScrollPosition();
   const isMobile = useMobileDetection();
   const { registerFOMO, unregisterFOMO } = useFOMO();
+  const { mode } = useSiteMode();
+
+  // Only show on restaurant mode
+  if (mode === 'catering') {
+    return null;
+  }
 
   // Check if user has already dismissed this FOMO
   useEffect(() => {

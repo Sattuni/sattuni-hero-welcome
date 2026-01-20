@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Phone, Mail, MessageCircle, Printer, Leaf, Sparkles, ArrowUp, Star, Users, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -5,9 +6,18 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CATERING_PACKAGES, formatPrice, type CateringPackage, type PackageDishItem } from '@/constants/catering-packages';
-import sattLogo from '@/assets/sattuni-sticker-logo.jpg';
+
+import ModeHeader from '@/components/layout/ModeHeader';
+import Footer from '@/components/layout/Footer';
+import { useSiteMode } from '@/contexts/SiteModeContext';
 
 const Menus = () => {
+  const { setMode } = useSiteMode();
+
+  // Set catering mode on page load
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
   const handlePrint = () => {
     window.print();
   };
@@ -151,22 +161,17 @@ const Menus = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        {/* Header - Print optimized */}
-        <header className="bg-gradient-to-b from-primary/5 to-background py-8 sm:py-12 print:py-4">
+      <ModeHeader />
+      
+      <div className="min-h-screen bg-background pt-20">
+        {/* Page Header */}
+        <section className="bg-gradient-to-b from-primary/5 to-background py-8 sm:py-12 print:py-4">
           <div className="container max-w-5xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-              <a href="/catering" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-                <img 
-                  src={sattLogo} 
-                  alt="Sattuni Logo" 
-                  className="h-16 sm:h-20 w-auto print:h-12"
-                />
-                <div>
-                  <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
-                  <p className="text-muted-foreground text-sm sm:text-base">Orientalische Vielfalt für jeden Anlass</p>
-                </div>
-              </a>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
+                <p className="text-muted-foreground text-sm sm:text-base mt-1">Orientalische Vielfalt für jeden Anlass</p>
+              </div>
               
               {/* Action buttons - hidden on print */}
               <div className="flex gap-2 print:hidden">
@@ -193,7 +198,7 @@ const Menus = () => {
               </a>
             </div>
           </div>
-        </header>
+        </section>
 
         {/* Legend */}
         <section className="container max-w-5xl mx-auto px-4 py-4 print:py-2">
@@ -221,8 +226,8 @@ const Menus = () => {
           </div>
         </main>
 
-        {/* Footer CTA - hidden on print */}
-        <footer className="bg-primary/5 py-8 print:hidden">
+        {/* CTA Section - hidden on print */}
+        <section className="bg-primary/5 py-8 print:hidden">
           <div className="container max-w-5xl mx-auto px-4 text-center">
             <h2 className="text-xl font-bold text-foreground mb-2">Interesse geweckt?</h2>
             <p className="text-muted-foreground mb-4">
@@ -242,15 +247,10 @@ const Menus = () => {
                 </a>
               </Button>
             </div>
-            
-            <div className="mt-6 pt-6 border-t border-border/50 text-sm text-muted-foreground">
-              <p>© {new Date().getFullYear()} Sattuni – Orientalische Küche, Düsseldorf</p>
-              <p className="mt-1">
-                <a href="/" className="hover:text-primary transition-colors">www.sattuni.de</a>
-              </p>
-            </div>
           </div>
-        </footer>
+        </section>
+        
+        <Footer />
 
         {/* Print-only footer */}
         <div className="hidden print:block text-center text-xs text-muted-foreground py-4 border-t">

@@ -1,22 +1,32 @@
-import heroCatering from "@/assets/hero/hero-catering.jpg";
+import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
 import BuffetGallery from "@/components/features/catering/BuffetGallery";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
+import FAQSection from "@/components/features/catering/FAQSection";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import Header from "@/components/layout/Header";
-import InternalLinks from "@/components/layout/InternalLinks";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ModeHeader from "@/components/layout/ModeHeader";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phone, Salad, Users, Utensils, UtensilsCrossed } from "lucide-react";
+import { ArrowUp, CheckCircle, ChevronRight, Clock, Mail, Phone, Users, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
+import { useSiteMode } from "@/contexts/SiteModeContext";
+
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
+  const { setMode } = useSiteMode();
+  const isMobile = useMobileDetection();
+
+  // Set catering mode on page load (direct URL access)
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
 
   // SEO Meta Tags
   useEffect(() => {
@@ -159,7 +169,7 @@ const Catering = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Header />
+      <ModeHeader />
       <FreeDeliveryBanner />
       
       {/* Breadcrumb Navigation */}
@@ -187,7 +197,7 @@ const Catering = () => {
               addEngagementFactor('hero_image_view');
             }}
           />
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/65"></div>
         </div>
         
         <div className="relative container mx-auto px-4 text-center text-white">
@@ -315,17 +325,52 @@ const Catering = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {usps.map((usp, index) => (
-              <div key={index} className="text-center space-y-3 md:space-y-4">
-                <div className="mx-auto w-14 h-14 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <usp.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold text-foreground">{usp.title}</h3>
-                <p className="text-sm md:text-base text-muted-foreground">{usp.description}</p>
+          {/* Mobile Carousel */}
+          {isMobile ? (
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2">
+                {usps.map((usp, index) => (
+                  <CarouselItem key={index} className="pl-2 basis-[85%]">
+                    <div className="text-center space-y-3 p-4 bg-background/50 rounded-xl">
+                      <div className="mx-auto w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                        <usp.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground">{usp.title}</h3>
+                      <p className="text-sm text-muted-foreground">{usp.description}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Carousel Indicators */}
+              <div className="flex justify-center gap-2 mt-4">
+                {usps.map((_, index) => (
+                  <div
+                    key={index}
+                    className="w-2 h-2 rounded-full bg-primary/30"
+                  />
+                ))}
               </div>
-            ))}
-          </div>
+            </Carousel>
+          ) : (
+            /* Desktop Grid */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              {usps.map((usp, index) => (
+                <div key={index} className="text-center space-y-3 md:space-y-4">
+                  <div className="mx-auto w-14 h-14 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                    <usp.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{usp.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{usp.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -392,158 +437,7 @@ const Catering = () => {
       <CateringBookingForm />
 
       {/* FAQ Section */}
-      <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-16">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 mb-2 md:mb-4">
-              <HelpCircle className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-                Häufige Fragen
-              </h2>
-            </div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem 
-                value="ablauf" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie läuft eine Catering-Anfrage ab?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Nach Eingang eurer Anfrage melden wir uns innerhalb von 24 Stunden. 
-                    Gemeinsam klären wir Details wie Termin, Gästezahl und besondere Anforderungen.
-                  </p>
-                  <p>
-                    Ihr erhaltet anschließend ein verbindliches Angebot mit allen wichtigen Informationen.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="lieferung" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie wird die Lieferung koordiniert?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Die Lieferung erfolgt in einem vorab vereinbarten Zeitfenster. 
-                    So stellen wir sicher, dass alles rechtzeitig vor Ort ist – 
-                    bevor euer Meeting oder Event beginnt.
-                  </p>
-                  <p>
-                    Bei Aufbau-Service kommen wir rechtzeitig, um alles vorzubereiten.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="mindestpersonen" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Ab wie vielen Personen bietet ihr Catering an?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Unser Catering-Service ist ab 20 Personen verfügbar. 
-                    Diese Mindestgröße ermöglicht uns eine professionelle Durchführung 
-                    mit entsprechendem Service-Level.
-                  </p>
-                  <p>
-                    <strong>Für kleinere Gruppen:</strong> Nutzt gerne unseren 
-                    regulären Lieferservice über den Online-Shop.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="anpassungen" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Können Änderungen nach der Buchung vorgenommen werden?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Ja, Anpassungen bei der Personenanzahl sind bis eine Woche vor dem Liefertag möglich. 
-                    Wir informieren euch rechtzeitig über die Fristen.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="ausstattung" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Ist Geschirr und Ausstattung enthalten?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Auf Wunsch stellen wir Geschirr, Besteck und Wärmebehälter bereit. 
-                    Die Details besprechen wir gemeinsam nach eurer Anfrage.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="ernaehrung" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Gibt es vegetarische und vegane Optionen?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Ja, unsere Küche bietet eine große Auswahl an vegetarischen und veganen Gerichten. 
-                    Teilt uns eure Anforderungen einfach in der Anfrage mit.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="liefergebiet" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wie weit liefert ihr?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Wir liefern in Düsseldorf und Umgebung – bis zu 50 km Radius. 
-                    Innerhalb Düsseldorfs ist die Anlieferung in der Regel inklusive.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem 
-                value="kontakt" 
-                className="bg-background border border-border rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
-                  Wer ist mein Ansprechpartner?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  <p className="mb-3">
-                    Ihr erhaltet nach der Anfrage einen festen Ansprechpartner, 
-                    der euch durch den gesamten Prozess begleitet – 
-                    von der Planung bis zur Durchführung.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
-        
-        {/* Internal Links Section */}
-        <InternalLinks />
+      <FAQSection />
 
       {/* Final CTA */}
       <section className="py-20">

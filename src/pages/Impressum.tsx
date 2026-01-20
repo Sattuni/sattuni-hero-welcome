@@ -1,6 +1,6 @@
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Scale } from "lucide-react";
 import { Helmet } from "react-helmet";
@@ -22,7 +22,7 @@ const Impressum = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
-        <Header />
+        <ModeHeader />
         
         <main className="pt-4 pb-8">
           <div className="container mx-auto px-4 max-w-4xl">

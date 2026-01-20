@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import { useEffect } from "react";
 
@@ -46,7 +46,7 @@ const CateringDanke = () => {
         <meta name="description" content="Ihre Catering-Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen." />
       </Helmet>
 
-      <Header />
+      <ModeHeader />
 
       <main className="min-h-screen bg-gradient-hero pt-20">
         <div className="container mx-auto px-4 py-16 md:py-24">
