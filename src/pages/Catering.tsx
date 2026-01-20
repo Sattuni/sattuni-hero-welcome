@@ -197,7 +197,7 @@ const Catering = () => {
               addEngagementFactor('hero_image_view');
             }}
           />
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/65"></div>
         </div>
         
         <div className="relative container mx-auto px-4 text-center text-white">
