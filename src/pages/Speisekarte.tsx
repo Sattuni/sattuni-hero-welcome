@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ModeHeader from "@/components/layout/ModeHeader";
-import InternalLinks from "@/components/layout/InternalLinks";
+
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import FOMOElements from "@/components/features/marketing/FOMOElements";
 import SmartCTA from "@/components/mobile/SmartCTA";
@@ -360,7 +360,7 @@ const Speisekarte = () => {
           </button>
         )}
 
-        <InternalLinks />
+        
         <FOMOElements />
       </div>
     </>
