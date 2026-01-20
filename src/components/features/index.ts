@@ -21,6 +21,5 @@ export { default as HowItWorks } from './process/HowItWorks';
 export { default as Testimonials } from './testimonials/Testimonials';
 
 // ===== MARKETING =====
-export { default as ChristmasPromo } from './marketing/ChristmasPromo';
 export { default as FOMOElements } from './marketing/FOMOElements';
 export { default as CateringFOMO } from './marketing/CateringFOMO';

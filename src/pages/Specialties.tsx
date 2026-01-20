@@ -12,7 +12,7 @@ import falafelTeigtaschen4 from "@/assets/falafel/falafel-teigtaschen-4.jpg";
 import falafelTeigtaschen from "@/assets/falafel/falafel-teigtaschen.jpg";
 import heroSpecialties from "@/assets/hero/hero-specialties.jpg";
 import ModeHeader from "@/components/layout/ModeHeader";
-import InternalLinks from "@/components/layout/InternalLinks";
+
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -531,9 +531,6 @@ const Specialties = () => {
           <ArrowUp className="w-5 h-5 mx-auto" />
         </button>
       )}
-      
-      {/* Internal Links Section */}
-      <InternalLinks />
     </>
   );
 };

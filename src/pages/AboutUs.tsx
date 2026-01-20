@@ -4,7 +4,7 @@ import FOMOElements from "@/components/features/marketing/FOMOElements";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
-import InternalLinks from "@/components/layout/InternalLinks";
+
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -415,7 +415,6 @@ const AboutUs = () => {
           </div>
         </section>
 
-        <InternalLinks />
         <FOMOElements />
       </main>
 
