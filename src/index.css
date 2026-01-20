@@ -169,3 +169,18 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* Site Mode Theme Variations */
+@layer base {
+  /* Catering Mode - Professional, Business-oriented */
+  [data-site-mode="catering"] {
+    --primary: 105 28% 52%;
+    --accent: 105 32% 42%;
+  }
+  
+  /* Restaurant Mode - Warm, Welcoming */
+  [data-site-mode="restaurant"] {
+    --primary: 105 22% 58%;
+    --accent: 35 45% 55%;
+  }
+}
