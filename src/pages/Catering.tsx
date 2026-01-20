@@ -7,6 +7,8 @@ import Breadcrumb from "@/components/layout/Breadcrumb";
 import ModeHeader from "@/components/layout/ModeHeader";
 import InternalLinks from "@/components/layout/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phone, Salad, Users, Utensils, UtensilsCrossed } from "lucide-react";
@@ -20,6 +22,7 @@ const Catering = () => {
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
   const { setMode } = useSiteMode();
+  const isMobile = useMobileDetection();
 
   // Set catering mode on page load (direct URL access)
   useEffect(() => {
@@ -323,17 +326,52 @@ const Catering = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {usps.map((usp, index) => (
-              <div key={index} className="text-center space-y-3 md:space-y-4">
-                <div className="mx-auto w-14 h-14 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <usp.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold text-foreground">{usp.title}</h3>
-                <p className="text-sm md:text-base text-muted-foreground">{usp.description}</p>
+          {/* Mobile Carousel */}
+          {isMobile ? (
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2">
+                {usps.map((usp, index) => (
+                  <CarouselItem key={index} className="pl-2 basis-[85%]">
+                    <div className="text-center space-y-3 p-4 bg-background/50 rounded-xl">
+                      <div className="mx-auto w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                        <usp.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground">{usp.title}</h3>
+                      <p className="text-sm text-muted-foreground">{usp.description}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Carousel Indicators */}
+              <div className="flex justify-center gap-2 mt-4">
+                {usps.map((_, index) => (
+                  <div
+                    key={index}
+                    className="w-2 h-2 rounded-full bg-primary/30"
+                  />
+                ))}
               </div>
-            ))}
-          </div>
+            </Carousel>
+          ) : (
+            /* Desktop Grid */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              {usps.map((usp, index) => (
+                <div key={index} className="text-center space-y-3 md:space-y-4">
+                  <div className="mx-auto w-14 h-14 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                    <usp.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{usp.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{usp.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
