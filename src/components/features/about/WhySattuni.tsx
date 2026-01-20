@@ -19,8 +19,8 @@ const WhySattuni = () => {
     },
     {
       icon: Calendar,
-      title: "Alltag & Anlässe",
-      description: "Kleiner Hunger oder große Feier – wir sind dabei."
+      title: "Für jeden Anlass",
+      description: "Kleiner Hunger oder Familienessen – wir sind dabei."
     }
   ];
 
