@@ -233,13 +233,13 @@ const Specialties = () => {
           
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Sattuni – Arabische Spezialitäten in Düsseldorf
+              Arabische Spezialitäten – frisch aus Düsseldorf
             </h1>
             <h2 className="text-xl md:text-2xl mb-8 font-body font-light drop-shadow-md">
-              Authentische arabische Küche – frisch & hausgemacht
+              Hausgemacht, ehrlich, einfach lecker
             </h2>
             <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto drop-shadow-md">
-              Von cremigem Hummus bis knuspriger Falafel – gönn dir was Gutes!
+              Hummus, Falafel, Bowls – alles an dem Tag gemacht. Probier's aus.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -252,7 +252,7 @@ const Specialties = () => {
                   window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                 }}
               >
-                Bestell dir was Leckeres
+                Bestellen
               </Button>
               <Button 
                 size="xl" 
@@ -263,7 +263,7 @@ const Specialties = () => {
                   window.location.href = '/catering';
                 }}
               >
-                Für dein Event anfragen
+                Fürs Event anfragen
               </Button>
             </div>
           </div>
@@ -274,8 +274,8 @@ const Specialties = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg md:text-xl leading-relaxed text-muted-foreground font-body">
-                Hummus, Falafel, Bowls – vegan, vegetarisch oder mit Fleisch. 
-                <a href="/speisekarte" className="text-primary hover:underline font-medium ml-1">Zur kompletten Speisekarte</a>.
+                Von Dips über Falafel bis zu ganzen Bowls – hier findest du alles. 
+                <a href="/speisekarte" className="text-primary hover:underline font-medium ml-1">Die komplette Karte gibt's hier</a>.
               </p>
             </div>
           </div>
@@ -287,13 +287,12 @@ const Specialties = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Dips & Vorspeisen zum Verlieben
+                  Dips & Vorspeisen
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Stell dir vor: Cremiger Hummus, der auf der Zunge zergeht. Rauchiges Baba Ghanousch 
-                    mit warmen Pita-Brot. Und frischer Tabouleh, der nach Sommer schmeckt. 
-                    Alles hausgemacht – jeden Tag neu.
+                    Unser Hummus ist cremig und mild – so wie er sein soll. Dazu Baba Ghanoush, 
+                    das leicht rauchig schmeckt, und frischer Tabouleh. Alles an dem Tag gemacht.
                   </p>
                 </div>
                 <Button 
@@ -304,7 +303,7 @@ const Specialties = () => {
                     window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                   }}
                 >
-                  Hab ich Lust drauf!
+                  Will ich
                 </Button>
               </div>
               <div className="order-first md:order-last">
@@ -357,13 +356,12 @@ const Specialties = () => {
               </div>
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Knusprige Falafel – außen crunchy, innen wow!
+                  Falafel & Teigtaschen
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Goldbraun und knusprig, dabei innen so saftig – unsere Falafel sind echte 
-                    Geschmacksbomben. Dazu gibt's hausgemachte Teigtaschen mit Füllungen, 
-                    die dich überraschen werden.
+                    Die Falafel sind außen knusprig, innen saftig. Wie das sein soll. 
+                    Dazu gibt's hausgemachte Teigtaschen – mit verschiedenen Füllungen, je nachdem worauf ihr Lust habt.
                   </p>
                 </div>
                 <Button 
@@ -374,7 +372,7 @@ const Specialties = () => {
                     window.open('https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=a1654ea9-73ac-4738-ac58-ca16dc332c65&client_is_mobile=true&return_url=https%3A%2F%2Fsattuni.de%2F', '_blank');
                   }}
                 >
-                  Das will ich probieren!
+                  Probieren
                 </Button>
               </div>
             </div>
@@ -387,13 +385,12 @@ const Specialties = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-6">
-                  Bowls, die richtig satt & glücklich machen
+                  Bowls & Hauptgerichte
                 </h3>
                 <div className="text-lg text-muted-foreground font-body">
                   <p>
-                    Fluffiger Couscous trifft gegrilltes Gemüse und frische Kräuter – 
-                    das ist Comfort Food auf arabisch! Perfekt für den großen Hunger 
-                    oder wenn du einfach was Gutes brauchst.
+                    Couscous, gegrilltes Gemüse, frische Kräuter – in einer Schüssel. 
+                    Macht richtig satt und schmeckt einfach gut. Perfekt wenn ihr was Ordentliches braucht.
                   </p>
                 </div>
                 <Button 
@@ -404,7 +401,7 @@ const Specialties = () => {
                     window.location.href = '/catering';
                   }}
                 >
-                  Für dein Catering anfragen
+                  Fürs Event anfragen
                 </Button>
               </div>
               <div className="order-first md:order-last">
@@ -435,37 +432,37 @@ const Specialties = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <h3 className="text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-16">
-              Was unsere Küche besonders macht
+              Was wir anders machen
             </h3>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="p-8 text-center hover:shadow-soft transition-shadow">
                 <Utensils className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h4 className="text-xl font-display font-semibold text-foreground mb-3">
-                  Hausgemacht
+                  Täglich frisch
                 </h4>
                 <p className="text-muted-foreground font-body">
-                  Jeden Tag frisch zubereitet mit traditionellen Rezepten und viel Liebe zum Detail.
+                  Alles an dem Tag gemacht. Keine Fertigsachen, keine Tricks.
                 </p>
               </Card>
               
               <Card className="p-8 text-center hover:shadow-soft transition-shadow">
                 <Leaf className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h4 className="text-xl font-display font-semibold text-foreground mb-3">
-                  Für jeden Geschmack
+                  Für alle was dabei
                 </h4>
                 <p className="text-muted-foreground font-body">
-                  Vielfältige Auswahl: vegan, vegetarisch und mit Fleisch – jeder findet sein Lieblingsgericht.
+                  Vegan, vegetarisch, mit Fleisch – jeder findet was.
                 </p>
               </Card>
               
               <Card className="p-8 text-center hover:shadow-soft transition-shadow">
                 <Truck className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h4 className="text-xl font-display font-semibold text-foreground mb-3">
-                  Lieferung & Catering
+                  Liefern oder abholen
                 </h4>
                 <p className="text-muted-foreground font-body">
-                  Schnelle Lieferung für den Alltag oder <a href="/catering" className="text-primary hover:underline font-medium">Catering für besondere Anlässe</a> in Düsseldorf.
+                  Schnell zu dir – oder <a href="/catering" className="text-primary hover:underline font-medium">größer fürs Event</a>.
                 </p>
               </Card>
               
@@ -475,7 +472,7 @@ const Specialties = () => {
                   Für jeden Anlass
                 </h4>
                 <p className="text-muted-foreground font-body">
-                  Vom schnellen Mittagessen bis zur großen Feier – wir haben das passende Angebot.
+                  Schneller Lunch oder große Feier – beides geht.
                 </p>
               </Card>
             </div>
@@ -486,11 +483,10 @@ const Specialties = () => {
         <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4 text-center">
             <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
-              Bereit für deine arabische Geschmacksreise?
+              Hunger?
             </h3>
             <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto font-body">
-              Egal ob kleiner Hunger oder große Feier – Sattuni bringt dir authentische 
-              arabische Küche direkt nach Düsseldorf.
+              Dann bestell was. Oder fragt an, wenn's fürs Team oder eine Feier sein soll.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -124,46 +124,46 @@ const Catering = () => {
   const processSteps = [
     {
       icon: Mail,
-      title: "Anfrage senden",
-      description: "Teilt uns Anlass, Datum und Gästezahl mit – wir melden uns innerhalb von 24 Stunden.",
+      title: "Schreibt uns",
+      description: "Erzählt uns kurz, was ihr plant – Anlass, Datum, wie viele Leute. Wir melden uns fix zurück.",
     },
     {
       icon: Phone, 
-      title: "Abstimmung & Angebot",
-      description: "Wir besprechen Details, klären offene Fragen und erstellen ein verbindliches Angebot.",
+      title: "Wir reden drüber",
+      description: "Klären offene Fragen, gucken was passt, und ihr kriegt ein vernünftiges Angebot.",
     },
     {
       icon: CheckCircle,
-      title: "Bestätigung",
-      description: "Nach eurer Zusage erhaltet ihr alle wichtigen Informationen schriftlich.",
+      title: "Alles klar",
+      description: "Wenn's passt, bestätigt ihr – und wir kümmern uns um den Rest.",
     },
     {
       icon: Utensils,
-      title: "Lieferung zum Termin",
-      description: "Wir liefern pünktlich im vereinbarten Zeitfenster – bereit für euer Event.",
+      title: "Wir bringen's",
+      description: "Pünktlich im vereinbarten Zeitfenster. Fertig aufgebaut, wenn ihr wollt.",
     },
   ];
 
   const usps = [
     {
       icon: CheckCircle,
-      title: "Strukturierte Abläufe",
-      description: "Klare Prozesse von der Anfrage bis zur Lieferung",
+      title: "Läuft bei uns",
+      description: "Wir machen das nicht zum ersten Mal. Klare Absprachen, keine Überraschungen.",
     },
     {
       icon: Phone,
-      title: "Feste Ansprechpartner",
-      description: "Persönliche Betreuung durch einen direkten Kontakt",
+      title: "Einer kümmert sich",
+      description: "Ihr habt einen Ansprechpartner – nicht jedes Mal jemand Neuen.",
     },
     {
       icon: Users,
-      title: "Ab 20 Personen",
-      description: "Für Meetings, Feiern und Veranstaltungen jeder Größe",
+      title: "Ab 20 Leuten",
+      description: "Meetings, Feiern, Workshops – egal wie groß.",
     },
     {
       icon: Clock,
-      title: "Pünktliche Lieferung",
-      description: "Koordinierte Zeitfenster für reibungslose Events",
+      title: "Pünktlich da",
+      description: "Wir kommen im Zeitfenster, das wir abgemacht haben. Versprochen.",
     },
   ];
 
@@ -204,11 +204,11 @@ const Catering = () => {
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
-              Catering für Events in Düsseldorf
+              Catering in Düsseldorf
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-              Zuverlässige Planung, klare Abläufe und pünktliche Lieferung – für Business-Events und private Feiern.
+              Für Firmenevents, Workshops oder private Feiern. Ihr sagt uns was ihr braucht, wir kümmern uns drum.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -281,10 +281,10 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              So funktioniert es
+              Wie das bei uns läuft
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Von der Anfrage bis zur Lieferung – ein klarer Ablauf für eure Planungssicherheit.
+              Kein Stress, keine Überraschungen. Einfach kurz wissen, wie's funktioniert.
             </p>
           </div>
           
@@ -322,7 +322,7 @@ const Catering = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
-              Worauf ihr euch verlassen könnt
+              Was ihr von uns erwarten könnt
             </h2>
           </div>
           

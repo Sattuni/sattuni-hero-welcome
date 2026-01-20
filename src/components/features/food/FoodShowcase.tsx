@@ -29,21 +29,21 @@ const FoodShowcase = () => {
   const foodCategories = [
     {
       title: "Dips & Vorspeisen",
-      description: "Cremiger Hummus, der auf der Zunge zergeht. Frische Salate, die dich glücklich machen.",
+      description: "Cremiger Hummus, rauchiges Baba Ghanoush, frischer Tabouleh. Alles zum Teilen.",
       image: dipsImage,
-      highlights: ["Klassischer Hummus", "Babaganoush", "Tabbouleh", "Fattoush"]
+      highlights: ["Hummus", "Baba Ghanoush", "Tabouleh", "Fattoush"]
     },
     {
       title: "Falafel & Teigtaschen",
-      description: "Außen knusprig, innen saftig – so müssen Falafel sein. Hausgemacht wie bei Oma.",
+      description: "Außen knusprig, innen saftig. So müssen Falafel sein.",
       image: falafelImage,
-      highlights: ["Frisch frittiert", "Hausgemacht", "Verschiedene Füllungen", "Vegan verfügbar"]
+      highlights: ["Täglich frisch", "Hausgemacht", "Verschiedene Füllungen", "Vegan"]
     },
     {
       title: "Bowls & Hauptgerichte",
-      description: "Bunte Bowls, die richtig satt machen. Herzhafte Hauptgerichte, die nach mehr schmecken.",
+      description: "Wenn's richtig satt machen soll. Mit Couscous, Reis oder Gemüse.",
       image: bowlsImage,
-      highlights: ["Couscous Bowls", "Reisgerichte", "Fleisch", "Vegan"]
+      highlights: ["Couscous", "Reis", "Fleisch", "Vegan"]
     }
   ];
 
@@ -63,12 +63,11 @@ const FoodShowcase = () => {
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-2 md:mb-3">
             <Utensils className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground">
-              Unsere Spezialitäten
+              Was wir so machen
             </h2>
           </div>
           <p className="text-sm md:text-base text-muted-foreground font-body max-w-2xl mx-auto leading-relaxed">
-            Von cremigem Hummus bis zu knusprigen Falafel – 
-            hier findest du alles, was das Herz begehrt.
+            Von Dips bis Bowls – hier ist für jeden was dabei.
           </p>
         </div>
 
