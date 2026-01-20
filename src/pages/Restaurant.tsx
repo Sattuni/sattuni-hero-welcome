@@ -71,7 +71,6 @@ const Restaurant = () => {
         </div>
       </main>
       <Footer />
-      <MobileCTABar />
     </>
   );
 };
