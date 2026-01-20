@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import BlogPost1 from "./pages/BlogPost1";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
+import BlogPost4 from "./pages/BlogPost4";
 import Catering from "./pages/Catering";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
@@ -50,6 +51,7 @@ const AppRoutes = () => {
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/catering/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/catering/blog/workshop-catering" element={<BlogPost3 />} />
+      <Route path="/catering/blog/vegane-arabische-klassiker" element={<BlogPost4 />} />
       
       {/* ===== SHARED / LEGAL ROUTES ===== */}
       <Route path="/impressum" element={<Impressum />} />
@@ -64,6 +66,7 @@ const AppRoutes = () => {
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/blog/workshop-catering" element={<BlogPost3 />} />
+      <Route path="/blog/vegane-arabische-klassiker" element={<BlogPost4 />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />

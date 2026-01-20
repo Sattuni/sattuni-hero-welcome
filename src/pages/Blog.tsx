@@ -10,6 +10,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 import workshopHeroImage from "@/assets/blog/workshop-minimal.jpg";
 import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
+import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -21,6 +22,16 @@ const Blog = () => {
 
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 4,
+      slug: "vegane-arabische-klassiker",
+      title: "5 vegane Klassiker der arabischen Küche, die jedes Team liebt",
+      excerpt: "Keine Experimente – bewährte Lieblingsgerichte: Falafel, Hummus, Baba Ghanoush, Taboulé und mehr. Perfekt für inklusives Team-Catering.",
+      date: "2026-01-20",
+      readTime: "6 min",
+      image: veganHeroImage,
+      category: "Veganes Catering"
+    },
     {
       id: 3,
       slug: "workshop-catering",
