@@ -2,6 +2,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnalyticsProvider } from "@/contexts";
+import { SiteModeProvider } from "@/contexts/SiteModeContext";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -16,8 +17,9 @@ import BlogPost3 from "./pages/BlogPost3";
 import Catering from "./pages/Catering";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
-import Index from "./pages/Index";
+import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
+import Restaurant from "./pages/Restaurant";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
 import CateringDanke from "./pages/CateringDanke";
@@ -31,7 +33,8 @@ const AppRoutes = () => {
   
   return (
     <Routes>
-      <Route path="/" element={<Index />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/restaurant" element={<Restaurant />} />
       <Route path="/spezialitaeten" element={<Specialties />} />
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/catering" element={<Catering />} />
@@ -52,20 +55,22 @@ const AppRoutes = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AnalyticsProvider>
-      <TooltipProvider>
-        <div className="min-h-screen bg-gradient-hero">
-          <Toaster />
-          <Sonner />
-          <ChatbotPositioner />
-          <CookieConsent />
-          <GLFOrderButton />
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
-        </div>
-      </TooltipProvider>
-    </AnalyticsProvider>
+    <SiteModeProvider>
+      <AnalyticsProvider>
+        <TooltipProvider>
+          <div className="min-h-screen bg-gradient-hero">
+            <Toaster />
+            <Sonner />
+            <ChatbotPositioner />
+            <CookieConsent />
+            <GLFOrderButton />
+            <BrowserRouter>
+              <AppRoutes />
+            </BrowserRouter>
+          </div>
+        </TooltipProvider>
+      </AnalyticsProvider>
+    </SiteModeProvider>
   </QueryClientProvider>
 );
 

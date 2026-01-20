@@ -4,7 +4,7 @@ import CateringBookingForm from "@/components/features/catering/CateringBookingF
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import Header from "@/components/layout/Header";
+import ModeHeader from "@/components/layout/ModeHeader";
 import InternalLinks from "@/components/layout/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -13,10 +13,18 @@ import { ArrowUp, CheckCircle, ChevronRight, Clock, HelpCircle, Leaf, Mail, Phon
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
+import { useSiteMode } from "@/contexts/SiteModeContext";
+
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
+  const { setMode } = useSiteMode();
+
+  // Set catering mode on page load (direct URL access)
+  useEffect(() => {
+    setMode('catering');
+  }, [setMode]);
 
   // SEO Meta Tags
   useEffect(() => {
@@ -159,7 +167,7 @@ const Catering = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Header />
+      <ModeHeader />
       <FreeDeliveryBanner />
       
       {/* Breadcrumb Navigation */}
