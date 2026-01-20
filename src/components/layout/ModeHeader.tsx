@@ -72,14 +72,8 @@ const ModeHeader = () => {
   };
 
   const handleLogoClick = () => {
-    // Go to mode-specific homepage
-    if (isCateringMode) {
-      navigate('/catering');
-    } else if (isRestaurantMode) {
-      navigate('/restaurant');
-    } else {
-      navigate('/');
-    }
+    // Always go to split/landing page
+    navigate('/');
   };
 
   return (
