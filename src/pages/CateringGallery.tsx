@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useSiteMode } from "@/contexts/SiteModeContext";
-import { ChevronLeft, ChevronRight, X, Camera, Utensils, Grid3X3 } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Camera, Utensils, Grid3X3, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
@@ -129,18 +129,32 @@ const CateringGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  
+  // Number of images to show initially (approximately 2 rows)
+  const initialCount = 8;
 
   useEffect(() => {
     setMode("catering");
     setIsLoaded(true);
   }, [setMode]);
 
+  // Reset showAll when category changes
+  useEffect(() => {
+    setShowAll(false);
+  }, [selectedCategory]);
+
   const filteredImages = selectedCategory === "all" 
     ? galleryImages 
     : galleryImages.filter(img => img.category === selectedCategory);
+  
+  const displayedImages = showAll ? filteredImages : filteredImages.slice(0, initialCount);
+  const hasMoreImages = filteredImages.length > initialCount;
 
   const openLightbox = (index: number) => {
-    setSelectedImage(index);
+    // Find the actual index in filteredImages for navigation
+    const actualIndex = filteredImages.indexOf(displayedImages[index]);
+    setSelectedImage(actualIndex);
   };
 
   const closeLightbox = () => {
@@ -239,7 +253,7 @@ const CateringGallery = () => {
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {filteredImages.map((image, index) => (
+            {displayedImages.map((image, index) => (
               <div
                 key={`${image.src}-${index}`}
                 className={`
@@ -281,6 +295,24 @@ const CateringGallery = () => {
               </div>
             ))}
           </div>
+
+          {/* Show More Button */}
+          {hasMoreImages && !showAll && (
+            <div className="flex justify-center mt-10">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setShowAll(true)}
+                className="gap-2 group hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <span>Mehr anzeigen</span>
+                <span className="text-sm text-muted-foreground group-hover:text-primary-foreground/80">
+                  ({filteredImages.length - initialCount} weitere)
+                </span>
+                <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+              </Button>
+            </div>
+          )}
 
           {/* Empty State */}
           {filteredImages.length === 0 && (
