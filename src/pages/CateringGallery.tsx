@@ -43,6 +43,14 @@ import buffetAufbau from "@/assets/gallery/buffets/buffet-aufbau.jpg";
 import buffetMeetEat from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
 import buffetTerrasse from "@/assets/gallery/buffets/buffet-terrasse.jpg";
 import hauptgerichteChafing from "@/assets/gallery/buffets/hauptgerichte-chafing.jpg";
+import buffetSalateBowls from "@/assets/gallery/buffets/buffet-salate-bowls.jpg";
+import buffetVeganChafing from "@/assets/gallery/buffets/buffet-vegan-chafing.jpg";
+import buffetHauptgerichteOffen from "@/assets/gallery/buffets/buffet-hauptgerichte-offen.jpg";
+import buffetHaehnchenReis from "@/assets/gallery/buffets/buffet-haehnchen-reis.jpg";
+import buffetDipsBrot from "@/assets/gallery/buffets/buffet-dips-brot.jpg";
+import buffetModernSideboard from "@/assets/gallery/buffets/buffet-modern-sideboard.jpg";
+import buffetMeetEat2 from "@/assets/gallery/buffets/buffet-meet-eat-2.jpg";
+import buffetSalateLampen from "@/assets/gallery/buffets/buffet-salate-lampen.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -89,6 +97,14 @@ const galleryImages: GalleryImage[] = [
   { src: buffetMeetEat, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
   { src: buffetTerrasse, title: "Terrassen-Buffet", category: "buffets", size: "large" },
   { src: hauptgerichteChafing, title: "Hauptgerichte im Chafing", category: "buffets", size: "large" },
+  { src: buffetSalateBowls, title: "Salate & Bowls Buffet", category: "buffets", size: "large" },
+  { src: buffetVeganChafing, title: "Veganes Buffet mit Chafings", category: "buffets", size: "large" },
+  { src: buffetHauptgerichteOffen, title: "Hauptgerichte offen", category: "buffets", size: "large" },
+  { src: buffetHaehnchenReis, title: "Hähnchen & Reis", category: "buffets", size: "large" },
+  { src: buffetDipsBrot, title: "Dips & Brot Buffet", category: "buffets", size: "large" },
+  { src: buffetModernSideboard, title: "Modernes Sideboard", category: "buffets", size: "large" },
+  { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
+  { src: buffetSalateLampen, title: "Salatbar mit Lampen", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
