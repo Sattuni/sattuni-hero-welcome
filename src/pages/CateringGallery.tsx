@@ -23,6 +23,18 @@ import gemueseSalat from "@/assets/gallery/dips-salate/gemuese-salat.jpg";
 import rucolaSalat from "@/assets/gallery/dips-salate/rucola-salat.jpg";
 import couscousSalat from "@/assets/gallery/dips-salate/couscous-salat.jpg";
 
+// Gallery images - Fingerfood & Gebäck
+import falafel from "@/assets/gallery/fingerfood/falafel.jpg";
+import kibbehSambousek from "@/assets/gallery/fingerfood/kibbeh-sambousek.jpg";
+import blaetterteig from "@/assets/gallery/fingerfood/blaetterteig.jpg";
+import teigrollen from "@/assets/gallery/fingerfood/teigrollen.jpg";
+import wraps from "@/assets/gallery/fingerfood/wraps.jpg";
+import falafelHaeppchen1 from "@/assets/gallery/fingerfood/falafel-haeppchen-1.jpg";
+import falafelHaeppchen2 from "@/assets/gallery/fingerfood/falafel-haeppchen-2.jpg";
+import falafelHaeppchen3 from "@/assets/gallery/fingerfood/falafel-haeppchen-3.jpg";
+import pasteten1 from "@/assets/gallery/fingerfood/pasteten-1.jpg";
+import pasteten2 from "@/assets/gallery/fingerfood/pasteten-2.jpg";
+
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
 interface GalleryImage {
@@ -47,6 +59,18 @@ const galleryImages: GalleryImage[] = [
   { src: gemueseSalat, title: "Gemüse-Salat", category: "dips-salate", size: "large" },
   { src: rucolaSalat, title: "Rucola-Salat", category: "dips-salate", size: "large" },
   { src: couscousSalat, title: "Couscous-Salat", category: "dips-salate", size: "large" },
+  
+  // Fingerfood & Gebäck
+  { src: falafel, title: "Falafel", category: "fingerfood", size: "medium" },
+  { src: kibbehSambousek, title: "Kibbeh & Sambousek", category: "fingerfood", size: "medium" },
+  { src: blaetterteig, title: "Blätterteig-Gebäck", category: "fingerfood", size: "large" },
+  { src: teigrollen, title: "Teigrollen", category: "fingerfood", size: "large" },
+  { src: wraps, title: "Wraps", category: "fingerfood", size: "large" },
+  { src: falafelHaeppchen1, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
+  { src: falafelHaeppchen2, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
+  { src: falafelHaeppchen3, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
+  { src: pasteten1, title: "Pasteten", category: "fingerfood", size: "medium" },
+  { src: pasteten2, title: "Pasteten", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
