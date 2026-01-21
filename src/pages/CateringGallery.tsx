@@ -35,6 +35,16 @@ import falafelHaeppchen2 from "@/assets/gallery/fingerfood/falafel-haeppchen-2.j
 import falafelHaeppchen3 from "@/assets/gallery/fingerfood/falafel-haeppchen-3.jpg";
 import pasteten1 from "@/assets/gallery/fingerfood/pasteten-1.jpg";
 import pasteten2 from "@/assets/gallery/fingerfood/pasteten-2.jpg";
+import fruehstueckBrot1 from "@/assets/gallery/fingerfood/fruehstueck-brot-1.jpg";
+import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg";
+import eventFingerfood1 from "@/assets/gallery/fingerfood/event-fingerfood-1.png";
+import eventFingerfood2 from "@/assets/gallery/fingerfood/event-fingerfood-2.png";
+import eventFingerfood3 from "@/assets/gallery/fingerfood/event-fingerfood-3.png";
+import eventFingerfood4 from "@/assets/gallery/fingerfood/event-fingerfood-4.png";
+import eventFingerfood5 from "@/assets/gallery/fingerfood/event-fingerfood-5.png";
+import eventFingerfood6 from "@/assets/gallery/fingerfood/event-fingerfood-6.png";
+import dessertVegan1 from "@/assets/gallery/fingerfood/dessert-vegan-1.jpg";
+import dessertVegan2 from "@/assets/gallery/fingerfood/dessert-vegan-2.jpg";
 
 // Gallery images - Buffets
 import fleischFladenbrot from "@/assets/gallery/buffets/fleisch-fladenbrot.jpg";
@@ -59,6 +69,15 @@ import buffetVielfaltChafing from "@/assets/gallery/buffets/buffet-vielfalt-chaf
 import buffetElegantSaal from "@/assets/gallery/buffets/buffet-elegant-saal.jpg";
 import babaGanoushElegant from "@/assets/gallery/buffets/baba-ganoush-elegant.jpg";
 import couscousElegant from "@/assets/gallery/buffets/couscous-elegant.jpg";
+// New buffet images
+import meetingCatering15 from "@/assets/gallery/buffets/meeting-catering-15.jpg";
+import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
+import workshopCatering from "@/assets/gallery/buffets/workshop-catering.jpg";
+import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
+import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
+import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
+// New dips image
+import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -116,6 +135,24 @@ const galleryImages: GalleryImage[] = [
   { src: fleischFladenbrot, title: "Fleisch mit Fladenbrot", category: "buffets", size: "large" },
   { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
   { src: buffetSalateLampen, title: "Buffet 25 Personen", category: "buffets", size: "large" },
+  // New images
+  { src: meetingCatering15, title: "Meeting Catering 15 Personen", category: "buffets", size: "large" },
+  { src: kundenbesuchCatering, title: "Kundenbesuch Catering", category: "buffets", size: "large" },
+  { src: workshopCatering, title: "Workshop Catering", category: "buffets", size: "large" },
+  { src: kafkaHauptspeise, title: "Kafka Hauptspeise", category: "buffets", size: "medium" },
+  { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
+  { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
+  { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
+  { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood3, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood4, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood5, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: dessertVegan1, title: "Dessert vegan", category: "fingerfood", size: "medium" },
+  { src: dessertVegan2, title: "Dessert vegan", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [

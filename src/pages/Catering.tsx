@@ -10,6 +10,18 @@ import galleryImg7 from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
 import galleryImg8 from "@/assets/gallery/fingerfood/kibbeh-sambousek.jpg";
 import galleryImg9 from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
 import galleryImg10 from "@/assets/gallery/buffets/couscous-elegant.jpg";
+// New buffet images
+import meetingCatering15 from "@/assets/gallery/buffets/meeting-catering-15.jpg";
+import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
+import workshopCatering from "@/assets/gallery/buffets/workshop-catering.jpg";
+import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
+import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
+import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
+import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
+import fruehstueckBrot1 from "@/assets/gallery/fingerfood/fruehstueck-brot-1.jpg";
+import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg";
+import eventFingerfood1 from "@/assets/gallery/fingerfood/event-fingerfood-1.png";
+import eventFingerfood3 from "@/assets/gallery/fingerfood/event-fingerfood-3.png";
 import { Link } from "react-router-dom";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
@@ -48,16 +60,27 @@ const Catering = () => {
       { src: galleryImg6, alt: "Salate & Bowls", label: "Buffets" },
       { src: galleryImg9, alt: "Meet & Eat Buffet", label: "Buffets" },
       { src: galleryImg10, alt: "Couscous Elegant", label: "Buffets" },
+      { src: meetingCatering15, alt: "Meeting Catering 15 Personen", label: "Buffets" },
+      { src: kundenbesuchCatering, alt: "Kundenbesuch Catering", label: "Buffets" },
+      { src: workshopCatering, alt: "Workshop Catering", label: "Buffets" },
+      { src: kafkaHauptspeise, alt: "Kafka Hauptspeise", label: "Buffets" },
+      { src: couscousReis, alt: "Couscous und Reis", label: "Buffets" },
+      { src: officeCatering40, alt: "Office Catering 40 Personen", label: "Buffets" },
     ];
     
     const dipsImages = [
       { src: galleryImg3, alt: "Hummus", label: "Dips & Salate" },
       { src: galleryImg7, alt: "Baba Ganoush", label: "Dips & Salate" },
+      { src: auberginencreme, alt: "Auberginencreme", label: "Dips & Salate" },
     ];
     
     const fingerfoodImages = [
       { src: galleryImg4, alt: "Falafel", label: "Fingerfood" },
       { src: galleryImg8, alt: "Kibbeh & Fatayer", label: "Fingerfood" },
+      { src: fruehstueckBrot1, alt: "Event Fingerfood", label: "Fingerfood" },
+      { src: fruehstueckBrot2, alt: "Event Fingerfood", label: "Fingerfood" },
+      { src: eventFingerfood1, alt: "Event Fingerfood", label: "Fingerfood" },
+      { src: eventFingerfood3, alt: "Event Fingerfood", label: "Fingerfood" },
     ];
     
     // Pick 1 random from each category
