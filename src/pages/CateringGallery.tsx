@@ -35,6 +35,8 @@ import falafelHaeppchen2 from "@/assets/gallery/fingerfood/falafel-haeppchen-2.j
 import falafelHaeppchen3 from "@/assets/gallery/fingerfood/falafel-haeppchen-3.jpg";
 import pasteten1 from "@/assets/gallery/fingerfood/pasteten-1.jpg";
 import pasteten2 from "@/assets/gallery/fingerfood/pasteten-2.jpg";
+import fruehstueckBrot1 from "@/assets/gallery/fingerfood/fruehstueck-brot-1.jpg";
+import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg";
 
 // Gallery images - Buffets
 import fleischFladenbrot from "@/assets/gallery/buffets/fleisch-fladenbrot.jpg";
@@ -133,6 +135,8 @@ const galleryImages: GalleryImage[] = [
   { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
   { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
   { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
+  { src: fruehstueckBrot1, title: "Frühstück Brot", category: "fingerfood", size: "medium" },
+  { src: fruehstueckBrot2, title: "Frühstück Brot", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [

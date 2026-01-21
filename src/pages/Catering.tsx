@@ -18,6 +18,8 @@ import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
 import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
 import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
 import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
+import fruehstueckBrot1 from "@/assets/gallery/fingerfood/fruehstueck-brot-1.jpg";
+import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg";
 import { Link } from "react-router-dom";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
@@ -73,6 +75,8 @@ const Catering = () => {
     const fingerfoodImages = [
       { src: galleryImg4, alt: "Falafel", label: "Fingerfood" },
       { src: galleryImg8, alt: "Kibbeh & Fatayer", label: "Fingerfood" },
+      { src: fruehstueckBrot1, alt: "Frühstück Brot", label: "Fingerfood" },
+      { src: fruehstueckBrot2, alt: "Frühstück Brot", label: "Fingerfood" },
     ];
     
     // Pick 1 random from each category
