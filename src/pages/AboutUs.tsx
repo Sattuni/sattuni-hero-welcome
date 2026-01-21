@@ -356,7 +356,7 @@ const AboutUs = () => {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+              <div className="grid grid-cols-3 gap-8 items-center max-w-3xl mx-auto">
                 <div className="flex items-center justify-center p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
                   <img 
                     src="/lovable-uploads/6b6ec1ce-974f-4e6f-b23e-61aacd2fdf8d.png" 
@@ -377,14 +377,6 @@ const AboutUs = () => {
                   <img 
                     src="/lovable-uploads/da1a1dd5-81c8-4349-83f7-43f66d08e68e.png" 
                     alt="Rockwell Automation - Partner von Sattuni" 
-                    className="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-                
-                <div className="flex items-center justify-center p-6 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-soft">
-                  <img 
-                    src="/lovable-uploads/49b2979a-a9be-41b9-85ba-4f3e33283c4a.png" 
-                    alt="BCG Boston Consulting Group - Partner von Sattuni" 
                     className="max-h-16 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
