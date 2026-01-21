@@ -36,7 +36,7 @@ const galleryImages: GalleryImage[] = [
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
   { id: "all", label: "Alle", icon: <Grid3X3 className="w-4 h-4" /> },
   { id: "dips-salate", label: "Dips & Salate", icon: <Utensils className="w-4 h-4" /> },
-  { id: "fingerfood", label: "Fingerfood", icon: <Utensils className="w-4 h-4" /> },
+  { id: "fingerfood", label: "Fingerfood & Gebäck", icon: <Utensils className="w-4 h-4" /> },
   { id: "buffets", label: "Buffets", icon: <Utensils className="w-4 h-4" /> },
 ];
 
