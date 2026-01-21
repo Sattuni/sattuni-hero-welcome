@@ -132,6 +132,7 @@ const CateringGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [shuffledImages, setShuffledImages] = useState<GalleryImage[]>([]);
   
   // Number of images to show initially (3 on mobile, 8 on desktop)
   const initialCount = isMobile ? 3 : 8;
@@ -139,6 +140,10 @@ const CateringGallery = () => {
   useEffect(() => {
     setMode("catering");
     setIsLoaded(true);
+    
+    // Shuffle images on initial load
+    const shuffled = [...galleryImages].sort(() => Math.random() - 0.5);
+    setShuffledImages(shuffled);
   }, [setMode]);
 
   // Reset showAll when category changes
@@ -147,8 +152,8 @@ const CateringGallery = () => {
   }, [selectedCategory]);
 
   const filteredImages = selectedCategory === "all" 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory);
+    ? shuffledImages 
+    : shuffledImages.filter(img => img.category === selectedCategory);
   
   const displayedImages = showAll ? filteredImages : filteredImages.slice(0, initialCount);
   const hasMoreImages = filteredImages.length > initialCount;
