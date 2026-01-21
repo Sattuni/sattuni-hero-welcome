@@ -292,6 +292,62 @@ const CateringGallery = () => {
         </div>
       </section>
 
+      {/* Editorial Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        
+        <div className="container mx-auto px-4 md:px-8 lg:px-16">
+          <div className="max-w-4xl mx-auto">
+            {/* Headline */}
+            <p className="text-sm uppercase tracking-[0.2em] text-primary/70 mb-6 text-center font-medium">
+              Einfach oder elegant
+            </p>
+            
+            {/* Main Statement */}
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight text-center mb-12">
+              Kein Event ist wie das andere –{" "}
+              <span className="block mt-2 font-medium text-primary">
+                und genau so kochen wir.
+              </span>
+            </h2>
+            
+            {/* Content Grid */}
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
+              <div className="space-y-4">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Manche Anlässe brauchen es <span className="text-foreground font-medium">unkompliziert und praktisch</span>. 
+                  Andere wünschen sich es elegant, mit Porzellan, Chafing Dishes und liebevollen Details.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Wir richten unser Essen immer nach <span className="text-foreground font-medium">Anlass, Raum und Wunsch</span> aus – 
+                  vom einfachen Setup bis zum stilvollen Buffet.
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Auch <span className="text-foreground font-medium">individuelle Speisenwünsche</span> setzen wir gerne um.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Und bei Kunden, die wir regelmäßig begleiten, entsteht oft mehr als nur Catering: 
+                  <span className="text-foreground font-medium"> feste Preise, wechselnde Menüs</span> und eine Zusammenarbeit auf Augenhöhe, 
+                  die mit Vertrauen wächst.
+                </p>
+              </div>
+            </div>
+            
+            {/* Closing tagline */}
+            <div className="text-center pt-6 border-t border-primary/10">
+              <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                So flexibel wie euer Anlass
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-transparent to-sage/5">
         <div className="container mx-auto px-4 text-center">
