@@ -8,12 +8,20 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
-// Gallery images
+// Gallery images - Dips & Salate
 import tabouleh from "@/assets/gallery/dips-salate/tabouleh.jpg";
 import hummus from "@/assets/gallery/dips-salate/hummus.jpg";
 import babaGanoush from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
 import auberginenDip from "@/assets/gallery/dips-salate/auberginen-dip.jpg";
 import hummusBuffet from "@/assets/gallery/dips-salate/hummus-buffet.jpg";
+import kichererbsenSalat from "@/assets/gallery/dips-salate/kichererbsen-salat.jpg";
+import fetaSalat from "@/assets/gallery/dips-salate/feta-salat.jpg";
+import petersilienSalat from "@/assets/gallery/dips-salate/petersilien-salat.jpg";
+import fattoush from "@/assets/gallery/dips-salate/fattoush.jpg";
+import kartoffelsalat from "@/assets/gallery/dips-salate/kartoffelsalat.jpg";
+import gemueseSalat from "@/assets/gallery/dips-salate/gemuese-salat.jpg";
+import rucolaSalat from "@/assets/gallery/dips-salate/rucola-salat.jpg";
+import couscousSalat from "@/assets/gallery/dips-salate/couscous-salat.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -31,6 +39,14 @@ const galleryImages: GalleryImage[] = [
   { src: babaGanoush, title: "Baba Ganoush", category: "dips-salate", size: "medium" },
   { src: auberginenDip, title: "Auberginen-Dip", category: "dips-salate", size: "medium" },
   { src: hummusBuffet, title: "Hummus Buffet", category: "dips-salate", size: "large" },
+  { src: kichererbsenSalat, title: "Kichererbsen-Salat", category: "dips-salate", size: "medium" },
+  { src: fetaSalat, title: "Feta-Salat", category: "dips-salate", size: "medium" },
+  { src: petersilienSalat, title: "Petersilien-Salat", category: "dips-salate", size: "medium" },
+  { src: fattoush, title: "Fattoush", category: "dips-salate", size: "medium" },
+  { src: kartoffelsalat, title: "Kartoffelsalat", category: "dips-salate", size: "large" },
+  { src: gemueseSalat, title: "Gemüse-Salat", category: "dips-salate", size: "large" },
+  { src: rucolaSalat, title: "Rucola-Salat", category: "dips-salate", size: "large" },
+  { src: couscousSalat, title: "Couscous-Salat", category: "dips-salate", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
