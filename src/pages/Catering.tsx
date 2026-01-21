@@ -40,23 +40,41 @@ const Catering = () => {
   useEffect(() => {
     setMode('catering');
     
-    // Randomly select images from pool
-    const allImages = [
+    // Images grouped by category
+    const buffetImages = [
       { src: galleryImg1, alt: "Elegantes Saal-Buffet" },
       { src: galleryImg2, alt: "Buffet Vielfalt" },
-      { src: galleryImg3, alt: "Hummus" },
-      { src: galleryImg4, alt: "Falafel" },
       { src: galleryImg5, alt: "Event-Buffet" },
       { src: galleryImg6, alt: "Salate & Bowls" },
-      { src: galleryImg7, alt: "Baba Ganoush" },
-      { src: galleryImg8, alt: "Kibbeh & Fatayer" },
       { src: galleryImg9, alt: "Meet & Eat Buffet" },
       { src: galleryImg10, alt: "Couscous Elegant" },
     ];
     
-    // Shuffle and pick first 4
-    const shuffled = [...allImages].sort(() => Math.random() - 0.5);
-    setRandomImages(shuffled.slice(0, 4));
+    const dipsImages = [
+      { src: galleryImg3, alt: "Hummus" },
+      { src: galleryImg7, alt: "Baba Ganoush" },
+    ];
+    
+    const fingerfoodImages = [
+      { src: galleryImg4, alt: "Falafel" },
+      { src: galleryImg8, alt: "Kibbeh & Fatayer" },
+    ];
+    
+    // Pick 1 random from each category
+    const pickRandom = (arr: typeof buffetImages) => arr[Math.floor(Math.random() * arr.length)];
+    
+    const selected = [
+      pickRandom(buffetImages),
+      pickRandom(dipsImages),
+      pickRandom(fingerfoodImages),
+      pickRandom(buffetImages.filter(img => img !== selected[0])), // 4th: another buffet for desktop
+    ];
+    
+    // Shuffle the first 3 to randomize order
+    const shuffled = [...selected.slice(0, 3)].sort(() => Math.random() - 0.5);
+    shuffled.push(selected[3]);
+    
+    setRandomImages(shuffled);
   }, [setMode]);
 
   // SEO Meta Tags
