@@ -9,31 +9,10 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
 
-// Import all gallery images
-import bowls1 from "@/assets/buffet-gallery/bowls/1.png";
-import bowls2 from "@/assets/buffet-gallery/bowls/2.png";
-import bowlsIMG1 from "@/assets/buffet-gallery/bowls/img-0779.jpg";
-import bowlsIMG2 from "@/assets/buffet-gallery/bowls/img-1308.jpg";
-import bowlsIMG3 from "@/assets/buffet-gallery/bowls/img-3256.jpg";
-import bowlsIMG4 from "@/assets/buffet-gallery/bowls/img-4074.jpg";
-import bowls3 from "@/assets/buffet-gallery/bowls2/3.png";
-import bowls4 from "@/assets/buffet-gallery/bowls2/4.png";
-import bowls5 from "@/assets/buffet-gallery/bowls2/5.png";
-import dips6 from "@/assets/buffet-gallery/dips/6.png";
-import dips7 from "@/assets/buffet-gallery/dips/7.png";
-import dips15 from "@/assets/buffet-gallery/dips/15.png";
-import dips16 from "@/assets/buffet-gallery/dips/16.png";
-import dips2_10 from "@/assets/buffet-gallery/dips2/10.png";
-import dips2_11 from "@/assets/buffet-gallery/dips2/11.png";
-import dips2_14 from "@/assets/buffet-gallery/dips2/14.png";
-import dips2_15 from "@/assets/buffet-gallery/dips2/15.png";
-import falafel2 from "@/assets/buffet-gallery/falafel/2.png";
-import falafel8 from "@/assets/buffet-gallery/falafel/8.png";
-import falafel9 from "@/assets/buffet-gallery/falafel/9.png";
-import falafel12 from "@/assets/buffet-gallery/falafel/12.png";
-import falafel13 from "@/assets/buffet-gallery/falafel/13.png";
+// Gallery images will be added here
+// import example from "@/assets/buffet-gallery/category/image.jpg";
 
-type Category = "all" | "bowls" | "dips" | "falafel" | "buffet";
+type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
 interface GalleryImage {
   src: string;
@@ -42,41 +21,23 @@ interface GalleryImage {
   size?: "small" | "medium" | "large";
 }
 
+// Bilder werden hier hinzugefügt sobald sie hochgeladen sind
 const galleryImages: GalleryImage[] = [
-  // Bowls & Salate
-  { src: bowls1, title: "Kichererbsen Salat", category: "bowls", size: "large" },
-  { src: bowls2, title: "Frischer Bowl", category: "bowls", size: "medium" },
-  { src: bowlsIMG1, title: "Bunter Salat Bowl", category: "bowls", size: "small" },
-  { src: bowlsIMG2, title: "Mezze Bowl Auswahl", category: "bowls", size: "medium" },
-  { src: bowlsIMG3, title: "Gemischte Salate", category: "bowls", size: "large" },
-  { src: bowlsIMG4, title: "Orientalische Bowls", category: "bowls", size: "small" },
-  { src: bowls3, title: "Käse Salat", category: "bowls", size: "medium" },
-  { src: bowls4, title: "Tabouleh Salat", category: "bowls", size: "small" },
-  { src: bowls5, title: "Fattoush Salat", category: "bowls", size: "large" },
+  // Dips & Salate
+  // { src: imageImport, title: "Bildtitel", category: "dips-salate", size: "medium" },
   
-  // Dips & Vorspeisen
-  { src: dips6, title: "Hummus Classic", category: "dips", size: "medium" },
-  { src: dips7, title: "Baba Ghanousch", category: "dips", size: "large" },
-  { src: dips15, title: "Muhammara", category: "dips", size: "small" },
-  { src: dips16, title: "Dip Auswahl", category: "dips", size: "medium" },
-  { src: dips2_10, title: "Hummus Variationen", category: "dips", size: "small" },
-  { src: dips2_11, title: "Mezze Dips", category: "dips", size: "large" },
-  { src: dips2_14, title: "Cremiger Hummus", category: "dips", size: "medium" },
-  { src: dips2_15, title: "Orientalische Dips", category: "dips", size: "small" },
+  // Fingerfood
+  // { src: imageImport, title: "Bildtitel", category: "fingerfood", size: "medium" },
   
-  // Falafel & Spezialitäten
-  { src: falafel2, title: "Falafel Klassisch", category: "falafel", size: "large" },
-  { src: falafel8, title: "Knusprige Falafel", category: "falafel", size: "medium" },
-  { src: falafel9, title: "Falafel Platte", category: "falafel", size: "small" },
-  { src: falafel12, title: "Falafel Bowl", category: "falafel", size: "medium" },
-  { src: falafel13, title: "Falafel Auswahl", category: "falafel", size: "large" },
+  // Buffets
+  // { src: imageImport, title: "Bildtitel", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
   { id: "all", label: "Alle", icon: <Grid3X3 className="w-4 h-4" /> },
-  { id: "bowls", label: "Bowls & Salate", icon: <Utensils className="w-4 h-4" /> },
-  { id: "dips", label: "Dips & Mezze", icon: <Utensils className="w-4 h-4" /> },
-  { id: "falafel", label: "Falafel", icon: <Utensils className="w-4 h-4" /> },
+  { id: "dips-salate", label: "Dips & Salate", icon: <Utensils className="w-4 h-4" /> },
+  { id: "fingerfood", label: "Fingerfood", icon: <Utensils className="w-4 h-4" /> },
+  { id: "buffets", label: "Buffets", icon: <Utensils className="w-4 h-4" /> },
 ];
 
 const CateringGallery = () => {
