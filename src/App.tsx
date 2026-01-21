@@ -16,6 +16,7 @@ import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
 import BlogPost4 from "./pages/BlogPost4";
 import Catering from "./pages/Catering";
+import CateringGallery from "./pages/CateringGallery";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
 import Landing from "./pages/Landing";
@@ -44,6 +45,7 @@ const AppRoutes = () => {
       
       {/* ===== CATERING ROUTES ===== */}
       <Route path="/catering" element={<Catering />} />
+      <Route path="/catering/galerie" element={<CateringGallery />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/catering/menus" element={<Menus />} />
       <Route path="/catering/ueber-uns" element={<AboutUs />} />
