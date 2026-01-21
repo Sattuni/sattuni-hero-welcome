@@ -59,6 +59,15 @@ import buffetVielfaltChafing from "@/assets/gallery/buffets/buffet-vielfalt-chaf
 import buffetElegantSaal from "@/assets/gallery/buffets/buffet-elegant-saal.jpg";
 import babaGanoushElegant from "@/assets/gallery/buffets/baba-ganoush-elegant.jpg";
 import couscousElegant from "@/assets/gallery/buffets/couscous-elegant.jpg";
+// New buffet images
+import meetingCatering15 from "@/assets/gallery/buffets/meeting-catering-15.jpg";
+import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
+import workshopCatering from "@/assets/gallery/buffets/workshop-catering.jpg";
+import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
+import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
+import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
+// New dips image
+import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -116,6 +125,14 @@ const galleryImages: GalleryImage[] = [
   { src: fleischFladenbrot, title: "Fleisch mit Fladenbrot", category: "buffets", size: "large" },
   { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
   { src: buffetSalateLampen, title: "Buffet 25 Personen", category: "buffets", size: "large" },
+  // New images
+  { src: meetingCatering15, title: "Meeting Catering 15 Personen", category: "buffets", size: "large" },
+  { src: kundenbesuchCatering, title: "Kundenbesuch Catering", category: "buffets", size: "large" },
+  { src: workshopCatering, title: "Workshop Catering", category: "buffets", size: "large" },
+  { src: kafkaHauptspeise, title: "Kafka Hauptspeise", category: "buffets", size: "medium" },
+  { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
+  { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
+  { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [

@@ -10,6 +10,14 @@ import galleryImg7 from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
 import galleryImg8 from "@/assets/gallery/fingerfood/kibbeh-sambousek.jpg";
 import galleryImg9 from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
 import galleryImg10 from "@/assets/gallery/buffets/couscous-elegant.jpg";
+// New buffet images
+import meetingCatering15 from "@/assets/gallery/buffets/meeting-catering-15.jpg";
+import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
+import workshopCatering from "@/assets/gallery/buffets/workshop-catering.jpg";
+import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
+import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
+import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
+import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
 import { Link } from "react-router-dom";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
@@ -48,11 +56,18 @@ const Catering = () => {
       { src: galleryImg6, alt: "Salate & Bowls", label: "Buffets" },
       { src: galleryImg9, alt: "Meet & Eat Buffet", label: "Buffets" },
       { src: galleryImg10, alt: "Couscous Elegant", label: "Buffets" },
+      { src: meetingCatering15, alt: "Meeting Catering 15 Personen", label: "Buffets" },
+      { src: kundenbesuchCatering, alt: "Kundenbesuch Catering", label: "Buffets" },
+      { src: workshopCatering, alt: "Workshop Catering", label: "Buffets" },
+      { src: kafkaHauptspeise, alt: "Kafka Hauptspeise", label: "Buffets" },
+      { src: couscousReis, alt: "Couscous und Reis", label: "Buffets" },
+      { src: officeCatering40, alt: "Office Catering 40 Personen", label: "Buffets" },
     ];
     
     const dipsImages = [
       { src: galleryImg3, alt: "Hummus", label: "Dips & Salate" },
       { src: galleryImg7, alt: "Baba Ganoush", label: "Dips & Salate" },
+      { src: auberginencreme, alt: "Auberginencreme", label: "Dips & Salate" },
     ];
     
     const fingerfoodImages = [
