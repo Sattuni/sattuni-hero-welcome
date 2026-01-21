@@ -1,8 +1,15 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+// Gallery preview images pool
 import galleryImg1 from "@/assets/gallery/buffets/buffet-elegant-saal.jpg";
 import galleryImg2 from "@/assets/gallery/buffets/buffet-vielfalt-chafing.jpg";
 import galleryImg3 from "@/assets/gallery/dips-salate/hummus.jpg";
 import galleryImg4 from "@/assets/gallery/fingerfood/falafel.jpg";
+import galleryImg5 from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
+import galleryImg6 from "@/assets/gallery/buffets/buffet-salate-bowls.jpg";
+import galleryImg7 from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
+import galleryImg8 from "@/assets/gallery/fingerfood/kibbeh-sambousek.jpg";
+import galleryImg9 from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
+import galleryImg10 from "@/assets/gallery/buffets/couscous-elegant.jpg";
 import { Link } from "react-router-dom";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
@@ -23,6 +30,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [randomImages, setRandomImages] = useState<Array<{ src: string; alt: string }>>([]);
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
   const { setMode } = useSiteMode();
@@ -31,6 +39,24 @@ const Catering = () => {
   // Set catering mode on page load (direct URL access)
   useEffect(() => {
     setMode('catering');
+    
+    // Randomly select images from pool
+    const allImages = [
+      { src: galleryImg1, alt: "Elegantes Saal-Buffet" },
+      { src: galleryImg2, alt: "Buffet Vielfalt" },
+      { src: galleryImg3, alt: "Hummus" },
+      { src: galleryImg4, alt: "Falafel" },
+      { src: galleryImg5, alt: "Event-Buffet" },
+      { src: galleryImg6, alt: "Salate & Bowls" },
+      { src: galleryImg7, alt: "Baba Ganoush" },
+      { src: galleryImg8, alt: "Kibbeh & Fatayer" },
+      { src: galleryImg9, alt: "Meet & Eat Buffet" },
+      { src: galleryImg10, alt: "Couscous Elegant" },
+    ];
+    
+    // Shuffle and pick first 4
+    const shuffled = [...allImages].sort(() => Math.random() - 0.5);
+    setRandomImages(shuffled.slice(0, 4));
   }, [setMode]);
 
   // SEO Meta Tags
@@ -397,12 +423,7 @@ const Catering = () => {
           
           {/* Preview Grid - 3 images on mobile, 4 on desktop */}
           <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-4 mb-8">
-            {[
-              { src: galleryImg1, alt: "Elegantes Saal-Buffet" },
-              { src: galleryImg2, alt: "Buffet Vielfalt" },
-              { src: galleryImg3, alt: "Hummus" },
-              { src: galleryImg4, alt: "Falafel" },
-            ].slice(0, isMobile ? 3 : 4).map((img, index) => (
+            {randomImages.slice(0, isMobile ? 3 : 4).map((img, index) => (
               <Link 
                 key={index}
                 to="/catering/galerie"
