@@ -51,6 +51,10 @@ import buffetDipsBrot from "@/assets/gallery/buffets/buffet-dips-brot.jpg";
 import buffetModernSideboard from "@/assets/gallery/buffets/buffet-modern-sideboard.jpg";
 import buffetMeetEat2 from "@/assets/gallery/buffets/buffet-meet-eat-2.jpg";
 import buffetSalateLampen from "@/assets/gallery/buffets/buffet-salate-lampen.jpg";
+import okraBulgur from "@/assets/gallery/buffets/okra-bulgur.jpg";
+import buffetDipsSalateReihe from "@/assets/gallery/buffets/buffet-dips-salate-reihe.jpg";
+import grossesBuffetEvent from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
+import buffetVielfaltChafing from "@/assets/gallery/buffets/buffet-vielfalt-chafing.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -105,6 +109,10 @@ const galleryImages: GalleryImage[] = [
   { src: buffetModernSideboard, title: "Modernes Sideboard", category: "buffets", size: "large" },
   { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
   { src: buffetSalateLampen, title: "Salatbar mit Lampen", category: "buffets", size: "large" },
+  { src: okraBulgur, title: "Okra & Bulgur", category: "buffets", size: "large" },
+  { src: buffetDipsSalateReihe, title: "Dips & Salate Reihe", category: "buffets", size: "large" },
+  { src: grossesBuffetEvent, title: "Großes Event-Buffet", category: "buffets", size: "large" },
+  { src: buffetVielfaltChafing, title: "Buffet-Vielfalt", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
