@@ -37,6 +37,12 @@ import pasteten1 from "@/assets/gallery/fingerfood/pasteten-1.jpg";
 import pasteten2 from "@/assets/gallery/fingerfood/pasteten-2.jpg";
 import fruehstueckBrot1 from "@/assets/gallery/fingerfood/fruehstueck-brot-1.jpg";
 import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg";
+import eventFingerfood1 from "@/assets/gallery/fingerfood/event-fingerfood-1.png";
+import eventFingerfood2 from "@/assets/gallery/fingerfood/event-fingerfood-2.png";
+import eventFingerfood3 from "@/assets/gallery/fingerfood/event-fingerfood-3.png";
+import eventFingerfood4 from "@/assets/gallery/fingerfood/event-fingerfood-4.png";
+import eventFingerfood5 from "@/assets/gallery/fingerfood/event-fingerfood-5.png";
+import eventFingerfood6 from "@/assets/gallery/fingerfood/event-fingerfood-6.png";
 
 // Gallery images - Buffets
 import fleischFladenbrot from "@/assets/gallery/buffets/fleisch-fladenbrot.jpg";
@@ -135,8 +141,14 @@ const galleryImages: GalleryImage[] = [
   { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
   { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
   { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
-  { src: fruehstueckBrot1, title: "Frühstück Brot", category: "fingerfood", size: "medium" },
-  { src: fruehstueckBrot2, title: "Frühstück Brot", category: "fingerfood", size: "medium" },
+  { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood3, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood4, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood5, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
