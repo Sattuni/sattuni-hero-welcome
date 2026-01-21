@@ -28,6 +28,12 @@ const ModeHeader = () => {
       title: "Buffet Menüs ansehen"
     },
     { 
+      name: "Galerie", 
+      href: "/catering/galerie", 
+      current: location.pathname === "/catering/galerie",
+      title: "Buffet Galerie"
+    },
+    { 
       name: "Über uns", 
       href: "/catering/ueber-uns", 
       current: location.pathname === "/catering/ueber-uns",
