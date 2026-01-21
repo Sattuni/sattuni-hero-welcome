@@ -35,6 +35,15 @@ import falafelHaeppchen3 from "@/assets/gallery/fingerfood/falafel-haeppchen-3.j
 import pasteten1 from "@/assets/gallery/fingerfood/pasteten-1.jpg";
 import pasteten2 from "@/assets/gallery/fingerfood/pasteten-2.jpg";
 
+// Gallery images - Buffets
+import fleischFladenbrot from "@/assets/gallery/buffets/fleisch-fladenbrot.jpg";
+import buffetTheke from "@/assets/gallery/buffets/buffet-theke.jpg";
+import bueroCatering from "@/assets/gallery/buffets/buero-catering.jpg";
+import buffetAufbau from "@/assets/gallery/buffets/buffet-aufbau.jpg";
+import buffetMeetEat from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
+import buffetTerrasse from "@/assets/gallery/buffets/buffet-terrasse.jpg";
+import hauptgerichteChafing from "@/assets/gallery/buffets/hauptgerichte-chafing.jpg";
+
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
 interface GalleryImage {
@@ -71,6 +80,15 @@ const galleryImages: GalleryImage[] = [
   { src: falafelHaeppchen3, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
   { src: pasteten1, title: "Pasteten", category: "fingerfood", size: "medium" },
   { src: pasteten2, title: "Pasteten", category: "fingerfood", size: "medium" },
+  
+  // Buffets
+  { src: fleischFladenbrot, title: "Fleisch mit Fladenbrot", category: "buffets", size: "large" },
+  { src: buffetTheke, title: "Buffet-Theke", category: "buffets", size: "large" },
+  { src: bueroCatering, title: "Büro-Catering", category: "buffets", size: "large" },
+  { src: buffetAufbau, title: "Buffet-Aufbau", category: "buffets", size: "large" },
+  { src: buffetMeetEat, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
+  { src: buffetTerrasse, title: "Terrassen-Buffet", category: "buffets", size: "large" },
+  { src: hauptgerichteChafing, title: "Hauptgerichte im Chafing", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
