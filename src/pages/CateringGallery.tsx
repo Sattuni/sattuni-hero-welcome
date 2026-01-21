@@ -4,6 +4,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import { ChevronLeft, ChevronRight, X, Camera, Utensils, Grid3X3, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
@@ -126,13 +127,14 @@ const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
 
 const CateringGallery = () => {
   const { setMode } = useSiteMode();
+  const isMobile = useMobileDetection();
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAll, setShowAll] = useState(false);
   
-  // Number of images to show initially (approximately 2 rows)
-  const initialCount = 8;
+  // Number of images to show initially (3 on mobile, 8 on desktop)
+  const initialCount = isMobile ? 3 : 8;
 
   useEffect(() => {
     setMode("catering");
