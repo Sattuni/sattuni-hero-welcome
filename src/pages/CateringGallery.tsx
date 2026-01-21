@@ -8,9 +8,12 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
-
-// Gallery images will be added here
-// import example from "@/assets/buffet-gallery/category/image.jpg";
+// Gallery images
+import tabouleh from "@/assets/gallery/dips-salate/tabouleh.jpg";
+import hummus from "@/assets/gallery/dips-salate/hummus.jpg";
+import babaGanoush from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
+import auberginenDip from "@/assets/gallery/dips-salate/auberginen-dip.jpg";
+import hummusBuffet from "@/assets/gallery/dips-salate/hummus-buffet.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -21,16 +24,13 @@ interface GalleryImage {
   size?: "small" | "medium" | "large";
 }
 
-// Bilder werden hier hinzugefügt sobald sie hochgeladen sind
 const galleryImages: GalleryImage[] = [
   // Dips & Salate
-  // { src: imageImport, title: "Bildtitel", category: "dips-salate", size: "medium" },
-  
-  // Fingerfood
-  // { src: imageImport, title: "Bildtitel", category: "fingerfood", size: "medium" },
-  
-  // Buffets
-  // { src: imageImport, title: "Bildtitel", category: "buffets", size: "large" },
+  { src: tabouleh, title: "Tabouleh", category: "dips-salate", size: "medium" },
+  { src: hummus, title: "Hummus", category: "dips-salate", size: "medium" },
+  { src: babaGanoush, title: "Baba Ganoush", category: "dips-salate", size: "medium" },
+  { src: auberginenDip, title: "Auberginen-Dip", category: "dips-salate", size: "medium" },
+  { src: hummusBuffet, title: "Hummus Buffet", category: "dips-salate", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
