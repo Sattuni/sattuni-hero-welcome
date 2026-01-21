@@ -30,7 +30,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [randomImages, setRandomImages] = useState<Array<{ src: string; alt: string }>>([]);
+  const [randomImages, setRandomImages] = useState<Array<{ src: string; alt: string; label: string }>>([]);
   const { trackCateringInquiryEnhanced, trackBusinessAction, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
   const { setMode } = useSiteMode();
@@ -40,40 +40,37 @@ const Catering = () => {
   useEffect(() => {
     setMode('catering');
     
-    // Images grouped by category
+    // Images grouped by category with labels
     const buffetImages = [
-      { src: galleryImg1, alt: "Elegantes Saal-Buffet" },
-      { src: galleryImg2, alt: "Buffet Vielfalt" },
-      { src: galleryImg5, alt: "Event-Buffet" },
-      { src: galleryImg6, alt: "Salate & Bowls" },
-      { src: galleryImg9, alt: "Meet & Eat Buffet" },
-      { src: galleryImg10, alt: "Couscous Elegant" },
+      { src: galleryImg1, alt: "Elegantes Saal-Buffet", label: "Buffets" },
+      { src: galleryImg2, alt: "Buffet Vielfalt", label: "Buffets" },
+      { src: galleryImg5, alt: "Event-Buffet", label: "Buffets" },
+      { src: galleryImg6, alt: "Salate & Bowls", label: "Buffets" },
+      { src: galleryImg9, alt: "Meet & Eat Buffet", label: "Buffets" },
+      { src: galleryImg10, alt: "Couscous Elegant", label: "Buffets" },
     ];
     
     const dipsImages = [
-      { src: galleryImg3, alt: "Hummus" },
-      { src: galleryImg7, alt: "Baba Ganoush" },
+      { src: galleryImg3, alt: "Hummus", label: "Dips & Salate" },
+      { src: galleryImg7, alt: "Baba Ganoush", label: "Dips & Salate" },
     ];
     
     const fingerfoodImages = [
-      { src: galleryImg4, alt: "Falafel" },
-      { src: galleryImg8, alt: "Kibbeh & Fatayer" },
+      { src: galleryImg4, alt: "Falafel", label: "Fingerfood" },
+      { src: galleryImg8, alt: "Kibbeh & Fatayer", label: "Fingerfood" },
     ];
     
     // Pick 1 random from each category
     const pickRandom = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
     
-    const buffetPick1 = pickRandom(buffetImages);
+    const buffetPick = pickRandom(buffetImages);
     const dipsPick = pickRandom(dipsImages);
     const fingerfoodPick = pickRandom(fingerfoodImages);
-    // 4th image: another buffet (different from first)
-    const remainingBuffets = buffetImages.filter(img => img.src !== buffetPick1.src);
-    const buffetPick2 = pickRandom(remainingBuffets);
     
-    // Shuffle the first 3 to randomize order, then add 4th for desktop
-    const firstThree = [buffetPick1, dipsPick, fingerfoodPick].sort(() => Math.random() - 0.5);
+    // Shuffle the 3 to randomize order
+    const selected = [buffetPick, dipsPick, fingerfoodPick].sort(() => Math.random() - 0.5);
     
-    setRandomImages([...firstThree, buffetPick2]);
+    setRandomImages(selected);
   }, [setMode]);
 
   // SEO Meta Tags
@@ -438,9 +435,9 @@ const Catering = () => {
             </p>
           </div>
           
-          {/* Preview Grid - 3 images on mobile, 4 on desktop */}
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-4 mb-8">
-            {randomImages.slice(0, isMobile ? 3 : 4).map((img, index) => (
+          {/* Preview Grid - 3 images, one from each category */}
+          <div className="grid grid-cols-3 gap-2 md:gap-4 mb-8 max-w-4xl mx-auto">
+            {randomImages.map((img, index) => (
               <Link 
                 key={index}
                 to="/catering/galerie"
@@ -452,7 +449,14 @@ const Catering = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                {/* Category Label */}
+                <div className="absolute bottom-2 left-2 right-2">
+                  <span className="text-[10px] md:text-xs font-medium text-white/90 bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
+                    {img.label}
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </Link>
             ))}
           </div>
