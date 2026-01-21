@@ -43,6 +43,8 @@ import eventFingerfood3 from "@/assets/gallery/fingerfood/event-fingerfood-3.png
 import eventFingerfood4 from "@/assets/gallery/fingerfood/event-fingerfood-4.png";
 import eventFingerfood5 from "@/assets/gallery/fingerfood/event-fingerfood-5.png";
 import eventFingerfood6 from "@/assets/gallery/fingerfood/event-fingerfood-6.png";
+import dessertVegan1 from "@/assets/gallery/fingerfood/dessert-vegan-1.jpg";
+import dessertVegan2 from "@/assets/gallery/fingerfood/dessert-vegan-2.jpg";
 
 // Gallery images - Buffets
 import fleischFladenbrot from "@/assets/gallery/buffets/fleisch-fladenbrot.jpg";
@@ -149,6 +151,8 @@ const galleryImages: GalleryImage[] = [
   { src: eventFingerfood4, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: eventFingerfood5, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
+  { src: dessertVegan1, title: "Dessert vegan", category: "fingerfood", size: "medium" },
+  { src: dessertVegan2, title: "Dessert vegan", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
