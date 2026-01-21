@@ -55,6 +55,9 @@ import okraBulgur from "@/assets/gallery/buffets/okra-bulgur.jpg";
 import buffetDipsSalateReihe from "@/assets/gallery/buffets/buffet-dips-salate-reihe.jpg";
 import grossesBuffetEvent from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
 import buffetVielfaltChafing from "@/assets/gallery/buffets/buffet-vielfalt-chafing.jpg";
+import buffetElegantSaal from "@/assets/gallery/buffets/buffet-elegant-saal.jpg";
+import babaGanoushElegant from "@/assets/gallery/buffets/baba-ganoush-elegant.jpg";
+import couscousElegant from "@/assets/gallery/buffets/couscous-elegant.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -113,6 +116,9 @@ const galleryImages: GalleryImage[] = [
   { src: buffetDipsSalateReihe, title: "Dips & Salate Reihe", category: "buffets", size: "large" },
   { src: grossesBuffetEvent, title: "Großes Event-Buffet", category: "buffets", size: "large" },
   { src: buffetVielfaltChafing, title: "Buffet-Vielfalt", category: "buffets", size: "large" },
+  { src: buffetElegantSaal, title: "Elegantes Saal-Buffet", category: "buffets", size: "large" },
+  { src: babaGanoushElegant, title: "Baba Ganoush Elegant", category: "buffets", size: "large" },
+  { src: couscousElegant, title: "Couscous Elegant", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
