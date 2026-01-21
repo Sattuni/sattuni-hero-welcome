@@ -95,7 +95,7 @@ const galleryImages: GalleryImage[] = [
   { src: buffetTheke, title: "Buffet-Theke", category: "buffets", size: "large" },
   { src: falafelHaeppchen2, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
   { src: okraBulgur, title: "Okra & Bulgur", category: "buffets", size: "large" },
-  { src: petersilienSalat, title: "Petersilien-Salat", category: "dips-salate", size: "medium" },
+  { src: petersilienSalat, title: "Tabouleh Buffet", category: "buffets", size: "large" },
   { src: bueroCatering, title: "Büro-Catering", category: "buffets", size: "large" },
   { src: falafelHaeppchen3, title: "Falafel-Häppchen", category: "fingerfood", size: "medium" },
   { src: fattoush, title: "Fattoush", category: "dips-salate", size: "medium" },
