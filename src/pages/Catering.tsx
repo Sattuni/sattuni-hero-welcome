@@ -61,20 +61,19 @@ const Catering = () => {
     ];
     
     // Pick 1 random from each category
-    const pickRandom = (arr: typeof buffetImages) => arr[Math.floor(Math.random() * arr.length)];
+    const pickRandom = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
     
-    const selected = [
-      pickRandom(buffetImages),
-      pickRandom(dipsImages),
-      pickRandom(fingerfoodImages),
-      pickRandom(buffetImages.filter(img => img !== selected[0])), // 4th: another buffet for desktop
-    ];
+    const buffetPick1 = pickRandom(buffetImages);
+    const dipsPick = pickRandom(dipsImages);
+    const fingerfoodPick = pickRandom(fingerfoodImages);
+    // 4th image: another buffet (different from first)
+    const remainingBuffets = buffetImages.filter(img => img.src !== buffetPick1.src);
+    const buffetPick2 = pickRandom(remainingBuffets);
     
-    // Shuffle the first 3 to randomize order
-    const shuffled = [...selected.slice(0, 3)].sort(() => Math.random() - 0.5);
-    shuffled.push(selected[3]);
+    // Shuffle the first 3 to randomize order, then add 4th for desktop
+    const firstThree = [buffetPick1, dipsPick, fingerfoodPick].sort(() => Math.random() - 0.5);
     
-    setRandomImages(shuffled);
+    setRandomImages([...firstThree, buffetPick2]);
   }, [setMode]);
 
   // SEO Meta Tags
