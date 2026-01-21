@@ -1,5 +1,9 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
-import BuffetGallery from "@/components/features/catering/BuffetGallery";
+import galleryImg1 from "@/assets/gallery/buffets/buffet-elegant-saal.jpg";
+import galleryImg2 from "@/assets/gallery/buffets/buffet-vielfalt-chafing.jpg";
+import galleryImg3 from "@/assets/gallery/dips-salate/hummus.jpg";
+import galleryImg4 from "@/assets/gallery/fingerfood/falafel.jpg";
+import { Link } from "react-router-dom";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
@@ -11,7 +15,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { useMobileDetection } from "@/hooks/useMobileDetection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, CheckCircle, ChevronRight, Clock, Mail, Phone, Users, Utensils } from "lucide-react";
+import { ArrowUp, CheckCircle, ChevronRight, Clock, Mail, Phone, Users, Utensils, Camera, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
@@ -375,14 +379,57 @@ const Catering = () => {
         </div>
       </section>
 
-
-      {/* Buffet Gallery */}
-      <section className="py-20 bg-background scroll-mt-24" id="angebote">
+      {/* Gallery Teaser */}
+      <section className="py-12 md:py-20 bg-background scroll-mt-24" id="angebote">
         <div className="container mx-auto px-4">
-          <BuffetGallery />
+          <div className="text-center mb-8 md:mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <Camera className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Einblicke</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+              So sieht's bei uns aus
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Von einfachen Setups bis zu eleganten Buffets – schaut euch an, was wir schon gezaubert haben.
+            </p>
+          </div>
+          
+          {/* Preview Grid - 3 images on mobile, 4 on desktop */}
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-4 mb-8">
+            {[
+              { src: galleryImg1, alt: "Elegantes Saal-Buffet" },
+              { src: galleryImg2, alt: "Buffet Vielfalt" },
+              { src: galleryImg3, alt: "Hummus" },
+              { src: galleryImg4, alt: "Falafel" },
+            ].slice(0, isMobile ? 3 : 4).map((img, index) => (
+              <Link 
+                key={index}
+                to="/catering/galerie"
+                className="relative aspect-square overflow-hidden rounded-lg md:rounded-xl group"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+              </Link>
+            ))}
+          </div>
+          
+          {/* CTA Button */}
+          <div className="text-center">
+            <Button asChild size="lg" variant="outline" className="gap-2 group">
+              <Link to="/catering/galerie">
+                <span>Zur Galerie</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
-
 
       {/* Customer Reviews */}
       <CustomerReviews />
