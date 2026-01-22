@@ -231,12 +231,12 @@ const Speisekarte = () => {
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <UtensilsCrossed className="w-8 h-8 text-primary" />
               <h1 className="text-4xl md:text-5xl font-bold text-foreground font-display">
-                Sattuni – Unsere Speisekarte
+                Restaurant Speisekarte
               </h1>
                 </div>
                 
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 font-body leading-relaxed">
-                  Frisch, hausgemacht, orientalisch – entdecke unsere Gerichte.
+                  Frisch, hausgemacht, orientalisch – für Lieferung & Abholung.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -244,8 +244,16 @@ const Speisekarte = () => {
                     size="lg" 
                     className="shadow-warm font-medium"
                   >
-                    Zum Online-Shop
+                    Jetzt bestellen
                   </SmartCTA>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    onClick={() => window.location.href = '/catering/menus'}
+                    className="font-medium border-primary/30 hover:bg-primary/10"
+                  >
+                    Catering Menüs ansehen
+                  </Button>
                 </div>
               </div>
             </div>
