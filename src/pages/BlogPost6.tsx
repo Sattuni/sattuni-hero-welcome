@@ -33,6 +33,24 @@ const BlogPost6 = () => {
         <meta name="keywords" content="Kundenbesuch Catering, abwechslungsreiches Catering, Catering Düsseldorf, Geschäftsessen Catering, kreatives Catering" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt" />
+        <meta property="og:description" content="5-10 Tage Catering, jeden Tag ein anderes Menü. So begleiten wir Stammkunden bei mehrtägigen Kundenbesuchen." />
+        <meta property="og:image" content="https://sattuni.de/blog/kundenbesuch-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung" />
+        <meta property="og:site_name" content="Sattuni Catering" />
+        <meta property="article:published_time" content="2025-12-15" />
+        <meta property="article:author" content="Sattuni" />
+        
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Catering für Kundenbesuche | Sattuni" />
+        <meta name="twitter:description" content="Jeden Tag was anderes – so machen wir mehrtägige Kundenbesuche kulinarisch besonders." />
+        <meta name="twitter:image" content="https://sattuni.de/blog/kundenbesuch-hero.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
