@@ -11,6 +11,7 @@ import workshopHeroImage from "@/assets/blog/workshop-minimal.jpg";
 import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
+import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -22,6 +23,16 @@ const Blog = () => {
 
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 5,
+      slug: "veganes-office-buffet-veganuary",
+      title: "140 Personen, 100 % vegan: Ein Office-Buffet im Veganuary",
+      excerpt: "Ein Einblick in unser veganes Office-Buffet für 140 Personen. Von der Planung über die Herausforderungen bis zu unseren Learnings.",
+      date: "2026-01-22",
+      readTime: "8 min",
+      image: grossesBuffetImage,
+      category: "Veganes Catering"
+    },
     {
       id: 4,
       slug: "vegane-arabische-klassiker",
