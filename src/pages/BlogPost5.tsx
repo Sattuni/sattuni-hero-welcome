@@ -82,7 +82,7 @@ const BlogPost5 = () => {
             {/* Intro */}
             <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
               <p className="text-xl leading-relaxed">
-                Im Januar haben wir ein Catering übernommen, das für uns in vielerlei Hinsicht besonders war: Ein veganes Buffet für 140 Mitarbeitende – mitten im Veganuary. Kein einzelner vegetarischer Kompromiss, keine Fleischalternative am Rand. Komplett pflanzlich. Für alle.
+                Im Januar durften wir ein Catering machen, das für uns etwas Besonderes war: Ein veganes Buffet für 140 Leute – mitten im Veganuary. Kein vegetarischer Kompromiss, keine Fleischalternative am Rand. Komplett pflanzlich. Für alle.
               </p>
             </div>
           </div>
@@ -95,13 +95,13 @@ const BlogPost5 = () => {
             {/* Ausgangslage */}
             <div className="prose prose-lg max-w-none mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Die Ausgangslage
+                Wie es dazu kam
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Das Unternehmen wollte seinen Mitarbeitenden im Rahmen des Veganuary etwas Besonderes bieten – ein Mittagessen, das zeigt, wie vielfältig und sättigend pflanzliche Küche sein kann. Ohne erhobenen Zeigefinger, ohne Belehrung. Einfach gutes Essen für alle.
+                Die Firma wollte ihren Leuten im Veganuary etwas Besonderes bieten – ein Mittagessen, das zeigt, wie vielfältig und sättigend pflanzliche Küche sein kann. Ohne erhobenen Zeigefinger. Einfach gutes Essen für alle.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                140 Personen ist für uns keine ungewöhnliche Größe. Aber 100 % vegan in diesem Umfang – das war neu. Es ging nicht nur darum, Fleisch wegzulassen. Es ging darum, ein Buffet zu gestalten, bei dem niemand das Gefühl hat, auf etwas zu verzichten.
+                140 Personen ist für uns keine ungewöhnliche Größe. Aber 100 % vegan in diesem Umfang – das war neu für uns. Es ging nicht nur darum, Fleisch wegzulassen. Wir wollten ein Buffet, bei dem niemand das Gefühl hat, auf etwas zu verzichten.
               </p>
             </div>
 
@@ -111,7 +111,7 @@ const BlogPost5 = () => {
                 Was auf dem Buffet stand
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Wir haben uns für eine Mischung aus vertrauten Klassikern und Gerichten entschieden, die vielleicht neu für manche waren – aber trotzdem zugänglich und einladend.
+                Wir haben auf eine Mischung gesetzt: vertraute Klassiker und Gerichte, die vielleicht neu für manche waren – aber trotzdem zugänglich und einladend.
               </p>
             </div>
 
@@ -124,7 +124,7 @@ const BlogPost5 = () => {
                   Veganes Gebäck & gefüllte Teigtaschen
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Unsere Teigtaschen – gefüllt mit würziger Kartoffel oder Spinat – sind von Haus aus vegan. Sie lassen sich gut mit einer Hand essen, was bei einem Stehempfang praktisch ist. Dazu gab es verschiedenes Blätterteiggebäck, frisch aus dem Ofen.
+                  Unsere Teigtaschen – gefüllt mit würziger Kartoffel oder Spinat – sind sowieso vegan. Praktisch, weil man sie gut mit einer Hand essen kann. Dazu gab es verschiedenes Blätterteiggebäck, frisch aus dem Ofen.
                 </p>
               </div>
 
@@ -134,7 +134,7 @@ const BlogPost5 = () => {
                   Vegane Lahmacun
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Lahmacun kennen die meisten mit Hackfleisch. Unsere vegane Variante arbeitet mit einer würzigen Gemüse-Linsen-Mischung, die genauso aromatisch ist. Dünn gebacken, zum Rollen – so wie es sein soll.
+                  Lahmacun kennen die meisten mit Hackfleisch. Unsere vegane Version hat eine würzige Gemüse-Linsen-Mischung, die genauso aromatisch ist. Dünn gebacken, zum Rollen – so wie es sein soll.
                 </p>
               </div>
 
@@ -153,7 +153,7 @@ const BlogPost5 = () => {
                       Hummus und Baba Ghanousch
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Die Grundlage jedes guten Mezze-Buffets. Unser Hummus ist cremig, mit genau der richtigen Balance aus Tahini und Zitrone. Der Baba Ghanousch bekommt seinen rauchigen Charakter durch das Rösten der Auberginen über offener Flamme.
+                      Die Basics für jedes gute Mezze-Buffet. Unser Hummus ist cremig, mit der richtigen Balance aus Tahini und Zitrone. Der Baba Ghanousch bekommt seinen rauchigen Charakter, weil wir die Auberginen über offener Flamme rösten.
                     </p>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ const BlogPost5 = () => {
                       Kastanien-Rucola-Salat und Couscous
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Der Kastanien-Rucola-Salat war unser saisonales Highlight – nussig, leicht bitter, mit einer honigfreien Vinaigrette. Der Couscous-Salat brachte Frische und Sättigung zugleich: mit Gurke, Tomate, viel Petersilie und einem Hauch Minze.
+                      Der Kastanien-Rucola-Salat war unser saisonales Highlight – nussig, leicht bitter, mit einer honigfreien Vinaigrette. Der Couscous-Salat brachte Frische und Sättigung zugleich: mit Tomate, Koriander und einem Hauch Minze.
                     </p>
                   </div>
                   <div className="relative h-48 md:h-auto order-1 md:order-2">
@@ -186,7 +186,7 @@ const BlogPost5 = () => {
                   Gefüllte Zucchini, Tomaten und Kartoffeln
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Ein Klassiker der levantinischen Küche, der oft übersehen wird: Gemüse, gefüllt mit gewürztem Reis, Kräutern und Pinienkernen. Langsam gegart, bis alles weich und aromatisch ist. Diese Gerichte stehen bei uns regelmäßig auf dem Buffet – sie brauchen kein Fleisch, um satt und zufrieden zu machen.
+                  Ein Klassiker der levantinischen Küche, den viele nicht kennen: Gemüse, gefüllt mit gewürztem Reis oder Bulgur, Kräutern und Pinienkernen. Langsam gegart, bis alles weich und aromatisch ist. Diese Gerichte stehen bei uns regelmäßig auf dem Buffet – sie brauchen kein Fleisch, um satt zu machen.
                 </p>
               </div>
 
@@ -205,7 +205,7 @@ const BlogPost5 = () => {
                       Risotto und Okraschoten
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Das Risotto – cremig, mit saisonalem Gemüse – war unser Zugeständnis an den europäischen Gaumen. Die Okraschoten hingegen brachten etwas Ungewohntes: In Tomatensoße geschmort, mit Zwiebeln und Knoblauch. Für manche eine Entdeckung, für andere ein Stück Heimat.
+                      Das Risotto – cremig, mit saisonalem Gemüse – war unser Zugeständnis an den europäischen Gaumen. Die Okraschoten brachten was Ungewohntes: In Tomatensoße geschmort, mit Zwiebeln und Knoblauch. Für manche eine Entdeckung, für andere ein Stück Heimat.
                     </p>
                   </div>
                 </div>
@@ -220,17 +220,17 @@ const BlogPost5 = () => {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-foreground mb-4">
-                    Herausforderungen in Planung und Ablauf
+                    Was wir dabei gelernt haben
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="leading-relaxed">
                       Die größte Herausforderung war nicht das Kochen – sondern die Kalkulation. Bei 140 Personen muss jede Menge stimmen. Zu wenig ist peinlich, zu viel ist Verschwendung. Bei einem komplett veganen Buffet hatten wir keine Erfahrungswerte für diese Größenordnung.
                     </p>
                     <p className="leading-relaxed">
-                      Wir haben uns entschieden, lieber etwas großzügiger zu kalkulieren. Am Ende blieb weniger übrig als erwartet – ein gutes Zeichen. Die Leute haben probiert, nachgenommen, gefragt. Das war schön zu beobachten.
+                      Wir haben etwas großzügiger kalkuliert. Am Ende blieb weniger übrig als erwartet – ein gutes Zeichen. Die Leute haben probiert, nachgenommen, gefragt. Das war schön zu sehen.
                     </p>
                     <p className="leading-relaxed">
-                      Auch der Ablauf war anspruchsvoll: Alles musste gleichzeitig warm und frisch ankommen. Die Dips und Salate kalt, die Hauptgerichte in Chafing-Dishes. Bei dieser Größe arbeiten wir mit einem durchdachten Zeitplan – und einem Team, das weiß, was es tut.
+                      Ein Event in dieser Größe ist immer eine logistische Aufgabe. Nicht alles lief perfekt – aber genau das nehmen wir mit. Jedes Catering bringt uns weiter, und beim nächsten Mal machen wir es noch besser.
                     </p>
                   </div>
                 </div>
@@ -245,24 +245,24 @@ const BlogPost5 = () => {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-foreground mb-4">
-                    Was wir gelernt haben
+                    Was wir mitnehmen
                   </h2>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="text-primary font-bold">1.</span>
-                      <span><strong className="text-foreground">Vegan heißt nicht weniger Aufwand</strong> – im Gegenteil. Die Vielfalt muss stimmen, damit niemand das Gefühl hat, es gäbe "nur Beilagen".</span>
+                      <span><strong className="text-foreground">Vegan heißt nicht weniger Aufwand</strong> – eher mehr. Die Vielfalt muss stimmen, damit niemand denkt, es gibt "nur Beilagen".</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary font-bold">2.</span>
-                      <span><strong className="text-foreground">Menschen sind neugieriger, als man denkt.</strong> Viele haben Gerichte probiert, die sie nicht kannten – und gefragt, was drin ist.</span>
+                      <span><strong className="text-foreground">Leute sind neugieriger, als man denkt.</strong> Viele haben Gerichte probiert, die sie nicht kannten – und gefragt, was drin ist.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary font-bold">3.</span>
-                      <span><strong className="text-foreground">Die arabische Küche ist prädestiniert für veganes Catering.</strong> Vieles, was wir seit Jahren machen, war schon immer pflanzlich – ohne dass wir es so genannt hätten.</span>
+                      <span><strong className="text-foreground">Arabische Küche und vegan passen super zusammen.</strong> Vieles, was wir seit Jahren machen, war schon immer pflanzlich – ohne dass wir es so genannt hätten.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary font-bold">4.</span>
-                      <span><strong className="text-foreground">Wir können unser veganes Portfolio erweitern.</strong> Dieses Event hat uns gezeigt, wo noch Potenzial liegt – mehr gefülltes Gemüse, mehr Hülsenfrüchte, mehr saisonale Kreationen.</span>
+                      <span><strong className="text-foreground">Wir bauen unser veganes Angebot weiter aus.</strong> Dieses Event hat uns gezeigt, wo noch Potenzial liegt – mehr gefülltes Gemüse, mehr Hülsenfrüchte, mehr saisonale Ideen.</span>
                     </li>
                   </ul>
                 </div>
@@ -277,11 +277,6 @@ const BlogPost5 = () => {
                 className="w-full h-full object-cover saturate-[0.8] contrast-[0.95] brightness-[0.95]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-sm text-white/90 italic">
-                  Das fertige Buffet kurz vor der Mittagspause
-                </p>
-              </div>
             </div>
 
             {/* Abschluss */}
@@ -290,13 +285,13 @@ const BlogPost5 = () => {
                 Warum veganes Catering bleibt
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Veganes Catering ist kein Trend, der wieder verschwindet. Es ist eine Antwort auf veränderte Essgewohnheiten, auf bewusstere Entscheidungen, auf Teams, die vielfältiger geworden sind. Nicht jeder isst vegan – aber fast jeder kann und will ab und zu pflanzlich essen.
+                Veganes Catering ist kein Trend, der wieder verschwindet. Teams werden vielfältiger, Leute achten mehr drauf, was sie essen. Nicht jeder isst vegan – aber fast jeder kann und will ab und zu pflanzlich essen.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Für uns war dieses Event eine Bestätigung: Wir können das. Nicht als Ausnahme, sondern als Teil dessen, was wir tun. Die arabische Küche hat so viel zu bieten, das von Natur aus pflanzlich ist – wir müssen es nur zeigen.
+                Für uns war dieses Event eine Bestätigung: Wir können das. Nicht als Ausnahme, sondern als Teil von dem, was wir machen. Die arabische Küche hat so viel zu bieten, das von Natur aus pflanzlich ist – wir müssen es nur zeigen.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Wenn ihr ein veganes Catering plant – ob für 20 oder 200 Personen – meldet euch. Wir finden gemeinsam heraus, was zu eurem Anlass passt.
+                Wenn ihr ein veganes Catering plant – ob für 20 oder 200 Leute – meldet euch. Wir finden zusammen raus, was zu eurem Anlass passt.
               </p>
             </div>
           </div>
