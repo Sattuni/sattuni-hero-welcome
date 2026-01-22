@@ -28,7 +28,7 @@ const BlogPost6 = () => {
         <title>Kundenbesuche-Catering: Jeden Tag was Neues | Sattuni Blog</title>
         <meta 
           name="description" 
-          content="Über 10 Kundenbesuche in 2025, jedes Mal ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering mit Kreativität und Persönlichkeit liefern." 
+          content="Mehrtägige Kundenbesuche, jeden Tag ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering über 5-10 Tage am Stück liefern." 
         />
         <meta name="keywords" content="Kundenbesuch Catering, abwechslungsreiches Catering, Catering Düsseldorf, Geschäftsessen Catering, kreatives Catering" />
         <meta name="robots" content="index, follow" />
@@ -68,8 +68,8 @@ const BlogPost6 = () => {
               </h1>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                2025 durften wir einen Stammkunden bei über 10 Kundenbesuchen begleiten – 
-                jedes Mal mit einem anderen Menü. Ein Rückblick auf ein Jahr voller Abwechslung, Kreativität und Vertrauen.
+                Unser Stammkunde empfängt regelmäßig seine Kunden – und die bleiben oft 5 bis 10 Tage. 
+                Jeden Tag hochwertiges Essen, jeden Tag was anderes. 2025 durften wir über 10 solcher Besuchswochen begleiten.
               </p>
             </header>
 
@@ -88,9 +88,9 @@ const BlogPost6 = () => {
               {/* Intro */}
               <section className="mb-12">
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  Viele denken bei Catering an ein festes Menü. Einmal zusammengestellt, immer wieder bestellt. 
-                  Das funktioniert für manche Anlässe – aber nicht, wenn eure Gäste regelmäßig kommen. 
-                  Wer will schon beim dritten Besuch in zwei Wochen wieder dasselbe auf dem Teller haben?
+                  Stellt euch vor: Eure Geschäftspartner kommen für eine ganze Woche ins Büro. 
+                  Meetings, Workshops, gemeinsame Arbeit – und mittags soll's was Vernünftiges geben. 
+                  Aber wer will schon am fünften Tag wieder das gleiche Menü auf dem Tisch sehen?
                 </p>
               </section>
 
@@ -101,13 +101,13 @@ const BlogPost6 = () => {
                 </h2>
                 <div className="bg-muted/30 rounded-xl p-6 space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    Unser Kunde empfängt regelmäßig Geschäftspartner – manchmal mehrere Tage hintereinander, 
-                    manchmal über Wochen verteilt. Die Gruppen sind mit ca. 20 Personen überschaubar, 
-                    aber die Herausforderung liegt woanders: <span className="font-medium text-foreground">Jeden Tag soll es was anderes geben.</span>
+                    Unser Kunde bekommt regelmäßig Besuch von seinen eigenen Kunden. Die kommen nicht nur für einen Tag – 
+                    sondern bleiben oft <span className="font-medium text-foreground">5 bis 10 Tage am Stück</span> im Office. 
+                    Intensive Arbeitstage, viele Meetings, und mittags braucht's was Gutes.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Nicht nur ein anderer Reis oder eine andere Salatsoße. Sondern ein komplett anderes Erlebnis. 
-                    Andere Geschmacksrichtungen, andere Texturen, andere Highlights.
+                    Die Herausforderung: <span className="font-medium text-foreground">Jeden Tag soll es was anderes geben.</span> Keine Wiederholungen. 
+                    Nicht einfach ein anderer Reis – sondern komplett andere Geschmacksrichtungen, andere Texturen, andere Highlights.
                   </p>
                 </div>
               </section>
@@ -116,20 +116,20 @@ const BlogPost6 = () => {
               <section className="mb-12">
                 <div className="grid grid-cols-3 gap-4">
                   <div className="bg-primary/5 rounded-xl p-6 text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">10+</div>
-                    <div className="text-sm text-muted-foreground">Kundenbesuche 2025</div>
+                    <div className="text-3xl font-bold text-primary mb-2">5-10</div>
+                    <div className="text-sm text-muted-foreground">Tage pro Besuch</div>
                   </div>
                   <div className="bg-primary/5 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-2">
                       <Users className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="text-sm text-muted-foreground">ca. 20 Personen pro Event</div>
+                    <div className="text-sm text-muted-foreground">ca. 20 Personen</div>
                   </div>
                   <div className="bg-primary/5 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-2">
                       <ChefHat className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="text-sm text-muted-foreground">Jedes Mal anders</div>
+                    <div className="text-sm text-muted-foreground">Jeden Tag anders</div>
                   </div>
                 </div>
               </section>
@@ -188,7 +188,7 @@ const BlogPost6 = () => {
               <section className="mb-12">
                 <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-primary" />
-                  Beispiele aus 2025
+                  Eine typische Besuchswoche
                 </h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-muted/30 rounded-xl p-5">
@@ -273,11 +273,11 @@ const BlogPost6 = () => {
               {/* CTA */}
               <section className="bg-primary/5 rounded-2xl p-8 text-center">
                 <h2 className="text-xl font-bold text-foreground mb-4">
-                  Regelmäßige Kundenbesuche? Wir machen das.
+                  Mehrtägige Kundenbesuche? Wir machen das.
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  Ob einmal im Monat oder mehrmals die Woche – wir bringen Abwechslung auf den Tisch. 
-                  Schreibt uns, und wir schauen gemeinsam, was zu euch passt.
+                  Ob 3 Tage oder 2 Wochen – wir planen mit euch durch und bringen jeden Tag was Neues. 
+                  Schreibt uns, und wir schauen gemeinsam, was zu eurem Besuch passt.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/catering">
