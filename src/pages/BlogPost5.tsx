@@ -13,7 +13,7 @@ import hummus from "@/assets/gallery/dips-salate/hummus.jpg";
 import babaGanoush from "@/assets/gallery/dips-salate/baba-ganoush.jpg";
 import couscousSalat from "@/assets/gallery/dips-salate/couscous-salat.jpg";
 import okraBulgur from "@/assets/gallery/buffets/okra-bulgur.jpg";
-import grossesBuffetEvent from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
+import veganuaryHeroAbstract from "@/assets/blog/veganuary-hero-abstract.jpg";
 
 const BlogPost5 = () => {
   const { setMode } = useSiteMode();
@@ -51,12 +51,10 @@ const BlogPost5 = () => {
             {/* Hero Image */}
             <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-8 shadow-elegant">
               <LazyImage
-                src={grossesBuffetEvent}
-                alt="Veganes Office-Buffet für 140 Personen im Veganuary"
-                className="w-full h-full object-cover saturate-[0.8] contrast-[0.95] brightness-[0.95]"
+                src={veganuaryHeroAbstract}
+                alt="Veganes Office-Buffet – abstrakte Illustration mit Kräutern und Schalen"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-transparent to-primary/10 mix-blend-overlay"></div>
-              <div className="absolute inset-0 bg-foreground/5"></div>
             </div>
 
             {/* Meta Info */}
