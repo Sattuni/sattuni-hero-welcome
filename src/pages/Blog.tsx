@@ -11,6 +11,8 @@ import workshopHeroImage from "@/assets/blog/workshop-minimal.jpg";
 import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
+import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
+import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -22,6 +24,16 @@ const Blog = () => {
 
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 5,
+      slug: "veganes-office-buffet-veganuary",
+      title: "140 Personen, 100 % vegan: Ein Office-Buffet im Veganuary",
+      excerpt: "Ein Einblick in unser veganes Office-Buffet für 140 Personen. Von der Planung über die Herausforderungen bis zu unseren Learnings.",
+      date: "2026-01-22",
+      readTime: "8 min",
+      image: grossesBuffetImage,
+      category: "Veganes Catering"
+    },
     {
       id: 4,
       slug: "vegane-arabische-klassiker",
@@ -41,6 +53,16 @@ const Blog = () => {
       readTime: "7 min",
       image: workshopHeroImage,
       category: "Catering"
+    },
+    {
+      id: 6,
+      slug: "kundenbesuch-catering-abwechslung",
+      title: "Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt",
+      excerpt: "Mehrtägige Kundenbesuche, jeden Tag ein anderes Menü. Wie wir für einen Stammkunden 5-10 Tage am Stück abwechslungsreich beliefern.",
+      date: "2025-12-15",
+      readTime: "6 min",
+      image: kundenbesuchHero,
+      category: "Kundenbesuche"
     },
     {
       id: 2,
