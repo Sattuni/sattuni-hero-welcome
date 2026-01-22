@@ -23,6 +23,25 @@ const BlogPost1 = () => {
         <meta name="description" content="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team." />
         <meta name="keywords" content="Büro Catering Düsseldorf, Fingerfood Catering, arabisches Buffet, Office Lunch Ideen" />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sattuni.de/catering/blog/buero-lunch-ideen" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="10 kreative Büro-Lunch-Ideen – wenn ihr keine Lust mehr auf Pizza & Pasta habt" />
+        <meta property="og:description" content="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni." />
+        <meta property="og:image" content="https://sattuni.de/blog/office-lunch-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://sattuni.de/catering/blog/buero-lunch-ideen" />
+        <meta property="og:site_name" content="Sattuni Catering" />
+        <meta property="article:published_time" content="2025-10-01" />
+        <meta property="article:author" content="Sattuni" />
+        
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="10 kreative Büro-Lunch-Ideen | Sattuni" />
+        <meta name="twitter:description" content="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen von Sattuni." />
+        <meta name="twitter:image" content="https://sattuni.de/blog/office-lunch-hero.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">

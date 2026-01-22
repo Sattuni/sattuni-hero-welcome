@@ -22,6 +22,25 @@ const BlogPost2 = () => {
         <meta name="description" content="Erfahre, was Mezze bedeutet und wie Sattuni das arabische Prinzip des Teilens in moderne Küche bringt. Frisch, hausgemacht und perfekt für private und geschäftliche Anlässe." />
         <meta name="keywords" content="Mezze, arabische Küche, Catering Düsseldorf, orientalisches Buffet, Fingerfood teilen" />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sattuni.de/catering/blog/was-bedeutet-mezze" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Was bedeutet eigentlich Mezze? Warum Teilen der wahre Geschmack ist" />
+        <meta property="og:description" content="Mezze ist mehr als kleine Gerichte – es ist eine Art, zusammen zu essen. Entspannt, gesellig, ohne Stress." />
+        <meta property="og:image" content="https://sattuni.de/blog/mezze-sharing-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://sattuni.de/catering/blog/was-bedeutet-mezze" />
+        <meta property="og:site_name" content="Sattuni Catering" />
+        <meta property="article:published_time" content="2025-10-23" />
+        <meta property="article:author" content="Sattuni" />
+        
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Was bedeutet Mezze? | Sattuni" />
+        <meta name="twitter:description" content="Das arabische Prinzip des Teilens – modern interpretiert für Events und Firmen." />
+        <meta name="twitter:image" content="https://sattuni.de/blog/mezze-sharing-hero.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">

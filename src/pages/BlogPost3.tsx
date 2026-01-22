@@ -22,6 +22,25 @@ const BlogPost3 = () => {
         <meta name="description" content="Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl – frisch, leicht & energiereich." />
         <meta name="keywords" content="Workshop Catering Düsseldorf, Seminar Catering, Tagungsverpflegung, Business Catering, Konferenz Essen" />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sattuni.de/catering/blog/workshop-catering" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert" />
+        <meta property="og:description" content="Das richtige Essen zur richtigen Zeit macht den Unterschied. Praktische Tipps für Pausenverpflegung und Menüauswahl." />
+        <meta property="og:image" content="https://sattuni.de/blog/workshop-catering-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://sattuni.de/catering/blog/workshop-catering" />
+        <meta property="og:site_name" content="Sattuni Catering" />
+        <meta property="article:published_time" content="2026-01-14" />
+        <meta property="article:author" content="Sattuni" />
+        
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Workshop-Catering | Sattuni" />
+        <meta name="twitter:description" content="Produktiv bleiben mit dem richtigen Essen – Tipps für Workshops und Seminare." />
+        <meta name="twitter:image" content="https://sattuni.de/blog/workshop-catering-hero.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">

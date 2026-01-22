@@ -29,6 +29,25 @@ const BlogPost5 = () => {
         <meta name="description" content="Ein Einblick in unser veganes Office-Buffet für 140 Personen im Veganuary. Von der Planung über die Herausforderungen bis zu unseren Learnings." />
         <meta name="keywords" content="veganes Catering, Office Buffet, Veganuary, 100% vegan, Firmencatering, Düsseldorf, pflanzliches Buffet" />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sattuni.de/catering/blog/veganes-office-buffet-140-personen" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="140 Personen, 100 % vegan: Ein Office-Buffet im Veganuary" />
+        <meta property="og:description" content="Ein veganes Buffet für 140 Leute – komplett pflanzlich, kein Kompromiss. So haben wir das gemacht." />
+        <meta property="og:image" content="https://sattuni.de/blog/veganuary-hero-abstract.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://sattuni.de/catering/blog/veganes-office-buffet-140-personen" />
+        <meta property="og:site_name" content="Sattuni Catering" />
+        <meta property="article:published_time" content="2026-01-22" />
+        <meta property="article:author" content="Sattuni" />
+        
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Veganes Office-Buffet für 140 Personen | Sattuni" />
+        <meta name="twitter:description" content="Komplett pflanzlich, für alle. Ein Einblick in unser Veganuary-Catering." />
+        <meta name="twitter:image" content="https://sattuni.de/blog/veganuary-hero-abstract.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-hero">
