@@ -291,6 +291,9 @@ const BlogPost5 = () => {
               <p className="text-muted-foreground leading-relaxed">
                 Wenn ihr ein veganes Catering plant – ob für 20 oder 200 Leute – meldet euch. Wir finden zusammen raus, was zu eurem Anlass passt.
               </p>
+              <p className="text-muted-foreground leading-relaxed italic mt-8">
+                An dieser Stelle ein herzliches Danke an unser Kundenteam, das uns bei diesem Event das Vertrauen geschenkt hat – und uns die Möglichkeit gegeben hat, zu zeigen, was veganes Catering in dieser Größe leisten kann.
+              </p>
             </div>
           </div>
         </section>
