@@ -12,7 +12,7 @@ import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
-import kundenbesuchHero from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
+import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
