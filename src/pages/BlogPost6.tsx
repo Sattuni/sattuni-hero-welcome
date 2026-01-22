@@ -10,7 +10,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 // Images
 import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
 import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
-import buffetMeetEat from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
+
 import buffetHauptgerichte from "@/assets/gallery/buffets/hauptgerichte-chafing.jpg";
 import buffetVielfalt from "@/assets/gallery/buffets/buffet-vielfalt-chafing.jpg";
 
@@ -123,7 +123,7 @@ const BlogPost6 = () => {
                     <div className="flex justify-center mb-2">
                       <Users className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="text-sm text-muted-foreground">ca. 20 Personen</div>
+                    <div className="text-sm text-muted-foreground">ca. 15 Personen</div>
                   </div>
                   <div className="bg-primary/5 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-2">
@@ -134,23 +134,14 @@ const BlogPost6 = () => {
                 </div>
               </section>
 
-              {/* Image Grid */}
+              {/* Image */}
               <section className="mb-12">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl overflow-hidden shadow-soft">
-                    <LazyImage
-                      src={kundenbesuchCatering}
-                      alt="Kundenbesuch-Catering Aufbau"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-xl overflow-hidden shadow-soft">
-                    <LazyImage
-                      src={buffetMeetEat}
-                      alt="Buffet für Geschäftsessen"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
+                <div className="rounded-xl overflow-hidden shadow-soft">
+                  <LazyImage
+                    src={kundenbesuchCatering}
+                    alt="Kundenbesuch-Catering Aufbau"
+                    className="w-full h-64 object-cover"
+                  />
                 </div>
               </section>
 
