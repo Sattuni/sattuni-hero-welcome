@@ -58,7 +58,7 @@ const Blog = () => {
       id: 6,
       slug: "kundenbesuch-catering-abwechslung",
       title: "Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt",
-      excerpt: "Über 10 Kundenbesuche in 2025, jedes Mal ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering mit Kreativität liefern.",
+      excerpt: "Mehrtägige Kundenbesuche, jeden Tag ein anderes Menü. Wie wir für einen Stammkunden 5-10 Tage am Stück abwechslungsreich beliefern.",
       date: "2025-12-15",
       readTime: "6 min",
       image: kundenbesuchHero,
