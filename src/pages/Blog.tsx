@@ -12,6 +12,7 @@ import mezzeHeroImage from "@/assets/blog/mezze-atmosphere.jpg";
 import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
+import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -23,6 +24,16 @@ const Blog = () => {
 
   // Blog-Posts
   const blogPosts = [
+    {
+      id: 6,
+      slug: "kundenbesuch-catering-abwechslung",
+      title: "Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt",
+      excerpt: "Über 10 Kundenbesuche in 2025, jedes Mal ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering mit Kreativität liefern.",
+      date: "2025-12-15",
+      readTime: "6 min",
+      image: kundenbesuchHero,
+      category: "Kundenbesuche"
+    },
     {
       id: 5,
       slug: "veganes-office-buffet-veganuary",
