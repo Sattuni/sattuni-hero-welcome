@@ -8,7 +8,7 @@ import LazyImage from "@/components/common/LazyImage";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 
 // Images
-import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
+import kundenbesuchHero from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
 import kundenbesuchCatering from "@/assets/gallery/buffets/kundenbesuch-catering.jpg";
 import buffetMeetEat from "@/assets/gallery/buffets/buffet-meet-eat.jpg";
 import buffetHauptgerichte from "@/assets/gallery/buffets/hauptgerichte-chafing.jpg";
