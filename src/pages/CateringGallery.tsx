@@ -76,6 +76,8 @@ import workshopCatering from "@/assets/gallery/buffets/workshop-catering.jpg";
 import kafkaHauptspeise from "@/assets/gallery/buffets/kafka-hauptspeise.jpg";
 import couscousReis from "@/assets/gallery/buffets/couscous-reis.jpg";
 import officeCatering40 from "@/assets/gallery/buffets/office-catering-40.jpg";
+import konferenzBuffet501 from "@/assets/gallery/buffets/konferenz-buffet-50-1.jpg";
+import konferenzBuffet502 from "@/assets/gallery/buffets/konferenz-buffet-50-2.jpg";
 // New dips image
 import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
 
@@ -142,6 +144,8 @@ const galleryImages: GalleryImage[] = [
   { src: kafkaHauptspeise, title: "Kafka Hauptspeise", category: "buffets", size: "medium" },
   { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
   { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
+  { src: konferenzBuffet501, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
+  { src: konferenzBuffet502, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
   { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
   { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
