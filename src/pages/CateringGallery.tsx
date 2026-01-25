@@ -80,6 +80,12 @@ import konferenzBuffet501 from "@/assets/gallery/buffets/konferenz-buffet-50-1.j
 import konferenzBuffet502 from "@/assets/gallery/buffets/konferenz-buffet-50-2.jpg";
 // New dips image
 import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
+// New dips buffet images
+import kichererbsenSalatBuffet from "@/assets/gallery/dips-salate/kichererbsen-salat-buffet.jpg";
+import taboulehBuffet from "@/assets/gallery/dips-salate/tabouleh-buffet.jpg";
+import fattoushBuffet from "@/assets/gallery/dips-salate/fattoush-buffet.jpg";
+import babaGanoushBuffet from "@/assets/gallery/dips-salate/baba-ganoush-buffet.jpg";
+import hummusBuffetNew from "@/assets/gallery/dips-salate/hummus-buffet-new.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -147,6 +153,11 @@ const galleryImages: GalleryImage[] = [
   { src: konferenzBuffet501, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
   { src: konferenzBuffet502, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
   { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
+  { src: kichererbsenSalatBuffet, title: "Kichererbsen Salat Buffet", category: "dips-salate", size: "large" },
+  { src: taboulehBuffet, title: "Tabouleh Salat Buffet", category: "dips-salate", size: "large" },
+  { src: fattoushBuffet, title: "Fattousch Salat Buffet", category: "dips-salate", size: "large" },
+  { src: babaGanoushBuffet, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "large" },
+  { src: hummusBuffetNew, title: "Hummus Buffet", category: "dips-salate", size: "large" },
   { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
