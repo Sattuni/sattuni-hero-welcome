@@ -86,6 +86,13 @@ import taboulehBuffet from "@/assets/gallery/dips-salate/tabouleh-buffet.jpg";
 import fattoushBuffet from "@/assets/gallery/dips-salate/fattoush-buffet.jpg";
 import babaGanoushBuffet from "@/assets/gallery/dips-salate/baba-ganoush-buffet.jpg";
 import hummusBuffetNew from "@/assets/gallery/dips-salate/hummus-buffet-new.jpg";
+// New buffet birthday images
+import geburtstagsbuffet90 from "@/assets/gallery/buffets/geburtstagsbuffet-90.jpg";
+import entrecote from "@/assets/gallery/buffets/entrecote.jpg";
+import haehnchenfleisch from "@/assets/gallery/buffets/haehnchenfleisch.jpg";
+import ofenkartoffeln from "@/assets/gallery/buffets/ofenkartoffeln.jpg";
+import arabischerReisGemuese from "@/assets/gallery/buffets/arabischer-reis-gemuese.jpg";
+import geburtstagsbuffetHauptgang from "@/assets/gallery/buffets/geburtstagsbuffet-hauptgang.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -158,6 +165,12 @@ const galleryImages: GalleryImage[] = [
   { src: fattoushBuffet, title: "Fattousch Salat Buffet", category: "dips-salate", size: "large" },
   { src: babaGanoushBuffet, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "large" },
   { src: hummusBuffetNew, title: "Hummus Buffet", category: "dips-salate", size: "large" },
+  { src: geburtstagsbuffet90, title: "Geburtstagsbuffet 90 Personen", category: "buffets", size: "large" },
+  { src: entrecote, title: "Entrecote", category: "buffets", size: "medium" },
+  { src: haehnchenfleisch, title: "Gebratenes Hähnchenfleisch", category: "buffets", size: "medium" },
+  { src: ofenkartoffeln, title: "Ofenkartoffeln", category: "buffets", size: "medium" },
+  { src: arabischerReisGemuese, title: "Arabischer Reis mit Gemüse", category: "buffets", size: "medium" },
+  { src: geburtstagsbuffetHauptgang, title: "Geburtstagsbuffet Hauptgang", category: "buffets", size: "large" },
   { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
