@@ -80,6 +80,19 @@ import konferenzBuffet501 from "@/assets/gallery/buffets/konferenz-buffet-50-1.j
 import konferenzBuffet502 from "@/assets/gallery/buffets/konferenz-buffet-50-2.jpg";
 // New dips image
 import auberginencreme from "@/assets/gallery/dips-salate/auberginencreme.jpg";
+// New dips buffet images
+import kichererbsenSalatBuffet from "@/assets/gallery/dips-salate/kichererbsen-salat-buffet.jpg";
+import taboulehBuffet from "@/assets/gallery/dips-salate/tabouleh-buffet.jpg";
+import fattoushBuffet from "@/assets/gallery/dips-salate/fattoush-buffet.jpg";
+import babaGanoushBuffet from "@/assets/gallery/dips-salate/baba-ganoush-buffet.jpg";
+import hummusBuffetNew from "@/assets/gallery/dips-salate/hummus-buffet-new.jpg";
+// New buffet birthday images
+import geburtstagsbuffet90 from "@/assets/gallery/buffets/geburtstagsbuffet-90.jpg";
+import entrecote from "@/assets/gallery/buffets/entrecote.jpg";
+import haehnchenfleisch from "@/assets/gallery/buffets/haehnchenfleisch.jpg";
+import ofenkartoffeln from "@/assets/gallery/buffets/ofenkartoffeln.jpg";
+import arabischerReisGemuese from "@/assets/gallery/buffets/arabischer-reis-gemuese.jpg";
+import geburtstagsbuffetHauptgang from "@/assets/gallery/buffets/geburtstagsbuffet-hauptgang.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -147,6 +160,17 @@ const galleryImages: GalleryImage[] = [
   { src: konferenzBuffet501, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
   { src: konferenzBuffet502, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
   { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
+  { src: kichererbsenSalatBuffet, title: "Kichererbsen Salat Buffet", category: "dips-salate", size: "large" },
+  { src: taboulehBuffet, title: "Tabouleh Salat Buffet", category: "dips-salate", size: "large" },
+  { src: fattoushBuffet, title: "Fattousch Salat Buffet", category: "dips-salate", size: "large" },
+  { src: babaGanoushBuffet, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "large" },
+  { src: hummusBuffetNew, title: "Hummus Buffet", category: "dips-salate", size: "large" },
+  { src: geburtstagsbuffet90, title: "Geburtstagsbuffet 90 Personen", category: "buffets", size: "large" },
+  { src: entrecote, title: "Entrecote", category: "buffets", size: "medium" },
+  { src: haehnchenfleisch, title: "Gebratenes Hähnchenfleisch", category: "buffets", size: "medium" },
+  { src: ofenkartoffeln, title: "Ofenkartoffeln", category: "buffets", size: "medium" },
+  { src: arabischerReisGemuese, title: "Arabischer Reis mit Gemüse", category: "buffets", size: "medium" },
+  { src: geburtstagsbuffetHauptgang, title: "Geburtstagsbuffet Hauptgang", category: "buffets", size: "large" },
   { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
@@ -267,11 +291,11 @@ const CateringGallery = () => {
             </div>
             
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Unsere <span className="text-primary">Kulinarischen</span> Kreationen
+              Ein Blick in <span className="text-primary">unsere Arbeit</span>
             </h1>
             
             <p className="text-lg text-muted-foreground">
-              Von der Vorbereitung bis zum fertigen Buffet – erlebe die Vielfalt unserer orientalischen Küche
+              Hier bekommt ihr einen Einblick in unsere Küche und unsere Buffets – direkt von unseren Events. Ungestellt, unverfälscht und genau so, wie es vor Ort aussieht.
             </p>
           </div>
         </div>
