@@ -291,11 +291,11 @@ const CateringGallery = () => {
             </div>
             
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Unsere <span className="text-primary">Kulinarischen</span> Kreationen
+              Ein Blick in <span className="text-primary">unsere Arbeit</span>
             </h1>
             
             <p className="text-lg text-muted-foreground">
-              Von der Vorbereitung bis zum fertigen Buffet – erlebe die Vielfalt unserer orientalischen Küche
+              Hier bekommt ihr einen Einblick in unsere Küche und unsere Buffets – direkt von unseren Events. Ungestellt, unverfälscht und genau so, wie es vor Ort aussieht.
             </p>
           </div>
         </div>
