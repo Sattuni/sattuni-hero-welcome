@@ -44,7 +44,8 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && htmlPrerender({
       staticDir: path.join(__dirname, "dist"),
       routes: prerenderRoutes,
-      selector: "#root",
+      // Wait for SEO meta tags to be set before capturing HTML
+      selector: 'meta[name="prerender-ready"]',
       minify: {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,

@@ -1,0 +1,56 @@
+# Netlify Headers Configuration
+# HTML: no-cache (ensure fresh content after deploy)
+# Assets: immutable (hashed filenames, cache forever)
+
+# All HTML pages - no caching
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+
+# Root path (serves index.html)
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Catering routes
+/catering/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Restaurant routes
+/restaurant/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Blog routes
+/catering/blog/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Static assets - cache forever (hashed filenames)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images in public folder
+/*.jpg
+  Cache-Control: public, max-age=86400
+
+/*.png
+  Cache-Control: public, max-age=86400
+
+/*.svg
+  Cache-Control: public, max-age=86400
+
+# Fonts
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemap and robots
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain

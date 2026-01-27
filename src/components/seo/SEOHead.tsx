@@ -40,6 +40,9 @@ const SEOHead = ({
 
   return (
     <Helmet>
+      {/* Prerender Ready Marker - signals that SEO tags are set */}
+      <meta name="prerender-ready" content="true" />
+      
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />

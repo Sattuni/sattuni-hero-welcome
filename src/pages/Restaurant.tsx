@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
+import SEOHead from "@/components/seo/SEOHead";
 
 // Import restaurant-focused components
 import RestaurantHero from "@/components/features/hero/RestaurantHero";
@@ -35,17 +35,16 @@ const Restaurant = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Restaurant & Lieferservice | Sattuni – Arabische Küche Düsseldorf</title>
-        <meta name="description" content="Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Lieferung in 30-45 Min. Hummus, Falafel, Oriental Bowls & mehr. Jetzt bestellen!" />
-        <meta name="keywords" content="arabisches restaurant düsseldorf, lieferservice düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, halal" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="restaurant" />
-        <meta property="og:title" content="Sattuni Restaurant – Arabische Küche Düsseldorf" />
-        <meta property="og:description" content="Frische arabische Küche mit Lieferservice in Düsseldorf. Hummus, Falafel & mehr!" />
-        <meta property="og:url" content="https://sattuni.de/restaurant" />
-        <link rel="canonical" href="https://sattuni.de/restaurant" />
-      </Helmet>
+      <SEOHead
+        title="Restaurant & Lieferservice | Sattuni – Arabische Küche Düsseldorf"
+        description="Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Lieferung in 30-45 Min. Hummus, Falafel, Oriental Bowls & mehr. Jetzt bestellen!"
+        keywords="arabisches restaurant düsseldorf, lieferservice düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, halal"
+        canonicalUrl="https://sattuni.de/restaurant"
+        ogType="restaurant"
+        ogTitle="Sattuni Restaurant – Arabische Küche Düsseldorf"
+        ogDescription="Frische arabische Küche mit Lieferservice in Düsseldorf. Hummus, Falafel & mehr!"
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+      />
       
       <ModeHeader />
       <main className="min-h-screen pt-16 pb-safe-mobile">

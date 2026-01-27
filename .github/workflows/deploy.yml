@@ -36,6 +36,9 @@ jobs:
           CI: true
           NODE_ENV: production
 
+      - name: Verify pre-rendered pages (Quality Gate)
+        run: node scripts/verify-prerender.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

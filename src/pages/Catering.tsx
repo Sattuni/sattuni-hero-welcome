@@ -23,6 +23,7 @@ import fruehstueckBrot2 from "@/assets/gallery/fingerfood/fruehstueck-brot-2.jpg
 import eventFingerfood1 from "@/assets/gallery/fingerfood/event-fingerfood-1.png";
 import eventFingerfood3 from "@/assets/gallery/fingerfood/event-fingerfood-3.png";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
@@ -96,20 +97,8 @@ const Catering = () => {
     setRandomImages(selected);
   }, [setMode]);
 
-  // SEO Meta Tags
+  // SEO Meta Tags (Structured Data only - SEOHead handles meta tags)
   useEffect(() => {
-    document.title = "Catering in Düsseldorf – Zuverlässig & Professionell | Sattuni";
-    
-    // Create or update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 
-      'Professionelles Catering in Düsseldorf ab 20 Personen. Klare Abläufe, zuverlässige Lieferung, persönliche Betreuung. Jetzt unverbindlich anfragen.'
-    );
 
     // Add structured JSON-LD data for SEO
     const structuredData = {
@@ -154,8 +143,6 @@ const Catering = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      // Reset title on unmount
-      document.title = "Sattuni - Oriental Bowls & More";
       // Remove structured data
       const scriptToRemove = document.querySelector('script[data-catering]');
       if (scriptToRemove) {
@@ -236,9 +223,17 @@ const Catering = () => {
 
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <ModeHeader />
-      <FreeDeliveryBanner />
+    <>
+      <SEOHead
+        title="Catering in Düsseldorf – Zuverlässig & Professionell | Sattuni"
+        description="Professionelles Catering in Düsseldorf ab 20 Personen. Klare Abläufe, zuverlässige Lieferung, persönliche Betreuung. Jetzt unverbindlich anfragen."
+        keywords="Catering Düsseldorf, Business Catering, Event Catering, Firmenevent, Buffet Service, arabisches Catering"
+        canonicalUrl="https://sattuni.de/catering"
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+      />
+      <div className="min-h-screen bg-background overflow-x-hidden">
+        <ModeHeader />
+        <FreeDeliveryBanner />
       
       {/* Breadcrumb Navigation */}
       <div className="pt-20">
@@ -609,7 +604,8 @@ const Catering = () => {
       )}
       
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
