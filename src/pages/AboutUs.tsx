@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Heart, Leaf, Truck } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/seo/SEOHead";
 import { useNavigate } from "react-router-dom";
 
 import feras from "@/assets/about-us/feras.png";
@@ -26,38 +26,8 @@ const AboutUs = () => {
     setMode('catering');
   }, [setMode]);
 
+  // Structured Data only (SEOHead handles meta tags)
   useEffect(() => {
-    // SEO Meta Tags
-    document.title = "Über uns – Feras & Hamudi, die Brüder hinter Sattuni";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!");
-    }
-
-    // Keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
-    metaKeywords.setAttribute("name", "keywords");
-    metaKeywords.setAttribute("content", "Sattuni Team, Feras, Hamudi, arabische Küche Düsseldorf, Brüder Restaurant, hausgemacht, modern");
-    if (!document.querySelector('meta[name="keywords"]')) {
-      document.head.appendChild(metaKeywords);
-    }
-
-    // Open Graph
-    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
-    ogTitle.setAttribute("property", "og:title");
-    ogTitle.setAttribute("content", "Über uns - Sattuni | Die Brüder hinter der arabischen Küche");
-    if (!document.querySelector('meta[property="og:title"]')) {
-      document.head.appendChild(ogTitle);
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
-    ogDescription.setAttribute("property", "og:description");
-    ogDescription.setAttribute("content", "Feras kocht, Hamudi kümmert sich. Zusammen bringen sie frische arabische Küche nach Düsseldorf - hausgemacht und modern.");
-    if (!document.querySelector('meta[property="og:description"]')) {
-      document.head.appendChild(ogDescription);
-    }
-
-    // Structured Data
     const structuredData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -149,10 +119,15 @@ const AboutUs = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Über uns – Feras & Hamudi, die Brüder hinter Sattuni</title>
-        <meta name="description" content="Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!" />
-      </Helmet>
+      <SEOHead
+        title="Über uns – Feras & Hamudi, die Brüder hinter Sattuni"
+        description="Die Brüder Feras & Hamudi: arabische Küche aus Düsseldorf. Hausgemacht, frisch und modern. Erfahre mehr über unser Team!"
+        keywords="Sattuni Team, Feras, Hamudi, arabische Küche Düsseldorf, Brüder Restaurant, hausgemacht, modern"
+        canonicalUrl="https://sattuni.de/catering/ueber-uns"
+        ogTitle="Über uns - Sattuni | Die Brüder hinter der arabischen Küche"
+        ogDescription="Feras kocht, Hamudi kümmert sich. Zusammen bringen sie frische arabische Küche nach Düsseldorf - hausgemacht und modern."
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+      />
 
       <ModeHeader />
       

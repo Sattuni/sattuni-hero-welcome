@@ -23,6 +23,7 @@ import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { ArrowUp, Calendar, Leaf, Truck, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/seo/SEOHead";
 
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -36,20 +37,8 @@ const Specialties = () => {
     setMode('restaurant');
   }, [setMode]);
 
-  // SEO Meta Tags and Structured Data
+  // SEO Structured Data only (SEOHead handles meta tags)
   useEffect(() => {
-    document.title = "Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf";
-    
-    // Create or update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 
-      'Arabische Spezialitäten in Düsseldorf: Hummus, Falafel, Bowls. Hausgemacht & frisch. Jetzt bestellen oder Catering anfragen!'
-    );
 
     // Add comprehensive structured data for specialties page
     const structuredData = {
@@ -205,18 +194,15 @@ const Specialties = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf</title>
-        <meta name="description" content="Arabische Spezialitäten in Düsseldorf: Hummus, Falafel, Bowls. Hausgemacht & frisch. Jetzt bestellen oder Catering anfragen!" />
-        <meta name="keywords" content="arabische spezialitäten düsseldorf, hummus düsseldorf, falafel düsseldorf, orientalische küche, vegan düsseldorf, couscous bowl" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Arabische Spezialitäten in Düsseldorf - Sattuni" />
-        <meta property="og:description" content="Authentische arabische Küche: Hummus, Falafel, Couscous Bowls und mehr. Hausgemacht und frisch in Düsseldorf." />
-        <meta property="og:url" content="https://sattuni.de/spezialitaeten" />
-        <meta property="og:image" content="https://sattuni.de/hero/hero-specialties.jpg" />
-        <link rel="canonical" href="https://sattuni.de/spezialitaeten" />
-      </Helmet>
+      <SEOHead
+        title="Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf"
+        description="Arabische Spezialitäten in Düsseldorf: Hummus, Falafel, Bowls. Hausgemacht & frisch. Jetzt bestellen oder Catering anfragen!"
+        keywords="arabische spezialitäten düsseldorf, hummus düsseldorf, falafel düsseldorf, orientalische küche, vegan düsseldorf, couscous bowl"
+        canonicalUrl="https://sattuni.de/restaurant/spezialitaeten"
+        ogTitle="Arabische Spezialitäten in Düsseldorf - Sattuni"
+        ogDescription="Authentische arabische Küche: Hummus, Falafel, Couscous Bowls und mehr. Hausgemacht und frisch in Düsseldorf."
+        ogImage="https://sattuni.de/hero/hero-specialties.jpg"
+      />
       
       <ModeHeader />
       <main className="min-h-screen pt-16 pb-safe-mobile">

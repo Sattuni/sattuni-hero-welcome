@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, MessageCircle, Printer, Leaf, Sparkles, ArrowUp, Star, Users, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CATERING_PACKAGES, formatPrice, type CateringPackage, type PackageDishItem } from '@/constants/catering-packages';
+import SEOHead from '@/components/seo/SEOHead';
 
 import ModeHeader from '@/components/layout/ModeHeader';
 import Footer from '@/components/layout/Footer';
@@ -156,10 +156,13 @@ const Menus = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Buffet Catering Menüs | Sattuni</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEOHead
+        title="Buffet Catering Menüs | Sattuni"
+        description="Catering Menükarten für orientalische Buffets. Klassik, Premium und Vegetarisch – für jeden Anlass das passende Paket."
+        canonicalUrl="https://sattuni.de/catering/menus"
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+        noIndex={true}
+      />
 
       <ModeHeader />
       

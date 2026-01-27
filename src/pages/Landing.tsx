@@ -1,23 +1,11 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import ModeSplitHero from "@/components/features/mode-selection/ModeSplitHero";
 import Footer from "@/components/layout/Footer";
+import SEOHead from "@/components/seo/SEOHead";
 
 const Landing = () => {
   // SEO Meta Tags and Structured Data
   useEffect(() => {
-    document.title = "Sattuni – Arabische Küche & Catering in Düsseldorf";
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 
-      'Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Restaurant mit Lieferservice oder Catering für Events. Jetzt entdecken!'
-    );
-
     // Structured data for main business
     const structuredData = {
       "@context": "https://schema.org",
@@ -74,18 +62,16 @@ const Landing = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sattuni – Arabische Küche & Catering in Düsseldorf</title>
-        <meta name="description" content="Arabische Küche in Düsseldorf: Restaurant mit Lieferservice oder professionelles Catering für Events. Wähle deinen Bereich!" />
-        <meta name="keywords" content="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, vegan" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Sattuni - Arabische Küche & Catering Düsseldorf" />
-        <meta property="og:description" content="Authentische arabische Küche in Düsseldorf. Restaurant mit Lieferservice oder Catering für Events." />
-        <meta property="og:url" content="https://sattuni.de/" />
-        <meta property="og:locale" content="de_DE" />
-        <link rel="canonical" href="https://sattuni.de/" />
-      </Helmet>
+      <SEOHead
+        title="Sattuni – Arabische Küche & Catering in Düsseldorf"
+        description="Arabische Küche in Düsseldorf: Restaurant mit Lieferservice oder professionelles Catering für Events. Wähle deinen Bereich!"
+        keywords="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, vegan"
+        canonicalUrl="https://sattuni.de/"
+        ogType="website"
+        ogTitle="Sattuni - Arabische Küche & Catering Düsseldorf"
+        ogDescription="Authentische arabische Küche in Düsseldorf. Restaurant mit Lieferservice oder Catering für Events."
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+      />
       
       <main className="min-h-screen">
         <ModeSplitHero />
