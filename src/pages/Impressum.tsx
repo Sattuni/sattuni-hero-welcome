@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Scale } from "lucide-react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Impressum = () => {
 

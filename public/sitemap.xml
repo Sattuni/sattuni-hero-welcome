@@ -6,101 +6,80 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
-  <!-- Homepage -->
+  <!-- Homepage / Landing -->
   <url>
     <loc>https://sattuni.de/</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
-    <image:image>
-      <image:loc>https://sattuni.de/hero-food.jpg</image:loc>
-      <image:title>Sattuni - Arabische Küche Düsseldorf</image:title>
-      <image:caption>Authentische arabische Küche, frisch zubereitet in Düsseldorf</image:caption>
-    </image:image>
   </url>
 
-  <!-- Homepage Sections for better Sitelinks -->
+  <!-- ===== RESTAURANT BEREICH ===== -->
   <url>
-    <loc>https://sattuni.de/#services</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <mobile:mobile/>
-  </url>
-  
-  <url>
-    <loc>https://sattuni.de/#spezialitaeten</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <mobile:mobile/>
-  </url>
-  
-  <url>
-    <loc>https://sattuni.de/#kontakt</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  
-  <url>
-    <loc>https://sattuni.de/#oeffnungszeiten</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-
-  <!-- Specialties Page -->
-  <url>
-    <loc>https://sattuni.de/spezialitaeten</loc>
-    <lastmod>2025-01-07</lastmod>
+    <loc>https://sattuni.de/restaurant</loc>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/restaurant/spezialitaeten</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
     <image:image>
-      <image:loc>https://sattuni.de/hero-specialties.jpg</image:loc>
+      <image:loc>https://sattuni.de/hero/hero-specialties.jpg</image:loc>
       <image:title>Arabische Spezialitäten - Hummus, Falafel und mehr</image:title>
       <image:caption>Entdecke authentische arabische Spezialitäten in Düsseldorf</image:caption>
     </image:image>
   </url>
 
-  <!-- Catering Page -->
+  <url>
+    <loc>https://sattuni.de/restaurant/speisekarte</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ===== CATERING BEREICH ===== -->
   <url>
     <loc>https://sattuni.de/catering</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
     <image:image>
-      <image:loc>https://sattuni.de/hero-catering.jpg</image:loc>
+      <image:loc>https://sattuni.de/hero/hero-catering.jpg</image:loc>
       <image:title>Catering Service Düsseldorf - Arabische Küche für Events</image:title>
       <image:caption>Professionelles Catering mit authentischer arabischer Küche</image:caption>
     </image:image>
   </url>
 
-  <!-- Speisekarte Page -->
   <url>
-    <loc>https://sattuni.de/speisekarte</loc>
-    <lastmod>2025-01-07</lastmod>
+    <loc>https://sattuni.de/catering/galerie</loc>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
     <mobile:mobile/>
-    <image:image>
-      <image:loc>https://sattuni.de/hero-food.jpg</image:loc>
-      <image:title>Speisekarte - Sattuni Orientalische Küche</image:title>
-      <image:caption>Komplette Speisekarte mit Preisen - Hummus, Falafel, Bowls und mehr</image:caption>
-    </image:image>
   </url>
 
-  <!-- About Us Page -->
   <url>
-    <loc>https://sattuni.de/ueber-uns</loc>
-    <lastmod>2025-10-21</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://sattuni.de/catering/menus</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/ueber-uns</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <mobile:mobile/>
     <image:image>
       <image:loc>https://sattuni.de/hero-about-us.jpg</image:loc>
@@ -109,10 +88,97 @@
     </image:image>
   </url>
 
-  <!-- Legal Pages -->
+  <!-- ===== BLOG BEREICH ===== -->
+  <url>
+    <loc>https://sattuni.de/catering/blog</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/buero-lunch-ideen</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/office-lunch-hero.jpg</image:loc>
+      <image:title>10 kreative Büro-Lunch-Ideen</image:title>
+      <image:caption>Kreative Catering-Inspirationen für das Büro</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/was-bedeutet-mezze</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/mezze-sharing-hero.jpg</image:loc>
+      <image:title>Was bedeutet Mezze?</image:title>
+      <image:caption>Arabische Gastfreundschaft und das Prinzip des Teilens</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/workshop-catering</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/workshop-catering-hero.jpg</image:loc>
+      <image:title>Workshop-Catering Guide</image:title>
+      <image:caption>So bleibt dein Team den ganzen Tag fokussiert</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/vegane-arabische-klassiker</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/vegan-arabic-classics.jpg</image:loc>
+      <image:title>5 vegane Klassiker der arabischen Küche</image:title>
+      <image:caption>Falafel, Hummus und mehr - arabische Küche ist von Natur aus vegan</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/veganes-office-buffet-veganuary</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/veganuary-hero-abstract.jpg</image:loc>
+      <image:title>Veganes Office-Buffet für 140 Personen</image:title>
+      <image:caption>Einblick in unser veganes Veganuary-Catering</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://sattuni.de/blog/kundenbesuch-hero.jpg</image:loc>
+      <image:title>Catering für Kundenbesuche</image:title>
+      <image:caption>Jeden Tag was Neues - mehrtägiges Catering das nicht langweilt</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ===== RECHTLICHES ===== -->
   <url>
     <loc>https://sattuni.de/impressum</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <mobile:mobile/>
@@ -120,7 +186,7 @@
 
   <url>
     <loc>https://sattuni.de/datenschutz</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <mobile:mobile/>

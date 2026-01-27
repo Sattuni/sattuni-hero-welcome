@@ -1,6 +1,6 @@
 import { CheckCircle, Clock, Mail, Phone, ArrowLeft, Home } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ModeHeader from "@/components/layout/ModeHeader";
