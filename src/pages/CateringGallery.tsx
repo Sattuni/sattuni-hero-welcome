@@ -5,7 +5,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 import { ChevronLeft, ChevronRight, X, Camera, Utensils, Grid3X3, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useMobileDetection } from "@/hooks/useMobileDetection";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/seo/SEOHead";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
@@ -258,13 +258,12 @@ const CateringGallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Galerie | Sattuni Catering Düsseldorf</title>
-        <meta 
-          name="description" 
-          content="Entdecke unsere kulinarischen Kreationen – von frischen Bowls über cremige Dips bis hin zu aufgebauten Buffets für dein Event." 
-        />
-      </Helmet>
+      <SEOHead
+        title="Galerie | Sattuni Catering Düsseldorf"
+        description="Entdecke unsere kulinarischen Kreationen – von frischen Bowls über cremige Dips bis hin zu aufgebauten Buffets für dein Event."
+        canonicalUrl="https://sattuni.de/catering/galerie"
+        ogImage="https://sattuni.de/sattuni_logo.jpg"
+      />
 
       <ModeHeader />
 
