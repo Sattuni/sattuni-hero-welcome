@@ -51,8 +51,8 @@ const SEOHead = ({
 
   return (
     <Helmet>
-      {/* Prerender Ready Marker - signals that SEO tags are set */}
-      <meta name="prerender-ready" content="true" />
+      {/* Prerender Ready Marker - overrides the false value in index.html when React mounts */}
+      <meta name="prerender-ready" content="true" data-rh="true" />
       
       {/* Primary Meta Tags */}
       <title>{title}</title>
