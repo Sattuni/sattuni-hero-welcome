@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Utensils, Salad, Pizza, Sandwich, Soup, ChefHat, Coffee, Lightbulb, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -29,6 +30,13 @@ const BlogPost1 = () => {
         ogDescription="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni."
         ogImage="https://sattuni.de/blog/office-lunch-hero.jpg"
         articlePublishedTime="2025-10-01"
+      />
+      <BlogPostJsonLd
+        title="10 kreative Büro-Lunch-Ideen – wenn ihr keine Lust mehr auf Pizza & Pasta habt"
+        description="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team."
+        url="https://sattuni.de/catering/blog/buero-lunch-ideen"
+        imageUrl="https://sattuni.de/blog/office-lunch-hero.jpg"
+        datePublished="2025-10-01"
       />
 
       <div className="min-h-screen bg-gradient-hero">

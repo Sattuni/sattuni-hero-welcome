@@ -4,6 +4,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 
 interface BlogLayoutProps {
@@ -30,7 +31,8 @@ interface BlogLayoutProps {
 /**
  * Standardized blog layout template ensuring:
  * - Semantic HTML structure (<main>, <article>, <header>, <section>)
- * - Consistent SEO meta tags
+ * - Consistent SEO meta tags with og:type=article
+ * - BlogPosting JSON-LD structured data
  * - Proper heading hierarchy (H1)
  * - Breadcrumb navigation
  * - Accessible content structure
@@ -63,6 +65,11 @@ const BlogLayout = ({
     year: "numeric",
   });
 
+  // Ensure og:image is absolute URL
+  const absoluteOgImage = ogImage.startsWith("http") 
+    ? ogImage 
+    : `https://sattuni.de${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
+
   return (
     <>
       <SEOHead
@@ -71,8 +78,15 @@ const BlogLayout = ({
         keywords={keywords}
         canonicalUrl={canonicalUrl}
         ogType="article"
-        ogImage={ogImage}
+        ogImage={absoluteOgImage}
         articlePublishedTime={publishedDate}
+      />
+      <BlogPostJsonLd
+        title={articleTitle}
+        description={description}
+        url={canonicalUrl}
+        imageUrl={absoluteOgImage}
+        datePublished={publishedDate}
       />
 
       <div className="min-h-screen bg-gradient-hero">
