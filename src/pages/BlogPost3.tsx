@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Users, Coffee, Lightbulb, Timer, Utensils, Zap, CheckCircle, Target, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -29,6 +30,13 @@ const BlogPost3 = () => {
         ogDescription="Das richtige Essen zur richtigen Zeit macht den Unterschied. Praktische Tipps für Pausenverpflegung und Menüauswahl."
         ogImage="https://sattuni.de/blog/workshop-catering-hero.jpg"
         articlePublishedTime="2026-01-14"
+      />
+      <BlogPostJsonLd
+        title="Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert"
+        description="Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl."
+        url="https://sattuni.de/catering/blog/workshop-catering"
+        imageUrl="https://sattuni.de/blog/workshop-catering-hero.jpg"
+        datePublished="2026-01-14"
       />
 
       <div className="min-h-screen bg-gradient-hero">

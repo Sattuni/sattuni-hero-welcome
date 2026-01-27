@@ -19,6 +19,12 @@ interface SEOHeadProps {
 /**
  * Reusable SEO component for consistent meta tags across all pages.
  * Implements Open Graph, Twitter Cards, and standard SEO tags.
+ * 
+ * IMPORTANT: og:image must be:
+ * - Absolute URL (https://sattuni.de/...)
+ * - PNG or JPG format
+ * - 1200×630 pixels recommended
+ * - Publicly accessible (HTTP 200)
  */
 const SEOHead = ({
   title,
@@ -28,7 +34,7 @@ const SEOHead = ({
   ogType = "website",
   ogTitle,
   ogDescription,
-  ogImage,
+  ogImage = "https://sattuni.de/sattuni_logo.jpg",
   ogImageWidth = "1200",
   ogImageHeight = "630",
   articlePublishedTime,
@@ -37,6 +43,11 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const finalOgTitle = ogTitle || title;
   const finalOgDescription = ogDescription || description;
+
+  // Ensure og:image is absolute URL
+  const absoluteOgImage = ogImage.startsWith("http") 
+    ? ogImage 
+    : `https://sattuni.de${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
 
   return (
     <Helmet>
@@ -58,28 +69,30 @@ const SEOHead = ({
       <meta property="og:site_name" content="Sattuni Catering" />
       <meta property="og:locale" content="de_DE" />
       
-      {ogImage && (
-        <>
-          <meta property="og:image" content={ogImage} />
-          <meta property="og:image:width" content={ogImageWidth} />
-          <meta property="og:image:height" content={ogImageHeight} />
-          <meta property="og:image:alt" content={finalOgTitle} />
-        </>
-      )}
+      {/* og:image - always set with absolute URL */}
+      <meta property="og:image" content={absoluteOgImage} />
+      <meta property="og:image:url" content={absoluteOgImage} />
+      <meta property="og:image:secure_url" content={absoluteOgImage} />
+      <meta property="og:image:type" content={absoluteOgImage.endsWith(".png") ? "image/png" : "image/jpeg"} />
+      <meta property="og:image:width" content={ogImageWidth} />
+      <meta property="og:image:height" content={ogImageHeight} />
+      <meta property="og:image:alt" content={finalOgTitle} />
 
       {/* Article-specific tags */}
       {ogType === "article" && articlePublishedTime && (
         <>
           <meta property="article:published_time" content={articlePublishedTime} />
           <meta property="article:author" content={articleAuthor} />
+          <meta property="article:section" content="Catering" />
         </>
       )}
 
       {/* Twitter/X Card */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@sattuni" />
       <meta name="twitter:title" content={finalOgTitle} />
       <meta name="twitter:description" content={finalOgDescription} />
-      {ogImage && <meta name="twitter:image" content={ogImage} />}
+      <meta name="twitter:image" content={absoluteOgImage} />
     </Helmet>
   );
 };

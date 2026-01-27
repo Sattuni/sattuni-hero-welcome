@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Leaf, Lightbulb, TrendingUp } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
@@ -35,6 +36,13 @@ const BlogPost5 = () => {
         ogDescription="Ein veganes Buffet für 140 Leute – komplett pflanzlich, kein Kompromiss. So haben wir das gemacht."
         ogImage="https://sattuni.de/blog/veganuary-hero-abstract.jpg"
         articlePublishedTime="2026-01-22"
+      />
+      <BlogPostJsonLd
+        title="140 Personen, 100 % vegan: Ein Office-Buffet im Veganuary"
+        description="Ein Einblick in unser veganes Office-Buffet für 140 Personen im Veganuary. Von der Planung über die Herausforderungen bis zu unseren Learnings."
+        url="https://sattuni.de/catering/blog/veganes-office-buffet-veganuary"
+        imageUrl="https://sattuni.de/blog/veganuary-hero-abstract.jpg"
+        datePublished="2026-01-22"
       />
 
       <div className="min-h-screen bg-gradient-hero">
