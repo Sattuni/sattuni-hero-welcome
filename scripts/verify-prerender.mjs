@@ -26,7 +26,7 @@ const REQUIRED_META = [
   { selector: 'meta[property="og:title"]', name: 'og:title' },
   { selector: 'meta[property="og:description"]', name: 'og:description' },
   { selector: 'meta[property="og:image"]', name: 'og:image' },
-  { selector: 'meta[name="prerender-ready"]', name: 'prerender-ready marker' },
+  { selector: 'meta[name="prerender-ready"][content="true"]', name: 'prerender-ready marker (content=true)' },
 ];
 
 // Track results
@@ -93,19 +93,33 @@ function hasSelector(html, selector) {
     return /<title[^>]*>[^<]+<\/title>/i.test(html);
   }
   
-  // Convert CSS selector to regex pattern
-  const match = selector.match(/^(\w+)\[([^\]]+)\]$/);
-  if (match) {
-    const [, tag, attrPart] = match;
-    const attrMatch = attrPart.match(/^([^=]+)="([^"]+)"$/);
-    if (attrMatch) {
-      const [, attrName, attrValue] = attrMatch;
-      const pattern = new RegExp(`<${tag}[^>]*${attrName}=["']${attrValue}["'][^>]*>`, 'i');
-      return pattern.test(html);
-    }
-  }
+  // Handle attribute selectors like meta[name="x"][content="y"]
+  // Parse selector for multiple attributes
+  const tagMatch = selector.match(/^(\w+)/);
+  if (!tagMatch) return false;
   
-  return false;
+  const tag = tagMatch[1];
+  const attrMatches = [...selector.matchAll(/\[([^\]]+)\]/g)];
+  
+  if (attrMatches.length === 0) return false;
+  
+  // Build regex pattern that matches all attributes
+  // Find all tags of that type and check if they have all required attributes
+  const tagPattern = new RegExp(`<${tag}[^>]*>`, 'gi');
+  const tags = html.match(tagPattern) || [];
+  
+  return tags.some(tagStr => {
+    return attrMatches.every(match => {
+      const attrPart = match[1];
+      const attrMatch = attrPart.match(/^([^=]+)="([^"]+)"$/);
+      if (attrMatch) {
+        const [, attrName, attrValue] = attrMatch;
+        const attrPattern = new RegExp(`${attrName}=["']${attrValue}["']`, 'i');
+        return attrPattern.test(tagStr);
+      }
+      return false;
+    });
+  });
 }
 
 /**

@@ -44,8 +44,8 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && htmlPrerender({
       staticDir: path.join(__dirname, "dist"),
       routes: prerenderRoutes,
-      // Wait for SEO meta tags to be set before capturing HTML
-      selector: 'meta[name="prerender-ready"]',
+      // Wait for React to set prerender-ready to "true" (overriding "false" from index.html)
+      selector: 'meta[name="prerender-ready"][content="true"]',
       minify: {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
