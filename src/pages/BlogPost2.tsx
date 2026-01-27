@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Leaf, Salad, Users, Heart, Utensils, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -29,6 +30,13 @@ const BlogPost2 = () => {
         ogDescription="Mezze ist mehr als kleine Gerichte – es ist eine Art, zusammen zu essen. Entspannt, gesellig, ohne Stress."
         ogImage="https://sattuni.de/blog/mezze-sharing-hero.jpg"
         articlePublishedTime="2025-10-23"
+      />
+      <BlogPostJsonLd
+        title="Was bedeutet eigentlich Mezze? Warum Teilen und Genießen der wahre Geschmack der arabischen Küche ist"
+        description="Erfahre, was Mezze bedeutet und wie Sattuni das arabische Prinzip des Teilens in moderne Küche bringt."
+        url="https://sattuni.de/catering/blog/was-bedeutet-mezze"
+        imageUrl="https://sattuni.de/blog/mezze-sharing-hero.jpg"
+        datePublished="2025-10-23"
       />
 
       <div className="min-h-screen bg-gradient-hero">

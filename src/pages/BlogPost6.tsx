@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Users, ArrowRight, ChefHat, Sparkles } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
@@ -34,6 +35,13 @@ const BlogPost6 = () => {
         ogDescription="5-10 Tage Catering, jeden Tag ein anderes Menü. So begleiten wir Stammkunden bei mehrtägigen Kundenbesuchen."
         ogImage="https://sattuni.de/blog/kundenbesuch-hero.jpg"
         articlePublishedTime="2025-12-15"
+      />
+      <BlogPostJsonLd
+        title="Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt"
+        description="Mehrtägige Kundenbesuche, jeden Tag ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering über 5-10 Tage am Stück liefern."
+        url="https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung"
+        imageUrl="https://sattuni.de/blog/kundenbesuch-hero.jpg"
+        datePublished="2025-12-15"
       />
 
       <div className="min-h-screen bg-gradient-hero">

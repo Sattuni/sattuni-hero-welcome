@@ -3,6 +3,7 @@ import ModeHeader from "@/components/layout/ModeHeader";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
+import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Leaf, Users, CheckCircle } from "lucide-react";
 import LazyImage from "@/components/common/LazyImage";
@@ -57,6 +58,13 @@ const BlogPost4 = () => {
         ogDescription="Die veganen Sachen gehen bei Firmenevents als erstes weg – und das sind einfach die Klassiker unserer Großeltern."
         ogImage="https://sattuni.de/blog/vegan-arabic-classics.jpg"
         articlePublishedTime="2026-01-20"
+      />
+      <BlogPostJsonLd
+        title="5 vegane Klassiker der arabischen Küche, die jedes Team liebt"
+        description="Entdecke 5 bewährte vegane Lieblingsgerichte der arabischen Küche: Falafel, Hummus, Baba Ghanoush, Taboulé und mehr."
+        url="https://sattuni.de/catering/blog/vegane-arabische-klassiker"
+        imageUrl="https://sattuni.de/blog/vegan-arabic-classics.jpg"
+        datePublished="2026-01-20"
       />
 
       <div className="min-h-screen bg-gradient-hero">
