@@ -1,27 +1,42 @@
 
-# Plan: Pre-Rendering für bessere SEO & Bot-Lesbarkeit
 
-## Zusammenfassung des Problems
+# Plan: Pre-Rendering für ChatGPT & Bot-Lesbarkeit (Vollständige Implementierung)
 
-Aktuell ist eure Website eine **Single Page Application (SPA)** – das bedeutet, wenn jemand (oder ein Bot) die Seite aufruft, wird zuerst nur eine fast leere HTML-Datei geladen. Der eigentliche Inhalt wird erst durch JavaScript im Browser erzeugt.
+## Problem-Ursache
 
-**Das Problem:** KI-Bots wie ChatGPT, Perplexity oder Social-Media-Crawler (LinkedIn, Facebook) führen oft kein JavaScript aus. Sie sehen also nur eine leere Seite – keinen Blog-Text, keine Überschriften, nichts.
-
-**Die Lösung:** Pre-Rendering – beim Build-Prozess werden fertige HTML-Dateien für jede Seite erstellt. Bots bekommen dann sofort lesbaren Inhalt.
+Die bisherige Arbeit hat `react-helmet-async` migriert, aber das **eigentliche Pre-Rendering wurde nie implementiert**:
+- Kein Pre-Rendering-Plugin in `vite.config.ts`
+- Kein GitHub Actions Workflow für den Build mit Puppeteer
+- Die Seite liefert nur `<div id="root"></div>` – komplett leer für Bots
 
 ---
 
 ## Was wird gemacht?
 
-### 1. Pre-Rendering-Plugin installieren
+### 1. Pre-Rendering-Plugin installieren und konfigurieren
 
-Wir fügen `vite-plugin-prerender` oder `vite-react-ssg` zum Projekt hinzu. Diese Tools erstellen beim Build automatisch fertige HTML-Dateien für alle wichtigen Seiten.
+**Neue Dependencies in `package.json`:**
+- `@prerenderer/rollup-plugin` – das Vite-kompatible Pre-Rendering-Plugin
+- `@prerenderer/renderer-puppeteer` – der Headless-Browser-Renderer
+- `puppeteer` – der Browser selbst
 
-### 2. Build-Konfiguration anpassen
+**Anpassung `vite.config.ts`:**
+- Plugin hinzufuegen mit allen wichtigen Routen
+- Post-Processing: localhost-URLs durch sattuni.de ersetzen
 
-Die `vite.config.ts` wird erweitert, um folgende Seiten vorab zu rendern:
+### 2. GitHub Actions Workflow erstellen
 
-**Blog-Artikel:**
+Da GitHub Pages keinen Browser starten kann, brauchen wir einen Workflow der:
+1. Den Code auscheckt
+2. Node.js mit Puppeteer-Dependencies installiert
+3. `vite build` ausfuehrt (mit Pre-Rendering)
+4. Die generierten statischen HTML-Dateien auf GitHub Pages deployed
+
+**Neue Datei:** `.github/workflows/deploy.yml`
+
+### 3. Routen die pre-gerendert werden (Empfehlung)
+
+**Blog (Prioritaet 1 – fuer ChatGPT/Perplexity):**
 - `/catering/blog`
 - `/catering/blog/buero-lunch-ideen`
 - `/catering/blog/was-bedeutet-mezze`
@@ -30,7 +45,7 @@ Die `vite.config.ts` wird erweitert, um folgende Seiten vorab zu rendern:
 - `/catering/blog/veganes-office-buffet-veganuary`
 - `/catering/blog/kundenbesuch-catering-abwechslung`
 
-**Hauptseiten:**
+**Hauptseiten (Prioritaet 2 – fuer Google/LinkedIn):**
 - `/` (Landing)
 - `/catering`
 - `/catering/galerie`
@@ -40,41 +55,22 @@ Die `vite.config.ts` wird erweitert, um folgende Seiten vorab zu rendern:
 - `/restaurant/spezialitaeten`
 - `/restaurant/speisekarte`
 
-### 3. react-helmet durch react-helmet-async ersetzen
-
-Für korrektes Pre-Rendering muss das `react-helmet` Package durch `react-helmet-async` ersetzt werden. Dieses unterstützt Server-Side-Rendering und Pre-Rendering.
-
-### 4. Sitemap aktualisieren
-
-Die `public/sitemap.xml` wird ergänzt um alle Blog-URLs mit korrekten Pfaden unter `/catering/blog/...`.
-
----
-
-## Ergebnis
-
-Nach dieser Änderung:
-
-| Vorher | Nachher |
-|--------|---------|
-| ChatGPT sieht leere Seite | ChatGPT kann Blog-Artikel lesen und zitieren |
-| LinkedIn-Vorschau zeigt nur Standardtext | LinkedIn zeigt Artikel-Titel, Beschreibung und Bild |
-| Google muss JavaScript rendern | Google bekommt fertiges HTML (schnellere Indexierung) |
-| Perplexity findet keine Inhalte | Perplexity kann eure Expertise als Quelle nutzen |
+**Legal/Shared:**
+- `/impressum`
+- `/datenschutz`
 
 ---
 
 ## Technische Details
 
-### Neue Dependencies
+### Neue Dependencies (package.json)
 
 ```json
 {
   "devDependencies": {
-    "vite-plugin-prerender": "^latest",
-    "@prerenderer/renderer-puppeteer": "^latest"
-  },
-  "dependencies": {
-    "react-helmet-async": "^2.0.x"
+    "@prerenderer/rollup-plugin": "^0.4.0",
+    "@prerenderer/renderer-puppeteer": "^1.2.0",
+    "puppeteer": "^21.0.0"
   }
 }
 ```
@@ -82,58 +78,133 @@ Nach dieser Änderung:
 ### Angepasste vite.config.ts
 
 ```typescript
-import prerender from 'vite-plugin-prerender';
+import prerender from '@prerenderer/rollup-plugin';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    prerender({
+    mode === "development" && componentTagger(),
+    mode === "production" && prerender({
       routes: [
         '/',
         '/catering',
         '/catering/blog',
         '/catering/blog/buero-lunch-ideen',
         '/catering/blog/was-bedeutet-mezze',
-        // ... alle weiteren Seiten
+        '/catering/blog/workshop-catering',
+        '/catering/blog/vegane-arabische-klassiker',
+        '/catering/blog/veganes-office-buffet-veganuary',
+        '/catering/blog/kundenbesuch-catering-abwechslung',
+        '/catering/galerie',
+        '/catering/menus',
+        '/catering/ueber-uns',
+        '/restaurant',
+        '/restaurant/spezialitaeten',
+        '/restaurant/speisekarte',
+        '/impressum',
+        '/datenschutz',
       ],
+      renderer: '@prerenderer/renderer-puppeteer',
+      rendererOptions: {
+        renderAfterTime: 3000, // Warten bis React geladen hat
+      },
+      postProcess(renderedRoute) {
+        // localhost durch echte Domain ersetzen
+        renderedRoute.html = renderedRoute.html
+          .replace(/http:\/\/localhost:\d+/g, 'https://sattuni.de')
+          .replace(/http:/g, 'https:');
+        return renderedRoute;
+      },
     }),
-  ],
-});
+  ].filter(Boolean),
+}));
 ```
 
-### Migrationsschritte für react-helmet-async
+### GitHub Actions Workflow (.github/workflows/deploy.yml)
 
-1. `react-helmet` entfernen
-2. `react-helmet-async` installieren
-3. `HelmetProvider` im `App.tsx` hinzufügen
-4. Alle `import { Helmet } from "react-helmet"` zu `react-helmet-async` ändern
+```yaml
+name: Build and Deploy
 
-### Betroffene Dateien
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
-**Konfiguration:**
-- `package.json` – neue Dependencies
-- `vite.config.ts` – Pre-Render-Plugin
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-**React-Helmet Migration (~15 Dateien):**
-- `src/App.tsx` – HelmetProvider hinzufügen
-- `src/pages/Blog.tsx`
-- `src/pages/BlogPost1.tsx` bis `BlogPost6.tsx`
-- `src/pages/Catering.tsx`
-- `src/pages/Landing.tsx`
-- `src/pages/Restaurant.tsx`
-- `src/pages/Specialties.tsx`
-- `src/pages/Speisekarte.tsx`
-- `src/pages/AboutUs.tsx`
-- `src/pages/CateringGallery.tsx`
-- `src/pages/Menus.tsx`
-- `src/pages/Impressum.tsx`
-- `src/pages/Datenschutz.tsx`
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Puppeteer browser
+        run: npx puppeteer browsers install chrome
+      
+      - name: Build with pre-rendering
+        run: npm run build
+        env:
+          CI: true
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
-**Sitemap:**
-- `public/sitemap.xml` – Blog-URLs hinzufügen
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
 
 ---
 
-## Zeitaufwand
+## Ergebnis nach Implementierung
 
-Die Implementierung umfasst ca. 20 Dateiänderungen und ist in einem einzigen Chat-Durchlauf umsetzbar.
+| Vorher | Nachher |
+|--------|---------|
+| ChatGPT sieht: `<div id="root"></div>` | ChatGPT sieht: vollstaendiger Blog-Text als HTML |
+| LinkedIn-Vorschau: nur Meta-Tags | LinkedIn-Vorschau: Titel + Beschreibung + Bild |
+| Google: muss JavaScript rendern | Google: bekommt fertiges HTML |
+| Perplexity: keine Inhalte | Perplexity: kann euch als Quelle zitieren |
+
+---
+
+## Betroffene Dateien
+
+| Datei | Aktion |
+|-------|--------|
+| `package.json` | Dependencies hinzufuegen |
+| `vite.config.ts` | Pre-Render-Plugin konfigurieren |
+| `.github/workflows/deploy.yml` | Neuer Workflow fuer Build + Deploy |
+
+---
+
+## Wichtige Hinweise
+
+1. **Erster Build dauert laenger:** Puppeteer muss jede Seite einzeln rendern (~20 Seiten x ~3 Sek = ~1 Min extra)
+
+2. **Lokaler Test:** Pre-Rendering laeuft nur bei `npm run build` (production mode), nicht bei `npm run dev`
+
+3. **GitHub Pages Konfiguration:** Nach dem ersten Workflow-Run muss in den Repository-Settings unter "Pages" die Source auf "GitHub Actions" gestellt werden
+
+4. **Dynamische Inhalte:** Seiten die sich auf Nutzer-Sessions verlassen (z.B. eingeloggte Bereiche) sollten NICHT pre-gerendert werden – das betrifft euch aber nicht
+
