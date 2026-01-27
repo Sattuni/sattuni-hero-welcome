@@ -1,0 +1,84 @@
+import { Helmet } from "react-helmet-async";
+
+interface SEOHeadProps {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonicalUrl: string;
+  ogType?: "website" | "article" | "restaurant";
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogImageWidth?: string;
+  ogImageHeight?: string;
+  articlePublishedTime?: string;
+  articleAuthor?: string;
+  noIndex?: boolean;
+}
+
+/**
+ * Reusable SEO component for consistent meta tags across all pages.
+ * Implements Open Graph, Twitter Cards, and standard SEO tags.
+ */
+const SEOHead = ({
+  title,
+  description,
+  keywords,
+  canonicalUrl,
+  ogType = "website",
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogImageWidth = "1200",
+  ogImageHeight = "630",
+  articlePublishedTime,
+  articleAuthor = "Sattuni",
+  noIndex = false,
+}: SEOHeadProps) => {
+  const finalOgTitle = ogTitle || title;
+  const finalOgDescription = ogDescription || description;
+
+  return (
+    <Helmet>
+      {/* Primary Meta Tags */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* Open Graph / Facebook / LinkedIn */}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:title" content={finalOgTitle} />
+      <meta property="og:description" content={finalOgDescription} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content="Sattuni Catering" />
+      <meta property="og:locale" content="de_DE" />
+      
+      {ogImage && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content={ogImageWidth} />
+          <meta property="og:image:height" content={ogImageHeight} />
+          <meta property="og:image:alt" content={finalOgTitle} />
+        </>
+      )}
+
+      {/* Article-specific tags */}
+      {ogType === "article" && articlePublishedTime && (
+        <>
+          <meta property="article:published_time" content={articlePublishedTime} />
+          <meta property="article:author" content={articleAuthor} />
+        </>
+      )}
+
+      {/* Twitter/X Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={finalOgTitle} />
+      <meta name="twitter:description" content={finalOgDescription} />
+      {ogImage && <meta name="twitter:image" content={ogImage} />}
+    </Helmet>
+  );
+};
+
+export default SEOHead;
