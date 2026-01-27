@@ -22,7 +22,7 @@ import { useMenuTracking } from "@/hooks/useMenuTracking";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { ArrowUp, Calendar, Leaf, Truck, Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Specialties = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);

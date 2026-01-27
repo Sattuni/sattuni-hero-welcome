@@ -5,7 +5,7 @@ import { useSiteMode } from "@/contexts/SiteModeContext";
 import { ChevronLeft, ChevronRight, X, Camera, Utensils, Grid3X3, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useMobileDetection } from "@/hooks/useMobileDetection";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";

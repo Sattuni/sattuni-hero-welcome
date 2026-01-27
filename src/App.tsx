@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnalyticsProvider } from "@/contexts";
 import { SiteModeProvider } from "@/contexts/SiteModeContext";
+import { HelmetProvider } from "react-helmet-async";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -83,24 +84,26 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <SiteModeProvider>
-      <AnalyticsProvider>
-        <TooltipProvider>
-          <div className="min-h-screen bg-gradient-hero">
-            <Toaster />
-            <Sonner />
-            <ChatbotPositioner />
-            <CookieConsent />
-            <GLFOrderButton />
-            <BrowserRouter>
-              <AppRoutes />
-            </BrowserRouter>
-          </div>
-        </TooltipProvider>
-      </AnalyticsProvider>
-    </SiteModeProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <SiteModeProvider>
+        <AnalyticsProvider>
+          <TooltipProvider>
+            <div className="min-h-screen bg-gradient-hero">
+              <Toaster />
+              <Sonner />
+              <ChatbotPositioner />
+              <CookieConsent />
+              <GLFOrderButton />
+              <BrowserRouter>
+                <AppRoutes />
+              </BrowserRouter>
+            </div>
+          </TooltipProvider>
+        </AnalyticsProvider>
+      </SiteModeProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

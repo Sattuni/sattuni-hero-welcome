@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import ModeSplitHero from "@/components/features/mode-selection/ModeSplitHero";
 import Footer from "@/components/layout/Footer";
 
