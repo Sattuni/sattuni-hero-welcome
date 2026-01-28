@@ -37,12 +37,12 @@ const Restaurant = () => {
     <>
       <SEOHead
         title="Restaurant & Lieferservice | Sattuni – Arabische Küche Düsseldorf"
-        description="Arabische Küche in Düsseldorf: frisch, hausgemacht & authentisch. Lieferung in 30-45 Min. Hummus, Falafel, Oriental Bowls & mehr. Jetzt bestellen!"
+        description="Arabische Küche in Düsseldorf: Hummus, Falafel & Bowls. Frisch, hausgemacht. Lieferung in 30–45 Min!"
         keywords="arabisches restaurant düsseldorf, lieferservice düsseldorf, hummus, falafel, oriental bowls, vegan düsseldorf, halal"
         canonicalUrl="https://sattuni.de/restaurant"
         ogType="restaurant"
         ogTitle="Sattuni Restaurant – Arabische Küche Düsseldorf"
-        ogDescription="Frische arabische Küche mit Lieferservice in Düsseldorf. Hummus, Falafel & mehr!"
+        ogDescription="Hummus, Falafel & Bowls. Frisch, hausgemacht. Lieferung in Düsseldorf!"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
       />
       

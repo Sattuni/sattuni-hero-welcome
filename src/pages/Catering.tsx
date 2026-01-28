@@ -226,7 +226,7 @@ const Catering = () => {
     <>
       <SEOHead
         title="Catering in Düsseldorf – Zuverlässig & Professionell | Sattuni"
-        description="Professionelles Catering in Düsseldorf ab 20 Personen. Klare Abläufe, zuverlässige Lieferung, persönliche Betreuung. Jetzt unverbindlich anfragen."
+        description="Catering ab 20 Personen in Düsseldorf. Zuverlässig, persönlich & unkompliziert. Jetzt unverbindlich anfragen!"
         keywords="Catering Düsseldorf, Business Catering, Event Catering, Firmenevent, Buffet Service, arabisches Catering"
         canonicalUrl="https://sattuni.de/catering"
         ogImage="https://sattuni.de/sattuni_logo.jpg"

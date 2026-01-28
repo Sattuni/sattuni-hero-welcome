@@ -90,7 +90,7 @@ const Blog = () => {
     <>
       <SEOHead
         title="Blog - Sattuni | Geschichten, Rezepte & Einblicke aus unserer Küche"
-        description="Entdecke Geschichten, Rezepte und Einblicke aus unserer Küche. Tipps zu Catering, arabischer Küche und Event-Verpflegung in Düsseldorf."
+        description="Geschichten, Rezepte & Tipps aus unserer Küche. Alles rund um Catering und arabische Küche in Düsseldorf."
         keywords="Sattuni Blog, arabische Küche, syrische Rezepte, Catering Düsseldorf, Mezze, orientalische Küche, veganes Catering"
         canonicalUrl="https://sattuni.de/catering/blog"
         ogImage="https://sattuni.de/sattuni_logo.jpg"

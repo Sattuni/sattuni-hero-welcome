@@ -260,7 +260,7 @@ const CateringGallery = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Galerie | Sattuni Catering Düsseldorf"
-        description="Entdecke unsere kulinarischen Kreationen – von frischen Bowls über cremige Dips bis hin zu aufgebauten Buffets für dein Event."
+        description="Bowls, Dips & Buffets: Einblicke in unser Catering. Bilder von echten Events in Düsseldorf."
         canonicalUrl="https://sattuni.de/catering/galerie"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
       />
