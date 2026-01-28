@@ -88,13 +88,7 @@ const Speisekarte = () => {
     script.textContent = JSON.stringify(structuredData);
     document.head.appendChild(script);
 
-    // Canonical link
-    const canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonicalLink.setAttribute('rel', 'canonical');
-    canonicalLink.setAttribute('href', 'https://sattuni.de/speisekarte');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonicalLink);
-    }
+    // Note: Canonical is now managed by SEOHead component
 
     // Scroll to top functionality
     const handleScroll = () => {

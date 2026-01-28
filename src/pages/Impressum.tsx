@@ -17,7 +17,7 @@ const Impressum = () => {
       <Helmet>
         <title>Impressum - Sattuni Oriental Bowls & More</title>
         <meta name="description" content="Impressum und rechtliche Angaben von Sattuni - Oriental Bowls & More, Düsseldorf. Kontaktdaten und Unternehmensangaben gemäß TMG." />
-        <link rel="canonical" href="https://sattuni.de/impressum" />
+        <link rel="canonical" href="https://sattuni.de/impressum/" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 
