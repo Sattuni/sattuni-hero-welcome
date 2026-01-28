@@ -158,7 +158,7 @@ const Menus = () => {
     <>
       <SEOHead
         title="Buffet Catering Menüs | Sattuni"
-        description="Catering Menükarten für orientalische Buffets. Klassik, Premium und Vegetarisch – für jeden Anlass das passende Paket."
+        description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Für jeden Anlass das passende Paket."
         canonicalUrl="https://sattuni.de/catering/menus"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
         noIndex={true}
