@@ -1,8 +1,9 @@
 {
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/AboutUs",
-      "destination": "/ueber-uns",
+      "destination": "/ueber-uns/",
       "permanent": true
     }
   ],

@@ -64,12 +64,12 @@ const Landing = () => {
     <>
       <SEOHead
         title="Sattuni – Arabische Küche & Catering in Düsseldorf"
-        description="Arabische Küche in Düsseldorf: Restaurant mit Lieferservice oder professionelles Catering für Events. Wähle deinen Bereich!"
+        description="Arabische Küche in Düsseldorf: Restaurant mit Lieferservice oder Catering für Events. Jetzt entdecken!"
         keywords="arabische küche düsseldorf, lieferservice düsseldorf, catering düsseldorf, hummus, falafel, vegan"
         canonicalUrl="https://sattuni.de/"
         ogType="website"
         ogTitle="Sattuni - Arabische Küche & Catering Düsseldorf"
-        ogDescription="Authentische arabische Küche in Düsseldorf. Restaurant mit Lieferservice oder Catering für Events."
+        ogDescription="Arabische Küche in Düsseldorf. Restaurant, Lieferservice & Catering für Events."
         ogImage="https://sattuni.de/sattuni_logo.jpg"
       />
       
