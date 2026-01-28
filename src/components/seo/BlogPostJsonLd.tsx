@@ -24,8 +24,9 @@ const BlogPostJsonLd = ({
   authorName = "Sattuni",
 }: BlogPostJsonLdProps) => {
   useEffect(() => {
-    // Ensure absolute URLs
-    const absoluteUrl = url.startsWith("http") ? url : `https://sattuni.de${url}`;
+    // Ensure absolute URLs with trailing slash
+    const baseUrl = url.startsWith("http") ? url : `https://sattuni.de${url}`;
+    const absoluteUrl = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
     const absoluteImageUrl = imageUrl.startsWith("http") 
       ? imageUrl 
       : `https://sattuni.de${imageUrl.startsWith("/") ? "" : "/"}${imageUrl}`;

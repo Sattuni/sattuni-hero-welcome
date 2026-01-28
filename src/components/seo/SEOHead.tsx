@@ -44,6 +44,11 @@ const SEOHead = ({
   const finalOgTitle = ogTitle || title;
   const finalOgDescription = ogDescription || description;
 
+  // Ensure canonical URL always ends with trailing slash
+  const normalizedCanonicalUrl = canonicalUrl.endsWith("/") 
+    ? canonicalUrl 
+    : `${canonicalUrl}/`;
+
   // Ensure og:image is absolute URL
   const absoluteOgImage = ogImage.startsWith("http") 
     ? ogImage 
@@ -56,13 +61,13 @@ const SEOHead = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={normalizedCanonicalUrl} />
 
       {/* Open Graph / Facebook / LinkedIn */}
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={finalOgTitle} />
       <meta property="og:description" content={finalOgDescription} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={normalizedCanonicalUrl} />
       <meta property="og:site_name" content="Sattuni Catering" />
       <meta property="og:locale" content="de_DE" />
       

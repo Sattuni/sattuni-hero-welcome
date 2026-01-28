@@ -17,7 +17,7 @@ const Datenschutz = () => {
       <Helmet>
         <title>Datenschutzerklärung - Sattuni Oriental Bowls & More</title>
         <meta name="description" content="Datenschutzerklärung von Sattuni - Oriental Bowls & More, Düsseldorf. Informationen zum Datenschutz und zur Verarbeitung personenbezogener Daten gemäß DSGVO." />
-        <link rel="canonical" href="https://sattuni.de/datenschutz" />
+        <link rel="canonical" href="https://sattuni.de/datenschutz/" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 

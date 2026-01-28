@@ -1,3 +1,5 @@
-# Netlify redirects for SPA routing
-/AboutUs    /ueber-uns    301
+# Netlify redirects for SPA routing with trailing slashes
+/AboutUs    /ueber-uns/    301
+
+# Enforce trailing slashes (Netlify auto-handles this with Pretty URLs setting)
 /*    /index.html   200
