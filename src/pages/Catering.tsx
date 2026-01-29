@@ -241,7 +241,17 @@ const Catering = () => {
                     scrollToForm();
                   }}
                 >
-                  Unverbindlich Catering anfragen
+                  Unverbindlich anfragen
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8"
+                >
+                  <Link to="/catering/menus">
+                    Menüs & Preise ansehen
+                  </Link>
                 </Button>
               </div>
 
