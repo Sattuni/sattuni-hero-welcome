@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect } from 'react';
 import { Phone, Mail, MessageCircle, Printer, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CATERING_PACKAGES } from '@/constants/catering-packages';
@@ -7,46 +7,37 @@ import ModeHeader from '@/components/layout/ModeHeader';
 import Footer from '@/components/layout/Footer';
 import { useSiteMode } from '@/contexts/SiteModeContext';
 import MenuCard from '@/components/features/catering/MenuCard';
-import MenuFilters, { type OccasionFilter, type GuestCountFilter } from '@/components/features/catering/MenuFilters';
 
 // Menu metadata with occasions and hints
-const MENU_METADATA: Record<string, { occasions: string[]; hint: string; occasionTags: OccasionFilter[] }> = {
+const MENU_METADATA: Record<string, { occasions: string[]; hint: string }> = {
   'flyingbuffet-mix': {
     occasions: ['Empfang', 'Get-together', 'Team-Event', 'Sommerfest', 'Firmenfeier'],
     hint: 'Auswahl aus 10 Speisen',
-    occasionTags: ['feier', 'firmen'],
   },
   'gruene-levante': {
     occasions: ['Office Lunch', 'Workshops', 'Health-Days', 'Private Feiern'],
     hint: 'Leichtes vegetarisches Buffet, auch als Ergänzung geeignet',
-    occasionTags: ['office', 'feier'],
   },
   'sattuni-klassik': {
     occasions: ['Gemeinsames Essen', 'Team-Lunch', 'Kleine Geburtstage', 'Familienfeiern'],
     hint: 'Kalt & warm kombiniert, ausgewogen',
-    occasionTags: ['office', 'geburtstag', 'feier'],
   },
   'sattuni-genuss': {
     occasions: ['Geburtstage', 'Feiern in Locations', 'Kleine Firmenevents'],
     hint: 'Buffet mit Dessert',
-    occasionTags: ['geburtstag', 'feier', 'firmen'],
   },
   'sattuni-festmahl': {
     occasions: ['Große Feiern', 'Sommerfeste', 'Weihnachtsfeiern', 'Firmenevents'],
     hint: 'Großzügiges Buffet für größere Feiern',
-    occasionTags: ['feier', 'firmen'],
   },
   'sattuni-royal': {
     occasions: ['Hochzeiten', 'Runde Geburtstage', 'Exklusive Feiern'],
     hint: 'Premium Buffet mit Lammschulter',
-    occasionTags: ['hochzeit', 'geburtstag', 'feier'],
   },
 };
 
 const Menus = () => {
   const { setMode } = useSiteMode();
-  const [selectedOccasion, setSelectedOccasion] = useState<OccasionFilter>('alle');
-  const [selectedGuestCount, setSelectedGuestCount] = useState<GuestCountFilter>('alle');
 
   // Set catering mode on page load
   useEffect(() => {
@@ -61,37 +52,6 @@ const Menus = () => {
     const text = encodeURIComponent('Schau dir die Catering-Menüs von Sattuni an: https://sattuni.de/menus');
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
-
-  // Filter menus based on selected filters
-  const filteredMenus = useMemo(() => {
-    return CATERING_PACKAGES.filter((pkg) => {
-      const metadata = MENU_METADATA[pkg.id];
-      
-      // Filter by occasion
-      if (selectedOccasion !== 'alle') {
-        if (!metadata?.occasionTags.includes(selectedOccasion)) {
-          return false;
-        }
-      }
-      
-      // Filter by guest count
-      if (selectedGuestCount !== 'alle') {
-        switch (selectedGuestCount) {
-          case '20-40':
-            if (pkg.minGuests > 40) return false;
-            break;
-          case '40-60':
-            if (pkg.minGuests > 60) return false;
-            break;
-          case 'ab60':
-            // Show all menus that work for 60+ guests
-            break;
-        }
-      }
-      
-      return true;
-    });
-  }, [selectedOccasion, selectedGuestCount]);
 
   return (
     <>
@@ -142,47 +102,21 @@ const Menus = () => {
           </div>
         </section>
 
-        {/* Filters */}
-        <section className="container max-w-5xl mx-auto px-4 py-6">
-          <MenuFilters
-            selectedOccasion={selectedOccasion}
-            selectedGuestCount={selectedGuestCount}
-            onOccasionChange={setSelectedOccasion}
-            onGuestCountChange={setSelectedGuestCount}
-          />
-        </section>
-
         {/* Menu Cards */}
-        <main className="container max-w-5xl mx-auto px-4 pb-12 print:pb-4">
-          {filteredMenus.length > 0 ? (
-            <div className="grid gap-6 print:gap-4">
-              {filteredMenus.map((pkg) => {
-                const metadata = MENU_METADATA[pkg.id] || { occasions: [], hint: '' };
-                return (
-                  <MenuCard
-                    key={pkg.id}
-                    pkg={pkg}
-                    occasions={metadata.occasions}
-                    hint={metadata.hint}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Keine Menüs für diese Filterauswahl gefunden.</p>
-              <Button 
-                variant="link" 
-                onClick={() => {
-                  setSelectedOccasion('alle');
-                  setSelectedGuestCount('alle');
-                }}
-                className="mt-2"
-              >
-                Filter zurücksetzen
-              </Button>
-            </div>
-          )}
+        <main className="container max-w-5xl mx-auto px-4 py-6 pb-12 print:pb-4">
+          <div className="grid gap-6 print:gap-4">
+            {CATERING_PACKAGES.map((pkg) => {
+              const metadata = MENU_METADATA[pkg.id] || { occasions: [], hint: '' };
+              return (
+                <MenuCard
+                  key={pkg.id}
+                  pkg={pkg}
+                  occasions={metadata.occasions}
+                  hint={metadata.hint}
+                />
+              );
+            })}
+          </div>
         </main>
 
         {/* CTA Section - hidden on print */}
