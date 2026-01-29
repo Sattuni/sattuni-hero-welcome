@@ -22,10 +22,10 @@ const ModeHeader = () => {
       title: "Catering Service Düsseldorf"
     },
     { 
-      name: "Menüs & Buffets", 
+      name: "Menüs & Preise", 
       href: "/catering/menus", 
       current: location.pathname === "/catering/menus",
-      title: "Buffet Menüs ansehen"
+      title: "Menüs & Preise ansehen"
     },
     { 
       name: "Galerie", 
