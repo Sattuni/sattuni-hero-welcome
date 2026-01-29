@@ -164,7 +164,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Mini-Fatayer', description: 'Hausgemachte Teigtaschen (Spinat / Käse / Hähnchen / Hackfleisch).' },
           { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Füllung (Kartoffel oder Hackfleisch).' },
           { name: 'Hähnchenbruststreifen', description: 'Zartes Hähnchen, serviert auf würzigem Reis.' },
-          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.' },
+          { name: 'Zarte Rindfleischstreifen', description: 'Saftig geschmortes Rindfleisch orientalisch gewürzt.', highlight: 'neu' },
           { name: 'Couscous mit saisonalem Gemüse', description: 'Locker gedämpfter Couscous mit Ofen- und Marktgemüse.' },
           { name: 'Dessert', description: 'Die Zusammenstellung erfolgt flexibel und kann je nach Anlass, Gruppengröße und Wunsch variieren.', highlight: 'neu' },
         ],
