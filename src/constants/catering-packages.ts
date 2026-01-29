@@ -74,8 +74,8 @@ export interface CateringPackage {
 
 export const CATERING_PACKAGES: CateringPackage[] = [
   {
-    id: 'mezze-mix',
-    name: 'Mezze Mix',
+    id: 'flyingbuffet-mix',
+    name: 'Flyingbuffet Mix',
     subtitle: 'Fingerfood für Meetings & Events',
     description: 'Unsere Fingerfood-Pakete passen sich Budget, Anlass und Gruppengröße an. Ideal für Meetings, Team-Events oder lockere Office-Get-togethers – unkompliziert, abwechslungsreich und voller Geschmack.',
     detailedItems: [
@@ -87,7 +87,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Verschiedene Salate', description: 'Frische Auswahl an mediterranen und orientalischen Salaten wie Tabouleh, Fattoush oder Couscous mit Cherry-Tomaten.' },
           { name: 'Lahmacun', description: 'Dünn gebackener Teigfladen mit fein gewürzter Hackfleischmischung – aromatisch und handlich serviert.' },
           { name: 'Thymianbrot (Zaatar)', description: 'Fluffiges Fladenbrot mit Olivenöl und orientalischem Thymian – perfekt zum Teilen oder Dippen.' },
-          { name: 'Käsesticks', description: 'Knusprig gebackene Sticks mit zartschmelzendem Käse – beliebt bei jedem Anlass.' },
+          { name: 'Verschiedene Snackspieße', description: 'Kleine, handliche Spieße, z. B. Tomate–Mozzarella, Käse–Trauben oder Oliven–Käse – unkompliziert und gut in der Hand zu essen.' },
           { name: 'Gemüsesticks', description: 'Frisch geschnittenes saisonales Gemüse, ideal als leichter Snack oder in Kombination mit Dips.' },
           { name: 'Gemüse-Wraps', description: 'Weiche Wraps, gefüllt mit knackigem, mariniertem Gemüse, frischen Kräutern und feiner Sauce – leicht, aromatisch und ideal als vegetarische Fingerfood-Option.' },
         ],
