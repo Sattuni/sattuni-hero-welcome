@@ -255,7 +255,6 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     pricePerPerson: 39.50,
     minGuests: 50,
     includesDessert: true,
-    popular: true,
   },
 ];
 
