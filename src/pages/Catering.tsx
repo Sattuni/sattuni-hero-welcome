@@ -247,7 +247,7 @@ const Catering = () => {
 
               {/* Google Review Trust Badge */}
               <div className="pt-6">
-                <GoogleReviewBadge variant="default" className="text-white/90 hover:text-white" />
+                <GoogleReviewBadge variant="hero" />
               </div>
             </div>
           </div>

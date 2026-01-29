@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 
 interface GoogleReviewBadgeProps {
-  variant?: "default" | "compact" | "minimal";
+  variant?: "default" | "compact" | "minimal" | "hero";
   className?: string;
   showSubtext?: boolean;
 }
@@ -60,6 +60,31 @@ const GoogleReviewBadge = ({
       ))}
     </div>
   );
+
+  // Hero variant - white bold text for dark backgrounds
+  if (variant === "hero") {
+    return (
+      <a
+        href={googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`inline-flex flex-col items-center gap-1 hover:opacity-90 transition-opacity group ${className}`}
+        aria-label="4,9 von 5 Sternen bei Google - Bewertungen ansehen"
+      >
+        <div className="flex items-center gap-2">
+          <Stars />
+          <span className="text-sm font-bold text-white">4,9 von 5</span>
+          <span className="text-sm font-bold text-white">bei</span>
+          <GoogleLogo />
+        </div>
+        {showSubtext && (
+          <span className="text-xs text-white/80 group-hover:underline underline-offset-2">
+            Google Bewertungen ansehen
+          </span>
+        )}
+      </a>
+    );
+  }
 
   if (variant === "minimal") {
     return (
