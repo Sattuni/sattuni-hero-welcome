@@ -10,6 +10,7 @@ export { default as CateringContact } from './catering/CateringContact';
 // ===== FOOD & MENU =====
 export { default as FoodShowcase } from './food/FoodShowcase';
 export { default as BuffetGallery } from './catering/BuffetGallery';
+export { default as CateringGalleryTeaser } from './catering/CateringGalleryTeaser';
 
 // ===== SERVICES =====
 export { default as Services } from './services/Services';

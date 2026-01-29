@@ -1,10 +1,13 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+import officeCatering from "@/assets/gallery/buffets/office-catering-40.jpg";
+import geburtstagsbuffet from "@/assets/gallery/buffets/geburtstagsbuffet-90.jpg";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
+import CateringGalleryTeaser from "@/components/features/catering/CateringGalleryTeaser";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
@@ -505,7 +508,15 @@ const Catering = () => {
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               {/* Business Example */}
-              <Card className="border-l-4 border-l-primary">
+              <Card className="border-l-4 border-l-primary overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={officeCatering}
+                    alt="Office Catering für Veganuary-Teamlunch"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Building2 className="w-5 h-5 text-primary" />
@@ -524,7 +535,15 @@ const Catering = () => {
               </Card>
 
               {/* Private Example */}
-              <Card className="border-l-4 border-l-accent">
+              <Card className="border-l-4 border-l-accent overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={geburtstagsbuffet}
+                    alt="Geburtstagsbuffet für 90 Gäste"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <PartyPopper className="w-5 h-5 text-accent" />
@@ -576,6 +595,9 @@ const Catering = () => {
             </div>
           </div>
         </section>
+
+        {/* Gallery Teaser */}
+        <CateringGalleryTeaser />
 
         {/* Customer Reviews */}
         <CustomerReviews />
