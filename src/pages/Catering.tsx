@@ -118,8 +118,8 @@ const Catering = () => {
     }
   }, []);
 
-  // Process steps for B2B
-  const businessProcessSteps = [
+  // Unified process steps for all catering
+  const processSteps = [
     {
       icon: Mail,
       title: "Anfrage stellen",
@@ -127,42 +127,18 @@ const Catering = () => {
     },
     {
       icon: Phone,
-      title: "Abstimmung",
+      title: "Persönliche Beratung",
       description: "Wir klären offene Fragen, besprechen Menüoptionen und erstellen ein passendes Angebot.",
     },
     {
       icon: CheckCircle,
       title: "Bestätigung",
-      description: "Ihr bestätigt das Angebot – wir kümmern uns um die Planung und Logistik.",
+      description: "Ihr bestätigt das Angebot – wir kümmern uns um Planung und Logistik.",
     },
     {
       icon: Utensils,
-      title: "Lieferung & Aufbau",
-      description: "Pünktlich im vereinbarten Zeitfenster. Optional mit komplettem Aufbau.",
-    },
-  ];
-
-  // Process steps for B2C (more emotional)
-  const privateProcessSteps = [
-    {
-      icon: Heart,
-      title: "Erzählt uns von eurer Feier",
-      description: "Was feiert ihr? Wie viele Gäste kommen? Wir freuen uns auf eure Geschichte.",
-    },
-    {
-      icon: Phone,
-      title: "Persönliche Beratung",
-      description: "Wir helfen euch bei der Menüauswahl und geben Tipps für ein gelungenes Fest.",
-    },
-    {
-      icon: CheckCircle,
-      title: "Alles klar gemacht",
-      description: "Ihr bestätigt – und könnt euch voll auf eure Gäste freuen.",
-    },
-    {
-      icon: PartyPopper,
-      title: "Wir liefern, ihr feiert",
-      description: "Frisch zubereitet und pünktlich bei euch. Der Rest gehört euch und euren Gästen.",
+      title: "Lieferung & Genuss",
+      description: "Pünktlich im vereinbarten Zeitfenster. Optional mit komplettem Aufbau – ihr genießt.",
     },
   ];
 
@@ -280,7 +256,7 @@ const Catering = () => {
                 Menüs
               </a>
               <a
-                href="#ablauf-business"
+                href="#ablauf"
                 className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Ablauf
@@ -335,7 +311,7 @@ const Catering = () => {
                     variant="outline"
                     className="w-full mt-4"
                     onClick={() => {
-                      document.getElementById('ablauf-business')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }}
                   >
                     Mehr erfahren
@@ -371,7 +347,7 @@ const Catering = () => {
                     variant="outline"
                     className="w-full mt-4"
                     onClick={() => {
-                      document.getElementById('ablauf-privat')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }}
                   >
                     Mehr erfahren
@@ -418,24 +394,24 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* 4a) Ablauf für Unternehmen */}
-        <section className="py-12 md:py-20 scroll-mt-24" id="ablauf-business">
+        {/* 4) So läuft euer Catering ab */}
+        <section className="py-12 md:py-20 scroll-mt-24" id="ablauf">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-                <Building2 className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Für Unternehmen</span>
+                <Clock className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">In 4 einfachen Schritten</span>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                So läuft ein Catering für Unternehmen ab
+                So läuft euer Catering ab
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Strukturiert, zuverlässig und ohne Überraschungen – damit ihr euch auf euer Event konzentrieren könnt.
+                Egal ob Firmenevent oder private Feier – der Ablauf ist einfach und unkompliziert.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {businessProcessSteps.map((step, index) => {
+              {processSteps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
                   <div key={index} className="relative">
@@ -451,52 +427,7 @@ const Catering = () => {
                         <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                       </CardContent>
                     </Card>
-                    {index < businessProcessSteps.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                        <ChevronRight className="w-6 h-6 text-muted-foreground/30" />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* 4b) Ablauf für Private Feiern */}
-        <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="ablauf-privat">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-                <PartyPopper className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Für Private Feiern</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                So läuft ein Catering für private Feiern ab
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Eure Feier, euer Genuss – wir kümmern uns ums Essen, damit ihr Zeit für eure Gäste habt.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {privateProcessSteps.map((step, index) => {
-                const IconComponent = step.icon;
-                return (
-                  <div key={index} className="relative">
-                    <Card className="h-full bg-background">
-                      <CardContent className="p-5 text-center space-y-3">
-                        <div className="flex justify-center">
-                          <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
-                            <IconComponent className="w-7 h-7 text-primary" />
-                          </div>
-                        </div>
-                        <div className="text-sm font-medium text-primary">Schritt {index + 1}</div>
-                        <h3 className="text-base md:text-lg font-semibold text-foreground">{step.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                      </CardContent>
-                    </Card>
-                    {index < privateProcessSteps.length - 1 && (
+                    {index < processSteps.length - 1 && (
                       <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
                         <ChevronRight className="w-6 h-6 text-muted-foreground/30" />
                       </div>
