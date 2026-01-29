@@ -62,13 +62,13 @@ export default {
         'gradient-warm': 'var(--gradient-warm)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-sage': 'var(--gradient-sage)',
-        'gradient-subtle': 'linear-gradient(135deg, hsl(105 15% 88%), hsl(30 15% 96%))',
+        'gradient-subtle': 'linear-gradient(135deg, hsl(45 18% 92%), hsl(40 25% 97%))',
       },
       boxShadow: {
         'warm': 'var(--shadow-warm)',
         'soft': 'var(--shadow-soft)',
-        'elegant': '0 8px 32px -8px hsl(105 25% 55% / 0.2)',
-        'glow': '0 0 20px hsl(105 25% 55% / 0.3)',
+        'elegant': '0 8px 32px -8px hsl(30 12% 22% / 0.12)',
+        'glow': '0 0 20px hsl(85 28% 42% / 0.2)',
         'ornate': 'var(--shadow-ornate)',
       },
       fontFamily: {
