@@ -512,13 +512,13 @@ const Catering = () => {
                     <span className="text-sm font-medium text-primary">Unternehmen</span>
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">
-                    Strategieworkshop, 140 Personen
+                    Veganuary-Teamlunch im Office
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Ein Düsseldorfer Unternehmen plante einen ganztägigen Workshop mit Fokus auf 
-                    vegane Optionen. Wir lieferten ein komplett veganes Buffet mit Hummus, Falafel, 
-                    Couscous-Salaten und frischem Fladenbrot. Aufbau um 8:30 Uhr, Abbau nach 
-                    dem Mittagessen – pünktlich und reibungslos.
+                    Ein Düsseldorfer Unternehmen plante einen Teamlunch im Office mit Fokus auf 
+                    vegane Optionen als Veganuary-Aktion. Wir lieferten ein komplett veganes Buffet 
+                    mit Hummus, Falafel, Couscous-Salaten und frischem Fladenbrot. Aufbau um 11 Uhr, 
+                    Abbau nach dem Mittagessen – pünktlich und reibungslos.
                   </p>
                 </CardContent>
               </Card>
@@ -531,13 +531,13 @@ const Catering = () => {
                     <span className="text-sm font-medium text-accent">Private Feier</span>
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">
-                    90. Geburtstag, 90 Gäste
+                    60. Geburtstag, 90 Gäste
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Eine Familie aus Neuss feierte den runden Geburtstag ihrer Großmutter. Das 
-                    Buffet umfasste traditionelle Mezze, gegrilltes Hähnchen und Lamm sowie 
-                    hausgemachte Desserts. Wir haben alles aufgebaut und dekoriert – die Familie 
-                    konnte sich ganz auf ihre Gäste konzentrieren.
+                    Eine Familie aus Düsseldorf feierte den runden Geburtstag in einer Eventlocation. 
+                    Das Buffet umfasste traditionelle Mezze, gegrilltes Hähnchen und Rindfleisch. 
+                    Wir haben alles aufgebaut und dekoriert – die Familie konnte sich ganz auf 
+                    ihre Gäste konzentrieren.
                   </p>
                 </CardContent>
               </Card>
