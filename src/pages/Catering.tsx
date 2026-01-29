@@ -1,4 +1,7 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+import mintLeaves from "@/assets/decorative/mint-leaves.png";
+import parsleyLeaves from "@/assets/decorative/parsley-leaves.png";
+import lemonSlices from "@/assets/decorative/lemon-slices.png";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
@@ -361,44 +364,39 @@ const Catering = () => {
 
         {/* 3) Unser Catering-Konzept */}
         <section className="py-12 md:py-20 bg-gradient-subtle relative overflow-hidden">
-          {/* Decorative Background Elements */}
-          <div className="absolute inset-0 opacity-[0.12] pointer-events-none">
-            {/* Top Left - Plate/Bowl Pattern */}
-            <svg className="absolute -top-10 -left-10 w-64 h-64 md:w-80 md:h-80 text-primary" viewBox="0 0 200 200" fill="none">
-              <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="2"/>
-              <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="1.5"/>
-              <circle cx="100" cy="100" r="50" stroke="currentColor" strokeWidth="1"/>
-              <circle cx="100" cy="100" r="25" fill="currentColor" opacity="0.3"/>
-            </svg>
+          {/* Decorative Herb Background Images */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Top Left - Mint */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -top-8 -left-8 w-40 h-40 md:w-56 md:h-56 object-contain opacity-[0.18] rotate-[-15deg]"
+              aria-hidden="true"
+            />
             
-            {/* Top Right - Leaf/Herb Pattern */}
-            <svg className="absolute -top-5 -right-5 w-48 h-48 md:w-64 md:h-64 text-primary rotate-45" viewBox="0 0 100 100" fill="none">
-              <path d="M50 10 C30 30, 20 50, 50 90 C80 50, 70 30, 50 10" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.15"/>
-              <path d="M50 20 L50 85" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M35 40 Q50 50 65 40" stroke="currentColor" strokeWidth="1"/>
-              <path d="M30 55 Q50 65 70 55" stroke="currentColor" strokeWidth="1"/>
-              <path d="M35 70 Q50 80 65 70" stroke="currentColor" strokeWidth="1"/>
-            </svg>
+            {/* Top Right - Parsley */}
+            <img 
+              src={parsleyLeaves} 
+              alt="" 
+              className="absolute -top-6 -right-6 w-36 h-36 md:w-48 md:h-48 object-contain opacity-[0.15] rotate-[20deg]"
+              aria-hidden="true"
+            />
             
-            {/* Bottom Left - Spices/Dots Pattern */}
-            <svg className="absolute -bottom-10 -left-10 w-56 h-56 md:w-72 md:h-72 text-primary" viewBox="0 0 150 150" fill="none">
-              <circle cx="30" cy="30" r="8" fill="currentColor" opacity="0.4"/>
-              <circle cx="70" cy="20" r="5" fill="currentColor" opacity="0.3"/>
-              <circle cx="50" cy="60" r="10" fill="currentColor" opacity="0.25"/>
-              <circle cx="20" cy="90" r="6" fill="currentColor" opacity="0.35"/>
-              <circle cx="80" cy="80" r="12" fill="currentColor" opacity="0.2"/>
-              <circle cx="120" cy="40" r="7" fill="currentColor" opacity="0.3"/>
-              <circle cx="100" cy="100" r="9" fill="currentColor" opacity="0.25"/>
-              <circle cx="130" cy="120" r="5" fill="currentColor" opacity="0.4"/>
-            </svg>
+            {/* Bottom Left - Lemon */}
+            <img 
+              src={lemonSlices} 
+              alt="" 
+              className="absolute -bottom-8 -left-4 w-32 h-32 md:w-44 md:h-44 object-contain opacity-[0.20] rotate-[-10deg]"
+              aria-hidden="true"
+            />
             
-            {/* Bottom Right - Curved Lines (Steam/Aroma) */}
-            <svg className="absolute -bottom-5 -right-10 w-48 h-48 md:w-60 md:h-60 text-primary" viewBox="0 0 100 100" fill="none">
-              <path d="M20 80 Q35 50 20 20" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.6"/>
-              <path d="M40 85 Q55 45 40 15" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.5"/>
-              <path d="M60 80 Q75 50 60 20" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.4"/>
-              <path d="M80 85 Q95 45 80 15" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3"/>
-            </svg>
+            {/* Bottom Right - Mint (smaller) */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -bottom-4 -right-8 w-28 h-28 md:w-40 md:h-40 object-contain opacity-[0.12] rotate-[35deg] scale-x-[-1]"
+              aria-hidden="true"
+            />
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
