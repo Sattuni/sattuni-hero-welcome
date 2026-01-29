@@ -1,15 +1,60 @@
 import { useEffect } from 'react';
-import { Phone, Mail, MessageCircle, Printer, Leaf, Sparkles, ArrowUp, Star, Users, ChefHat } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Printer, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { CATERING_PACKAGES, formatPrice, type CateringPackage, type PackageDishItem } from '@/constants/catering-packages';
+import { CATERING_PACKAGES } from '@/constants/catering-packages';
 import SEOHead from '@/components/seo/SEOHead';
-
 import ModeHeader from '@/components/layout/ModeHeader';
 import Footer from '@/components/layout/Footer';
 import { useSiteMode } from '@/contexts/SiteModeContext';
+import MenuCard from '@/components/features/catering/MenuCard';
+
+// Menu metadata with occasions, hints and dish counts
+interface MenuMeta {
+  occasions: string[];
+  hint: string;
+  dishCounts?: {
+    appetizers?: number;
+    mains?: number;
+    salads?: number;
+    dips?: number;
+    snacks?: number;
+    dessert?: boolean;
+    selection?: number;
+  };
+}
+
+const MENU_METADATA: Record<string, MenuMeta> = {
+  'flyingbuffet-mix': {
+    occasions: ['Stehempfang', 'Networking-Event', 'After-Work', 'Vernissage'],
+    hint: 'Auswahl aus 10 Speisen',
+    dishCounts: { selection: 10 },
+  },
+  'gruene-levante': {
+    occasions: ['Leichtes Mittagessen', 'Gesundheitstag', 'Veganer Workshop'],
+    hint: 'Leichtes vegetarisches Buffet, auch als Ergänzung geeignet',
+    dishCounts: { salads: 3, dips: 2, snacks: 3 },
+  },
+  'sattuni-klassik': {
+    occasions: ['Team-Mittagessen', 'Kleiner Geburtstag', 'Familienessen'],
+    hint: 'Kalt & warm kombiniert, ausgewogen',
+    dishCounts: { appetizers: 7, mains: 2 },
+  },
+  'sattuni-genuss': {
+    occasions: ['Runder Geburtstag', 'Jubiläumsfeier', 'Firmenevent bis 50 Gäste'],
+    hint: 'Buffet mit Dessert',
+    dishCounts: { appetizers: 7, mains: 3, dessert: true },
+  },
+  'sattuni-festmahl': {
+    occasions: ['Sommerfest', 'Weihnachtsfeier', 'Großes Firmenevent'],
+    hint: 'Großzügiges Buffet für größere Feiern',
+    dishCounts: { appetizers: 8, mains: 4, dessert: true },
+  },
+  'sattuni-royal': {
+    occasions: ['Hochzeit', 'Große Jubiläumsfeier', 'Exklusive Gala'],
+    hint: 'Premium Buffet mit Lammschulter',
+    dishCounts: { appetizers: 8, mains: 4, dessert: true },
+  },
+};
 
 const Menus = () => {
   const { setMode } = useSiteMode();
@@ -18,6 +63,7 @@ const Menus = () => {
   useEffect(() => {
     setMode('catering');
   }, [setMode]);
+
   const handlePrint = () => {
     window.print();
   };
@@ -27,137 +73,10 @@ const Menus = () => {
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
-  const getHighlightBadge = (highlight?: PackageDishItem['highlight']) => {
-    if (!highlight) return null;
-    
-    const badges = {
-      neu: { label: '+ Extra', className: 'bg-green-100 text-green-700 border-green-200' },
-      upgrade: { label: '↑ Upgrade', className: 'bg-blue-100 text-blue-700 border-blue-200' },
-      premium: { label: '★ Premium', className: 'bg-amber-100 text-amber-700 border-amber-200' },
-    };
-    
-    const badge = badges[highlight];
-    return (
-      <Badge variant="outline" className={`ml-2 text-xs font-medium ${badge.className}`}>
-        {badge.label}
-      </Badge>
-    );
-  };
-
-  const renderPackageCard = (pkg: CateringPackage) => {
-    const hasCategories = pkg.detailedItems.some(group => group.category);
-    
-    return (
-      <Card key={pkg.id} className="overflow-hidden print:break-inside-avoid print:shadow-none print:border">
-        <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 pb-4">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-xl font-bold text-foreground">{pkg.name}</h3>
-                {pkg.popular && (
-                  <Badge className="bg-primary text-primary-foreground">Beliebt</Badge>
-                )}
-                {pkg.isVegetarian && (
-                  <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                    <Leaf className="w-3 h-3 mr-1" />
-                    Vegetarisch
-                  </Badge>
-                )}
-              </div>
-              <p className="text-sm text-muted-foreground font-medium">{pkg.subtitle}</p>
-            </div>
-            <div className="text-left sm:text-right">
-              <div className="flex items-baseline gap-1">
-                {pkg.pricePerPersonMax ? (
-                  <span className="text-lg font-bold text-primary">
-                    {formatPrice(pkg.pricePerPerson)} – {formatPrice(pkg.pricePerPersonMax)}
-                  </span>
-                ) : (
-                  <span className="text-lg font-bold text-primary">{formatPrice(pkg.pricePerPerson)}</span>
-                )}
-                <span className="text-sm text-muted-foreground">/ Person</span>
-              </div>
-              <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                <Users className="w-3 h-3" />
-                <span>ab {pkg.minGuests} Gäste</span>
-              </div>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground mt-2">{pkg.description}</p>
-        </CardHeader>
-        
-        <CardContent className="pt-4">
-          {hasCategories ? (
-            <div className="space-y-4">
-              {pkg.detailedItems.map((group, groupIndex) => (
-                <div key={groupIndex}>
-                  {group.category && (
-                    <h4 className="font-semibold text-sm text-primary mb-2 flex items-center gap-2">
-                      <ChefHat className="w-4 h-4" />
-                      {group.category}
-                    </h4>
-                  )}
-                  <div className="grid gap-2">
-                    {group.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/50 last:border-0">
-                        <div className="flex items-center">
-                          <span className="font-medium text-sm text-foreground">{item.name}</span>
-                          {getHighlightBadge(item.highlight)}
-                        </div>
-                        {item.description && (
-                          <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
-                            {item.description}
-                          </span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {groupIndex < pkg.detailedItems.length - 1 && <Separator className="mt-3" />}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid gap-2">
-              {pkg.detailedItems[0]?.items.map((item, itemIndex) => (
-                <div key={itemIndex} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/50 last:border-0">
-                  <div className="flex items-center">
-                    <span className="font-medium text-sm text-foreground">{item.name}</span>
-                    {getHighlightBadge(item.highlight)}
-                  </div>
-                  {item.description && (
-                    <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
-                      {item.description}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-          
-          {/* Package features */}
-          <div className="mt-4 pt-3 border-t border-border/50 flex flex-wrap gap-2">
-            {pkg.includesDessert && (
-              <Badge variant="secondary" className="text-xs">
-                <Sparkles className="w-3 h-3 mr-1" />
-                Inkl. Dessert
-              </Badge>
-            )}
-            <Badge variant="outline" className="text-xs">
-              Lieferung inklusive
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              Geschirr optional
-            </Badge>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  };
-
   return (
     <>
       <SEOHead
-        title="Buffet Catering Menüs | Sattuni"
+        title="Menüs & Preise | Sattuni Catering"
         description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Für jeden Anlass das passende Paket."
         canonicalUrl="https://sattuni.de/catering/menus"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
@@ -170,9 +89,9 @@ const Menus = () => {
         {/* Page Header */}
         <section className="bg-gradient-to-b from-primary/5 to-background py-8 sm:py-12 print:py-4">
           <div className="container max-w-5xl mx-auto px-4">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Menüs & Preise</h1>
                 <p className="text-muted-foreground text-sm sm:text-base mt-1">Orientalische Vielfalt für jeden Anlass</p>
               </div>
               
@@ -190,7 +109,7 @@ const Menus = () => {
             </div>
             
             {/* Contact info */}
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground print:mt-2">
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground print:mt-2">
               <a href="tel:+492113618115" className="flex items-center gap-1 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 0211 36180115
@@ -203,29 +122,21 @@ const Menus = () => {
           </div>
         </section>
 
-        {/* Legend */}
-        <section className="container max-w-5xl mx-auto px-4 py-4 print:py-2">
-          <div className="flex flex-wrap gap-3 text-xs">
-            <span className="text-muted-foreground font-medium">Symbole:</span>
-            <div className="flex items-center gap-1">
-              <Badge variant="outline" className="bg-green-100 text-green-700 border-green-200 text-xs">+ Extra</Badge>
-              <span className="text-muted-foreground">Zusätzliches Gericht</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Badge variant="outline" className="bg-blue-100 text-blue-700 border-blue-200 text-xs">↑ Upgrade</Badge>
-              <span className="text-muted-foreground">Verbesserte Variante</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Badge variant="outline" className="bg-amber-100 text-amber-700 border-amber-200 text-xs">★ Premium</Badge>
-              <span className="text-muted-foreground">Premium-Zutat</span>
-            </div>
-          </div>
-        </section>
-
         {/* Menu Cards */}
-        <main className="container max-w-5xl mx-auto px-4 pb-12 print:pb-4">
+        <main className="container max-w-5xl mx-auto px-4 py-6 pb-12 print:pb-4">
           <div className="grid gap-6 print:gap-4">
-            {CATERING_PACKAGES.map(renderPackageCard)}
+            {CATERING_PACKAGES.map((pkg) => {
+              const metadata = MENU_METADATA[pkg.id] || { occasions: [], hint: '' };
+              return (
+                <MenuCard
+                  key={pkg.id}
+                  pkg={pkg}
+                  occasions={metadata.occasions}
+                  hint={metadata.hint}
+                  dishCounts={metadata.dishCounts}
+                />
+              );
+            })}
           </div>
         </main>
 

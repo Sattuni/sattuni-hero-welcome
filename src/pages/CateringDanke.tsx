@@ -41,9 +41,9 @@ const CateringDanke = () => {
   return (
     <>
       <Helmet>
-        <title>Vielen Dank für Ihre Anfrage | Sattuni Catering</title>
+        <title>Vielen Dank für deine Anfrage | Sattuni Catering</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Ihre Catering-Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen." />
+        <meta name="description" content="Deine Catering-Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 24 Stunden bei dir." />
       </Helmet>
 
       <ModeHeader />
@@ -63,7 +63,7 @@ const CateringDanke = () => {
               Vielen Dank{name !== "dort" ? `, ${name}` : ""}!
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Ihre Catering-Anfrage wurde erfolgreich übermittelt.
+              Deine Catering-Anfrage wurde erfolgreich übermittelt.
             </p>
 
             {/* What Happens Next Card */}
@@ -75,15 +75,15 @@ const CateringDanke = () => {
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-medium flex items-center justify-center shrink-0 mt-0.5">1</span>
-                  <span>Wir prüfen Ihre Anfrage und erstellen ein individuelles Angebot für Sie.</span>
+                  <span>Wir prüfen deine Anfrage und erstellen ein individuelles Angebot für dich.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-medium flex items-center justify-center shrink-0 mt-0.5">2</span>
-                  <span><strong>Innerhalb von 24 Stunden</strong> melden wir uns bei Ihnen per E-Mail oder Telefon.</span>
+                  <span><strong>Innerhalb von 24 Stunden</strong> melden wir uns bei dir per E-Mail oder Telefon.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-medium flex items-center justify-center shrink-0 mt-0.5">3</span>
-                  <span>Nach Ihrer Bestätigung kümmern wir uns um alles Weitere – Sie können sich zurücklehnen!</span>
+                  <span>Nach deiner Bestätigung kümmern wir uns um alles Weitere – du kannst dich zurücklehnen!</span>
                 </li>
               </ul>
             </Card>
@@ -91,7 +91,7 @@ const CateringDanke = () => {
             {/* Contact Info */}
             <div className="mb-10 p-4 bg-muted/30 rounded-lg">
               <p className="text-sm text-muted-foreground mb-3">
-                Haben Sie noch Fragen? Erreichen Sie uns direkt:
+                Noch Fragen? Erreich uns direkt:
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 

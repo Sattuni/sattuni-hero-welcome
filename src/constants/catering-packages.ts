@@ -95,7 +95,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
     ],
     pricePerPerson: 24.50,
     pricePerPersonMax: 32.00,
-    minGuests: 20,
+    minGuests: 30,
     includesDessert: false,
     isFingerFood: true,
   },
@@ -211,8 +211,8 @@ export const CATERING_PACKAGES: CateringPackage[] = [
         ],
       },
     ],
-    pricePerPerson: 36.50,
-    minGuests: 40,
+    pricePerPerson: 33,
+    minGuests: 50,
     includesDessert: true,
   },
   {
@@ -252,10 +252,9 @@ export const CATERING_PACKAGES: CateringPackage[] = [
         ],
       },
     ],
-    pricePerPerson: 39.50,
-    minGuests: 40,
+    pricePerPerson: 35,
+    minGuests: 50,
     includesDessert: true,
-    popular: true,
   },
 ];
 
