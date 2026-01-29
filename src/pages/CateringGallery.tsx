@@ -93,6 +93,15 @@ import haehnchenfleisch from "@/assets/gallery/buffets/haehnchenfleisch.jpg";
 import ofenkartoffeln from "@/assets/gallery/buffets/ofenkartoffeln.jpg";
 import arabischerReisGemuese from "@/assets/gallery/buffets/arabischer-reis-gemuese.jpg";
 import geburtstagsbuffetHauptgang from "@/assets/gallery/buffets/geburtstagsbuffet-hauptgang.jpg";
+// New dips images - Einwegschalen
+import arabischerFrischkaese from "@/assets/gallery/dips-salate/arabischer-frischkaese.jpg";
+import babaGhanouschSchale from "@/assets/gallery/dips-salate/baba-ghanousch-schale.jpg";
+import taboulehSchale from "@/assets/gallery/dips-salate/tabouleh-schale.jpg";
+// New fingerfood images - Einwegschalen & Fladenbrote
+import lahmacunSchale from "@/assets/gallery/fingerfood/lahmacun-schale.jpg";
+import miniFladenbrotHackfleisch from "@/assets/gallery/fingerfood/mini-fladenbrot-hackfleisch.jpg";
+import miniFladenbrotPaprikaSpinat from "@/assets/gallery/fingerfood/mini-fladenbrot-paprika-spinat.jpg";
+import miniFladenbrotThymian from "@/assets/gallery/fingerfood/mini-fladenbrot-thymian.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -181,6 +190,15 @@ const galleryImages: GalleryImage[] = [
   { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
   { src: dessertVegan1, title: "Dessert vegan", category: "fingerfood", size: "medium" },
   { src: dessertVegan2, title: "Dessert vegan", category: "fingerfood", size: "medium" },
+  // New dips - Einwegschalen
+  { src: arabischerFrischkaese, title: "Arabischer Frischkäse", category: "dips-salate", size: "medium" },
+  { src: babaGhanouschSchale, title: "Baba Ghanousch", category: "dips-salate", size: "medium" },
+  { src: taboulehSchale, title: "Tabouleh", category: "dips-salate", size: "medium" },
+  // New fingerfood - Einwegschalen & Fladenbrote
+  { src: lahmacunSchale, title: "Lahmacun", category: "fingerfood", size: "medium" },
+  { src: miniFladenbrotHackfleisch, title: "Mini-Fladenbrot mit Hackfleisch", category: "fingerfood", size: "medium" },
+  { src: miniFladenbrotPaprikaSpinat, title: "Mini-Fladenbrot Paprika & Spinat", category: "fingerfood", size: "medium" },
+  { src: miniFladenbrotThymian, title: "Mini-Fladenbrot mit Thymian", category: "fingerfood", size: "medium" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
