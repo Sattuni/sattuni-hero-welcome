@@ -561,6 +561,15 @@ const CateringBookingForm = () => {
           <div className="border-t animate-in fade-in slide-in-from-top-2 duration-200">
             {/* Description + Badges Row */}
             <div className="px-3 py-3 space-y-2 bg-muted/20">
+              {/* Dish Count Summary */}
+              <p className="text-sm font-medium text-foreground">
+                {pkg.id === 'flyingbuffet-mix' && 'Auswahl aus 10 Speisen'}
+                {pkg.id === 'gruene-levante' && '3 Salate, 2 Dips, 3 Snacks'}
+                {pkg.id === 'sattuni-klassik' && '7 Vorspeisen, 2 Hauptspeisen inkl. Beilagen'}
+                {pkg.id === 'sattuni-genuss' && '7 Vorspeisen, 3 Hauptspeisen inkl. Beilagen, Dessert'}
+                {pkg.id === 'sattuni-festmahl' && '8 Vorspeisen, 4 Hauptspeisen inkl. Beilagen, Dessert'}
+                {pkg.id === 'sattuni-royal' && '8 Vorspeisen, 4 Hauptspeisen inkl. Beilagen, Dessert'}
+              </p>
               <p className="text-sm text-muted-foreground">{pkg.description}</p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="outline" className="text-xs">

@@ -8,31 +8,51 @@ import Footer from '@/components/layout/Footer';
 import { useSiteMode } from '@/contexts/SiteModeContext';
 import MenuCard from '@/components/features/catering/MenuCard';
 
-// Menu metadata with occasions and hints
-const MENU_METADATA: Record<string, { occasions: string[]; hint: string }> = {
+// Menu metadata with occasions, hints and dish counts
+interface MenuMeta {
+  occasions: string[];
+  hint: string;
+  dishCounts?: {
+    appetizers?: number;
+    mains?: number;
+    salads?: number;
+    dips?: number;
+    snacks?: number;
+    dessert?: boolean;
+    selection?: number;
+  };
+}
+
+const MENU_METADATA: Record<string, MenuMeta> = {
   'flyingbuffet-mix': {
     occasions: ['Empfang', 'Get-together', 'Team-Event', 'Sommerfest', 'Firmenfeier'],
     hint: 'Auswahl aus 10 Speisen',
+    dishCounts: { selection: 10 },
   },
   'gruene-levante': {
     occasions: ['Office Lunch', 'Workshops', 'Health-Days', 'Private Feiern'],
     hint: 'Leichtes vegetarisches Buffet, auch als Ergänzung geeignet',
+    dishCounts: { salads: 3, dips: 2, snacks: 3 },
   },
   'sattuni-klassik': {
     occasions: ['Gemeinsames Essen', 'Team-Lunch', 'Kleine Geburtstage', 'Familienfeiern'],
     hint: 'Kalt & warm kombiniert, ausgewogen',
+    dishCounts: { appetizers: 7, mains: 2 },
   },
   'sattuni-genuss': {
     occasions: ['Geburtstage', 'Feiern in Locations', 'Kleine Firmenevents'],
     hint: 'Buffet mit Dessert',
+    dishCounts: { appetizers: 7, mains: 3, dessert: true },
   },
   'sattuni-festmahl': {
     occasions: ['Große Feiern', 'Sommerfeste', 'Weihnachtsfeiern', 'Firmenevents'],
     hint: 'Großzügiges Buffet für größere Feiern',
+    dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
   'sattuni-royal': {
     occasions: ['Hochzeiten', 'Runde Geburtstage', 'Exklusive Feiern'],
     hint: 'Premium Buffet mit Lammschulter',
+    dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
 };
 
@@ -113,6 +133,7 @@ const Menus = () => {
                   pkg={pkg}
                   occasions={metadata.occasions}
                   hint={metadata.hint}
+                  dishCounts={metadata.dishCounts}
                 />
               );
             })}
