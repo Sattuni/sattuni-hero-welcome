@@ -16,11 +16,11 @@ const Footer = () => {
   ];
 
   const cateringServices = [
-    "Fingerfood",
-    "Buffets", 
-    "Vegane Optionen",
-    "Firmen-Events",
-    "Private Feiern"
+    { name: "Fingerfood", href: "/catering/menus" },
+    { name: "Buffets", href: "/catering/menus" }, 
+    { name: "Vegane Optionen", href: "/catering/menus" },
+    { name: "Firmen-Events", href: "/catering#ablauf-business" },
+    { name: "Private Feiern", href: "/catering#ablauf-privat" }
   ];
 
   return (
@@ -127,9 +127,14 @@ const Footer = () => {
                   <h4 className="text-base font-semibold text-foreground font-display">Catering Services</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {cateringServices.map((service) => (
-                      <span key={service} className="text-muted-foreground font-body text-sm">
-                        {service}
-                      </span>
+                      <Link 
+                        key={service.name} 
+                        to={service.href}
+                        className="text-muted-foreground hover:text-primary transition-colors font-body text-sm"
+                        onClick={() => setIsExpanded(false)}
+                      >
+                        {service.name}
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -233,13 +238,17 @@ const Footer = () => {
             {/* Services */}
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-foreground font-display">Catering Services</h3>
-              <ul className="space-y-3">
+              <nav className="flex flex-col space-y-3">
                 {cateringServices.map((service) => (
-                  <li key={service} className="text-muted-foreground font-body">
-                    {service}
-                  </li>
+                  <Link
+                    key={service.name}
+                    to={service.href}
+                    className="text-muted-foreground hover:text-primary transition-colors font-body"
+                  >
+                    {service.name}
+                  </Link>
                 ))}
-              </ul>
+              </nav>
             </div>
             
             {/* Contact Info */}
