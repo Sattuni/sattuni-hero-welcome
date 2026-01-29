@@ -82,11 +82,12 @@ const GoogleReviewBadge = ({
         href={googleMapsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors group ${className}`}
+        className={`inline-flex items-center gap-2 text-xs hover:opacity-80 transition-opacity group ${className}`}
         aria-label="4,9 von 5 Sternen bei Google - Bewertungen ansehen"
       >
         <Stars />
         <span className="font-medium text-foreground">4,9</span>
+        <span className="text-muted-foreground">bei</span>
         <GoogleLogo />
       </a>
     );
