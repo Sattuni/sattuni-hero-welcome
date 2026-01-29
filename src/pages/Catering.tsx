@@ -362,7 +362,7 @@ const Catering = () => {
         {/* 3) Unser Catering-Konzept */}
         <section className="py-12 md:py-20 bg-gradient-subtle relative overflow-hidden">
           {/* Decorative Background Elements */}
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.12] pointer-events-none">
             {/* Top Left - Plate/Bowl Pattern */}
             <svg className="absolute -top-10 -left-10 w-64 h-64 md:w-80 md:h-80 text-primary" viewBox="0 0 200 200" fill="none">
               <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="2"/>
