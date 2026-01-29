@@ -5,6 +5,7 @@ import CateringBookingForm from "@/components/features/catering/CateringBookingF
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
+import CateringGalleryTeaser from "@/components/features/catering/CateringGalleryTeaser";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
@@ -512,13 +513,14 @@ const Catering = () => {
                     <span className="text-sm font-medium text-primary">Unternehmen</span>
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">
-                    Veganuary-Teamlunch im Office
+                    140 Leute, 100% vegan – Veganuary im Office
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Ein Düsseldorfer Unternehmen plante einen Teamlunch im Office mit Fokus auf 
-                    vegane Optionen als Veganuary-Aktion. Wir lieferten ein komplett veganes Buffet 
-                    mit Hummus, Falafel, Couscous-Salaten und frischem Fladenbrot. Aufbau um 11 Uhr, 
-                    Abbau nach dem Mittagessen – pünktlich und reibungslos.
+                    Als die Anfrage kam, haben wir kurz geschluckt: 140 Leute, komplett vegan, 
+                    und das Buffet sollte auch die Skeptiker überzeugen. Wir haben getüftelt, 
+                    probiert und am Ende ein Menü zusammengestellt, das richtig gut ankam – 
+                    Couscous mit frischer Minze, gefüllte Weinblätter, und ja, auch die 
+                    Fleisch-Fans haben nachgeschöpft.
                   </p>
                 </CardContent>
               </Card>
@@ -531,13 +533,13 @@ const Catering = () => {
                     <span className="text-sm font-medium text-accent">Private Feier</span>
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">
-                    60. Geburtstag, 90 Gäste
+                    Runder Geburtstag mit 90 Gästen
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Eine Familie aus Düsseldorf feierte den runden Geburtstag in einer Eventlocation. 
-                    Das Buffet umfasste traditionelle Mezze, gegrilltes Hähnchen und Rindfleisch. 
-                    Wir haben alles aufgebaut und dekoriert – die Familie konnte sich ganz auf 
-                    ihre Gäste konzentrieren.
+                    Die Tochter rief an: „Mein Papa wird 60, wir brauchen jemanden, der das Essen 
+                    macht – und zwar richtig gut." Gesagt, getan. Wir haben die Location dekoriert, 
+                    das Buffet aufgebaut und uns dann unsichtbar gemacht. Die Familie hat gefeiert, 
+                    wir haben hinterher alles wieder eingepackt. So soll das sein.
                   </p>
                 </CardContent>
               </Card>
@@ -576,6 +578,9 @@ const Catering = () => {
             </div>
           </div>
         </section>
+
+        {/* Gallery Teaser */}
+        <CateringGalleryTeaser />
 
         {/* Customer Reviews */}
         <CustomerReviews />

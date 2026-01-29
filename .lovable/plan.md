@@ -1,51 +1,90 @@
-# Pre-Rendering für ChatGPT & Bot-Lesbarkeit
 
-## ✅ Status: IMPLEMENTIERT
 
-Pre-Rendering wurde erfolgreich konfiguriert. Nach dem nächsten Push zu `main` werden alle wichtigen Seiten als statisches HTML ausgeliefert.
+# Plan: Bilder auf der Catering-Seite optimieren
 
----
+## Übersicht
 
-## Was wurde gemacht?
-
-### 1. Pre-Rendering-Plugin installiert
-- `vite-plugin-html-prerender` (leichtgewichtig, kein Puppeteer nötig)
-
-### 2. vite.config.ts aktualisiert
-- 18 Routen werden im Production-Build pre-gerendert
-- HTML wird automatisch minifiziert
-
-### 3. GitHub Actions Workflow erstellt
-- `.github/workflows/deploy.yml`
-- Automatischer Build & Deploy bei Push zu `main`
+Die Catering-Seite wirkt aktuell textlastig und visuell arm. Es fehlen Bilder, die den B2B- und B2C-Kontext untermauern sowie die Qualität des Caterings zeigen. Mit den vorhandenen Galerie-Assets lässt sich das effektiv beheben.
 
 ---
 
-## Pre-gerenderte Routen
+## Geplante Änderungen
 
-| Kategorie | Routen |
-|-----------|--------|
-| Landing | `/` |
-| Catering | `/catering`, `/catering/galerie`, `/catering/menus`, `/catering/ueber-uns` |
-| Blog | `/catering/blog`, alle 6 Blogposts |
-| Restaurant | `/restaurant`, `/restaurant/spezialitaeten`, `/restaurant/speisekarte` |
-| Legal | `/impressum`, `/datenschutz` |
+### 1. Bilder für "Beispiele aus der Praxis"
 
----
+Passende Bilder direkt in die zwei Praxis-Beispiel-Karten integrieren:
 
-## Nächste Schritte für den Nutzer
+| Beispiel | Bild | Quelle |
+|----------|------|--------|
+| Veganuary-Teamlunch | Office-Buffet-Setup | `office-catering-40.jpg` oder `buffet-vegan-chafing.jpg` |
+| 60. Geburtstag | Festliches Buffet | `geburtstagsbuffet-90.jpg` oder `geburtstagsbuffet-hauptgang.jpg` |
 
-1. **Push zu `main`** – löst automatisch den Build aus
-2. **GitHub Repository Settings** → Pages → Source: "GitHub Actions" auswählen
-3. **Warten** – erster Build dauert ~2-3 Minuten
-4. **Testen** – ChatGPT den Blog-Link erneut geben
+**Umsetzung:** Jeweils ein `<img>` mit `aspect-ratio: 16/9` oder `3/2` oberhalb des Textes in den Cards.
 
 ---
 
-## Ergebnis
+### 2. Galerie-Teaser-Sektion hinzufügen
 
-| Vorher | Nachher |
-|--------|---------|
-| ChatGPT sieht: `<div id="root"></div>` | ChatGPT sieht: vollständiger Blog-Text |
-| LinkedIn-Vorschau: nur Meta-Tags | LinkedIn-Vorschau: Titel + Beschreibung + Bild |
-| Google: muss JS rendern | Google: bekommt fertiges HTML |
+Eine kompakte Vorschau der Catering-Galerie einfügen, die 3-4 randomisierte Bilder zeigt und zur vollständigen Galerie verlinkt.
+
+**Position:** Zwischen "Was unsere Buffets auszeichnet" und "Customer Reviews"
+
+**Optionen:**
+- Die bestehende `BuffetGallery`-Komponente nutzen (Carousel)
+- Oder eine neue Teaser-Grid-Komponente mit 3 Bildern (1 Buffet, 1 Dip, 1 Fingerfood)
+
+---
+
+### 3. Optionale Bilder für B2B/B2C-Einstiegsboxen
+
+Dezente Hintergrundbilder oder kleine Illustrationen für die "Unternehmen & Teams" und "Private Feiern"-Karten:
+
+| Box | Bildidee |
+|-----|----------|
+| B2B | `meeting-catering-15.jpg` oder `workshop-catering.jpg` |
+| B2C | `geburtstagsbuffet-90.jpg` oder `buffet-terrasse.jpg` |
+
+**Alternative:** Icons belassen, aber auf Hover ein dezentes Bild einblenden.
+
+---
+
+## Technische Umsetzung
+
+### Dateien zu bearbeiten
+
+1. **`src/pages/Catering.tsx`**
+   - Import der benötigten Bilder aus `@/assets/gallery/buffets/`
+   - "Beispiele aus der Praxis"-Karten mit Bildern erweitern
+   - Optional: `BuffetGallery`-Komponente einbinden
+
+2. **Optional: Neue Komponente `CateringGalleryTeaser.tsx`**
+   - 3-4 Bilder in einem Grid
+   - Link zur `/catering/galerie`-Seite
+
+---
+
+## Vorgeschlagene Bild-Auswahl
+
+```text
+Praxis-Beispiele:
+├── Business: office-catering-40.jpg (modernes Büro-Setup)
+└── Privat: geburtstagsbuffet-90.jpg (festliches Buffet)
+
+Galerie-Teaser:
+├── buffet-elegant-saal.jpg (Buffet-Kategorie)
+├── hummus.jpg oder tabouleh.jpg (Dips-Kategorie)
+└── falafel.jpg (Fingerfood-Kategorie)
+```
+
+---
+
+## Zusammenfassung
+
+| Änderung | Aufwand | Priorität |
+|----------|---------|-----------|
+| Bilder in Praxis-Beispiele | Gering | Hoch |
+| Galerie-Teaser-Sektion | Mittel | Mittel |
+| B2B/B2C-Box-Bilder | Gering | Optional |
+
+**Ergebnis:** Die Catering-Seite wird visuell ansprechender, die Beispiele werden glaubwürdiger und die vorhandene Galerie erhält mehr Sichtbarkeit.
+
