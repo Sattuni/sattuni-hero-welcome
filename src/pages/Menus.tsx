@@ -76,7 +76,7 @@ const Menus = () => {
   return (
     <>
       <SEOHead
-        title="Buffet Catering Menüs | Sattuni"
+        title="Menüs & Preise | Sattuni Catering"
         description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Für jeden Anlass das passende Paket."
         canonicalUrl="https://sattuni.de/catering/menus"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
@@ -91,7 +91,7 @@ const Menus = () => {
           <div className="container max-w-5xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Buffet Catering Menüs</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Menüs & Preise</h1>
                 <p className="text-muted-foreground text-sm sm:text-base mt-1">Orientalische Vielfalt für jeden Anlass</p>
               </div>
               
