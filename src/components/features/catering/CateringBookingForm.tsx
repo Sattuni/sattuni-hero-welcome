@@ -13,6 +13,7 @@ import { useFormAutoSave } from '@/hooks/useFormAutoSave';
 import { useFormTracking } from '@/hooks/useFormTracking';
 import { handleFormError, handleFormSuccess } from '@/services/utils/error-handling';
 import { getBackendPublicConfig } from "@/config/backend-public.config";
+import { GoogleReviewBadge } from "@/components/common";
 import { 
   Send, Loader2, User, Mail, Phone, MapPin, Calendar, 
   ArrowRight, ArrowLeft, Users, Clock, Check, Utensils,
@@ -1307,6 +1308,11 @@ const CateringBookingForm = () => {
                     {validationErrors.privacyAccepted && (
                       <p className="text-sm text-destructive">{validationErrors.privacyAccepted}</p>
                     )}
+                  </div>
+
+                  {/* Google Trust Badge - Before Submit */}
+                  <div className="flex justify-center py-2">
+                    <GoogleReviewBadge variant="compact" />
                   </div>
 
                   {/* Navigation Buttons */}
