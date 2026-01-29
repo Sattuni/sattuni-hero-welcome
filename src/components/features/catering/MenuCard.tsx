@@ -161,18 +161,22 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
           <p className="text-sm text-muted-foreground mt-2">{hint}</p>
         )}
 
-        {/* Row 5: Occasions */}
-        <div className="flex flex-wrap gap-1.5 mt-3">
-          {occasions.map((occasion) => (
-            <Badge 
-              key={occasion} 
-              variant="secondary" 
-              className="text-xs font-normal bg-muted/50 text-muted-foreground"
-            >
-              {occasion}
-            </Badge>
-          ))}
-        </div>
+        {/* Row 5: Occasions - "Perfekt für" */}
+        {occasions.length > 0 && (
+          <div className="mt-3">
+            <span className="text-xs text-muted-foreground mr-2">Perfekt für:</span>
+            <div className="inline-flex flex-wrap gap-1.5 mt-1">
+              {occasions.map((occasion) => (
+                <span 
+                  key={occasion} 
+                  className="text-xs text-foreground/80 before:content-['•'] before:mr-1.5 before:text-primary/50"
+                >
+                  {occasion}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Row 6: Guest Count */}
         <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-3">

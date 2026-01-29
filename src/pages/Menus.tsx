@@ -25,32 +25,32 @@ interface MenuMeta {
 
 const MENU_METADATA: Record<string, MenuMeta> = {
   'flyingbuffet-mix': {
-    occasions: ['Empfang', 'Get-together', 'Team-Event', 'Sommerfest', 'Firmenfeier'],
+    occasions: ['Stehempfang', 'Networking-Event', 'After-Work', 'Vernissage'],
     hint: 'Auswahl aus 10 Speisen',
     dishCounts: { selection: 10 },
   },
   'gruene-levante': {
-    occasions: ['Office Lunch', 'Workshops', 'Health-Days', 'Private Feiern'],
+    occasions: ['Leichtes Mittagessen', 'Gesundheitstag', 'Veganer Workshop'],
     hint: 'Leichtes vegetarisches Buffet, auch als Ergänzung geeignet',
     dishCounts: { salads: 3, dips: 2, snacks: 3 },
   },
   'sattuni-klassik': {
-    occasions: ['Gemeinsames Essen', 'Team-Lunch', 'Kleine Geburtstage', 'Familienfeiern'],
+    occasions: ['Team-Mittagessen', 'Kleiner Geburtstag', 'Familienessen'],
     hint: 'Kalt & warm kombiniert, ausgewogen',
     dishCounts: { appetizers: 7, mains: 2 },
   },
   'sattuni-genuss': {
-    occasions: ['Geburtstage', 'Feiern in Locations', 'Kleine Firmenevents'],
+    occasions: ['Runder Geburtstag', 'Jubiläumsfeier', 'Firmenevent bis 50 Gäste'],
     hint: 'Buffet mit Dessert',
     dishCounts: { appetizers: 7, mains: 3, dessert: true },
   },
   'sattuni-festmahl': {
-    occasions: ['Große Feiern', 'Sommerfeste', 'Weihnachtsfeiern', 'Firmenevents'],
+    occasions: ['Sommerfest', 'Weihnachtsfeier', 'Großes Firmenevent'],
     hint: 'Großzügiges Buffet für größere Feiern',
     dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
   'sattuni-royal': {
-    occasions: ['Hochzeiten', 'Runde Geburtstage', 'Exklusive Feiern'],
+    occasions: ['Hochzeit', 'Große Jubiläumsfeier', 'Exklusive Gala'],
     hint: 'Premium Buffet mit Lammschulter',
     dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
