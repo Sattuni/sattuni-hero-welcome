@@ -9,6 +9,7 @@ import CateringGalleryTeaser from "@/components/features/catering/CateringGaller
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
 import ModeHeader from "@/components/layout/ModeHeader";
+import { GoogleReviewBadge } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -242,6 +243,11 @@ const Catering = () => {
                 >
                   Unverbindlich Catering anfragen
                 </Button>
+              </div>
+
+              {/* Google Review Trust Badge */}
+              <div className="pt-6">
+                <GoogleReviewBadge variant="default" className="text-white/90 hover:text-white" />
               </div>
             </div>
           </div>

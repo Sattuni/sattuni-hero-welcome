@@ -5,6 +5,8 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import SEOHead from "@/components/seo/SEOHead";
 import BlogPostJsonLd from "@/components/seo/BlogPostJsonLd";
+import { GoogleReviewBadge } from "@/components/common";
+import { Button } from "@/components/ui/button";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 
 interface BlogLayoutProps {
@@ -158,6 +160,23 @@ const BlogLayout = ({
             <section className="container mx-auto max-w-4xl px-4">
               <div className="prose prose-lg max-w-none">
                 {children}
+              </div>
+
+              {/* Trust Badge + CTA Section */}
+              <div className="mt-12 pt-8 border-t border-border">
+                <div className="flex flex-col items-center gap-4 text-center">
+                  <GoogleReviewBadge variant="default" />
+                  <p className="text-muted-foreground text-sm max-w-md">
+                    Du planst ein Event? Wir beraten dich gerne persönlich.
+                  </p>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="font-semibold"
+                  >
+                    <a href="/catering?scrollTo=contact">Catering anfragen</a>
+                  </Button>
+                </div>
               </div>
             </section>
           </article>
