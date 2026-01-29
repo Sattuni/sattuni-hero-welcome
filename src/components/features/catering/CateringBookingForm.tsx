@@ -518,7 +518,7 @@ const CateringBookingForm = () => {
           }}
           className={`flex items-center justify-between p-3 gap-3 ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed'}`}
         >
-          {/* Left: Selection circle + Name + Badges */}
+          {/* Left: Selection circle + Name + Badges + Hint (Desktop) */}
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
               isSelected ? 'border-primary bg-primary' : 'border-muted'
@@ -545,6 +545,15 @@ const CateringBookingForm = () => {
                   Fingerfood
                 </Badge>
               )}
+              {/* Dish count hint - Desktop only */}
+              <span className="hidden md:inline text-[11px] text-muted-foreground">
+                {pkg.id === 'flyingbuffet-mix' && '· 10 Speisen'}
+                {pkg.id === 'gruene-levante' && '· 3 Salate, 2 Dips, 3 Snacks'}
+                {pkg.id === 'sattuni-klassik' && '· 7 Vorspeisen, 2 Hauptspeisen'}
+                {pkg.id === 'sattuni-genuss' && '· 7 Vorspeisen, 3 Hauptspeisen, Dessert'}
+                {pkg.id === 'sattuni-festmahl' && '· 8 Vorspeisen, 4 Hauptspeisen, Dessert'}
+                {pkg.id === 'sattuni-royal' && '· 8 Vorspeisen, 4 Hauptspeisen, Dessert'}
+              </span>
             </div>
           </div>
 
@@ -561,8 +570,8 @@ const CateringBookingForm = () => {
           <div className="border-t animate-in fade-in slide-in-from-top-2 duration-200">
             {/* Description + Badges Row */}
             <div className="px-3 py-3 space-y-2 bg-muted/20">
-              {/* Dish Count Summary */}
-              <p className="text-sm font-medium text-foreground">
+              {/* Dish Count Summary - Mobile only */}
+              <p className="text-sm font-medium text-foreground md:hidden">
                 {pkg.id === 'flyingbuffet-mix' && 'Auswahl aus 10 Speisen'}
                 {pkg.id === 'gruene-levante' && '3 Salate, 2 Dips, 3 Snacks'}
                 {pkg.id === 'sattuni-klassik' && '7 Vorspeisen, 2 Hauptspeisen inkl. Beilagen'}
