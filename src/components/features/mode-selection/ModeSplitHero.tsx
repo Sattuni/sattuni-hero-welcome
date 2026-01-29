@@ -1,7 +1,8 @@
 import { useSiteMode } from '@/contexts/SiteModeContext';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Building2, UtensilsCrossed, Users, Truck, Star, ChefHat, Clock, MapPin, ShoppingBag } from 'lucide-react';
+import { GoogleReviewBadge } from '@/components/common';
+import { Building2, UtensilsCrossed, Users, Truck, ChefHat, Clock, MapPin, ShoppingBag, Star } from 'lucide-react';
 import { triggerGLFWidget } from '@/utils/glfHelper';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import sattunLogo from '@/assets/icons/sattuni-header-icon.png';
@@ -189,16 +190,7 @@ const ModeSplitHero = () => {
         {/* Trust Indicators */}
         <div className="mt-4 md:mt-12 text-center">
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-8 text-xs md:text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <div className="flex text-yellow-500">
-                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
-                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
-                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
-                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
-                <Star className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
-              </div>
-              <span className="font-medium text-foreground">4.9/5</span>
-            </div>
+            <GoogleReviewBadge variant="compact" />
             <span className="text-muted-foreground/50">•</span>
             <span>Seit 2022</span>
             <span className="hidden md:inline text-muted-foreground/50">•</span>
