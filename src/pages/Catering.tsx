@@ -1,4 +1,7 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+import mintLeaves from "@/assets/decorative/mint-leaves.png";
+import parsleyLeaves from "@/assets/decorative/parsley-leaves.png";
+import lemonSlices from "@/assets/decorative/lemon-slices.png";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
@@ -360,8 +363,43 @@ const Catering = () => {
         </section>
 
         {/* 3) Unser Catering-Konzept */}
-        <section className="py-12 md:py-20 bg-gradient-subtle">
-          <div className="container mx-auto px-4">
+        <section className="py-12 md:py-20 bg-gradient-subtle relative overflow-hidden">
+          {/* Decorative Herb Background Images */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Top Left - Mint */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -top-8 -left-8 w-40 h-40 md:w-56 md:h-56 object-contain opacity-[0.18] rotate-[-15deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Top Right - Parsley */}
+            <img 
+              src={parsleyLeaves} 
+              alt="" 
+              className="absolute -top-6 -right-6 w-36 h-36 md:w-48 md:h-48 object-contain opacity-[0.15] rotate-[20deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Bottom Left - Lemon */}
+            <img 
+              src={lemonSlices} 
+              alt="" 
+              className="absolute -bottom-8 -left-4 w-32 h-32 md:w-44 md:h-44 object-contain opacity-[0.20] rotate-[-10deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Bottom Right - Mint (smaller) */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -bottom-4 -right-8 w-28 h-28 md:w-40 md:h-40 object-contain opacity-[0.12] rotate-[35deg] scale-x-[-1]"
+              aria-hidden="true"
+            />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
                 Unser Catering-Konzept
