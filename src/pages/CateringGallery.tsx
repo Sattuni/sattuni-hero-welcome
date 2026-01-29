@@ -104,101 +104,182 @@ import miniFladenbrotPaprikaSpinat from "@/assets/gallery/fingerfood/mini-fladen
 import miniFladenbrotThymian from "@/assets/gallery/fingerfood/mini-fladenbrot-thymian.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
+type ServingType = "all" | "einweg" | "mehrweg";
 
 interface GalleryImage {
   src: string;
   title: string;
   category: Category;
   size?: "small" | "medium" | "large";
+  servingType: ServingType;
 }
 
 const galleryImages: GalleryImage[] = [
   // Gemischte Reihenfolge für harmonische Ansicht (Buffet = voller Hintergrund, Dips/Fingerfood = weißer Hintergrund)
-  { src: buffetElegantSaal, title: "Elegantes Saal-Buffet", category: "buffets", size: "large" },
-  { src: tabouleh, title: "Tabouleh", category: "dips-salate", size: "medium" },
-  { src: falafel, title: "Falafel", category: "fingerfood", size: "medium" },
-  { src: buffetVielfaltChafing, title: "Buffet-Vielfalt", category: "buffets", size: "large" },
-  { src: hummus, title: "Hummus", category: "dips-salate", size: "medium" },
-  { src: grossesBuffetEvent, title: "Buffet Office 120 Personen", category: "buffets", size: "large" },
-  { src: kibbehSambousek, title: "Kibbeh & Fatayer", category: "fingerfood", size: "medium" },
-  { src: babaGanoush, title: "Baba Ganoush", category: "dips-salate", size: "medium" },
-  { src: buffetSalateBowls, title: "Salate & Bowls Buffet", category: "buffets", size: "large" },
-  { src: blaetterteig, title: "Blätterteig-Gebäck", category: "fingerfood", size: "large" },
-  { src: couscousElegant, title: "Couscous Elegant", category: "buffets", size: "large" },
-  { src: auberginenDip, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "medium" },
-  { src: buffetVeganChafing, title: "Buffet Office 100 Personen", category: "buffets", size: "large" },
-  { src: teigrollen, title: "Teigrollen", category: "fingerfood", size: "large" },
-  { src: hummusBuffet, title: "Hummus Buffet", category: "dips-salate", size: "large" },
-  { src: babaGanoushElegant, title: "Baba Ganoush Elegant", category: "buffets", size: "large" },
-  { src: wraps, title: "Lahmacun vegan", category: "fingerfood", size: "large" },
-  { src: buffetDipsSalateReihe, title: "Dips & Salate Reihe", category: "buffets", size: "large" },
-  { src: kichererbsenSalat, title: "Kichererbsen-Salat", category: "dips-salate", size: "medium" },
-  { src: buffetMeetEat, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
-  { src: falafelHaeppchen1, title: "Avocadocream", category: "fingerfood", size: "medium" },
-  { src: fetaSalat, title: "Feta-Salat", category: "dips-salate", size: "medium" },
-  { src: buffetTheke, title: "Fingerfood Office 30 Personen", category: "buffets", size: "large" },
-  { src: falafelHaeppchen2, title: "Fingerfood Brot", category: "fingerfood", size: "medium" },
-  { src: okraBulgur, title: "Okra & Bulgur", category: "buffets", size: "large" },
-  { src: petersilienSalat, title: "Tabouleh Buffet", category: "dips-salate", size: "medium" },
-  { src: bueroCatering, title: "Büro-Catering Fingerfood", category: "buffets", size: "large" },
-  { src: falafelHaeppchen3, title: "Rind Fingerfood", category: "fingerfood", size: "medium" },
-  { src: fattoush, title: "Fattoush", category: "dips-salate", size: "medium" },
-  { src: buffetHauptgerichteOffen, title: "Hauptgericht Büro", category: "buffets", size: "large" },
-  { src: pasteten1, title: "Hummus Fingerfood", category: "fingerfood", size: "medium" },
-  { src: buffetAufbau, title: "Buffet 20 Personen", category: "buffets", size: "large" },
-  { src: kartoffelsalat, title: "Kartoffelsalat", category: "dips-salate", size: "large" },
-  { src: buffetTerrasse, title: "Hochzeit Buffet", category: "buffets", size: "large" },
-  { src: pasteten2, title: "Baba Ghanousch Fingerfood", category: "fingerfood", size: "medium" },
-  { src: gemueseSalat, title: "Gemüse-Salat", category: "dips-salate", size: "large" },
-  { src: hauptgerichteChafing, title: "Hauptgerichte im Chafing", category: "buffets", size: "large" },
-  { src: rucolaSalat, title: "Rucola-Salat", category: "dips-salate", size: "large" },
-  { src: buffetHaehnchenReis, title: "Hähnchen & Reis", category: "buffets", size: "large" },
-  { src: couscousSalat, title: "Couscous-Salat", category: "dips-salate", size: "large" },
-  { src: buffetDipsBrot, title: "Dips & Brot Buffet", category: "buffets", size: "large" },
-  { src: buffetModernSideboard, title: "Buffet Workshop", category: "buffets", size: "large" },
-  { src: fleischFladenbrot, title: "Fleisch mit Fladenbrot", category: "buffets", size: "large" },
-  { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large" },
-  { src: buffetSalateLampen, title: "Buffet 25 Personen", category: "buffets", size: "large" },
-  // New images
-  { src: meetingCatering15, title: "Meeting Catering 15 Personen", category: "buffets", size: "large" },
-  { src: kundenbesuchCatering, title: "Kundenbesuch Catering", category: "buffets", size: "large" },
-  { src: workshopCatering, title: "Workshop Catering", category: "buffets", size: "large" },
-  { src: kafkaHauptspeise, title: "Kafka Hauptspeise", category: "buffets", size: "medium" },
-  { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium" },
-  { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large" },
-  { src: konferenzBuffet501, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
-  { src: konferenzBuffet502, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large" },
-  { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large" },
-  { src: kichererbsenSalatBuffet, title: "Kichererbsen Salat Buffet", category: "dips-salate", size: "large" },
-  { src: taboulehBuffet, title: "Tabouleh Salat Buffet", category: "dips-salate", size: "large" },
-  { src: fattoushBuffet, title: "Fattousch Salat Buffet", category: "dips-salate", size: "large" },
-  { src: babaGanoushBuffet, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "large" },
-  { src: hummusBuffetNew, title: "Hummus Buffet", category: "dips-salate", size: "large" },
-  { src: geburtstagsbuffet90, title: "Geburtstagsbuffet 90 Personen", category: "buffets", size: "large" },
-  { src: entrecote, title: "Entrecote", category: "buffets", size: "medium" },
-  { src: haehnchenfleisch, title: "Gebratenes Hähnchenfleisch", category: "buffets", size: "medium" },
-  { src: ofenkartoffeln, title: "Ofenkartoffeln", category: "buffets", size: "medium" },
-  { src: arabischerReisGemuese, title: "Arabischer Reis mit Gemüse", category: "buffets", size: "medium" },
-  { src: geburtstagsbuffetHauptgang, title: "Geburtstagsbuffet Hauptgang", category: "buffets", size: "large" },
-  { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood2, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood3, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood4, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood5, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium" },
-  { src: dessertVegan1, title: "Dessert vegan", category: "fingerfood", size: "medium" },
-  { src: dessertVegan2, title: "Dessert vegan", category: "fingerfood", size: "medium" },
-  // New dips - Einwegschalen
-  { src: arabischerFrischkaese, title: "Arabischer Frischkäse", category: "dips-salate", size: "medium" },
-  { src: babaGhanouschSchale, title: "Baba Ghanousch", category: "dips-salate", size: "medium" },
-  { src: taboulehSchale, title: "Tabouleh", category: "dips-salate", size: "medium" },
-  // New fingerfood - Einwegschalen & Fladenbrote
-  { src: lahmacunSchale, title: "Lahmacun", category: "fingerfood", size: "medium" },
-  { src: miniFladenbrotHackfleisch, title: "Mini-Fladenbrot mit Hackfleisch", category: "fingerfood", size: "medium" },
-  { src: miniFladenbrotPaprikaSpinat, title: "Mini-Fladenbrot Paprika & Spinat", category: "fingerfood", size: "medium" },
-  { src: miniFladenbrotThymian, title: "Mini-Fladenbrot mit Thymian", category: "fingerfood", size: "medium" },
+  // Nr. 1 - Einweg
+  { src: buffetElegantSaal, title: "Elegantes Saal-Buffet", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 2
+  { src: tabouleh, title: "Tabouleh", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 3
+  { src: falafel, title: "Falafel", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 4
+  { src: buffetVielfaltChafing, title: "Buffet-Vielfalt", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 5
+  { src: hummus, title: "Hummus", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 6
+  { src: grossesBuffetEvent, title: "Buffet Office 120 Personen", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 7 - Einweg
+  { src: kibbehSambousek, title: "Kibbeh & Fatayer", category: "fingerfood", size: "medium", servingType: "einweg" },
+  // Nr. 8 - Einweg
+  { src: babaGanoush, title: "Baba Ganoush", category: "dips-salate", size: "medium", servingType: "einweg" },
+  // Nr. 9 - Einweg
+  { src: buffetSalateBowls, title: "Salate & Bowls Buffet", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 10
+  { src: blaetterteig, title: "Blätterteig-Gebäck", category: "fingerfood", size: "large", servingType: "mehrweg" },
+  // Nr. 11
+  { src: couscousElegant, title: "Couscous Elegant", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 12 - Einweg
+  { src: auberginenDip, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "medium", servingType: "einweg" },
+  // Nr. 13 - Einweg
+  { src: buffetVeganChafing, title: "Buffet Office 100 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 14
+  { src: teigrollen, title: "Teigrollen", category: "fingerfood", size: "large", servingType: "mehrweg" },
+  // Nr. 15
+  { src: hummusBuffet, title: "Hummus Buffet", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 16
+  { src: babaGanoushElegant, title: "Baba Ganoush Elegant", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 17 - Einweg
+  { src: wraps, title: "Lahmacun vegan", category: "fingerfood", size: "large", servingType: "einweg" },
+  // Nr. 18 - Einweg
+  { src: buffetDipsSalateReihe, title: "Dips & Salate Reihe", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 19
+  { src: kichererbsenSalat, title: "Kichererbsen-Salat", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 20
+  { src: buffetMeetEat, title: "Meet & Eat Buffet", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 21
+  { src: falafelHaeppchen1, title: "Avocadocream", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 22 - Einweg
+  { src: fetaSalat, title: "Feta-Salat", category: "dips-salate", size: "medium", servingType: "einweg" },
+  // Nr. 23
+  { src: buffetTheke, title: "Fingerfood Office 30 Personen", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 24 - Einweg
+  { src: falafelHaeppchen2, title: "Fingerfood Brot", category: "fingerfood", size: "medium", servingType: "einweg" },
+  // Nr. 25
+  { src: okraBulgur, title: "Okra & Bulgur", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 26
+  { src: petersilienSalat, title: "Tabouleh Buffet", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 27
+  { src: bueroCatering, title: "Büro-Catering Fingerfood", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 28
+  { src: falafelHaeppchen3, title: "Rind Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 29
+  { src: fattoush, title: "Fattoush", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 30
+  { src: buffetHauptgerichteOffen, title: "Hauptgericht Büro", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 31 - Einweg
+  { src: pasteten1, title: "Hummus Fingerfood", category: "fingerfood", size: "medium", servingType: "einweg" },
+  // Nr. 32 - Einweg
+  { src: buffetAufbau, title: "Buffet 20 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 33
+  { src: kartoffelsalat, title: "Kartoffelsalat", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 34
+  { src: buffetTerrasse, title: "Hochzeit Buffet", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 35
+  { src: pasteten2, title: "Baba Ghanousch Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 36 - Einweg
+  { src: gemueseSalat, title: "Gemüse-Salat", category: "dips-salate", size: "large", servingType: "einweg" },
+  // Nr. 37
+  { src: hauptgerichteChafing, title: "Hauptgerichte im Chafing", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 38 - Einweg
+  { src: rucolaSalat, title: "Rucola-Salat", category: "dips-salate", size: "large", servingType: "einweg" },
+  // Nr. 39
+  { src: buffetHaehnchenReis, title: "Hähnchen & Reis", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 40
+  { src: couscousSalat, title: "Couscous-Salat", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 41
+  { src: buffetDipsBrot, title: "Dips & Brot Buffet", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 42
+  { src: buffetModernSideboard, title: "Buffet Workshop", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 43
+  { src: fleischFladenbrot, title: "Fleisch mit Fladenbrot", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 44 - Einweg
+  { src: buffetMeetEat2, title: "Meet & Eat Buffet", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 45
+  { src: buffetSalateLampen, title: "Buffet 25 Personen", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 46
+  { src: meetingCatering15, title: "Meeting Catering 15 Personen", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 47
+  { src: kundenbesuchCatering, title: "Kundenbesuch Catering", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 48
+  { src: workshopCatering, title: "Workshop Catering", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 49
+  { src: kafkaHauptspeise, title: "Kafka Hauptspeise", category: "buffets", size: "medium", servingType: "mehrweg" },
+  // Nr. 50 - Einweg
+  { src: couscousReis, title: "Couscous und Reis", category: "buffets", size: "medium", servingType: "einweg" },
+  // Nr. 51 - Einweg
+  { src: officeCatering40, title: "Office Catering 40 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 52 - Einweg
+  { src: konferenzBuffet501, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 53 - Einweg
+  { src: konferenzBuffet502, title: "Konferenz Buffet 50 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 54
+  { src: auberginencreme, title: "Auberginencreme", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 55
+  { src: kichererbsenSalatBuffet, title: "Kichererbsen Salat Buffet", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 56
+  { src: taboulehBuffet, title: "Tabouleh Salat Buffet", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 57
+  { src: fattoushBuffet, title: "Fattousch Salat Buffet", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 58 - Einweg
+  { src: babaGanoushBuffet, title: "Baba Ghanousch Buffet", category: "dips-salate", size: "large", servingType: "einweg" },
+  // Nr. 59
+  { src: hummusBuffetNew, title: "Hummus Buffet", category: "dips-salate", size: "large", servingType: "mehrweg" },
+  // Nr. 60 - Einweg
+  { src: geburtstagsbuffet90, title: "Geburtstagsbuffet 90 Personen", category: "buffets", size: "large", servingType: "einweg" },
+  // Nr. 61
+  { src: entrecote, title: "Entrecote", category: "buffets", size: "medium", servingType: "mehrweg" },
+  // Nr. 62
+  { src: haehnchenfleisch, title: "Gebratenes Hähnchenfleisch", category: "buffets", size: "medium", servingType: "mehrweg" },
+  // Nr. 63
+  { src: ofenkartoffeln, title: "Ofenkartoffeln", category: "buffets", size: "medium", servingType: "mehrweg" },
+  // Nr. 64
+  { src: arabischerReisGemuese, title: "Arabischer Reis mit Gemüse", category: "buffets", size: "medium", servingType: "mehrweg" },
+  // Nr. 65
+  { src: geburtstagsbuffetHauptgang, title: "Geburtstagsbuffet Hauptgang", category: "buffets", size: "large", servingType: "mehrweg" },
+  // Nr. 66
+  { src: fruehstueckBrot1, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 67
+  { src: fruehstueckBrot2, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 68
+  { src: eventFingerfood1, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 69
+  { src: eventFingerfood2, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 70
+  { src: eventFingerfood3, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 71 - Einweg
+  { src: eventFingerfood4, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "einweg" },
+  // Nr. 72 - Einweg
+  { src: eventFingerfood5, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "einweg" },
+  // Nr. 73
+  { src: eventFingerfood6, title: "Event Fingerfood", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 74
+  { src: dessertVegan1, title: "Dessert vegan", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 75
+  { src: dessertVegan2, title: "Dessert vegan", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 76 - Einweg
+  { src: arabischerFrischkaese, title: "Arabischer Frischkäse", category: "dips-salate", size: "medium", servingType: "einweg" },
+  // Nr. 77
+  { src: babaGhanouschSchale, title: "Baba Ghanousch", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 78
+  { src: taboulehSchale, title: "Tabouleh", category: "dips-salate", size: "medium", servingType: "mehrweg" },
+  // Nr. 79
+  { src: lahmacunSchale, title: "Lahmacun", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 80
+  { src: miniFladenbrotHackfleisch, title: "Mini-Fladenbrot mit Hackfleisch", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 81
+  { src: miniFladenbrotPaprikaSpinat, title: "Mini-Fladenbrot Paprika & Spinat", category: "fingerfood", size: "medium", servingType: "mehrweg" },
+  // Nr. 82 - Einweg
+  { src: miniFladenbrotThymian, title: "Mini-Fladenbrot mit Thymian", category: "fingerfood", size: "medium", servingType: "einweg" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
@@ -208,10 +289,17 @@ const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
   { id: "buffets", label: "Buffets", icon: <Utensils className="w-4 h-4" /> },
 ];
 
+const servingTypes: { id: ServingType; label: string }[] = [
+  { id: "all", label: "Alle Servierarten" },
+  { id: "einweg", label: "Einwegschalen" },
+  { id: "mehrweg", label: "Mehrwegschalen" },
+];
+
 const CateringGallery = () => {
   const { setMode } = useSiteMode();
   const isMobile = useMobileDetection();
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
+  const [selectedServingType, setSelectedServingType] = useState<ServingType>("all");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -229,14 +317,16 @@ const CateringGallery = () => {
     setShuffledImages(shuffled);
   }, [setMode]);
 
-  // Reset showAll when category changes
+  // Reset showAll when filter changes
   useEffect(() => {
     setShowAll(false);
-  }, [selectedCategory]);
+  }, [selectedCategory, selectedServingType]);
 
-  const filteredImages = selectedCategory === "all" 
-    ? shuffledImages 
-    : shuffledImages.filter(img => img.category === selectedCategory);
+  const filteredImages = shuffledImages.filter(img => {
+    const categoryMatch = selectedCategory === "all" || img.category === selectedCategory;
+    const servingMatch = selectedServingType === "all" || img.servingType === selectedServingType;
+    return categoryMatch && servingMatch;
+  });
   
   const displayedImages = showAll ? filteredImages : filteredImages.slice(0, initialCount);
   const hasMoreImages = filteredImages.length > initialCount;
@@ -321,19 +411,38 @@ const CateringGallery = () => {
       {/* Category Filter */}
       <section className="sticky top-16 md:top-20 z-40 py-4 bg-background/95 backdrop-blur-sm border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((cat) => (
-              <Button
-                key={cat.id}
-                variant={selectedCategory === cat.id ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(cat.id)}
-                className="gap-2 transition-all duration-300"
-              >
-                {cat.icon}
-                {cat.label}
-              </Button>
-            ))}
+          <div className="flex flex-col gap-3">
+            {/* Category buttons */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((cat) => (
+                <Button
+                  key={cat.id}
+                  variant={selectedCategory === cat.id ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className="gap-2 transition-all duration-300"
+                >
+                  {cat.icon}
+                  {cat.label}
+                </Button>
+              ))}
+            </div>
+            
+            {/* Serving type filter */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              <span className="text-sm text-muted-foreground self-center mr-1">Servierart:</span>
+              {servingTypes.map((type) => (
+                <Button
+                  key={type.id}
+                  variant={selectedServingType === type.id ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedServingType(type.id)}
+                  className="transition-all duration-300"
+                >
+                  {type.label}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
