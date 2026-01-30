@@ -22,11 +22,9 @@ const CateringDanke = () => {
     // Google Ads Conversion Tracking
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL', // Replace with actual values
-        'event_callback': () => {
-          console.log('Google Ads conversion tracked');
-        }
+        'send_to': 'AW-10981698602/aXOvCOzSvO8bEKrYvfQo'
       });
+      console.log('Google Ads conversion tracked');
     }
 
     // Meta Pixel Conversion Tracking
