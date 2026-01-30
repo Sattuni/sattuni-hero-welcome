@@ -30,7 +30,7 @@ const MENU_METADATA: Record<string, MenuMeta> = {
     dishCounts: { selection: 10 },
   },
   'gruene-levante': {
-    occasions: ['Leichtes Mittagessen', 'Gesundheitstag', 'Veganer Workshop'],
+    occasions: ['Office Lunch', 'Kundenbesuch'],
     hint: 'Leichtes vegetarisches Buffet, auch als Ergänzung geeignet',
     dishCounts: { salads: 3, dips: 2, snacks: 3 },
   },
@@ -40,17 +40,17 @@ const MENU_METADATA: Record<string, MenuMeta> = {
     dishCounts: { appetizers: 7, mains: 2 },
   },
   'sattuni-genuss': {
-    occasions: ['Runder Geburtstag', 'Jubiläumsfeier', 'Firmenevent bis 50 Gäste'],
+    occasions: ['Runder Geburtstag', 'Jubiläumsfeier', 'Firmenevent'],
     hint: 'Buffet mit Dessert',
     dishCounts: { appetizers: 7, mains: 3, dessert: true },
   },
   'sattuni-festmahl': {
-    occasions: ['Sommerfest', 'Weihnachtsfeier', 'Großes Firmenevent'],
+    occasions: ['Sommerfest', 'Weihnachtsfeier', 'Firmenevent', 'Geburtstag'],
     hint: 'Großzügiges Buffet für größere Feiern',
     dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
   'sattuni-royal': {
-    occasions: ['Hochzeit', 'Große Jubiläumsfeier', 'Exklusive Gala'],
+    occasions: ['Hochzeit', 'Verlobung', 'Geburtstag', 'Weihnachtsfeier'],
     hint: 'Premium Buffet mit Lammschulter',
     dishCounts: { appetizers: 8, mains: 4, dessert: true },
   },
