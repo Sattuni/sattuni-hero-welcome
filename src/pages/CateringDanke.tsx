@@ -19,16 +19,23 @@ const CateringDanke = () => {
 
   // Track conversion on page load (for Google Ads, Meta Pixel, etc.)
   useEffect(() => {
-    // Google Ads Conversion Tracking
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-10981698602/aXOvCOzSvO8bEKrYvfQo'
+    if (typeof window === 'undefined') return;
+
+    // Google Ads Conversion Tracking with retry
+    const sendGoogleAdsConversion = () => {
+      (window as any).gtag?.('event', 'conversion', {
+        send_to: 'AW-10981698602/aXOvCOzSvO8bEKrYvfQo',
       });
-      console.log('Google Ads conversion tracked');
+    };
+
+    if ((window as any).gtag) {
+      sendGoogleAdsConversion();
+    } else {
+      setTimeout(sendGoogleAdsConversion, 800);
     }
 
     // Meta Pixel Conversion Tracking
-    if (typeof window !== 'undefined' && (window as any).fbq) {
+    if ((window as any).fbq) {
       (window as any).fbq('track', 'Lead', {
         content_name: 'Catering Anfrage',
         content_category: 'Catering',
