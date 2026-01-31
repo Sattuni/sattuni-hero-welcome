@@ -24,7 +24,7 @@ const BlogPost2 = () => {
         title="Was bedeutet Mezze? | Arabische Gastfreundschaft modern interpretiert von Sattuni"
         description="Erfahre, was Mezze bedeutet und wie Sattuni das arabische Prinzip des Teilens in moderne Küche bringt. Frisch, hausgemacht und perfekt für private und geschäftliche Anlässe."
         keywords="Mezze, arabische Küche, Catering Düsseldorf, orientalisches Buffet, Fingerfood teilen"
-        canonicalUrl="https://sattuni.de/catering/blog/was-bedeutet-mezze"
+        canonicalUrl="https://sattuni.de/catering/blog/was-bedeutet-mezze/"
         ogType="article"
         ogTitle="Was bedeutet eigentlich Mezze? Warum Teilen der wahre Geschmack ist"
         ogDescription="Mezze ist mehr als kleine Gerichte – es ist eine Art, zusammen zu essen. Entspannt, gesellig, ohne Stress."

@@ -60,7 +60,7 @@ const SEOHead = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
       <link rel="canonical" href={normalizedCanonicalUrl} />
 
       {/* Open Graph / Facebook / LinkedIn */}

@@ -24,7 +24,7 @@ const BlogPost1 = () => {
         title="Büro-Lunch mal anders – 10 frische Catering-Ideen von Sattuni Düsseldorf"
         description="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni – frisch, hausgemacht & perfekt fürs Team."
         keywords="Büro Catering Düsseldorf, Fingerfood Catering, arabisches Buffet, Office Lunch Ideen"
-        canonicalUrl="https://sattuni.de/catering/blog/buero-lunch-ideen"
+        canonicalUrl="https://sattuni.de/catering/blog/buero-lunch-ideen/"
         ogType="article"
         ogTitle="10 kreative Büro-Lunch-Ideen – wenn ihr keine Lust mehr auf Pizza & Pasta habt"
         ogDescription="Schluss mit Pizza & Pasta! Entdeckt kreative Büro-Lunch-Ideen und orientalische Catering-Inspirationen von Sattuni."

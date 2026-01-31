@@ -198,7 +198,7 @@ const Specialties = () => {
         title="Spezialitäten – Hummus, Falafel & Bowls | Sattuni Düsseldorf"
         description="Hummus, Falafel & Bowls: arabische Spezialitäten aus Düsseldorf. Hausgemacht, frisch. Jetzt bestellen!"
         keywords="arabische spezialitäten düsseldorf, hummus düsseldorf, falafel düsseldorf, orientalische küche, vegan düsseldorf, couscous bowl"
-        canonicalUrl="https://sattuni.de/restaurant/spezialitaeten"
+        canonicalUrl="https://sattuni.de/restaurant/spezialitaeten/"
         ogTitle="Arabische Spezialitäten in Düsseldorf - Sattuni"
         ogDescription="Hummus, Falafel, Bowls & mehr. Hausgemacht und frisch in Düsseldorf."
         ogImage="https://sattuni.de/hero/hero-specialties.jpg"
