@@ -52,7 +52,7 @@ const BlogPost4 = () => {
         title="5 vegane Klassiker der arabischen Küche für Teams | Sattuni Blog"
         description="Entdecke 5 bewährte vegane Lieblingsgerichte der arabischen Küche: Falafel, Hummus, Baba Ghanoush, Taboulé und mehr. Perfekt für Firmenevents und Team-Catering."
         keywords="veganes Catering, arabische Küche vegan, Falafel Catering, Hummus, Baba Ghanoush, Team Catering Düsseldorf, pflanzliches Buffet"
-        canonicalUrl="https://sattuni.de/catering/blog/vegane-arabische-klassiker"
+        canonicalUrl="https://sattuni.de/catering/blog/vegane-arabische-klassiker/"
         ogType="article"
         ogTitle="5 vegane Klassiker der arabischen Küche, die jedes Team liebt"
         ogDescription="Die veganen Sachen gehen bei Firmenevents als erstes weg – und das sind einfach die Klassiker unserer Großeltern."

@@ -179,7 +179,7 @@ const Speisekarte = () => {
         title="Speisekarte – Hummus, Falafel & Bowls | Sattuni Düsseldorf"
         description="Unsere Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. Frisch, hausgemacht, halal. Preise ab 4,50€. Jetzt bestellen!"
         keywords="Speisekarte, Menu, Hummus, Falafel, Orientalische Küche, Arabisch, Bowls, Salate, Preise, Düsseldorf, Halal, Vegan, Vegetarisch"
-        canonicalUrl="https://sattuni.de/restaurant/speisekarte"
+        canonicalUrl="https://sattuni.de/restaurant/speisekarte/"
         ogTitle="Speisekarte - Sattuni: Orientalische Küche Düsseldorf"
         ogDescription="Entdecke unsere orientalische Speisekarte: Hummus, Falafel, Bowls, Salate & mehr. Frisch, hausgemacht und mit Liebe zubereitet."
         ogImage="https://sattuni.de/sattuni_logo.jpg"

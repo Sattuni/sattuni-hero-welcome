@@ -29,7 +29,7 @@ const BlogPost6 = () => {
         title="Kundenbesuche-Catering: Jeden Tag was Neues | Sattuni Blog"
         description="Mehrtägige Kundenbesuche, jeden Tag ein anderes Menü. Wie wir für einen Stammkunden abwechslungsreiches Catering über 5-10 Tage am Stück liefern."
         keywords="Kundenbesuch Catering, abwechslungsreiches Catering, Catering Düsseldorf, Geschäftsessen Catering, kreatives Catering"
-        canonicalUrl="https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung"
+        canonicalUrl="https://sattuni.de/catering/blog/kundenbesuch-catering-abwechslung/"
         ogType="article"
         ogTitle="Jeden Tag was Neues: Catering für Kundenbesuche, das nicht langweilt"
         ogDescription="5-10 Tage Catering, jeden Tag ein anderes Menü. So begleiten wir Stammkunden bei mehrtägigen Kundenbesuchen."
