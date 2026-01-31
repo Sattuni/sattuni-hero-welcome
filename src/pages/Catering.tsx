@@ -7,6 +7,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
+import PraxisBeispiele from "@/components/features/catering/PraxisBeispiele";
 import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import CateringGalleryTeaser from "@/components/features/catering/CateringGalleryTeaser";
 import Breadcrumb from "@/components/layout/Breadcrumb";
@@ -478,59 +479,7 @@ const Catering = () => {
         </section>
 
         {/* 5) Beispiele aus der Praxis */}
-        <section className="py-12 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Beispiele aus der Praxis
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Zwei typische Caterings, die zeigen, wie wir arbeiten.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-              {/* Business Example */}
-              <Card className="border-l-4 border-l-primary">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Building2 className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium text-primary">Unternehmen</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">
-                    140 Leute, 100% vegan – Veganuary im Office
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Als die Anfrage kam, haben wir kurz geschluckt: 140 Leute, komplett vegan, 
-                    und das Buffet sollte auch die Skeptiker überzeugen. Wir haben getüftelt, 
-                    probiert und am Ende ein Menü zusammengestellt, das richtig gut ankam – 
-                    Couscous mit frischer Minze, gefüllte Weinblätter, und ja, auch die 
-                    Fleisch-Fans haben nachgeschöpft.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Private Example */}
-              <Card className="border-l-4 border-l-accent">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <PartyPopper className="w-5 h-5 text-accent" />
-                    <span className="text-sm font-medium text-accent">Private Feier</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">
-                    Runder Geburtstag mit 90 Gästen
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Die Tochter rief an: „Mein Papa wird 60, wir brauchen jemanden, der das Essen 
-                    macht – und zwar richtig gut." Gesagt, getan. Wir haben die Location dekoriert, 
-                    das Buffet aufgebaut und uns dann unsichtbar gemacht. Die Familie hat gefeiert, 
-                    wir haben hinterher alles wieder eingepackt. So soll das sein.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <PraxisBeispiele />
 
         {/* 6) Was unsere Buffets auszeichnet */}
         <section className="py-12 md:py-20 bg-gradient-subtle">
