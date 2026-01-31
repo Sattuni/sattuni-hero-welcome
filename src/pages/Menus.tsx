@@ -80,7 +80,6 @@ const Menus = () => {
         description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Für jeden Anlass das passende Paket."
         canonicalUrl="https://sattuni.de/catering/menus"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
-        noIndex={true}
       />
 
       <ModeHeader />
