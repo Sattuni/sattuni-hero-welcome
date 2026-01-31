@@ -24,7 +24,7 @@ const BlogPost3 = () => {
         title="Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert | Sattuni"
         description="Erfahre, wie gutes Workshop-Catering die Produktivität steigert. Praktische Tipps für Pausenverpflegung, Timing und Menüauswahl – frisch, leicht & energiereich."
         keywords="Workshop Catering Düsseldorf, Seminar Catering, Tagungsverpflegung, Business Catering, Konferenz Essen"
-        canonicalUrl="https://sattuni.de/catering/blog/workshop-catering"
+        canonicalUrl="https://sattuni.de/catering/blog/workshop-catering/"
         ogType="article"
         ogTitle="Workshop-Catering: So bleibt dein Team den ganzen Tag fokussiert"
         ogDescription="Das richtige Essen zur richtigen Zeit macht den Unterschied. Praktische Tipps für Pausenverpflegung und Menüauswahl."

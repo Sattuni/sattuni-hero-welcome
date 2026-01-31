@@ -123,7 +123,7 @@ const AboutUs = () => {
         title="Über uns – Feras & Hamudi, die Brüder hinter Sattuni"
         description="Feras & Hamudi: die Brüder hinter Sattuni. Arabische Küche, hausgemacht & frisch aus Düsseldorf."
         keywords="Sattuni Team, Feras, Hamudi, arabische Küche Düsseldorf, Brüder Restaurant, hausgemacht, modern"
-        canonicalUrl="https://sattuni.de/catering/ueber-uns"
+        canonicalUrl="https://sattuni.de/catering/ueber-uns/"
         ogTitle="Über uns - Sattuni | Die Brüder hinter der arabischen Küche"
         ogDescription="Feras kocht, Hamudi kümmert sich. Frische arabische Küche aus Düsseldorf."
         ogImage="https://sattuni.de/sattuni_logo.jpg"

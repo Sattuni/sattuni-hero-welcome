@@ -76,9 +76,10 @@ const Menus = () => {
   return (
     <>
       <SEOHead
-        title="Menüs & Preise | Sattuni Catering"
-        description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Für jeden Anlass das passende Paket."
-        canonicalUrl="https://sattuni.de/catering/menus"
+        title="Menüs & Preise | Sattuni Catering Düsseldorf"
+        description="Orientalische Buffet-Menüs: Klassik, Premium & Vegetarisch. Ab 20 Personen. Jetzt Menükarte ansehen!"
+        keywords="Catering Menüs, Buffet Preise, arabisches Buffet, orientalische Menüs, Catering Düsseldorf"
+        canonicalUrl="https://sattuni.de/catering/menus/"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
       />
 

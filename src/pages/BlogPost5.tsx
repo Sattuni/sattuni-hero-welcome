@@ -30,7 +30,7 @@ const BlogPost5 = () => {
         title="Veganes Office-Buffet für 140 Personen – Veganuary Catering | Sattuni Blog"
         description="Ein Einblick in unser veganes Office-Buffet für 140 Personen im Veganuary. Von der Planung über die Herausforderungen bis zu unseren Learnings."
         keywords="veganes Catering, Office Buffet, Veganuary, 100% vegan, Firmencatering, Düsseldorf, pflanzliches Buffet"
-        canonicalUrl="https://sattuni.de/catering/blog/veganes-office-buffet-veganuary"
+        canonicalUrl="https://sattuni.de/catering/blog/veganes-office-buffet-veganuary/"
         ogType="article"
         ogTitle="140 Personen, 100 % vegan: Ein Office-Buffet im Veganuary"
         ogDescription="Ein veganes Buffet für 140 Leute – komplett pflanzlich, kein Kompromiss. So haben wir das gemacht."
