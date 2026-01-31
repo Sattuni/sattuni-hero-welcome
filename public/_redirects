@@ -1,5 +1,9 @@
 # Netlify redirects for SPA routing with trailing slashes
 /AboutUs    /ueber-uns/    301
 
-# Enforce trailing slashes (Netlify auto-handles this with Pretty URLs setting)
+# Static files - serve directly (must come BEFORE catch-all)
+/sitemap.xml    /sitemap.xml    200
+/robots.txt     /robots.txt     200
+
+# SPA fallback for all other routes
 /*    /index.html   200
