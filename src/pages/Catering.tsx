@@ -1,9 +1,13 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+import mintLeaves from "@/assets/decorative/mint-leaves.png";
+import parsleyLeaves from "@/assets/decorative/parsley-leaves.png";
+import lemonSlices from "@/assets/decorative/lemon-slices.png";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
+import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import CateringGalleryTeaser from "@/components/features/catering/CateringGalleryTeaser";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
@@ -16,13 +20,13 @@ import {
   Building2, 
   CheckCircle, 
   ChevronRight, 
+  Clock, 
   Heart, 
   Mail, 
-  MessageSquare, 
+  PartyPopper, 
   Phone, 
-  Send, 
-  Truck, 
-  Users 
+  Users, 
+  Utensils 
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
@@ -46,23 +50,25 @@ const Catering = () => {
       "@context": "https://schema.org",
       "@type": "CateringBusiness",
       "name": "Sattuni Catering Düsseldorf",
-      "description": "Professionelles Catering für Firmen, Events und private Feiern in Düsseldorf",
-      "url": "https://sattuni.de/catering",
+      "description": "Arabisches Catering für Business-Events und private Feiern in Düsseldorf",
+      "url": "https://sattuni.de/catering/",
       "telephone": "+49-211-36180115",
       "email": "catering@sattuni.de",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Johannstraße 40",
         "addressLocality": "Düsseldorf",
-        "postalCode": "40476",
         "addressCountry": "DE"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Düsseldorf"
-      },
-      "priceRange": "€€",
-      "openingHours": "Mo-Fr 09:00-18:00"
+      "servesCuisine": "Arabisch, Orientalisch, Libanesisch",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.2277",
+          "longitude": "6.7735"
+        },
+        "geoRadius": "50000"
+      }
     };
 
     let jsonLdScript = document.querySelector('script[type="application/ld+json"][data-catering]') as HTMLScriptElement;
@@ -115,55 +121,53 @@ const Catering = () => {
     }
   }, []);
 
-  // Process steps for catering inquiry
+  // Unified process steps for all catering
   const processSteps = [
     {
-      icon: Send,
-      step: "1",
-      title: "Anfrage senden",
-      description: "Anlass, Personenanzahl, Datum",
+      icon: Mail,
+      title: "Anfrage stellen",
+      description: "Erzählt uns kurz, was ihr plant – Anlass, Datum, Personenzahl. Wir melden uns innerhalb von 24 Stunden.",
     },
     {
-      icon: MessageSquare,
-      step: "2",
-      title: "Kurze Abstimmung",
-      description: "Menüs & Ablauf besprechen",
+      icon: Phone,
+      title: "Persönliche Beratung",
+      description: "Wir klären offene Fragen, besprechen Menüoptionen und erstellen ein passendes Angebot.",
     },
     {
-      icon: Truck,
-      step: "3",
-      title: "Lieferung & Aufbau",
-      description: "Pünktlich vor Ort",
+      icon: CheckCircle,
+      title: "Bestätigung",
+      description: "Ihr bestätigt das Angebot – wir kümmern uns um Planung und Logistik.",
     },
     {
-      icon: Heart,
-      step: "4",
-      title: "Entspannter Event-Tag",
-      description: "Ihr genießt, wir kümmern uns",
+      icon: Utensils,
+      title: "Lieferung & Genuss",
+      description: "Pünktlich im vereinbarten Zeitfenster. Optional mit komplettem Aufbau – ihr genießt.",
     },
   ];
 
-  // Why companies choose Sattuni
-  const whyChooseSattuni = [
-    "Erfahrung mit Firmen & Business-Events",
-    "Zuverlässige Planung & klare Abläufe",
-    "Moderne, frische Küche",
-    "Flexible Menüs für unterschiedliche Teams",
-    "Persönliche Abstimmung statt Standardlösungen",
+  // Buffet qualities
+  const buffetQualities = [
+    "Frisch am Tag zubereitet – keine Fertigprodukte",
+    "Hausgemachte Dips, Salate und Hauptgerichte",
+    "Umfangreiche vegane und vegetarische Optionen",
+    "Über 200 erfolgreiche Caterings seit 2022",
+    "Zuverlässige Lieferung im vereinbarten Zeitfenster",
+    "Flexible Menüzusammenstellung nach euren Wünschen",
   ];
 
   return (
     <>
       <SEOHead
-        title="Catering für Firmen in Düsseldorf | Sattuni"
-        description="Professionelles Catering für Firmen, Events & private Feiern in Düsseldorf. Flexible Menüs, zuverlässige Planung und persönliche Betreuung."
-        keywords="Catering Düsseldorf, Firmen Catering, Business Catering, Event Catering, Office Catering, Catering Service Düsseldorf"
-        canonicalUrl="https://sattuni.de/catering"
+        title="Arabisches Catering Düsseldorf – Events & Feiern | Sattuni"
+        description="Arabisches Catering für Firmenevents & private Feiern in Düsseldorf. Ab 20 Personen. Jetzt unverbindlich anfragen!"
+        keywords="Catering Düsseldorf, arabisches Catering, Business Catering, Event Catering, Firmenevent, Buffet Service, Hochzeit Catering"
+        canonicalUrl="https://sattuni.de/catering/"
         ogImage="https://sattuni.de/sattuni_logo.jpg"
       />
       
       <div className="min-h-screen bg-background overflow-x-hidden">
         <ModeHeader />
+        <FreeDeliveryBanner />
 
         {/* Breadcrumb Navigation */}
         <div className="pt-20">
@@ -175,12 +179,12 @@ const Catering = () => {
           />
         </div>
 
-        {/* Hero Section */}
+        {/* 1) Hero Section */}
         <section className="relative pt-8 pb-16 md:pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
               src={heroCatering}
-              alt="Catering Buffet für Firmenveranstaltung in Düsseldorf"
+              alt="Arabisches Catering Buffet für Events und Feiern"
               className="w-full h-full object-cover"
               style={{ filter: 'blur(0.8px)' }}
               onLoad={() => {
@@ -193,12 +197,12 @@ const Catering = () => {
 
           <div className="relative container mx-auto px-4 text-center text-white">
             <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2">
-                Catering für Firmen in Düsseldorf – modern, unkompliziert & zuverlässig
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
+                Arabisches Catering für Events & Feiern in Düsseldorf
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-                Ob Firmenveranstaltung, Sommerfest oder private Feier – wir sorgen für gutes Essen und einen reibungslosen Ablauf.
+                Für Offices, private Feiern und besondere Anlässe – als Buffet, Lunch oder Event-Catering.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -238,209 +242,323 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* Intro Section */}
-        <section className="py-12 md:py-16">
+        {/* Quick Navigation */}
+        <section className="sticky top-16 md:top-20 z-40 py-3 md:py-4 bg-background/95 backdrop-blur-sm border-b shadow-sm">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Sattuni bietet professionelles Catering für Unternehmen und private Anlässe in Düsseldorf. 
-                Von der ersten Anfrage bis zur Lieferung begleiten wir euch persönlich – mit flexiblen 
-                Menüs und einem klaren Ablauf.
-              </p>
+            <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
+              <a
+                href="#anlaesse"
+                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                Anlässe
+              </a>
+              <a
+                href="/menus"
+                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                Menüs
+              </a>
+              <a
+                href="#ablauf"
+                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                Ablauf
+              </a>
+              <button
+                onClick={scrollToForm}
+                className="px-2 md:px-3 py-1.5 md:py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+              >
+                Anfrage senden
+              </button>
             </div>
           </div>
         </section>
 
-        {/* B2B Section: Catering für Firmen & Events */}
-        <section className="py-12 md:py-20 bg-gradient-subtle" id="firmen">
+        {/* 2) Zwei Einstiege Section */}
+        <section className="py-12 md:py-20 scroll-mt-24" id="anlaesse">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-center">
-                Catering für Firmen & Events in Düsseldorf
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Für welche Anlässe eignet sich unser Catering?
               </h2>
-              
-              <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
-                Für Unternehmen, die Wert auf Qualität und Zuverlässigkeit legen – egal ob kleines Meeting oder großes Firmenfest.
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Ob für euer Team im Büro oder eure private Feier – wir bringen arabische Küche zu euch.
               </p>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Users className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground">Meetings & Workshops</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      Konzentriertes Arbeiten braucht gutes Essen. Wir liefern Fingerfood, Snacks oder warme Gerichte – passend zu eurem Zeitplan.
-                    </p>
-                  </CardContent>
-                </Card>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {/* B2B Box */}
+              <Card className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 md:p-8 text-center space-y-4">
+                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Building2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                    Unternehmen & Teams
+                  </h3>
+                  <ul className="text-muted-foreground space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Office Lunch & Team-Events</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Meetings & Workshops</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Firmenevents & Kundenempfänge</span>
+                    </li>
+                  </ul>
+                  <Button
+                    variant="outline"
+                    className="w-full mt-4"
+                    onClick={() => {
+                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                  >
+                    Mehr erfahren
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </CardContent>
+              </Card>
 
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Building2 className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground">Office Lunch & Teamtage</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      Regelmäßiges Team-Lunch oder ein besonderer Teamtag – wir bringen frische Küche direkt ins Büro.
-                    </p>
-                  </CardContent>
-                </Card>
+              {/* B2C Box */}
+              <Card className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 md:p-8 text-center space-y-4">
+                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <PartyPopper className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                    Private Feiern
+                  </h3>
+                  <ul className="text-muted-foreground space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Geburtstage & Jubiläen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Hochzeiten & Verlobungen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <span>Familienfeiern & Gartenpartys</span>
+                    </li>
+                  </ul>
+                  <Button
+                    variant="outline"
+                    className="w-full mt-4"
+                    onClick={() => {
+                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                  >
+                    Mehr erfahren
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Heart className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground">Sommerfeste & Weihnachtsfeiern</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      Bei größeren Feiern übernehmen wir die komplette Verpflegung – mit Buffet-Aufbau und bei Bedarf auch Abbau.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground">Firmenveranstaltungen & Kundenevents</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      Kundenempfänge, Produktpräsentationen oder Jubiläen – wir sorgen dafür, dass das Essen zur Veranstaltung passt.
-                    </p>
-                  </CardContent>
-                </Card>
+        {/* 3) Unser Catering-Konzept */}
+        <section className="py-12 md:py-20 bg-gradient-subtle relative overflow-hidden">
+          {/* Decorative Herb Background Images */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Top Left - Mint */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -top-8 -left-8 w-40 h-40 md:w-56 md:h-56 object-contain opacity-[0.18] rotate-[-15deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Top Right - Parsley */}
+            <img 
+              src={parsleyLeaves} 
+              alt="" 
+              className="absolute -top-6 -right-6 w-36 h-36 md:w-48 md:h-48 object-contain opacity-[0.15] rotate-[20deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Bottom Left - Lemon */}
+            <img 
+              src={lemonSlices} 
+              alt="" 
+              className="absolute -bottom-8 -left-4 w-32 h-32 md:w-44 md:h-44 object-contain opacity-[0.20] rotate-[-10deg]"
+              aria-hidden="true"
+            />
+            
+            {/* Bottom Right - Mint (smaller) */}
+            <img 
+              src={mintLeaves} 
+              alt="" 
+              className="absolute -bottom-4 -right-8 w-28 h-28 md:w-40 md:h-40 object-contain opacity-[0.12] rotate-[35deg] scale-x-[-1]"
+              aria-hidden="true"
+            />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                Unser Catering-Konzept
+              </h2>
+              <div className="text-muted-foreground space-y-4 text-left md:text-center">
+                <p>
+                  Wir bringen die Vielfalt der arabischen Küche zu euren Events. Unsere Buffets sind 
+                  flexibel zusammenstellbar und eignen sich für Gruppen ab 20 Personen – egal ob im 
+                  Büro, in der Location oder bei euch zuhause.
+                </p>
+                <p>
+                  Von klassischen Mezze-Platten über herzhafte Hauptgerichte bis zu süßen Desserts: 
+                  Alles wird frisch am Tag zubereitet. Vegane und vegetarische Optionen sind bei uns 
+                  Standard, nicht Ausnahme.
+                </p>
+                <p>
+                  Ihr habt einen festen Ansprechpartner von der Anfrage bis zur Lieferung. So wisst 
+                  ihr immer, woran ihr seid – und könnt euch auf das Wesentliche konzentrieren.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/menus">
+                    Buffet Menüs ansehen
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Catering-Konzepte Section */}
+        {/* 4) So läuft euer Catering ab */}
+        <section className="py-12 md:py-20 scroll-mt-24" id="ablauf">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8 md:mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+                <Clock className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">In 4 einfachen Schritten</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                So läuft euer Catering ab
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Egal ob Firmenevent oder private Feier – der Ablauf ist einfach und unkompliziert.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {processSteps.map((step, index) => {
+                const IconComponent = step.icon;
+                return (
+                  <div key={index} className="relative">
+                    <Card className="h-full">
+                      <CardContent className="p-5 text-center space-y-3">
+                        <div className="flex justify-center">
+                          <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <IconComponent className="w-7 h-7 text-primary" />
+                          </div>
+                        </div>
+                        <div className="text-sm font-medium text-primary">Schritt {index + 1}</div>
+                        <h3 className="text-base md:text-lg font-semibold text-foreground">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                      </CardContent>
+                    </Card>
+                    {index < processSteps.length - 1 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                        <ChevronRight className="w-6 h-6 text-muted-foreground/30" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 5) Beispiele aus der Praxis */}
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-center">
-                Unsere Catering-Konzepte
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Beispiele aus der Praxis
               </h2>
-              
-              <div className="text-muted-foreground space-y-4 mb-8">
-                <p>
-                  Je nach Anlass und Gruppengröße bieten wir verschiedene Formate an: klassisches Buffet, 
-                  Fingerfood zum Networking oder ein Flying Buffet für dynamische Events. Alle Menüs 
-                  lassen sich individuell anpassen – vegetarische und vegane Optionen sind bei uns Standard.
-                </p>
-                <p>
-                  Die Portionsgrößen stimmen wir auf eure Gästezahl ab. Ob 20 oder 200 Personen – 
-                  ihr bekommt ein durchdachtes Konzept, das zum Anlass passt.
-                </p>
-              </div>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Zwei typische Caterings, die zeigen, wie wir arbeiten.
+              </p>
+            </div>
 
-              <div className="text-center">
-                <Link 
-                  to="/catering/menus"
-                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-lg transition-colors"
-                >
-                  Catering-Menüs ansehen
-                  <ChevronRight className="w-5 h-5" />
-                </Link>
-              </div>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {/* Business Example */}
+              <Card className="border-l-4 border-l-primary">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Building2 className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-medium text-primary">Unternehmen</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    140 Leute, 100% vegan – Veganuary im Office
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Als die Anfrage kam, haben wir kurz geschluckt: 140 Leute, komplett vegan, 
+                    und das Buffet sollte auch die Skeptiker überzeugen. Wir haben getüftelt, 
+                    probiert und am Ende ein Menü zusammengestellt, das richtig gut ankam – 
+                    Couscous mit frischer Minze, gefüllte Weinblätter, und ja, auch die 
+                    Fleisch-Fans haben nachgeschöpft.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Private Example */}
+              <Card className="border-l-4 border-l-accent">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <PartyPopper className="w-5 h-5 text-accent" />
+                    <span className="text-sm font-medium text-accent">Private Feier</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    Runder Geburtstag mit 90 Gästen
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Die Tochter rief an: „Mein Papa wird 60, wir brauchen jemanden, der das Essen 
+                    macht – und zwar richtig gut." Gesagt, getan. Wir haben die Location dekoriert, 
+                    das Buffet aufgebaut und uns dann unsichtbar gemacht. Die Familie hat gefeiert, 
+                    wir haben hinterher alles wieder eingepackt. So soll das sein.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Why Sattuni Section */}
+        {/* 6) Was unsere Buffets auszeichnet */}
         <section className="py-12 md:py-20 bg-gradient-subtle">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 text-center">
-                Warum Unternehmen sich für Sattuni entscheiden
-              </h2>
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                  Was unsere Buffets auszeichnet
+                </h2>
+              </div>
 
-              <ul className="space-y-4 mb-8">
-                {whyChooseSattuni.map((reason, index) => (
+              <ul className="space-y-4">
+                {buffetQualities.map((quality, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground text-lg">{reason}</span>
+                    <span className="text-foreground">{quality}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="text-center">
+              <div className="text-center mt-8">
                 <Link 
-                  to="/catering/galerie"
-                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+                  to="/catering/galerie" 
+                  className="text-primary hover:underline font-medium inline-flex items-center gap-1"
                 >
                   Bilder von unseren Caterings ansehen
                   <ChevronRight className="w-4 h-4" />
                 </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* B2C Section: Private Feiern */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-center">
-                Catering für private Feiern in Düsseldorf
-              </h2>
-              
-              <div className="text-muted-foreground space-y-4 text-center">
-                <p>
-                  Auch für Geburtstage, Jubiläen und kleinere private Feiern sind wir der richtige Partner. 
-                  Ihr bekommt dieselbe Qualität und denselben persönlichen Service wie unsere Firmenkunden.
-                </p>
-                <p>
-                  Wir liefern, bauen auf – und ihr könnt euch voll und ganz auf eure Gäste konzentrieren.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-12 md:py-20 bg-gradient-subtle" id="ablauf">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 text-center">
-                So läuft eine Catering-Anfrage ab
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                {processSteps.map((step, index) => {
-                  const IconComponent = step.icon;
-                  return (
-                    <div key={index} className="relative">
-                      <Card className="h-full">
-                        <CardContent className="p-4 md:p-5 text-center space-y-3">
-                          <div className="flex justify-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                              <IconComponent className="w-6 h-6 text-primary" />
-                            </div>
-                          </div>
-                          <div className="text-sm font-bold text-primary">{step.step}</div>
-                          <h3 className="text-sm md:text-base font-semibold text-foreground">{step.title}</h3>
-                          <p className="text-xs md:text-sm text-muted-foreground">{step.description}</p>
-                        </CardContent>
-                      </Card>
-                      {index < processSteps.length - 1 && (
-                        <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                          <ChevronRight className="w-5 h-5 text-muted-foreground/40" />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </div>
@@ -497,24 +615,35 @@ const Catering = () => {
         {/* FAQ Section */}
         <FAQSection />
 
-        {/* Final CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-subtle" id="cta-final">
+        {/* 7) Final CTA Section */}
+        <section className="py-16 md:py-20 bg-gradient-subtle">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto space-y-6">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-                Catering in Düsseldorf anfragen
+                Catering anfragen
               </h2>
               <p className="text-lg text-muted-foreground">
-                Erzählt uns kurz von eurem Anlass – wir melden uns zeitnah mit einem passenden Vorschlag.
+                Egal ob Firmenevent oder private Feier – schreibt uns und wir melden uns 
+                innerhalb von 24 Stunden mit einem unverbindlichen Angebot.
               </p>
 
-              <div className="pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
                   size="lg"
-                  className="text-lg px-8"
+                  className="text-base px-6"
                   onClick={scrollToForm}
                 >
-                  Anfrage senden
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Catering für Unternehmen anfragen
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-6"
+                  onClick={scrollToForm}
+                >
+                  <PartyPopper className="w-4 h-4 mr-2" />
+                  Catering für private Feiern anfragen
                 </Button>
               </div>
             </div>
