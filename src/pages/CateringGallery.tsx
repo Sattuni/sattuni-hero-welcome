@@ -102,6 +102,14 @@ import lahmacunSchale from "@/assets/gallery/fingerfood/lahmacun-schale.jpg";
 import miniFladenbrotHackfleisch from "@/assets/gallery/fingerfood/mini-fladenbrot-hackfleisch.jpg";
 import miniFladenbrotPaprikaSpinat from "@/assets/gallery/fingerfood/mini-fladenbrot-paprika-spinat.jpg";
 import miniFladenbrotThymian from "@/assets/gallery/fingerfood/mini-fladenbrot-thymian.jpg";
+// New images - Januar 2026
+import babaGhanousch20pax from "@/assets/gallery/dips-salate/baba-ghanousch-20pax.jpg";
+import hummus20pax from "@/assets/gallery/dips-salate/hummus-20pax.jpg";
+import fattoush20pax from "@/assets/gallery/dips-salate/fattoush-20pax.jpg";
+import teigtaschenVegetarisch from "@/assets/gallery/fingerfood/teigtaschen-vegetarisch.jpg";
+import hauptgangCouscousKartoffeln from "@/assets/gallery/buffets/hauptgang-couscous-kartoffeln.jpg";
+import hauptgangHaehnchenLachs from "@/assets/gallery/buffets/hauptgang-haehnchen-lachs.jpg";
+import vorspeisenOfficeLunch20pax from "@/assets/gallery/buffets/vorspeisen-office-lunch-20pax.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -199,6 +207,14 @@ const galleryImages: GalleryImage[] = [
   { src: miniFladenbrotHackfleisch, title: "Mini-Fladenbrot mit Hackfleisch", category: "fingerfood", size: "medium" },
   { src: miniFladenbrotPaprikaSpinat, title: "Mini-Fladenbrot Paprika & Spinat", category: "fingerfood", size: "medium" },
   { src: miniFladenbrotThymian, title: "Mini-Fladenbrot mit Thymian", category: "fingerfood", size: "medium" },
+  // New images - Januar 2026
+  { src: babaGhanousch20pax, title: "Baba Ghanousch für 20 Personen", category: "dips-salate", size: "medium" },
+  { src: hummus20pax, title: "Hummus für 20 Personen", category: "dips-salate", size: "medium" },
+  { src: fattoush20pax, title: "Fattoush für 20 Personen", category: "dips-salate", size: "medium" },
+  { src: teigtaschenVegetarisch, title: "Gefüllte Teigtaschen vegetarisch", category: "fingerfood", size: "medium" },
+  { src: hauptgangCouscousKartoffeln, title: "Hauptgang Couscous & Kartoffeln", category: "buffets", size: "large" },
+  { src: hauptgangHaehnchenLachs, title: "Hauptgang Hähnchen & Lachsfilets", category: "buffets", size: "large" },
+  { src: vorspeisenOfficeLunch20pax, title: "Vorspeisen Office Lunch 20 Personen", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
