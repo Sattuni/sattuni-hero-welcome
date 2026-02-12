@@ -14,6 +14,7 @@ import officeHeroImage from "@/assets/blog/office-atmosphere.jpg";
 import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
 import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
+import firmenfeiernHero from "@/assets/blog/firmenfeiern-hero.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -24,6 +25,16 @@ const Blog = () => {
   }, [setMode]);
 
   const blogPosts = [
+    {
+      id: 7,
+      slug: "catering-fuer-firmenfeiern-in-duesseldorf",
+      title: "Catering für Firmenfeiern in Düsseldorf – Was wirklich wichtig ist",
+      excerpt: "Worauf Unternehmen bei Planung, Buffetstruktur und Ablauf wirklich achten sollten – aus unserer Erfahrung mit Firmenfeiern in Düsseldorf.",
+      date: "2026-02-12",
+      readTime: "7 min",
+      image: firmenfeiernHero,
+      category: "Firmenfeiern"
+    },
     {
       id: 5,
       slug: "veganes-office-buffet-veganuary",
