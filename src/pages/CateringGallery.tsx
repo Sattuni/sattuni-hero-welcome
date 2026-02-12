@@ -110,6 +110,15 @@ import teigtaschenVegetarisch from "@/assets/gallery/fingerfood/teigtaschen-vege
 import hauptgangCouscousKartoffeln from "@/assets/gallery/buffets/hauptgang-couscous-kartoffeln.jpg";
 import hauptgangHaehnchenLachs from "@/assets/gallery/buffets/hauptgang-haehnchen-lachs.jpg";
 import vorspeisenOfficeLunch20pax from "@/assets/gallery/buffets/vorspeisen-office-lunch-20pax.jpg";
+// New images - Februar 2026
+import fingerfoodPlatte from "@/assets/gallery/fingerfood/event-fingerfood-1.jpg";
+import miniBurgerHummusPute from "@/assets/gallery/fingerfood/mini-burger-hummus-pute.jpg";
+import antipastiSpiesse from "@/assets/gallery/fingerfood/antipasti-spiesse.jpg";
+import miniBurgerBabaRind from "@/assets/gallery/fingerfood/mini-burger-baba-ghanousch-rind.jpg";
+import fingerfoodHummusRind from "@/assets/gallery/fingerfood/fingerfood-hummus-rind.jpg";
+import fingerfoodLachs from "@/assets/gallery/fingerfood/fingerfood-lachs.jpg";
+import lahmacunFingerfood from "@/assets/gallery/fingerfood/lahmacun-fingerfood.jpg";
+import fingerfood15Personen from "@/assets/gallery/buffets/fingerfood-15-personen.jpg";
 
 type Category = "all" | "dips-salate" | "fingerfood" | "buffets";
 
@@ -215,6 +224,15 @@ const galleryImages: GalleryImage[] = [
   { src: hauptgangCouscousKartoffeln, title: "Hauptgang Couscous & Kartoffeln", category: "buffets", size: "large" },
   { src: hauptgangHaehnchenLachs, title: "Hauptgang Hähnchen & Lachsfilets", category: "buffets", size: "large" },
   { src: vorspeisenOfficeLunch20pax, title: "Vorspeisen Office Lunch 20 Personen", category: "buffets", size: "large" },
+  // New images - Februar 2026
+  { src: fingerfoodPlatte, title: "Fingerfood", category: "fingerfood", size: "medium" },
+  { src: miniBurgerHummusPute, title: "Mini Burger mit Hummus und Pute", category: "fingerfood", size: "medium" },
+  { src: antipastiSpiesse, title: "Antipasti Spieße", category: "fingerfood", size: "medium" },
+  { src: miniBurgerBabaRind, title: "Mini Burger mit Baba Ghanousch und Rind", category: "fingerfood", size: "medium" },
+  { src: fingerfoodHummusRind, title: "Fingerfood Hummus und Rind", category: "fingerfood", size: "medium" },
+  { src: fingerfoodLachs, title: "Fingerfood Lachs", category: "fingerfood", size: "medium" },
+  { src: lahmacunFingerfood, title: "Lahmacun Fingerfood", category: "fingerfood", size: "medium" },
+  { src: fingerfood15Personen, title: "Fingerfood für 15 Personen", category: "buffets", size: "large" },
 ];
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
