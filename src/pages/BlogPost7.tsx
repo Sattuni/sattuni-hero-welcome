@@ -94,7 +94,7 @@ const BlogPost7 = () => {
 
             {/* Hero Image */}
             <div className="container mx-auto max-w-4xl px-4 mb-8">
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-elegant">
+              <div className="relative h-64 md:h-96 overflow-hidden shadow-elegant">
                 <LazyImage
                   src={heroImage}
                   alt="Orientalisches Buffet bei einer Firmenfeier in Düsseldorf – Dips, Salate und Hauptgerichte in Tonschalen"
@@ -170,22 +170,18 @@ const BlogPost7 = () => {
                   </div>
                 </section>
 
-                {/* Bild 2 – Dips Detail */}
-                <section className="mb-12">
-                  <div className="rounded-xl overflow-hidden shadow-soft">
-                    <LazyImage
-                      src={dipsDetail}
-                      alt="Orientalische Dips und Salate auf einem Buffet – Hummus, Fattoush und Baba Ghanousch in Tonschalen"
-                      className="w-full h-64 md:h-80 object-cover"
-                    />
-                  </div>
-                </section>
-
-                {/* Abschnitt 3 */}
-                <section className="mb-12">
+                {/* Abschnitt 3 – mit Bild rechts */}
+                <section className="mb-12 overflow-hidden">
                   <h2 className="text-xl font-bold text-foreground mb-4">
                     Vegetarisch und vegan mitdenken
                   </h2>
+                  <div className="float-right ml-6 mb-4 w-full sm:w-2/5 shadow-sm">
+                    <LazyImage
+                      src={dipsDetail}
+                      alt="Orientalische Dips und Salate auf einem Buffet – Hummus, Fattoush und Baba Ghanousch in Tonschalen"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="leading-relaxed">
                       In fast jeder Gruppe gibt es inzwischen Menschen, die vegetarisch oder vegan essen. Das ist 
@@ -229,22 +225,18 @@ const BlogPost7 = () => {
                   </div>
                 </section>
 
-                {/* Bild 3 – Couscous */}
-                <section className="mb-12">
-                  <div className="rounded-xl overflow-hidden shadow-elegant">
-                    <LazyImage
-                      src={couscousDetail}
-                      alt="Frischer Couscous-Salat mit Tomaten und Kräutern in einer Tonschale auf dem Buffet"
-                      className="w-full h-64 md:h-80 object-cover"
-                    />
-                  </div>
-                </section>
-
-                {/* Abschnitt 5 */}
-                <section className="mb-12">
+                {/* Abschnitt 5 – mit Bild links */}
+                <section className="mb-12 overflow-hidden">
                   <h2 className="text-xl font-bold text-foreground mb-4">
                     Die Location mitdenken
                   </h2>
+                  <div className="float-left mr-6 mb-4 w-full sm:w-2/5 shadow-sm">
+                    <LazyImage
+                      src={couscousDetail}
+                      alt="Frischer Couscous-Salat mit Tomaten und Kräutern in einer Tonschale auf dem Buffet"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="leading-relaxed">
                       Nicht jede Location ist gleich. Ein Office-Catering im eigenen Büro stellt andere 
