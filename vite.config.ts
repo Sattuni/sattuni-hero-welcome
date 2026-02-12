@@ -21,6 +21,7 @@ const prerenderRoutes = [
   '/catering/blog/vegane-arabische-klassiker',
   '/catering/blog/veganes-office-buffet-veganuary',
   '/catering/blog/kundenbesuch-catering-abwechslung',
+  '/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf',
   // Restaurant
   '/restaurant',
   '/restaurant/spezialitaeten',
