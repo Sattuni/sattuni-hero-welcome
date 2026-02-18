@@ -81,6 +81,15 @@ const EVENT_TYPES = [
 // Minimum days in advance for booking
 const MIN_DAYS_ADVANCE = 3;
 
+// Blocked date range (inclusive)
+const BLOCKED_START = new Date('2026-03-21');
+const BLOCKED_END = new Date('2026-04-21');
+
+const isDateBlocked = (dateStr: string): boolean => {
+  const selected = new Date(dateStr);
+  return selected >= BLOCKED_START && selected <= BLOCKED_END;
+};
+
 interface FormData {
   // Step 1: Basic Info
   name: string;
@@ -233,6 +242,8 @@ const CateringBookingForm = () => {
       const minDate = new Date(getMinDate());
       if (selectedDate < minDate) {
         errors.date = `Bitte wählen Sie ein Datum mindestens ${MIN_DAYS_ADVANCE} Tage im Voraus`;
+      } else if (isDateBlocked(formData.date)) {
+        errors.date = "Für diesen Zeitraum (21.03. – 21.04.2026) nehmen wir leider keine Anfragen an. Bitte wähle ein Datum außerhalb dieses Zeitraums.";
       }
     }
     if (formData.guestCount < MIN_GUESTS) {
@@ -975,6 +986,9 @@ const CateringBookingForm = () => {
                         min={getMinDate()}
                         className={validationErrors.date ? "border-destructive" : ""}
                       />
+                      <p className="text-xs text-muted-foreground">
+                        ⚠️ Hinweis: Vom 21.03. – 21.04.2026 nehmen wir keine Anfragen an.
+                      </p>
                       {validationErrors.date && (
                         <p className="text-sm text-destructive">{validationErrors.date}</p>
                       )}
