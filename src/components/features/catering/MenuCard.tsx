@@ -24,22 +24,7 @@ interface MenuCardProps {
   dishCounts?: DishCounts;
 }
 
-const getHighlightBadge = (highlight?: PackageDishItem['highlight']) => {
-  if (!highlight) return null;
-  
-  const badges = {
-    neu: { label: '+ Extra', className: 'bg-green-100 text-green-700 border-green-200' },
-    upgrade: { label: '↑ Upgrade', className: 'bg-blue-100 text-blue-700 border-blue-200' },
-    premium: { label: '★ Premium', className: 'bg-amber-100 text-amber-700 border-amber-200' },
-  };
-  
-  const badge = badges[highlight];
-  return (
-    <Badge variant="outline" className={`ml-2 text-xs font-medium ${badge.className}`}>
-      {badge.label}
-    </Badge>
-  );
-};
+const isHighlighted = (highlight?: PackageDishItem['highlight']) => !!highlight;
 
 // Kreative Dish Counter Komponente
 const DishCounters = ({ counts }: { counts: DishCounts }) => {
@@ -232,11 +217,11 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
                     )}
                     <div className="grid gap-2">
                       {group.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0">
-                          <div className="flex items-center">
-                            <span className="font-medium text-sm text-foreground">{item.name}</span>
-                            {getHighlightBadge(item.highlight)}
-                          </div>
+                        <div key={itemIndex} className={cn(
+                          "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
+                          isHighlighted(item.highlight) && "bg-primary/8"
+                        )}>
+                          <span className="font-medium text-sm text-foreground">{item.name}</span>
                           {item.description && (
                             <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
                               {item.description}
@@ -252,11 +237,11 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
             ) : (
               <div className="grid gap-2">
                 {pkg.detailedItems[0]?.items.map((item, itemIndex) => (
-                  <div key={itemIndex} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0">
-                    <div className="flex items-center">
-                      <span className="font-medium text-sm text-foreground">{item.name}</span>
-                      {getHighlightBadge(item.highlight)}
-                    </div>
+                  <div key={itemIndex} className={cn(
+                    "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
+                    isHighlighted(item.highlight) && "bg-primary/8"
+                  )}>
+                    <span className="font-medium text-sm text-foreground">{item.name}</span>
                     {item.description && (
                       <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
                         {item.description}
