@@ -219,7 +219,7 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
                       {group.items.map((item, itemIndex) => (
                         <div key={itemIndex} className={cn(
                           "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
-                          isHighlighted(item.highlight) && "bg-primary/8"
+                          isHighlighted(item.highlight) && "bg-primary/15"
                         )}>
                           <span className="font-medium text-sm text-foreground">{item.name}</span>
                           {item.description && (
@@ -239,7 +239,7 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
                 {pkg.detailedItems[0]?.items.map((item, itemIndex) => (
                   <div key={itemIndex} className={cn(
                     "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
-                    isHighlighted(item.highlight) && "bg-primary/8"
+                    isHighlighted(item.highlight) && "bg-primary/15"
                   )}>
                     <span className="font-medium text-sm text-foreground">{item.name}</span>
                     {item.description && (
