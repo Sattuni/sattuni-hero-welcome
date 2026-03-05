@@ -203,7 +203,7 @@ const Catering = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-                Für Offices, private Feiern und besondere Anlässe – als Buffet, Lunch oder Event-Catering.
+                Buffets ab 22&nbsp;€ pro Person – für Firmenfeiern, Events und private Feiern.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -235,9 +235,16 @@ const Catering = () => {
                 </Button>
               </div>
 
-              {/* Google Review Trust Badge */}
-              <div className="pt-6">
+              {/* Google Review Trust Badge + Phone */}
+              <div className="pt-6 flex flex-col items-center gap-3">
                 <GoogleReviewBadge variant="hero" />
+                <a 
+                  href="tel:+492113618115" 
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Oder direkt anrufen: 0211 36180115</span>
+                </a>
               </div>
             </div>
           </div>
@@ -283,7 +290,7 @@ const Catering = () => {
                 Für welche Anlässe eignet sich unser Catering?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Ob für euer Team im Büro oder eure private Feier – wir bringen arabische Küche zu euch.
+                Ob Buffet Catering für euer Unternehmen in Düsseldorf oder Event Catering für eure private Feier – wir bringen arabische Küche zu euch.
               </p>
             </div>
 
@@ -297,18 +304,27 @@ const Catering = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-foreground">
                     Unternehmen & Teams
                   </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Firmen Catering in Düsseldorf – von der Konferenz bis zum Sommerfest.
+                  </p>
                   <ul className="text-muted-foreground space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>Office Lunch & Team-Events</span>
+                      <span>
+                        <Link to="/catering/blog/buero-lunch-ideen" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Office Lunch</Link> & Team-Events
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>Meetings & Workshops</span>
+                      <span>
+                        <Link to="/catering/blog/workshop-catering" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Meetings & Workshops</Link>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>Firmenevents & Kundenempfänge</span>
+                      <span>
+                        <Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Firmenfeiern</Link> & <Link to="/catering/blog/kundenbesuch-catering-abwechslung" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Kundenempfänge</Link>
+                      </span>
                     </li>
                   </ul>
                   <Button
@@ -333,6 +349,9 @@ const Catering = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-foreground">
                     Private Feiern
                   </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Catering für private Feiern in Düsseldorf – von der Hochzeit bis zum Geburtstag.
+                  </p>
                   <ul className="text-muted-foreground space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
@@ -445,7 +464,7 @@ const Catering = () => {
                 So läuft euer Catering ab
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Egal ob Firmenevent oder private Feier – der Ablauf ist einfach und unkompliziert.
+                Euer Event Catering in Düsseldorf – egal ob Firmenevent oder private Feier – der Ablauf ist einfach und unkompliziert.
               </p>
             </div>
 

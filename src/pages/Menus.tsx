@@ -102,7 +102,11 @@ const Menus = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Catering Menüs & Preise – Arabisches Buffet Düsseldorf</h1>
-                <p className="text-muted-foreground text-sm sm:text-base mt-1">Orientalische Vielfalt für jeden Anlass</p>
+                <p className="text-muted-foreground text-sm sm:text-base mt-1">
+                  Unsere Catering Menüs bringen die Vielfalt der arabischen Küche direkt zu eurem Event in Düsseldorf. 
+                  Wählt aus verschiedenen Buffet-Paketen – von leichten Mezze-Platten bis zum großen Festmahl, 
+                  ab 20 Personen und mit Lieferung inklusive.
+                </p>
               </div>
               
               {/* Action buttons - hidden on print */}

@@ -20,24 +20,24 @@ import blaetterteig from "@/assets/gallery/fingerfood/blaetterteig.jpg";
 
 // Image pools per category
 const buffetImages = [
-  { src: buffetElegant, alt: "Elegantes Buffet im Saal", label: "Buffets" },
-  { src: konferenzBuffet, alt: "Konferenz-Buffet für 50 Personen", label: "Buffets" },
-  { src: officeBuffet, alt: "Office Catering für 40 Personen", label: "Buffets" },
-  { src: workshopCatering, alt: "Workshop Catering", label: "Buffets" },
+  { src: buffetElegant, alt: "Arabisches Buffet Catering Düsseldorf – elegantes Saal-Buffet", label: "Buffets" },
+  { src: konferenzBuffet, alt: "Firmen Catering Buffet für 50 Personen in Düsseldorf", label: "Buffets" },
+  { src: officeBuffet, alt: "Office Lunch Catering für 40 Personen", label: "Buffets" },
+  { src: workshopCatering, alt: "Workshop Catering Buffet Düsseldorf", label: "Buffets" },
 ];
 
 const dipsImages = [
-  { src: hummus, alt: "Cremiger Hummus", label: "Dips & Salate" },
-  { src: tabouleh, alt: "Frischer Tabouleh Salat", label: "Dips & Salate" },
-  { src: fattoush, alt: "Knackiger Fattoush Salat", label: "Dips & Salate" },
-  { src: babaGanoush, alt: "Baba Ganoush", label: "Dips & Salate" },
+  { src: hummus, alt: "Hausgemachter Hummus – Mezze Catering Düsseldorf", label: "Dips & Salate" },
+  { src: tabouleh, alt: "Frischer Tabouleh Salat für Catering Buffet", label: "Dips & Salate" },
+  { src: fattoush, alt: "Fattoush Salat – orientalisches Catering", label: "Dips & Salate" },
+  { src: babaGanoush, alt: "Baba Ganoush Dip für Event Catering", label: "Dips & Salate" },
 ];
 
 const fingerfoodImages = [
-  { src: falafel, alt: "Knusprige Falafel", label: "Fingerfood" },
-  { src: wraps, alt: "Gefüllte Wraps", label: "Fingerfood" },
-  { src: kibbeh, alt: "Kibbeh und Sambousek", label: "Fingerfood" },
-  { src: blaetterteig, alt: "Blätterteig-Gebäck", label: "Fingerfood" },
+  { src: falafel, alt: "Knusprige Falafel – Fingerfood Catering für Events", label: "Fingerfood" },
+  { src: wraps, alt: "Orientalische Wraps für Firmenveranstaltung", label: "Fingerfood" },
+  { src: kibbeh, alt: "Kibbeh und Fatayer – arabisches Fingerfood Catering", label: "Fingerfood" },
+  { src: blaetterteig, alt: "Blätterteig-Gebäck für Event Catering Düsseldorf", label: "Fingerfood" },
 ];
 
 // Helper to get random item from array
