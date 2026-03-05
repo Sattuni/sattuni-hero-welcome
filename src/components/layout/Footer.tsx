@@ -9,18 +9,18 @@ const Footer = () => {
   const isMobile = useMobileDetection();
   
   const quickLinks = [
-    { name: "Spezialitäten", href: "/spezialitaeten" },
+    { name: "Spezialitäten", href: "/restaurant/spezialitaeten" },
     { name: "Catering", href: "/catering" },
-    { name: "Über uns", href: "/ueber-uns" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Über uns", href: "/catering/ueber-uns" },
+    { name: "Kontakt", href: "/catering?scrollTo=contact" },
   ];
 
   const cateringServices = [
     { name: "Fingerfood", href: "/catering/menus" },
     { name: "Buffets", href: "/catering/menus" }, 
     { name: "Vegane Optionen", href: "/catering/menus" },
-    { name: "Firmen-Events", href: "/catering#ablauf-business" },
-    { name: "Private Feiern", href: "/catering#ablauf-privat" }
+    { name: "Firmen-Events", href: "/catering#anlaesse" },
+    { name: "Private Feiern", href: "/catering#anlaesse" }
   ];
 
   return (

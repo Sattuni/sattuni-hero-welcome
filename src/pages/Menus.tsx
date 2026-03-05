@@ -5,6 +5,7 @@ import { CATERING_PACKAGES } from '@/constants/catering-packages';
 import SEOHead from '@/components/seo/SEOHead';
 import ModeHeader from '@/components/layout/ModeHeader';
 import Footer from '@/components/layout/Footer';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { useSiteMode } from '@/contexts/SiteModeContext';
 import MenuCard from '@/components/features/catering/MenuCard';
 
@@ -86,13 +87,26 @@ const Menus = () => {
       <ModeHeader />
       
       <div className="min-h-screen bg-background pt-20">
+        {/* Breadcrumbs */}
+        <Breadcrumb
+          items={[
+            { name: "Startseite", href: "/" },
+            { name: "Catering", href: "/catering" },
+            { name: "Menüs & Preise", href: "/catering/menus", current: true }
+          ]}
+        />
+
         {/* Page Header */}
         <section className="bg-gradient-to-b from-primary/5 to-background py-8 sm:py-12 print:py-4">
           <div className="container max-w-5xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Menüs & Preise</h1>
-                <p className="text-muted-foreground text-sm sm:text-base mt-1">Orientalische Vielfalt für jeden Anlass</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Catering Menüs & Preise – Arabisches Buffet Düsseldorf</h1>
+                <p className="text-muted-foreground text-sm sm:text-base mt-1">
+                  Unsere Catering Menüs bringen die Vielfalt der arabischen Küche direkt zu eurem Event in Düsseldorf. 
+                  Wählt aus verschiedenen Buffet-Paketen – von leichten Mezze-Platten bis zum großen Festmahl, 
+                  ab 20 Personen und mit Lieferung inklusive.
+                </p>
               </div>
               
               {/* Action buttons - hidden on print */}
@@ -149,7 +163,7 @@ const Menus = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg">
-                <a href="/catering">
+                <a href="/catering?scrollTo=contact">
                   <ChefHat className="w-4 h-4 mr-2" />
                   Catering anfragen
                 </a>

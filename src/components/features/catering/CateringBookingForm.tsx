@@ -766,6 +766,13 @@ const CateringBookingForm = () => {
           <p className="text-sm text-muted-foreground">
             Keine Buchung – einfach unverbindlich anfragen und Angebot erhalten
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+            <GoogleReviewBadge variant="compact" />
+            <a href="tel:+492113618115" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              0211 36180115
+            </a>
+          </div>
           <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
             <Clock className="w-3 h-3" />
             Antwort innerhalb von 24 Stunden
