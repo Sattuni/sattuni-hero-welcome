@@ -203,7 +203,7 @@ const Catering = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-                Buffets ab 22&nbsp;€ pro Person – für Firmenfeiern, Events und private Feiern.
+                Buffets ab 24,50&nbsp;€ pro Person – für Firmenfeiern, Events und private Feiern.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
