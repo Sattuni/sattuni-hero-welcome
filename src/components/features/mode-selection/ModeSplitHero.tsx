@@ -51,10 +51,10 @@ const ModeSplitHero = () => {
             />
           </div>
           <h1 className="text-xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-1 md:mb-3">
-            Hey, schön dass ihr da seid
+            Arabische Küche & Catering in Düsseldorf
           </h1>
           <p className="text-sm md:text-lg text-muted-foreground max-w-xl mx-auto">
-            Was darf's sein?
+            Frisch, hausgemacht & für jeden Anlass – was darf's sein?
           </p>
         </div>
 
