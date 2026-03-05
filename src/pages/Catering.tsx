@@ -254,7 +254,7 @@ const Catering = () => {
                 Anlässe
               </a>
               <a
-                href="/menus"
+                href="/catering/menus"
                 className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Menüs
@@ -423,7 +423,7 @@ const Catering = () => {
               </div>
               <div className="mt-8">
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/menus">
+                  <Link to="/catering/menus">
                     Buffet Menüs ansehen
                     <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
