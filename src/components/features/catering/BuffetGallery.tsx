@@ -15,12 +15,12 @@ import dips3 from "@/assets/buffet-gallery/dips/6.png";
 console.log('BuffetGallery images loaded:', { bowls1, bowls2, bowls3, bowls4, dips1, dips3 });
 
 const buffetImages = [
-  { src: bowls1, title: "Kichererbsen Salat", description: "Gesunde Bowls mit frischen Zutaten" },
-  { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr" },
-  { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche" },
-  { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen" },
-  { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat" },
-  { src: bowls4, title: "Fattoush Salat", description: "Petersilie mit Sonnenblumenkernen und Granatapfelkernen" },
+  { src: bowls1, title: "Kichererbsen Salat", description: "Frischer Salat für arabisches Catering Buffet", alt: "Kichererbsen Salat – Catering Buffet Düsseldorf" },
+  { src: dips1, title: "Dips & Vorspeisen", description: "Hummus, Baba Ghanousch und mehr", alt: "Mezze Dips für Event Catering" },
+  { src: bowls2, title: "Käse Salat", description: "Vielfältige arabische Küche", alt: "Arabischer Käse Salat für Buffet Catering" },
+  { src: dips3, title: "Hummus", description: "Cremiger Hummus mit Kichererbsen", alt: "Hausgemachter Hummus – orientalisches Catering" },
+  { src: bowls3, title: "Tabouleh Salat", description: "Frischer arabischer Petersiliensalat", alt: "Tabouleh Salat für Catering Events Düsseldorf" },
+  { src: bowls4, title: "Fattoush Salat", description: "Petersilie mit Sonnenblumenkernen und Granatapfelkernen", alt: "Fattoush Salat – arabisches Buffet" },
 ];
 
 interface BuffetGalleryProps {
@@ -75,7 +75,7 @@ export const BuffetGallery = ({ className = "" }: BuffetGalleryProps) => {
                 <div className="relative aspect-square lg:aspect-[16/9] lg:max-h-[290px] overflow-hidden rounded-lg shadow-lg">
                   <img
                     src={image.src}
-                    alt={image.title}
+                    alt={(image as any).alt || image.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">

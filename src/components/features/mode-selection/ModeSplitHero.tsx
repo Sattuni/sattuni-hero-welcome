@@ -197,6 +197,16 @@ const ModeSplitHero = () => {
             <span className="hidden md:inline">Frisch & Hausgemacht</span>
           </div>
         </div>
+
+        {/* SEO Introductory Text */}
+        <div className="mt-6 md:mt-10 max-w-3xl mx-auto text-center px-4">
+          <p className="text-xs md:text-sm text-muted-foreground/70 leading-relaxed">
+            Sattuni ist euer arabisches Restaurant in Düsseldorf – mit Lieferservice und authentischer 
+            orientalischer Küche. Ob Catering für Firmen, Buffets für Meetings und Workshops oder 
+            Catering für private Feiern wie Hochzeiten und Geburtstage: Wir liefern frisch und hausgemacht 
+            direkt zu euch.
+          </p>
+        </div>
       </div>
     </section>
   );
