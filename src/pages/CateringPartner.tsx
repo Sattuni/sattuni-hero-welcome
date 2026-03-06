@@ -135,7 +135,7 @@ const CateringPartner = () => {
               {
                 icon: MessageSquare,
                 title: "Kurze Nachricht senden",
-                desc: "„Workshop – Dienstag – 20 Personen – 12:00"\n\nKeine Menü-Auswahl. Keine neuen Angebote.",
+                desc: "Workshop \u2013 Dienstag \u2013 20 Personen \u2013 12:00\n\nKeine Men\u00fc-Auswahl. Keine neuen Angebote.",
               },
               {
                 icon: UtensilsCrossed,
