@@ -1,90 +1,60 @@
 
 
-# Plan: Bilder auf der Catering-Seite optimieren
+## Analyse der Catering-Seite: 80/20-Optimierung
 
-## Übersicht
-
-Die Catering-Seite wirkt aktuell textlastig und visuell arm. Es fehlen Bilder, die den B2B- und B2C-Kontext untermauern sowie die Qualität des Caterings zeigen. Mit den vorhandenen Galerie-Assets lässt sich das effektiv beheben.
-
----
-
-## Geplante Änderungen
-
-### 1. Bilder für "Beispiele aus der Praxis"
-
-Passende Bilder direkt in die zwei Praxis-Beispiel-Karten integrieren:
-
-| Beispiel | Bild | Quelle |
-|----------|------|--------|
-| Veganuary-Teamlunch | Office-Buffet-Setup | `office-catering-40.jpg` oder `buffet-vegan-chafing.jpg` |
-| 60. Geburtstag | Festliches Buffet | `geburtstagsbuffet-90.jpg` oder `geburtstagsbuffet-hauptgang.jpg` |
-
-**Umsetzung:** Jeweils ein `<img>` mit `aspect-ratio: 16/9` oder `3/2` oberhalb des Textes in den Cards.
-
----
-
-### 2. Galerie-Teaser-Sektion hinzufügen
-
-Eine kompakte Vorschau der Catering-Galerie einfügen, die 3-4 randomisierte Bilder zeigt und zur vollständigen Galerie verlinkt.
-
-**Position:** Zwischen "Was unsere Buffets auszeichnet" und "Customer Reviews"
-
-**Optionen:**
-- Die bestehende `BuffetGallery`-Komponente nutzen (Carousel)
-- Oder eine neue Teaser-Grid-Komponente mit 3 Bildern (1 Buffet, 1 Dip, 1 Fingerfood)
-
----
-
-### 3. Optionale Bilder für B2B/B2C-Einstiegsboxen
-
-Dezente Hintergrundbilder oder kleine Illustrationen für die "Unternehmen & Teams" und "Private Feiern"-Karten:
-
-| Box | Bildidee |
-|-----|----------|
-| B2B | `meeting-catering-15.jpg` oder `workshop-catering.jpg` |
-| B2C | `geburtstagsbuffet-90.jpg` oder `buffet-terrasse.jpg` |
-
-**Alternative:** Icons belassen, aber auf Hover ein dezentes Bild einblenden.
-
----
-
-## Technische Umsetzung
-
-### Dateien zu bearbeiten
-
-1. **`src/pages/Catering.tsx`**
-   - Import der benötigten Bilder aus `@/assets/gallery/buffets/`
-   - "Beispiele aus der Praxis"-Karten mit Bildern erweitern
-   - Optional: `BuffetGallery`-Komponente einbinden
-
-2. **Optional: Neue Komponente `CateringGalleryTeaser.tsx`**
-   - 3-4 Bilder in einem Grid
-   - Link zur `/catering/galerie`-Seite
-
----
-
-## Vorgeschlagene Bild-Auswahl
+### Aktuelle Struktur (13 Sektionen)
 
 ```text
-Praxis-Beispiele:
-├── Business: office-catering-40.jpg (modernes Büro-Setup)
-└── Privat: geburtstagsbuffet-90.jpg (festliches Buffet)
-
-Galerie-Teaser:
-├── buffet-elegant-saal.jpg (Buffet-Kategorie)
-├── hummus.jpg oder tabouleh.jpg (Dips-Kategorie)
-└── falafel.jpg (Fingerfood-Kategorie)
+1. Hero                        ← BEHALTEN (Kernbotschaft + CTAs)
+2. Quick Navigation (sticky)   ← BEHALTEN (Orientierung)
+3. Anlässe (B2B/B2C Cards)     ← BEHALTEN, kürzen
+4. Catering-Konzept (3 Absätze + Deko-Bilder) ← ENTFERNEN (redundant)
+5. So läuft's ab (4 Schritte)  ← BEHALTEN, Texte kürzen
+6. PraxisBeispiele             ← BEHALTEN (Social Proof)
+7. Buffet-Qualitäten (6 Punkte)← ENTFERNEN (redundant mit Hero + Konzept)
+8. Gallery Teaser              ← BEHALTEN (visuell stark)
+9. Customer Reviews            ← BEHALTEN (Vertrauen)
+10. Partner-Logos              ← BEHALTEN, kompakter
+11. Booking Form               ← BEHALTEN (Conversion-Ziel)
+12. FAQ                        ← BEHALTEN (SEO + Conversion)
+13. Final CTA Section          ← ENTFERNEN (Formular existiert bereits)
 ```
 
----
+### Was wird entfernt/gekürzt
 
-## Zusammenfassung
+**Entfernen (3 Sektionen):**
+- **"Unser Catering-Konzept"** (Sektion 4): Wiederholt Hero- und Qualitäts-Infos. Die Kernaussagen (frisch, ab 20 Personen, vegan/vegetarisch) stehen bereits im Hero und in den Anlässe-Cards.
+- **"Was unsere Buffets auszeichnet"** (Sektion 7): 6 Bullet Points, die dasselbe sagen wie Konzept + Hero. Die stärksten 3 Punkte werden als kompakte Trust-Badges in die Anlässe-Sektion integriert.
+- **Final CTA Section** (Sektion 13): Doppelt zum Booking Form direkt darüber. Das Formular + Mobile CTA Bar reichen.
 
-| Änderung | Aufwand | Priorität |
-|----------|---------|-----------|
-| Bilder in Praxis-Beispiele | Gering | Hoch |
-| Galerie-Teaser-Sektion | Mittel | Mittel |
-| B2B/B2C-Box-Bilder | Gering | Optional |
+**Kürzen:**
+- **Anlässe-Sektion**: Einleitungstext auf 1 Satz. Dafür 3 kompakte Trust-Badges hinzufügen (frisch zubereitet, 200+ Caterings, ab 20 Personen).
+- **Prozess-Schritte**: Beschreibungen auf max. 1 kurzen Satz pro Schritt.
+- **Partner-Logos Sektion**: Überschrift kürzen.
 
-**Ergebnis:** Die Catering-Seite wird visuell ansprechender, die Beispiele werden glaubwürdiger und die vorhandene Galerie erhält mehr Sichtbarkeit.
+### Neue kompakte Struktur (10 Sektionen)
+
+```text
+1. Hero (unverändert)
+2. Quick Navigation (unverändert)
+3. Anlässe + Trust-Badges (gekürzt)
+4. So läuft's ab (gekürzt)
+5. PraxisBeispiele (unverändert)
+6. Gallery Teaser (unverändert)
+7. Customer Reviews (unverändert)
+8. Partner-Logos (kompakter)
+9. Booking Form (unverändert)
+10. FAQ (unverändert)
+```
+
+### Technische Umsetzung
+
+Nur `src/pages/Catering.tsx` wird bearbeitet:
+- Sektion 4 (Zeilen 392-460) komplett entfernen inkl. dekorativer Kräuter-Bilder
+- Sektion 7 (Zeilen 510-540) entfernen, stattdessen 3 Trust-Badges nach den Anlässe-Cards einfügen
+- Sektion 13 (Zeilen 593-626) entfernen
+- Imports für `mintLeaves`, `parsleyLeaves`, `lemonSlices` entfernen (werden nicht mehr gebraucht)
+- Prozess-Schritte-Texte kürzen
+- Anlässe-Einleitung kürzen
+- `buffetQualities` Array entfernen
 
