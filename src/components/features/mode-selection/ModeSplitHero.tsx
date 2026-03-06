@@ -206,6 +206,14 @@ const ModeSplitHero = () => {
             Catering für private Feiern wie Hochzeiten und Geburtstage: Wir liefern frisch und hausgemacht 
             direkt zu euch.
           </p>
+          <p className="text-xs md:text-sm text-muted-foreground/60 leading-relaxed mt-4">
+            <a 
+              href="/catering/partner" 
+              className="text-primary hover:text-primary/80 font-medium transition-colors underline underline-offset-2"
+            >
+              Unternehmen? Hier geht's zum Catering Partner Modell →
+            </a>
+          </p>
         </div>
       </div>
     </section>

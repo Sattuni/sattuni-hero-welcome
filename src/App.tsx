@@ -19,6 +19,7 @@ import BlogPost4 from "./pages/BlogPost4";
 import BlogPost5 from "./pages/BlogPost5";
 import BlogPost6 from "./pages/BlogPost6";
 import BlogPost7 from "./pages/BlogPost7";
+import BlogPost8 from "./pages/BlogPost8";
 import Catering from "./pages/Catering";
 import CateringGallery from "./pages/CateringGallery";
 import Datenschutz from "./pages/Datenschutz";
@@ -29,6 +30,7 @@ import Restaurant from "./pages/Restaurant";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
 import CateringDanke from "./pages/CateringDanke";
+import CateringPartner from "./pages/CateringPartner";
 import Menus from "./pages/Menus";
 
 const queryClient = new QueryClient();
@@ -52,6 +54,7 @@ const AppRoutes = () => {
       <Route path="/catering/galerie" element={<CateringGallery />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/catering/menus" element={<Menus />} />
+      <Route path="/catering/partner" element={<CateringPartner />} />
       <Route path="/catering/ueber-uns" element={<AboutUs />} />
       <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
@@ -61,6 +64,7 @@ const AppRoutes = () => {
       <Route path="/catering/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/catering/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
+      <Route path="/catering/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
       
       {/* ===== SHARED / LEGAL ROUTES ===== */}
       <Route path="/impressum" element={<Impressum />} />
@@ -79,6 +83,7 @@ const AppRoutes = () => {
       <Route path="/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
+      <Route path="/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />

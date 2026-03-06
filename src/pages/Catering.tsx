@@ -1,7 +1,4 @@
 import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
-import mintLeaves from "@/assets/decorative/mint-leaves.png";
-import parsleyLeaves from "@/assets/decorative/parsley-leaves.png";
-import lemonSlices from "@/assets/decorative/lemon-slices.png";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
@@ -27,7 +24,10 @@ import {
   PartyPopper, 
   Phone, 
   Users, 
-  Utensils 
+  Utensils,
+  Leaf,
+  Star,
+  CalendarCheck
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
@@ -122,38 +122,28 @@ const Catering = () => {
     }
   }, []);
 
-  // Unified process steps for all catering
+  // Shortened process steps
   const processSteps = [
     {
       icon: Mail,
       title: "Anfrage stellen",
-      description: "Erzählt uns kurz, was ihr plant – Anlass, Datum, Personenzahl. Wir melden uns innerhalb von 24 Stunden.",
+      description: "Anlass, Datum, Personenzahl – wir melden uns in 24h.",
     },
     {
       icon: Phone,
       title: "Persönliche Beratung",
-      description: "Wir klären offene Fragen, besprechen Menüoptionen und erstellen ein passendes Angebot.",
+      description: "Menüoptionen besprechen, Angebot erhalten.",
     },
     {
       icon: CheckCircle,
       title: "Bestätigung",
-      description: "Ihr bestätigt das Angebot – wir kümmern uns um Planung und Logistik.",
+      description: "Angebot bestätigen – wir übernehmen die Planung.",
     },
     {
       icon: Utensils,
       title: "Lieferung & Genuss",
-      description: "Pünktlich im vereinbarten Zeitfenster. Optional mit komplettem Aufbau – ihr genießt.",
+      description: "Pünktlich geliefert, optional mit Aufbau.",
     },
-  ];
-
-  // Buffet qualities
-  const buffetQualities = [
-    "Frisch am Tag zubereitet – keine Fertigprodukte",
-    "Hausgemachte Dips, Salate und Hauptgerichte",
-    "Umfangreiche vegane und vegetarische Optionen",
-    "Über 200 erfolgreiche Caterings seit 2022",
-    "Zuverlässige Lieferung im vereinbarten Zeitfenster",
-    "Flexible Menüzusammenstellung nach euren Wünschen",
   ];
 
   return (
@@ -282,7 +272,7 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* 2) Zwei Einstiege Section */}
+        {/* 2) Anlässe + Trust Badges */}
         <section className="py-12 md:py-20 scroll-mt-24" id="anlaesse">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
@@ -290,7 +280,7 @@ const Catering = () => {
                 Für welche Anlässe eignet sich unser Catering?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Ob Buffet Catering für euer Unternehmen in Düsseldorf oder Event Catering für eure private Feier – wir bringen arabische Küche zu euch.
+                Arabisches Buffet Catering für Unternehmen und private Feiern in Düsseldorf.
               </p>
             </div>
 
@@ -326,17 +316,24 @@ const Catering = () => {
                         <Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Firmenfeiern</Link> & <Link to="/catering/blog/kundenbesuch-catering-abwechslung" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Kundenempfänge</Link>
                       </span>
                     </li>
-                  </ul>
-                  <Button
-                    variant="outline"
-                    className="w-full mt-4"
-                    onClick={() => {
-                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }}
-                  >
-                    Mehr erfahren
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </Button>
+                   </ul>
+                   <div className="space-y-2 mt-4">
+                     <p className="text-xs text-muted-foreground">
+                       Immer wiederkehrende Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">
+                         Catering Partner Modell kennenlernen →
+                       </Link>
+                     </p>
+                   </div>
+                   <Button
+                     variant="outline"
+                     className="w-full mt-4"
+                     onClick={() => {
+                       document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                     }}
+                   >
+                     Mehr erfahren
+                     <ChevronRight className="w-4 h-4 ml-1" />
+                   </Button>
                 </CardContent>
               </Card>
 
@@ -379,80 +376,26 @@ const Catering = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </section>
 
-        {/* 3) Unser Catering-Konzept */}
-        <section className="py-12 md:py-20 bg-gradient-subtle relative overflow-hidden">
-          {/* Decorative Herb Background Images */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Top Left - Mint */}
-            <img 
-              src={mintLeaves} 
-              alt="" 
-              className="absolute -top-8 -left-8 w-40 h-40 md:w-56 md:h-56 object-contain opacity-[0.18] rotate-[-15deg]"
-              aria-hidden="true"
-            />
-            
-            {/* Top Right - Parsley */}
-            <img 
-              src={parsleyLeaves} 
-              alt="" 
-              className="absolute -top-6 -right-6 w-36 h-36 md:w-48 md:h-48 object-contain opacity-[0.15] rotate-[20deg]"
-              aria-hidden="true"
-            />
-            
-            {/* Bottom Left - Lemon */}
-            <img 
-              src={lemonSlices} 
-              alt="" 
-              className="absolute -bottom-8 -left-4 w-32 h-32 md:w-44 md:h-44 object-contain opacity-[0.20] rotate-[-10deg]"
-              aria-hidden="true"
-            />
-            
-            {/* Bottom Right - Mint (smaller) */}
-            <img 
-              src={mintLeaves} 
-              alt="" 
-              className="absolute -bottom-4 -right-8 w-28 h-28 md:w-40 md:h-40 object-contain opacity-[0.12] rotate-[35deg] scale-x-[-1]"
-              aria-hidden="true"
-            />
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Unser Catering-Konzept
-              </h2>
-              <div className="text-muted-foreground space-y-4 text-left md:text-center">
-                <p>
-                  Wir bringen die Vielfalt der arabischen Küche zu euren Events. Unsere Buffets sind 
-                  flexibel zusammenstellbar und eignen sich für Gruppen ab 20 Personen – egal ob im 
-                  Büro, in der Location oder bei euch zuhause.
-                </p>
-                <p>
-                  Von klassischen Mezze-Platten über herzhafte Hauptgerichte bis zu süßen Desserts: 
-                  Alles wird frisch am Tag zubereitet. Vegane und vegetarische Optionen sind bei uns 
-                  Standard, nicht Ausnahme.
-                </p>
-                <p>
-                  Ihr habt einen festen Ansprechpartner von der Anfrage bis zur Lieferung. So wisst 
-                  ihr immer, woran ihr seid – und könnt euch auf das Wesentliche konzentrieren.
-                </p>
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-8 max-w-3xl mx-auto">
+              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                <Leaf className="w-4 h-4 text-primary" />
+                <span className="text-sm text-foreground font-medium">Frisch am Tag zubereitet</span>
               </div>
-              <div className="mt-8">
-                <Button asChild variant="outline" size="lg">
-                  <Link to="/catering/menus">
-                    Buffet Menüs ansehen
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
-                </Button>
+              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                <Star className="w-4 h-4 text-primary" />
+                <span className="text-sm text-foreground font-medium">200+ erfolgreiche Caterings</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                <Users className="w-4 h-4 text-primary" />
+                <span className="text-sm text-foreground font-medium">Ab 20 Personen</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4) So läuft euer Catering ab */}
+        {/* 3) So läuft euer Catering ab */}
         <section className="py-12 md:py-20 scroll-mt-24" id="ablauf">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
@@ -463,9 +406,6 @@ const Catering = () => {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 So läuft euer Catering ab
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Euer Event Catering in Düsseldorf – egal ob Firmenevent oder private Feier – der Ablauf ist einfach und unkompliziert.
-              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -497,54 +437,22 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* 5) Beispiele aus der Praxis */}
+        {/* 4) Beispiele aus der Praxis */}
         <PraxisBeispiele />
 
-        {/* 6) Was unsere Buffets auszeichnet */}
-        <section className="py-12 md:py-20 bg-gradient-subtle">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                  Was unsere Buffets auszeichnet
-                </h2>
-              </div>
-
-              <ul className="space-y-4">
-                {buffetQualities.map((quality, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{quality}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="text-center mt-8">
-                <Link 
-                  to="/catering/galerie" 
-                  className="text-primary hover:underline font-medium inline-flex items-center gap-1"
-                >
-                  Bilder von unseren Caterings ansehen
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery Teaser */}
+        {/* 5) Gallery Teaser */}
         <CateringGalleryTeaser />
 
-        {/* Customer Reviews */}
+        {/* 6) Customer Reviews */}
         <CustomerReviews />
 
-        {/* Trusted Partners */}
+        {/* 7) Trusted Partners */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-                  Diese Unternehmen vertrauen uns
+              <div className="text-center mb-8">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">
+                  Vertrauen uns
                 </h2>
               </div>
 
@@ -577,46 +485,11 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* Catering Booking Form */}
+        {/* 8) Catering Booking Form */}
         <CateringBookingForm />
 
-        {/* FAQ Section */}
+        {/* 9) FAQ Section */}
         <FAQSection />
-
-        {/* 7) Final CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-subtle">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto space-y-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-                Catering anfragen
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Egal ob Firmenevent oder private Feier – schreibt uns und wir melden uns 
-                innerhalb von 24 Stunden mit einem unverbindlichen Angebot.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button
-                  size="lg"
-                  className="text-base px-6"
-                  onClick={scrollToForm}
-                >
-                  <Building2 className="w-4 h-4 mr-2" />
-                  Catering für Unternehmen anfragen
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-base px-6"
-                  onClick={scrollToForm}
-                >
-                  <PartyPopper className="w-4 h-4 mr-2" />
-                  Catering für private Feiern anfragen
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Mobile CTA Button - Fixed at bottom */}
         <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t shadow-lg p-4">
