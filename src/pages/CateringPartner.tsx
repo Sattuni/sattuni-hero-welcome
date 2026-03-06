@@ -157,7 +157,7 @@ const CateringPartner = () => {
               {
                 icon: Handshake,
                 title: "Partner werden",
-                desc: "Ihr Unternehmen erhält einen festen Preis pro Person und einen persönlichen Ansprechpartner für alle Anfragen.",
+                desc: "Euer Unternehmen erhält einen festen Preis pro Person und einen persönlichen Ansprechpartner für alle Anfragen.",
               },
               {
                 icon: MessageSquare,
@@ -189,7 +189,7 @@ const CateringPartner = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-5">
-                Ein klarer Preis für Ihr Unternehmen
+                Ein klarer Preis für euer Unternehmen
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-4">
                 Als Catering Partner einigen wir uns auf einen festen Preis pro Person.
@@ -274,10 +274,10 @@ const CateringPartner = () => {
       <section id="partner-cta" className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-            Testen Sie das Catering Partner Modell
+            Testet das Catering Partner Modell
           </h2>
           <p className="text-muted-foreground text-lg mb-4">
-            Starten Sie mit einem Probe-Catering. Keine Bestellpflicht.
+            Startet mit einem Probe-Catering. Keine Bestellpflicht.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground mb-8">
             {["Kein Menü-Suchen", "Kein Koordinations-Stress", "Ein zuverlässiger Partner"].map((item) => (
