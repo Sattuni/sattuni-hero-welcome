@@ -129,7 +129,19 @@ const CateringPartner = () => {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-warm">
-            <img src={teamImg} alt="Team Lunch Catering im Büro" className="w-full h-80 object-cover" />
+            <Carousel
+              opts={{ loop: true }}
+              plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+              className="w-full"
+            >
+              <CarouselContent>
+                {solutionImages.map(({ src, alt }) => (
+                  <CarouselItem key={alt}>
+                    <img src={src} alt={alt} className="w-full h-80 object-cover" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </section>
