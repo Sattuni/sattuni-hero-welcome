@@ -216,7 +216,10 @@ const CateringPartner = () => {
           </div>
 
           <div className="flex justify-center mb-12">
-            <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full">
+            <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full relative overflow-hidden">
+              <div className="absolute top-3 right-3 bg-primary/10 text-primary text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-primary/20">
+                Aktuelles Angebot
+              </div>
               <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-5">
                 Euer Partner-Preis
               </p>
