@@ -29,6 +29,7 @@ import Restaurant from "./pages/Restaurant";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
 import CateringDanke from "./pages/CateringDanke";
+import CateringPartner from "./pages/CateringPartner";
 import Menus from "./pages/Menus";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const AppRoutes = () => {
       <Route path="/catering/galerie" element={<CateringGallery />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/catering/menus" element={<Menus />} />
+      <Route path="/catering/partner" element={<CateringPartner />} />
       <Route path="/catering/ueber-uns" element={<AboutUs />} />
       <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
