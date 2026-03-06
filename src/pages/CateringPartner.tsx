@@ -9,9 +9,24 @@ import {
   MilkOff, ArrowRight, Handshake
 } from "lucide-react";
 
+import Autoplay from "embla-carousel-autoplay";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
 import heroImg from "@/assets/partner/hero-office-buffet.jpg";
-import teamImg from "@/assets/partner/team-lunch.jpg";
 import sustainableImg from "@/assets/partner/sustainable-catering.jpg";
+import buffetChafing from "@/assets/partner/buffet-chafing.jpg";
+import fingerfoodOffice from "@/assets/partner/fingerfood-office.jpg";
+import bowlsBar from "@/assets/partner/bowls-bar.jpg";
+import chafingDishes from "@/assets/partner/chafing-dishes.jpg";
+import bowlsOffice from "@/assets/partner/bowls-office.jpg";
+
+const solutionImages = [
+  { src: buffetChafing, alt: "Warmes Buffet mit Chafing Dishes im Büro" },
+  { src: fingerfoodOffice, alt: "Fingerfood Catering im Office" },
+  { src: bowlsBar, alt: "Salate und Dips in Porzellanschalen" },
+  { src: chafingDishes, alt: "Hauptgerichte im Chafing Dish" },
+  { src: bowlsOffice, alt: "Catering Bowls im Meetingraum" },
+];
 
 const CateringPartner = () => {
   const scrollToContact = () => {
