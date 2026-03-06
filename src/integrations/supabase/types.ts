@@ -113,6 +113,36 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_inquiries: {
+        Row: {
+          comment: string | null
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          status: string
+        }
+        Insert: {
+          comment?: string | null
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          status?: string
+        }
+        Update: {
+          comment?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
