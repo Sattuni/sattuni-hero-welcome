@@ -267,8 +267,8 @@ const CateringPartner = () => {
               { src: "/lovable-uploads/da1a1dd5-81c8-4349-83f7-43f66d08e68e.png", alt: "Rockwell Automation" },
               { src: "/lovable-uploads/ranger-deutschland.gif", alt: "Ranger Deutschland" },
             ].map(({ src, alt }) => (
-              <div key={alt} className="flex items-center justify-center p-4 md:p-6 bg-card border border-border rounded-lg">
-                <img src={src} alt={`${alt} - Partner von Sattuni`} className="max-h-12 md:max-h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300" />
+              <div key={alt} className="flex items-center justify-center p-4 md:p-6 bg-card border border-border rounded-lg h-20 md:h-24">
+                <img src={src} alt={`${alt} - Partner von Sattuni`} className="max-h-10 md:max-h-12 max-w-[120px] md:max-w-[140px] w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
           </div>
