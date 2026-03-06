@@ -279,6 +279,59 @@ const CateringPartner = () => {
         </div>
       </section>
 
+      {/* ===== SECTION 8B — PARTNER PRICING ===== */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+            Ein klarer Preis für Ihr Unternehmen
+          </h2>
+          <p className="text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-12">
+            Wenn ein Unternehmen Sattuni Catering Partner wird, einigen wir uns auf einen festen Catering-Preis pro Person.
+          </p>
+          
+          <div className="flex justify-center mb-12">
+            <div className="rounded-2xl border border-border bg-card p-8 md:p-10 text-center max-w-sm shadow-sm">
+              <p className="text-muted-foreground text-sm font-medium tracking-widest uppercase mb-4">
+                Catering Partner Preis
+              </p>
+              <p className="text-5xl md:text-6xl font-bold text-primary mb-2">25 €</p>
+              <p className="text-muted-foreground mb-6">netto pro Person</p>
+              <p className="text-sm text-muted-foreground">
+                für Gruppen von <strong className="text-foreground">15–40 Personen</strong>
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-2xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              Dieser Preis bleibt für alle künftigen Caterings im Rahmen des Partner-Modells gleich.
+            </p>
+            <p className="text-foreground font-medium">
+              Das bedeutet: Unternehmen brauchen nicht jedes Mal ein neues Angebot anzufordern.
+            </p>
+            <p>
+              Stattdessen teilen Sie uns einfach mit:
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4 text-center">
+              {["Datum", "Uhrzeit", "Personenanzahl"].map((item) => (
+                <div key={item} className="p-4 rounded-lg bg-secondary/40 border border-border">
+                  <p className="text-foreground font-medium text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+            <p>
+              Den Rest übernehmen wir.
+            </p>
+          </div>
+
+          <div className="mt-10 p-5 rounded-lg bg-primary/5 border border-primary/20">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Hinweis:</strong> Preise können je nach Anforderungen und Catering-Setup variieren. Aber einmal vereinbart, bleibt der Preis für künftige Bestellungen konsistent.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ===== SECTION 9 — THE RESULT ===== */}
       <section className="py-20 md:py-28 bg-secondary/40">
         <div className="max-w-3xl mx-auto px-4 text-center">
