@@ -247,7 +247,7 @@ const BlogPost8 = () => {
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li><strong>Wiederverwendbare Porzellanschalen</strong> statt Einwegverpackungen</li>
-                  <li><strong>Takeaway-Boxen</strong> für Reste, um Lebensmittelverschwendung zu reduzieren</li>
+                  <li><strong>Takeaway-Boxen</strong> zum Mitnehmen – damit nichts verschwendet wird</li>
                 </ul>
                 <p>
                   So können Unternehmen ihr Catering nicht nur einfacher, sondern auch verantwortungsvoller organisieren.
