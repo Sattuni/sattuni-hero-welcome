@@ -122,50 +122,42 @@ const CateringPartner = () => {
 
       {/* ===== SECTION 4 — HOW IT WORKS ===== */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-4">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
             So funktioniert das Catering Partner Modell
           </h2>
           <p className="text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-16">
-            Drei einfache Schritte statt stundenlanger Organisation.
+            Catering für Meetings und Workshops sollte einfach sein.
+            Mit dem Sattuni Catering Partner Modell reduziert sich der Prozess auf drei einfache Schritte.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                step: "1",
-                icon: Send,
-                title: "Kurze Anfrage senden",
-                desc: "Workshop — Dienstag — 25 Personen — 12:00 Uhr",
-                note: "Mehr brauchen wir nicht.",
+                icon: Handshake,
+                title: "Werden Sie Catering Partner",
+                desc: "Ihr Unternehmen arbeitet mit Sattuni als Catering-Partner und erhält einen festen Preis pro Person für kleine Firmen-Caterings.\n\nZudem haben Sie einen festen Ansprechpartner für alle Catering-Anfragen.",
               },
               {
-                step: "2",
+                icon: MessageSquare,
+                title: "Schreiben Sie eine Nachricht",
+                desc: "Catering zu bestellen ist so einfach wie eine kurze Nachricht oder E-Mail zu schreiben.\n\nBeispiel: Workshop – Dienstag – 20 Personen – 12:00\n\nKeine Menü-Auswahl.\nKeine neuen Angebote.",
+              },
+              {
                 icon: UtensilsCrossed,
-                title: "Wir stellen das Menü zusammen",
-                desc: "Ein ausgewogenes Catering mit Vorspeisen, warmen Gerichten und Dessert — abgestimmt auf Ihr Team.",
-                note: null,
+                title: "Wir kümmern uns um alles",
+                desc: "Wir stellen ein ausgewogenes Catering mit Vorspeisen, warmen Gerichten und Dessert zusammen.\n\nErnährungspräferenzen wie vegetarisch, vegan, halal, glutenfrei und laktosefrei werden automatisch berücksichtigt.\n\nIhr Team kann das Essen einfach genießen.",
               },
-              {
-                step: "3",
-                icon: Truck,
-                title: "Wir liefern alles fertig",
-                desc: "Ihr Team kann sich auf das Meeting konzentrieren — wir kümmern uns um das Essen.",
-                note: null,
-              },
-            ].map(({ step, icon: Icon, title, desc, note }) => (
-              <div key={step} className="relative p-6 rounded-2xl bg-card border border-border text-center">
-                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg mx-auto mb-5">
-                  {step}
-                </div>
-                <Icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
-                {note && (
-                  <p className="mt-3 text-xs text-primary font-medium italic">{note}</p>
-                )}
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="relative p-8 rounded-2xl bg-card border border-border">
+                <Icon className="w-10 h-10 text-primary mb-5" />
+                <h3 className="text-lg font-semibold text-foreground mb-3">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{desc}</p>
               </div>
             ))}
           </div>
+          <p className="text-center text-lg font-medium text-foreground mt-12">
+            Eine Nachricht. Ein Partner. Catering organisiert.
+          </p>
         </div>
       </section>
 
