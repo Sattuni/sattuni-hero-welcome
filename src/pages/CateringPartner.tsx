@@ -6,7 +6,7 @@ import {
   Users, Leaf, Recycle, PackageOpen, 
   Send, UtensilsCrossed, Truck, Check,
   Phone, MessageSquare, Vegan, WheatOff,
-  MilkOff, ArrowRight
+  MilkOff, ArrowRight, Handshake
 } from "lucide-react";
 
 import heroImg from "@/assets/partner/hero-office-buffet.jpg";
