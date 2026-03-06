@@ -51,7 +51,7 @@ const CateringPartner = () => {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Sattuni Catering Liefertransporter vor Bürogebäude" className="w-full h-full object-cover object-[50%_60%]" />
+          <img src={heroImg} alt="Sattuni Catering Liefertransporter vor Bürogebäude" className="w-full h-full object-cover object-[50%_85%] md:object-[50%_60%]" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30 md:bg-gradient-to-r md:from-foreground/80 md:via-foreground/60 md:to-foreground/30" />
         </div>
         <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-36 text-center">
