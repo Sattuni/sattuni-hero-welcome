@@ -13,7 +13,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-import heroImg from "@/assets/partner/hero-delivery.jpg";
+import heroImg from "@/assets/partner/hero-delivery-v2.jpg";
 import sustainableImg from "@/assets/partner/sustainable-catering.jpg";
 import buffetChafing from "@/assets/partner/buffet-chafing.jpg";
 import fingerfoodOffice from "@/assets/partner/fingerfood-office.jpg";
