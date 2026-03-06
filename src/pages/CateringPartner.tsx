@@ -51,10 +51,10 @@ const CateringPartner = () => {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Sattuni Catering Liefertransporter vor Bürogebäude" className="w-full h-full object-cover object-center md:object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <img src={heroImg} alt="Sattuni Catering Liefertransporter vor Bürogebäude" className="w-full h-full object-cover object-[50%_60%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30 md:bg-gradient-to-r md:from-foreground/80 md:via-foreground/60 md:to-foreground/30" />
         </div>
-        <div className="relative max-w-5xl mx-auto px-4 py-24 md:py-36 text-center">
+        <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-36 text-center">
           <p className="text-primary-foreground/70 text-sm font-medium tracking-widest uppercase mb-4">
             Für Unternehmen in Düsseldorf
           </p>
