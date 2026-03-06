@@ -257,7 +257,7 @@ const CateringPartner = () => {
               <div className="space-y-4">
                 {[
                   { icon: Recycle, text: "Lieferung in wiederverwendbaren Porzellanschalen" },
-                  { icon: PackageOpen, text: "Take-Away-Boxen für Reste" },
+                  { icon: PackageOpen, text: "Take-Away-Boxen zum Mitnehmen – nichts wird verschwendet" },
                   { icon: Leaf, text: "Weniger Verpackungsmüll und Lebensmittelverschwendung" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3">
