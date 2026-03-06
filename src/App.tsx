@@ -64,6 +64,7 @@ const AppRoutes = () => {
       <Route path="/catering/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/catering/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
+      <Route path="/catering/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
       
       {/* ===== SHARED / LEGAL ROUTES ===== */}
       <Route path="/impressum" element={<Impressum />} />
@@ -82,6 +83,7 @@ const AppRoutes = () => {
       <Route path="/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
+      <Route path="/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
