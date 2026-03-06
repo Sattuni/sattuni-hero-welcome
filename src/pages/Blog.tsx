@@ -15,6 +15,7 @@ import veganHeroImage from "@/assets/blog/vegan-arabic-classics.jpg";
 import grossesBuffetImage from "@/assets/gallery/buffets/grosses-buffet-event.jpg";
 import kundenbesuchHero from "@/assets/blog/kundenbesuch-hero.jpg";
 import firmenfeiernHero from "@/assets/blog/firmenfeiern-hero.jpg";
+import cateringPartnerHero from "@/assets/blog/catering-partner-hero.jpg";
 
 const Blog = () => {
   const { setMode } = useSiteMode();
@@ -25,6 +26,16 @@ const Blog = () => {
   }, [setMode]);
 
   const blogPosts = [
+    {
+      id: 8,
+      slug: "catering-fuer-workshops-und-meetings",
+      title: "Catering für Workshops & Meetings – Warum viele Unternehmen einen Catering-Partner brauchen",
+      excerpt: "Wie Unternehmen den Aufwand für regelmäßiges Catering reduzieren können – und warum ein fester Catering-Partner die Lösung ist.",
+      date: "2026-03-06",
+      readTime: "8 min",
+      image: cateringPartnerHero,
+      category: "Business Catering"
+    },
     {
       id: 7,
       slug: "catering-fuer-firmenfeiern-in-duesseldorf",
