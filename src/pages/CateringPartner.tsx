@@ -187,37 +187,90 @@ const CateringPartner = () => {
       {/* ===== PARTNER PRICE ===== */}
       <section className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-5">
-                Ein klarer Preis für euer Unternehmen
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                Als Catering Partner einigen wir uns auf einen festen Preis pro Person.
-                Dieser bleibt für alle künftigen Bestellungen gleich.
-              </p>
-              <p className="text-foreground font-medium text-lg mb-4">
-                Kein neues Angebot. Einfach Datum, Uhrzeit und Personenanzahl mitteilen.
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Preise können je nach Setup variieren — einmal vereinbart, bleiben sie konsistent.
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+            Kein Verhandeln, kein Rechnen — einfach bestellen
+          </h2>
+          
+          <div className="max-w-2xl mx-auto mb-12">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              Wir wissen, wie es in Unternehmen läuft: Das nächste Meeting steht an, 20 Leute kommen, 
+              und irgendjemand muss sich ums Essen kümmern. Angebote vergleichen, Menüs abstimmen, 
+              Budget klären — das kostet Zeit, die ihr nicht habt.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              Deshalb gibt es bei uns als Partner einen <strong className="text-foreground">festen Preis: 25 € netto pro Person</strong>. 
+              Immer. Egal ob Dienstags-Workshop oder Freitags-Teamlunch.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Kein neues Angebot, keine Rückfragen. Einfach kurz schreiben:
+            </p>
+            
+            <div className="bg-card border border-border rounded-lg p-5 mb-2">
+              <p className="text-foreground font-medium text-center italic">
+                „Workshop – Dienstag – 20 Personen – 12:00"
               </p>
             </div>
-            <div className="flex justify-center">
-              <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-xs shadow-sm w-full relative overflow-hidden">
-                <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                  Neukunden-Angebot
-                </div>
-                <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-3">
-                  Catering Partner Preis
-                </p>
-                <p className="text-5xl md:text-6xl font-bold text-primary mb-1">25 €</p>
-                <p className="text-muted-foreground mb-4">netto pro Person</p>
-                <p className="text-xs text-muted-foreground">
-                  für Gruppen von <strong className="text-foreground">15–40 Personen</strong>
-                </p>
+            <p className="text-muted-foreground text-center text-sm mb-6">
+              Das reicht. Um alles andere kümmern wir uns.
+            </p>
+          </div>
+
+          <div className="flex justify-center mb-12">
+            <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full relative overflow-hidden">
+              <div className="absolute top-3 right-3 bg-primary/10 text-primary text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-primary/20">
+                Aktuelles Angebot
+              </div>
+              <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-5">
+                Euer Partner-Preis
+              </p>
+              <p className="text-6xl md:text-7xl font-bold text-primary mb-2">25 €</p>
+              <p className="text-muted-foreground mb-6">netto pro Person</p>
+              <p className="text-sm text-muted-foreground mb-8">
+                Für <strong className="text-foreground">15–40 Personen</strong> · Meetings, Workshops & Events
+              </p>
+              
+              <div className="space-y-3 text-left">
+                {[
+                  "Ihr werdet bei Anfragen bevorzugt behandelt",
+                  "Bestellen per kurzer Nachricht oder E-Mail",
+                  "Abwechslungsreiche Menüs — kein Event schmeckt wie das letzte",
+                  "Vegan, vegetarisch, halal, glutenfrei & laktosefrei? Immer mit dabei",
+                  "Lieferung in wiederverwendbaren Porzellanschalen",
+                  "Take-Away-Boxen für eure Kolleg:innen — nichts wird verschwendet",
+                  "Ein fester Ansprechpartner, der euch und euer Team kennt",
+                ].map((benefit) => (
+                  <div key={benefit} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground">{benefit}</p>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+
+          <p className="text-center text-lg font-medium text-foreground">
+            Ein Preis. Ein Partner. Null Orga-Aufwand.
+          </p>
+        </div>
+      </section>
+
+      {/* ===== TRUSTED PARTNERS ===== */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <p className="text-center text-sm font-medium text-muted-foreground tracking-widest uppercase mb-8">
+            Vertrauen uns als Catering Partner
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center max-w-3xl mx-auto">
+            {[
+              { src: "/lovable-uploads/6b6ec1ce-974f-4e6f-b23e-61aacd2fdf8d.png", alt: "WHU Otto Beisheim School of Management" },
+              { src: "/lovable-uploads/Leonardo.png", alt: "Leonardo" },
+              { src: "/lovable-uploads/da1a1dd5-81c8-4349-83f7-43f66d08e68e.png", alt: "Rockwell Automation" },
+              { src: "/lovable-uploads/ranger-deutschland.gif", alt: "Ranger Deutschland" },
+            ].map(({ src, alt }) => (
+              <div key={alt} className="flex items-center justify-center p-4 md:p-6 bg-card border border-border rounded-lg h-20 md:h-24">
+                <img src={src} alt={`${alt} - Partner von Sattuni`} className="max-h-10 md:max-h-12 max-w-[120px] md:max-w-[140px] w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
