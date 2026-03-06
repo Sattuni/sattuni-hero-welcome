@@ -176,7 +176,10 @@ const CateringPartner = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <div className="rounded-2xl border border-border bg-card p-8 md:p-10 text-center max-w-xs shadow-sm w-full">
+              <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-xs shadow-sm w-full relative overflow-hidden">
+                <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                  Neukunden-Angebot
+                </div>
                 <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-3">
                   Catering Partner Preis
                 </p>
