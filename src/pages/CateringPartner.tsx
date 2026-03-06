@@ -303,15 +303,6 @@ const CateringPartner = () => {
                   0211 36180115
                 </a>
               </Button>
-              <a 
-                href="https://wa.me/492113618115?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Catering%20Partner%20Modell." 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <MessageSquare className="w-4 h-4" />
-                Per WhatsApp schreiben
-              </a>
             </div>
             <div className="mt-2">
               <GoogleReviewBadge variant="default" />
