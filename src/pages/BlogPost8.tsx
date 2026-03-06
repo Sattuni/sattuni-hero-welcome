@@ -53,7 +53,7 @@ const BlogPost8 = () => {
               { name: "Startseite", href: "/" },
               { name: "Catering", href: "/catering" },
               { name: "Blog", href: "/catering/blog" },
-              { name: "Catering für Workshops & Meetings", current: true }
+              { name: "Catering für Workshops & Meetings", href: "/catering/blog/catering-fuer-workshops-und-meetings", current: true }
             ]}
           />
 

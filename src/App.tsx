@@ -19,6 +19,7 @@ import BlogPost4 from "./pages/BlogPost4";
 import BlogPost5 from "./pages/BlogPost5";
 import BlogPost6 from "./pages/BlogPost6";
 import BlogPost7 from "./pages/BlogPost7";
+import BlogPost8 from "./pages/BlogPost8";
 import Catering from "./pages/Catering";
 import CateringGallery from "./pages/CateringGallery";
 import Datenschutz from "./pages/Datenschutz";
