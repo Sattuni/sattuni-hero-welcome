@@ -187,38 +187,67 @@ const CateringPartner = () => {
       {/* ===== PARTNER PRICE ===== */}
       <section className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-5">
-                Ein klarer Preis für euer Unternehmen
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                Als Catering Partner einigen wir uns auf einen festen Preis pro Person.
-                Dieser bleibt für alle künftigen Bestellungen gleich.
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+            Fixed Partner Price for Companies
+          </h2>
+          
+          <div className="max-w-2xl mx-auto mb-12">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              Companies that work with Sattuni as a catering partner receive a fixed catering price of <strong className="text-foreground">25 € net per person</strong>.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              This price applies to all caterings within the Catering Partner Model.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              Once your company is a partner, there is no need to request a new offer for every order.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Simply send a short message with the details of your event.
+            </p>
+            
+            <div className="bg-card border border-border rounded-lg p-4 mb-6">
+              <p className="text-foreground font-medium text-center">
+                Workshop — Tuesday — 20 people — 12:00
               </p>
-              <p className="text-foreground font-medium text-lg mb-4">
-                Kein neues Angebot. Einfach Datum, Uhrzeit und Personenanzahl mitteilen.
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Preise können je nach Setup variieren — einmal vereinbart, bleiben sie konsistent.
+              <p className="text-muted-foreground text-center text-sm mt-2">
+                We take care of the rest.
               </p>
             </div>
-            <div className="flex justify-center">
-              <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-xs shadow-sm w-full relative overflow-hidden">
-                <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                  Neukunden-Angebot
-                </div>
-                <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-3">
-                  Catering Partner Preis
-                </p>
-                <p className="text-5xl md:text-6xl font-bold text-primary mb-1">25 €</p>
-                <p className="text-muted-foreground mb-4">netto pro Person</p>
-                <p className="text-xs text-muted-foreground">
-                  für Gruppen von <strong className="text-foreground">15–40 Personen</strong>
-                </p>
+          </div>
+
+          <div className="flex justify-center mb-12">
+            <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full">
+              <h3 className="text-xl font-semibold text-foreground mb-6">
+                Sattuni Catering Partner Price
+              </h3>
+              <p className="text-6xl md:text-7xl font-bold text-primary mb-2">25 €</p>
+              <p className="text-muted-foreground mb-6">netto pro Person</p>
+              <p className="text-sm text-muted-foreground mb-8">
+                Für Business-Catering mit <strong className="text-foreground">15–40 Personen</strong>
+              </p>
+              
+              <div className="space-y-3 text-left">
+                {[
+                  "Priority handling for partner companies",
+                  "Simple ordering via message or email",
+                  "Varied curated menus for meetings and workshops",
+                  "Vegetarian, vegan, halal, gluten-free and lactose-free options included",
+                  "Sustainable delivery in reusable bowls",
+                  "Take-away boxes to reduce food waste",
+                  "One dedicated contact person",
+                ].map((benefit) => (
+                  <div key={benefit} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground">{benefit}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+
+          <p className="text-center text-lg font-medium text-foreground">
+            One price. One partner. Catering without organizational effort.
+          </p>
         </div>
       </section>
 
