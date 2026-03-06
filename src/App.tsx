@@ -29,6 +29,7 @@ import Restaurant from "./pages/Restaurant";
 import Specialties from "./pages/Specialties";
 import Speisekarte from "./pages/Speisekarte";
 import CateringDanke from "./pages/CateringDanke";
+import CateringPartner from "./pages/CateringPartner";
 import Menus from "./pages/Menus";
 
 const queryClient = new QueryClient();
