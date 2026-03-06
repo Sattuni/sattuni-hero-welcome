@@ -4,14 +4,13 @@ import GoogleReviewBadge from "@/components/common/GoogleReviewBadge";
 import { 
   Search, ClipboardList, Salad, Clock, 
   Users, Leaf, Recycle, PackageOpen, 
-  Send, UtensilsCrossed, Truck, Check,
+  UtensilsCrossed, Check,
   Phone, MessageSquare, Vegan, WheatOff,
   MilkOff, ArrowRight, Handshake
 } from "lucide-react";
 
 import heroImg from "@/assets/partner/hero-office-buffet.jpg";
 import teamImg from "@/assets/partner/team-lunch.jpg";
-import workshopImg from "@/assets/partner/workshop-catering.jpg";
 import sustainableImg from "@/assets/partner/sustainable-catering.jpg";
 
 const CateringPartner = () => {
@@ -33,7 +32,7 @@ const CateringPartner = () => {
         { name: "Partner Modell", href: "/catering/partner", current: true },
       ]}
     >
-      {/* ===== SECTION 1 — HERO ===== */}
+      {/* ===== HERO ===== */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Office Buffet Catering Düsseldorf" className="w-full h-full object-cover" />
@@ -46,10 +45,9 @@ const CateringPartner = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             Catering für Unternehmen —<br className="hidden md:block" /> ohne jedes Mal neu zu organisieren
           </h1>
-          <p className="text-lg md:text-xl text-white/85 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Meetings, Workshops und Kundenbesuche brauchen regelmäßig Catering. 
-            Statt jedes Mal Menüs zu suchen und Caterer zu vergleichen, arbeiten Unternehmen 
-            mit Sattuni als festem Catering-Partner.
+          <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Ein fester Catering-Partner statt ständig neue Angebote.
+            Ab 25&nbsp;€ netto pro Person für 15–40 Gäste.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button size="xl" variant="hero" onClick={scrollToContact}>
@@ -64,55 +62,56 @@ const CateringPartner = () => {
         </div>
       </section>
 
-      {/* ===== SECTION 2 — THE PROBLEM ===== */}
-      <section className="py-20 md:py-28 bg-background">
+      {/* ===== PROBLEM ===== */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-10">
             Catering bestellen kostet mehr Zeit als nötig
           </h2>
-          <p className="text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-12">
-            Office Manager und Teamassistenzen verbringen regelmäßig Zeit mit Aufgaben, 
-            die sich bei jedem Event wiederholen:
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-5">
             {[
               { icon: Search, text: "Caterer suchen und vergleichen" },
               { icon: ClipboardList, text: "Menüs durchgehen und auswählen" },
               { icon: Salad, text: "Ernährungsbedürfnisse koordinieren" },
               { icon: Clock, text: "Bestellung organisieren und nachverfolgen" },
             ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border">
-                <div className="p-2.5 rounded-lg bg-primary/10 text-primary shrink-0">
+              <div key={text} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
-                <p className="text-foreground font-medium">{text}</p>
+                <p className="text-foreground font-medium text-sm">{text}</p>
               </div>
             ))}
           </div>
-          <p className="text-muted-foreground text-center mt-10 text-base">
+          <p className="text-muted-foreground text-center mt-8 text-sm">
             Dieser Aufwand wiederholt sich bei jedem Workshop, Meeting und Teamevent.
           </p>
         </div>
       </section>
 
-      {/* ===== SECTION 3 — THE IDEA ===== */}
-      <section className="py-20 md:py-28 bg-secondary/40">
+      {/* ===== SOLUTION ===== */}
+      <section className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-5">
               Ein einfacherer Weg, Catering zu organisieren
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Viele unserer Kunden bestellen regelmäßig Catering für Workshops und Meetings. 
-              Durch diese Zusammenarbeit haben wir festgestellt: Die größte Herausforderung 
+              Aus der Zusammenarbeit mit Unternehmen haben wir gelernt: Die größte Herausforderung 
               ist nicht das Essen — sondern die Organisation.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Aus dieser Erfahrung haben wir das <strong className="text-foreground">Sattuni Catering Partner Modell</strong> entwickelt.
+            <p className="text-muted-foreground text-lg leading-relaxed mb-5">
+              Deshalb haben wir das <strong className="text-foreground">Sattuni Catering Partner Modell</strong> entwickelt — 
+              speziell für Gruppen von <strong className="text-foreground">15 bis 40 Personen</strong>.
             </p>
-            <p className="text-foreground font-medium text-lg">
-              Ein einfacherer Weg für Unternehmen, Catering zu organisieren.
-            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Workshops", "Meetings", "Schulungen", "Team Lunches", "Kundenbesuche"].map((item) => (
+                <span key={item} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-sm font-medium text-foreground">
+                  <Users className="w-3.5 h-3.5 text-primary" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-warm">
             <img src={teamImg} alt="Team Lunch Catering im Büro" className="w-full h-80 object-cover" />
@@ -120,245 +119,144 @@ const CateringPartner = () => {
         </div>
       </section>
 
-      {/* ===== SECTION 4 — HOW IT WORKS ===== */}
-      <section className="py-20 md:py-28 bg-background">
+      {/* ===== HOW IT WORKS ===== */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
-            So funktioniert das Catering Partner Modell
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-14">
+            So funktioniert es
           </h2>
-          <p className="text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-16">
-            Catering für Meetings und Workshops sollte einfach sein.
-            Mit dem Sattuni Catering Partner Modell reduziert sich der Prozess auf drei einfache Schritte.
-          </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: Handshake,
-                title: "Werden Sie Catering Partner",
-                desc: "Ihr Unternehmen arbeitet mit Sattuni als Catering-Partner und erhält einen festen Preis pro Person für kleine Firmen-Caterings.\n\nZudem haben Sie einen festen Ansprechpartner für alle Catering-Anfragen.",
+                title: "Partner werden",
+                desc: "Ihr Unternehmen erhält einen festen Preis pro Person und einen persönlichen Ansprechpartner für alle Anfragen.",
               },
               {
                 icon: MessageSquare,
-                title: "Schreiben Sie eine Nachricht",
-                desc: "Catering zu bestellen ist so einfach wie eine kurze Nachricht oder E-Mail zu schreiben.\n\nBeispiel: Workshop – Dienstag – 20 Personen – 12:00\n\nKeine Menü-Auswahl.\nKeine neuen Angebote.",
+                title: "Kurze Nachricht senden",
+                desc: "„Workshop – Dienstag – 20 Personen – 12:00"\n\nKeine Menü-Auswahl. Keine neuen Angebote.",
               },
               {
                 icon: UtensilsCrossed,
                 title: "Wir kümmern uns um alles",
-                desc: "Wir stellen ein ausgewogenes Catering mit Vorspeisen, warmen Gerichten und Dessert zusammen.\n\nErnährungspräferenzen wie vegetarisch, vegan, halal, glutenfrei und laktosefrei werden automatisch berücksichtigt.\n\nIhr Team kann das Essen einfach genießen.",
+                desc: "Ausgewogenes Catering mit Vorspeisen, warmen Gerichten und Dessert — inklusive aller Ernährungspräferenzen.",
               },
             ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="relative p-8 rounded-2xl bg-card border border-border">
-                <Icon className="w-10 h-10 text-primary mb-5" />
+              <div key={title} className="p-7 rounded-2xl bg-card border border-border">
+                <Icon className="w-9 h-9 text-primary mb-4" />
                 <h3 className="text-lg font-semibold text-foreground mb-3">{title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{desc}</p>
               </div>
             ))}
           </div>
-          <p className="text-center text-lg font-medium text-foreground mt-12">
+          <p className="text-center text-lg font-medium text-foreground mt-10">
             Eine Nachricht. Ein Partner. Catering organisiert.
           </p>
         </div>
       </section>
 
-      {/* ===== SECTION 5 — DESIGNED FOR BUSINESS GROUPS ===== */}
-      <section className="py-20 md:py-28 bg-secondary/40">
-        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-2xl overflow-hidden shadow-warm order-2 md:order-1">
-            <img src={workshopImg} alt="Workshop Catering Setup im Schulungsraum" className="w-full h-80 object-cover" />
-          </div>
-          <div className="order-1 md:order-2">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
-              Perfekt für kleine Business-Caterings
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Das Modell ist speziell für Gruppen von <strong className="text-foreground">15 bis 40 Personen</strong> konzipiert — 
-              die häufigsten Catering-Situationen in Unternehmen.
-            </p>
-            <div className="grid grid-cols-2 gap-3">
-              {["Workshops", "Meetings", "Schulungen", "Team Lunches", "Kundenbesuche"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-foreground">
-                  <Users className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-sm font-medium">{item}</span>
-                </div>
-              ))}
+      {/* ===== PARTNER PRICE ===== */}
+      <section className="py-16 md:py-24 bg-secondary/40">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-5">
+                Ein klarer Preis für Ihr Unternehmen
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                Als Catering Partner einigen wir uns auf einen festen Preis pro Person.
+                Dieser bleibt für alle künftigen Bestellungen gleich.
+              </p>
+              <p className="text-foreground font-medium text-lg mb-4">
+                Kein neues Angebot. Einfach Datum, Uhrzeit und Personenanzahl mitteilen.
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Preise können je nach Setup variieren — einmal vereinbart, bleiben sie konsistent.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <div className="rounded-2xl border border-border bg-card p-8 md:p-10 text-center max-w-xs shadow-sm w-full">
+                <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-3">
+                  Catering Partner Preis
+                </p>
+                <p className="text-5xl md:text-6xl font-bold text-primary mb-1">25 €</p>
+                <p className="text-muted-foreground mb-4">netto pro Person</p>
+                <p className="text-xs text-muted-foreground">
+                  für Gruppen von <strong className="text-foreground">15–40 Personen</strong>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SECTION 6 — DIETARY NEEDS ===== */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
-            Ernährungsbedürfnisse werden automatisch berücksichtigt
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12">
-            Unsere Menüs enthalten von Haus aus Optionen für die häufigsten 
-            Ernährungspräferenzen in Unternehmen.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { icon: Vegan, label: "Vegetarisch" },
-              { icon: Leaf, label: "Vegan" },
-              { icon: UtensilsCrossed, label: "Halal" },
-              { icon: WheatOff, label: "Glutenfrei" },
-              { icon: MilkOff, label: "Laktosefrei" },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-card border border-border">
-                <Icon className="w-4.5 h-4.5 text-primary" />
-                <span className="text-sm font-medium text-foreground">{label}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-muted-foreground mt-8 text-sm">
-            So kann jeder im Team das Catering genießen — ohne zusätzlichen Planungsaufwand.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== SECTION 7 — SUSTAINABILITY ===== */}
-      <section className="py-20 md:py-28 bg-secondary/40">
-        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
-              Nachhaltigkeit ist Teil unseres Ansatzes
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Unser Catering Partner Modell ist von Anfang an nachhaltig gedacht.
-            </p>
-            <div className="space-y-5">
-              {[
-                { icon: Recycle, text: "Essen wird in wiederverwendbaren Porzellanschalen geliefert statt in Einwegverpackungen." },
-                { icon: PackageOpen, text: "Wir stellen Take-Away-Boxen bereit, damit Teilnehmer Reste mitnehmen können." },
-                { icon: Leaf, text: "So werden Verpackungsmüll und Lebensmittelverschwendung gleichermaßen reduziert." },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5" />
+      {/* ===== DIETARY + SUSTAINABILITY ===== */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Dietary */}
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                Alle Ernährungsbedürfnisse inklusive
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Unsere Menüs decken die häufigsten Präferenzen automatisch ab — ohne zusätzlichen Planungsaufwand.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { icon: Vegan, label: "Vegetarisch" },
+                  { icon: Leaf, label: "Vegan" },
+                  { icon: UtensilsCrossed, label: "Halal" },
+                  { icon: WheatOff, label: "Glutenfrei" },
+                  { icon: MilkOff, label: "Laktosefrei" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
+                    <Icon className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-medium text-foreground">{label}</span>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-warm">
-            <img src={sustainableImg} alt="Nachhaltiges Catering mit wiederverwendbaren Schalen" className="w-full h-80 object-cover" />
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 8 — FLEXIBLE COLLABORATION ===== */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
-            Flexible Zusammenarbeit für Unternehmen
-          </h2>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              Das Catering Partner Modell hat <strong className="text-foreground">keine Bestellpflicht</strong>.
-            </p>
-            <p>
-              Unternehmen können Catering anfragen, wann immer sie es brauchen.
-            </p>
-            <p>
-              Preise werden individuell auf die typischen Bedürfnisse des Unternehmens abgestimmt.
-            </p>
-            <p className="text-foreground font-medium">
-              Ein Probe-Catering kann jederzeit vereinbart werden.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 8B — PARTNER PRICING ===== */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
-            Ein klarer Preis für Ihr Unternehmen
-          </h2>
-          <p className="text-muted-foreground text-center text-lg max-w-2xl mx-auto mb-12">
-            Wenn ein Unternehmen Sattuni Catering Partner wird, einigen wir uns auf einen festen Catering-Preis pro Person.
-          </p>
-          
-          <div className="flex justify-center mb-12">
-            <div className="rounded-2xl border border-border bg-card p-8 md:p-10 text-center max-w-sm shadow-sm">
-              <p className="text-muted-foreground text-sm font-medium tracking-widest uppercase mb-4">
-                Catering Partner Preis
-              </p>
-              <p className="text-5xl md:text-6xl font-bold text-primary mb-2">25 €</p>
-              <p className="text-muted-foreground mb-6">netto pro Person</p>
-              <p className="text-sm text-muted-foreground">
-                für Gruppen von <strong className="text-foreground">15–40 Personen</strong>
-              </p>
-            </div>
-          </div>
-
-          <div className="max-w-2xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              Dieser Preis bleibt für alle künftigen Caterings im Rahmen des Partner-Modells gleich.
-            </p>
-            <p className="text-foreground font-medium">
-              Das bedeutet: Unternehmen brauchen nicht jedes Mal ein neues Angebot anzufordern.
-            </p>
-            <p>
-              Stattdessen teilen Sie uns einfach mit:
-            </p>
-            <div className="grid sm:grid-cols-3 gap-4 text-center">
-              {["Datum", "Uhrzeit", "Personenanzahl"].map((item) => (
-                <div key={item} className="p-4 rounded-lg bg-secondary/40 border border-border">
-                  <p className="text-foreground font-medium text-sm">{item}</p>
-                </div>
-              ))}
-            </div>
-            <p>
-              Den Rest übernehmen wir.
-            </p>
-          </div>
-
-          <div className="mt-10 p-5 rounded-lg bg-primary/5 border border-primary/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">Hinweis:</strong> Preise können je nach Anforderungen und Catering-Setup variieren. Aber einmal vereinbart, bleibt der Preis für künftige Bestellungen konsistent.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 9 — THE RESULT ===== */}
-      <section className="py-20 md:py-28 bg-secondary/40">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-12">
-            Catering wird einfach
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-6 mb-12">
-            {[
-              "Kein Menü-Suchen",
-              "Kein Koordinations-Stress",
-              "Ein zuverlässiger Catering-Partner",
-            ].map((item) => (
-              <div key={item} className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-foreground font-semibold text-sm">{item}</p>
+                ))}
               </div>
-            ))}
+            </div>
+            {/* Sustainability */}
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                Nachhaltig von Anfang an
+              </h2>
+              <div className="space-y-4">
+                {[
+                  { icon: Recycle, text: "Lieferung in wiederverwendbaren Porzellanschalen" },
+                  { icon: PackageOpen, text: "Take-Away-Boxen für Reste" },
+                  { icon: Leaf, text: "Weniger Verpackungsmüll und Lebensmittelverschwendung" },
+                ].map(({ icon: Icon, text }) => (
+                  <div key={text} className="flex items-center gap-3">
+                    <Icon className="w-5 h-5 text-primary shrink-0" />
+                    <p className="text-muted-foreground text-sm">{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <p className="text-lg text-muted-foreground italic">
-            Ihr Team konzentriert sich auf das Meeting — wir kümmern uns um das Essen.
-          </p>
         </div>
       </section>
 
-      {/* ===== SECTION 10 — CTA ===== */}
-      <section id="partner-cta" className="py-20 md:py-28 bg-background">
+      {/* ===== CTA ===== */}
+      <section id="partner-cta" className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-            Das Sattuni Catering Partner Modell testen
+            Testen Sie das Catering Partner Modell
           </h2>
-          <p className="text-muted-foreground text-lg mb-10">
-            Starten Sie mit einem Probe-Catering für Ihren nächsten Workshop oder Ihr nächstes Meeting.
+          <p className="text-muted-foreground text-lg mb-4">
+            Starten Sie mit einem Probe-Catering. Keine Bestellpflicht.
           </p>
+          <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground mb-8">
+            {["Kein Menü-Suchen", "Kein Koordinations-Stress", "Ein zuverlässiger Partner"].map((item) => (
+              <span key={item} className="inline-flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-primary" />
+                {item}
+              </span>
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Button size="xl" variant="hero" asChild>
               <a href="/catering#anfrage">
@@ -373,18 +271,18 @@ const CateringPartner = () => {
               </a>
             </Button>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-            <a 
-              href="https://wa.me/492113618115?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Catering%20Partner%20Modell." 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <MessageSquare className="w-4 h-4" />
-              Per WhatsApp schreiben
-            </a>
+          <a 
+            href="https://wa.me/492113618115?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Catering%20Partner%20Modell." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+          >
+            <MessageSquare className="w-4 h-4" />
+            Per WhatsApp schreiben
+          </a>
+          <div className="mt-4">
+            <GoogleReviewBadge variant="default" />
           </div>
-          <GoogleReviewBadge variant="default" />
         </div>
       </section>
     </PageLayout>
