@@ -188,29 +188,29 @@ const CateringPartner = () => {
       <section className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
-            Fixed Partner Price for Companies
+            Ein klarer Preis für euer Unternehmen
           </h2>
           
           <div className="max-w-2xl mx-auto mb-12">
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Companies that work with Sattuni as a catering partner receive a fixed catering price of <strong className="text-foreground">25 € net per person</strong>.
+              Unternehmen, die mit Sattuni als Catering Partner zusammenarbeiten, erhalten einen festen Catering-Preis von <strong className="text-foreground">25 € netto pro Person</strong>.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              This price applies to all caterings within the Catering Partner Model.
+              Dieser Preis gilt für alle Caterings im Rahmen des Catering Partner Modells.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Once your company is a partner, there is no need to request a new offer for every order.
+              Einmal Partner bei uns – keine neuen Angebote mehr für jede Bestellung.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Simply send a short message with the details of your event.
+              Schreibt uns einfach kurz, was ihr braucht.
             </p>
             
             <div className="bg-card border border-border rounded-lg p-4 mb-6">
               <p className="text-foreground font-medium text-center">
-                Workshop — Tuesday — 20 people — 12:00
+                Workshop – Dienstag – 20 Personen – 12:00
               </p>
               <p className="text-muted-foreground text-center text-sm mt-2">
-                We take care of the rest.
+                Wir kümmern uns um den Rest.
               </p>
             </div>
           </div>
@@ -218,7 +218,7 @@ const CateringPartner = () => {
           <div className="flex justify-center mb-12">
             <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full">
               <h3 className="text-xl font-semibold text-foreground mb-6">
-                Sattuni Catering Partner Price
+                Sattuni Catering Partner Preis
               </h3>
               <p className="text-6xl md:text-7xl font-bold text-primary mb-2">25 €</p>
               <p className="text-muted-foreground mb-6">netto pro Person</p>
@@ -228,13 +228,13 @@ const CateringPartner = () => {
               
               <div className="space-y-3 text-left">
                 {[
-                  "Priority handling for partner companies",
-                  "Simple ordering via message or email",
-                  "Varied curated menus for meetings and workshops",
-                  "Vegetarian, vegan, halal, gluten-free and lactose-free options included",
-                  "Sustainable delivery in reusable bowls",
-                  "Take-away boxes to reduce food waste",
-                  "One dedicated contact person",
+                  "Vorrangbehandlung für Partner-Unternehmen",
+                  "Einfache Bestellung per Nachricht oder E-Mail",
+                  "Abwechslungsreiche Menüs für Meetings und Workshops",
+                  "Vegetarisch, vegan, halal, glutenfrei und laktosefrei inklusive",
+                  "Nachhaltige Lieferung in wiederverwendbaren Schalen",
+                  "Take-Away-Boxen – nichts wird verschwendet",
+                  "Ein fester Ansprechpartner nur für euch",
                 ].map((benefit) => (
                   <div key={benefit} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -246,7 +246,7 @@ const CateringPartner = () => {
           </div>
 
           <p className="text-center text-lg font-medium text-foreground">
-            One price. One partner. Catering without organizational effort.
+            Ein Preis. Ein Partner. Catering ohne Organisationsstress.
           </p>
         </div>
       </section>
