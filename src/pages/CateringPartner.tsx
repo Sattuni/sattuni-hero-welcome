@@ -254,6 +254,26 @@ const CateringPartner = () => {
         </div>
       </section>
 
+      {/* ===== TRUSTED PARTNERS ===== */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <p className="text-center text-sm font-medium text-muted-foreground tracking-widest uppercase mb-8">
+            Vertrauen uns als Catering Partner
+          </p>
+          <div className="grid grid-cols-3 gap-6 md:gap-8 items-center max-w-2xl mx-auto">
+            {[
+              { src: "/lovable-uploads/6b6ec1ce-974f-4e6f-b23e-61aacd2fdf8d.png", alt: "WHU Otto Beisheim School of Management" },
+              { src: "/lovable-uploads/Leonardo.png", alt: "Leonardo" },
+              { src: "/lovable-uploads/da1a1dd5-81c8-4349-83f7-43f66d08e68e.png", alt: "Rockwell Automation" },
+            ].map(({ src, alt }) => (
+              <div key={alt} className="flex items-center justify-center p-4 md:p-6 bg-card border border-border rounded-lg">
+                <img src={src} alt={`${alt} - Partner von Sattuni`} className="max-h-12 md:max-h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== DIETARY + SUSTAINABILITY ===== */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
