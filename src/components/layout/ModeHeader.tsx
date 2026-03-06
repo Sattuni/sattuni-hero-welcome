@@ -34,6 +34,12 @@ const ModeHeader = () => {
       title: "Buffet Galerie"
     },
     { 
+      name: "Partner Modell", 
+      href: "/catering/partner", 
+      current: location.pathname === "/catering/partner",
+      title: "Catering für Unternehmen"
+    },
+    { 
       name: "Über uns", 
       href: "/catering/ueber-uns", 
       current: location.pathname === "/catering/ueber-uns",
