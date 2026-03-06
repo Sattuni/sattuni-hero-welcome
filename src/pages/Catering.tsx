@@ -326,17 +326,24 @@ const Catering = () => {
                         <Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Firmenfeiern</Link> & <Link to="/catering/blog/kundenbesuch-catering-abwechslung" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Kundenempfänge</Link>
                       </span>
                     </li>
-                  </ul>
-                  <Button
-                    variant="outline"
-                    className="w-full mt-4"
-                    onClick={() => {
-                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }}
-                  >
-                    Mehr erfahren
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </Button>
+                   </ul>
+                   <div className="space-y-2 mt-4">
+                     <p className="text-xs text-muted-foreground">
+                       Immer wiederkehrende Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">
+                         Catering Partner Modell kennenlernen →
+                       </Link>
+                     </p>
+                   </div>
+                   <Button
+                     variant="outline"
+                     className="w-full mt-4"
+                     onClick={() => {
+                       document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                     }}
+                   >
+                     Mehr erfahren
+                     <ChevronRight className="w-4 h-4 ml-1" />
+                   </Button>
                 </CardContent>
               </Card>
 
