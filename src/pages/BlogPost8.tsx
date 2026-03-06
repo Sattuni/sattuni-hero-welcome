@@ -11,9 +11,9 @@ import LazyImage from "@/components/common/LazyImage";
 import { useSiteMode } from "@/contexts/SiteModeContext";
 
 import heroImage from "@/assets/blog/catering-partner-hero.jpg";
-import workshopCatering from "@/assets/partner/workshop-catering.jpg";
-import teamLunch from "@/assets/partner/team-lunch.jpg";
-import sustainableCatering from "@/assets/partner/sustainable-catering.jpg";
+import officeChafing from "@/assets/blog/office-catering-chafing.jpg";
+import officeFingerfood from "@/assets/blog/office-fingerfood-appetizers.jpg";
+import officeSalads from "@/assets/blog/office-salads-buffet.jpg";
 
 const BlogPost8 = () => {
   const { setMode } = useSiteMode();
@@ -154,12 +154,12 @@ const BlogPost8 = () => {
                 {/* Image 1 - Workshop Setup */}
                 <figure className="my-10">
                   <LazyImage
-                    src={workshopCatering}
-                    alt="Workshop Catering Setup – Business Buffet für Meetings"
+                    src={officeChafing}
+                    alt="Business Catering Chafing Dishes im Büro – Buffet für Workshops"
                     className="w-full rounded-xl shadow-md aspect-[16/9] object-cover"
                   />
                   <figcaption className="text-sm text-muted-foreground mt-3 text-center">
-                    Workshop-Catering: Frisch zubereitet und pünktlich geliefert.
+                    Catering-Buffet im Büro: Warme Speisen in Chafing Dishes, bereit zum Servieren.
                   </figcaption>
                 </figure>
 
@@ -208,12 +208,12 @@ const BlogPost8 = () => {
                 {/* Image 2 - Team Lunch */}
                 <figure className="my-10">
                   <LazyImage
-                    src={teamLunch}
-                    alt="Team Lunch Catering im Unternehmen – Office Buffet"
+                    src={officeFingerfood}
+                    alt="Office Catering Fingerfood – Appetizers für Business Events"
                     className="w-full rounded-xl shadow-md aspect-[16/9] object-cover"
                   />
                   <figcaption className="text-sm text-muted-foreground mt-3 text-center">
-                    Team-Lunch im Büro: Abwechslungsreich und unkompliziert.
+                    Fingerfood & Appetizers: Elegante Vorspeisen für professionelle Anlässe.
                   </figcaption>
                 </figure>
 
@@ -253,15 +253,15 @@ const BlogPost8 = () => {
                   So können Unternehmen ihr Catering nicht nur einfacher, sondern auch verantwortungsvoller organisieren.
                 </p>
 
-                {/* Image 3 - Sustainable */}
+                {/* Image 3 - Salads & Dishes */}
                 <figure className="my-10">
                   <LazyImage
-                    src={sustainableCatering}
-                    alt="Nachhaltiges Office Catering – wiederverwendbare Schalen und Porzellan"
+                    src={officeSalads}
+                    alt="Office Catering Salate – Frische und ausgewogene Business Lunch"
                     className="w-full rounded-xl shadow-md aspect-[16/9] object-cover"
                   />
                   <figcaption className="text-sm text-muted-foreground mt-3 text-center">
-                    Nachhaltiges Catering: Porzellanschalen statt Einwegplastik.
+                    Frische Salate und Gerichte: Vielfältig und ernährungsgerecht für alle Vorlieben.
                   </figcaption>
                 </figure>
 
