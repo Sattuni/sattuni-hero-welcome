@@ -188,53 +188,53 @@ const CateringPartner = () => {
       <section className="py-16 md:py-24 bg-secondary/40">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
-            Ein klarer Preis für euer Unternehmen
+            Kein Verhandeln, kein Rechnen — einfach bestellen
           </h2>
           
           <div className="max-w-2xl mx-auto mb-12">
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Unternehmen, die mit Sattuni als Catering Partner zusammenarbeiten, erhalten einen festen Catering-Preis von <strong className="text-foreground">25 € netto pro Person</strong>.
+              Wir wissen, wie es in Unternehmen läuft: Das nächste Meeting steht an, 20 Leute kommen, 
+              und irgendjemand muss sich ums Essen kümmern. Angebote vergleichen, Menüs abstimmen, 
+              Budget klären — das kostet Zeit, die ihr nicht habt.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Dieser Preis gilt für alle Caterings im Rahmen des Catering Partner Modells.
-            </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Einmal Partner bei uns – keine neuen Angebote mehr für jede Bestellung.
+              Deshalb gibt es bei uns als Partner einen <strong className="text-foreground">festen Preis: 25 € netto pro Person</strong>. 
+              Immer. Egal ob Dienstags-Workshop oder Freitags-Teamlunch.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Schreibt uns einfach kurz, was ihr braucht.
+              Kein neues Angebot, keine Rückfragen. Einfach kurz schreiben:
             </p>
             
-            <div className="bg-card border border-border rounded-lg p-4 mb-6">
-              <p className="text-foreground font-medium text-center">
-                Workshop – Dienstag – 20 Personen – 12:00
-              </p>
-              <p className="text-muted-foreground text-center text-sm mt-2">
-                Wir kümmern uns um den Rest.
+            <div className="bg-card border border-border rounded-lg p-5 mb-2">
+              <p className="text-foreground font-medium text-center italic">
+                „Workshop – Dienstag – 20 Personen – 12:00"
               </p>
             </div>
+            <p className="text-muted-foreground text-center text-sm mb-6">
+              Das reicht. Um alles andere kümmern wir uns.
+            </p>
           </div>
 
           <div className="flex justify-center mb-12">
             <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10 text-center max-w-sm shadow-sm w-full">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
-                Sattuni Catering Partner Preis
-              </h3>
+              <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase mb-5">
+                Euer Partner-Preis
+              </p>
               <p className="text-6xl md:text-7xl font-bold text-primary mb-2">25 €</p>
               <p className="text-muted-foreground mb-6">netto pro Person</p>
               <p className="text-sm text-muted-foreground mb-8">
-                Für Business-Catering mit <strong className="text-foreground">15–40 Personen</strong>
+                Für <strong className="text-foreground">15–40 Personen</strong> · Meetings, Workshops & Events
               </p>
               
               <div className="space-y-3 text-left">
                 {[
-                  "Vorrangbehandlung für Partner-Unternehmen",
-                  "Einfache Bestellung per Nachricht oder E-Mail",
-                  "Abwechslungsreiche Menüs für Meetings und Workshops",
-                  "Vegetarisch, vegan, halal, glutenfrei und laktosefrei inklusive",
-                  "Nachhaltige Lieferung in wiederverwendbaren Schalen",
-                  "Take-Away-Boxen – nichts wird verschwendet",
-                  "Ein fester Ansprechpartner nur für euch",
+                  "Ihr werdet bei Anfragen bevorzugt behandelt",
+                  "Bestellen per kurzer Nachricht oder E-Mail",
+                  "Abwechslungsreiche Menüs — kein Event schmeckt wie das letzte",
+                  "Vegan, vegetarisch, halal, glutenfrei & laktosefrei? Immer mit dabei",
+                  "Lieferung in wiederverwendbaren Porzellanschalen",
+                  "Take-Away-Boxen für eure Kolleg:innen — nichts wird verschwendet",
+                  "Ein fester Ansprechpartner, der euch und euer Team kennt",
                 ].map((benefit) => (
                   <div key={benefit} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -246,7 +246,7 @@ const CateringPartner = () => {
           </div>
 
           <p className="text-center text-lg font-medium text-foreground">
-            Ein Preis. Ein Partner. Catering ohne Organisationsstress.
+            Ein Preis. Ein Partner. Null Orga-Aufwand.
           </p>
         </div>
       </section>
