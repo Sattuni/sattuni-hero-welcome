@@ -1,4 +1,5 @@
 import PageLayout from "@/components/layout/PageLayout";
+import PartnerContactForm from "@/components/features/catering/PartnerContactForm";
 import { Button } from "@/components/ui/button";
 import GoogleReviewBadge from "@/components/common/GoogleReviewBadge";
 import { 
@@ -270,48 +271,51 @@ const CateringPartner = () => {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* ===== CTA WITH FORM ===== */}
       <section id="partner-cta" className="py-16 md:py-24 bg-secondary/40">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-            Testet das Catering Partner Modell
-          </h2>
-          <p className="text-muted-foreground text-lg mb-4">
-            Startet mit einem Probe-Catering. Keine Bestellpflicht.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground mb-8">
-            {["Kein Menü-Suchen", "Kein Koordinations-Stress", "Ein zuverlässiger Partner"].map((item) => (
-              <span key={item} className="inline-flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-primary" />
-                {item}
-              </span>
-            ))}
+        <div className="max-w-xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
+              Testet das Catering Partner Modell
+            </h2>
+            <p className="text-muted-foreground text-lg mb-4">
+              Schreibt uns kurz — wir melden uns innerhalb von 24 Stunden. Unverbindlich.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground mb-6">
+              {["Kein Menü-Suchen", "Kein Koordinations-Stress", "Ein zuverlässiger Partner"].map((item) => (
+                <span key={item} className="inline-flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-primary" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button size="xl" variant="hero" asChild>
-              <a href="/catering#anfrage">
-                Probe-Catering anfragen
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button size="xl" variant="outline" asChild>
-              <a href="tel:+492113618115" className="gap-2">
-                <Phone className="w-4 h-4" />
-                0211 36180115
-              </a>
-            </Button>
+
+          <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
+            <PartnerContactForm />
           </div>
-          <a 
-            href="https://wa.me/492113618115?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Catering%20Partner%20Modell." 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <MessageSquare className="w-4 h-4" />
-            Per WhatsApp schreiben
-          </a>
-          <div className="mt-4">
-            <GoogleReviewBadge variant="default" />
+
+          <div className="flex flex-col items-center gap-3 mt-8">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button size="lg" variant="outline" asChild>
+                <a href="tel:+492113618115" className="gap-2">
+                  <Phone className="w-4 h-4" />
+                  0211 36180115
+                </a>
+              </Button>
+              <a 
+                href="https://wa.me/492113618115?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Catering%20Partner%20Modell." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <MessageSquare className="w-4 h-4" />
+                Per WhatsApp schreiben
+              </a>
+            </div>
+            <div className="mt-2">
+              <GoogleReviewBadge variant="default" />
+            </div>
           </div>
         </div>
       </section>
