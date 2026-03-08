@@ -19,7 +19,7 @@ const businessExamples = [
   {
     title: "Workshop im Office – 30 hungrige Köpfe",
     text: `Nach vier Stunden Brainstorming war der Hunger groß. Wir haben das Buffet so aufgebaut, dass alle sich bedienen konnten, ohne den Flow zu stören. Hummus, Falafel, frische Salate – alles fingerfood-tauglich, damit niemand mit Messer und Gabel hantieren musste. Der Workshop-Leiter meinte hinterher: „Das Essen war das Highlight."`,
-    short: "Fingerfood-taugliches Buffet, ohne den Workshop-Flow zu stören. „Das Essen war das Highlight."",
+    short: `Fingerfood-taugliches Buffet, ohne den Workshop-Flow zu stören. „Das Essen war das Highlight."`,
   },
   {
     title: "Fortbildung mit Fingerfood – 25 Teilnehmer",
