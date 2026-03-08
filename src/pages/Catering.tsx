@@ -16,7 +16,6 @@ import {
   ArrowUp, 
   Building2, 
   CheckCircle, 
-  ChevronRight, 
   Clock, 
   Mail, 
   Phone, 
@@ -120,23 +119,23 @@ const Catering = () => {
   const processSteps = [
     {
       icon: Mail,
-      title: "Anfrage stellen",
-      description: "Anlass, Datum, Personenzahl – wir melden uns in 24h.",
+      title: "Anfrage",
+      description: "Anlass, Datum & Personenzahl senden.",
     },
     {
       icon: Phone,
       title: "Beratung",
-      description: "Menüoptionen besprechen, Angebot erhalten.",
+      description: "Menü besprechen & Angebot erhalten.",
     },
     {
       icon: CheckCircle,
       title: "Bestätigung",
-      description: "Angebot bestätigen – wir planen alles.",
+      description: "Angebot bestätigen – wir planen.",
     },
     {
       icon: Utensils,
       title: "Lieferung",
-      description: "Pünktlich geliefert, optional mit Aufbau.",
+      description: "Pünktlich geliefert & aufgebaut.",
     },
   ];
 
@@ -153,7 +152,7 @@ const Catering = () => {
       <div className="min-h-screen bg-background overflow-x-hidden">
         <ModeHeader />
 
-        {/* Breadcrumb Navigation */}
+        {/* Breadcrumb */}
         <div className="pt-20">
           <Breadcrumb
             items={[
@@ -163,8 +162,8 @@ const Catering = () => {
           />
         </div>
 
-        {/* 1) Hero Section - Compact on mobile */}
-        <section className="relative pt-6 md:pt-8 pb-10 md:pb-24 overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative pt-4 md:pt-8 pb-10 md:pb-20 overflow-hidden">
           <div className="absolute inset-0">
             <img
               src={heroCatering}
@@ -180,17 +179,16 @@ const Catering = () => {
           </div>
 
           <div className="relative container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto space-y-3 md:space-y-6">
-              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
+            <div className="max-w-4xl mx-auto space-y-3 md:space-y-5">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Arabisches Catering für Events & Feiern
               </h1>
-
-              <p className="text-base md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-                Buffets ab 24,50€/Person – für Firmen & private Feiern.
+              <p className="text-sm md:text-xl text-white/90 max-w-2xl mx-auto">
+                Buffets ab 24,50€/Person – frisch, hausgemacht, pünktlich geliefert.
               </p>
 
-              {/* Single primary CTA on mobile */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4 md:pt-8">
+              {/* Single primary CTA */}
+              <div className="pt-3 md:pt-6">
                 <Button
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg px-8"
@@ -207,24 +205,14 @@ const Catering = () => {
                 >
                   Unverbindlich anfragen
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-base md:text-lg px-8 hidden sm:flex"
-                >
-                  <Link to="/catering/menus">
-                    Menüs & Preise ansehen
-                  </Link>
-                </Button>
               </div>
 
-              {/* Trust Badge - Compact on mobile */}
-              <div className="pt-4 md:pt-6 flex flex-col items-center gap-2">
+              {/* Trust */}
+              <div className="pt-3 md:pt-4 flex flex-col items-center gap-2">
                 <GoogleReviewBadge variant="hero" />
                 <a 
                   href="tel:+492113618115" 
-                  className="hidden md:inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+                  className="hidden md:inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Oder direkt anrufen: 0211 36180115</span>
@@ -234,55 +222,45 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* Quick Navigation - Compact on mobile */}
-        <section className="sticky top-16 md:top-20 z-40 py-2 md:py-4 bg-background/95 backdrop-blur-sm border-b shadow-sm">
+        {/* Quick Nav - Minimal */}
+        <section className="sticky top-16 md:top-20 z-40 py-2 bg-background/95 backdrop-blur-sm border-b shadow-sm">
           <div className="container mx-auto px-4">
             <div className="flex gap-2 md:gap-4 justify-center text-xs md:text-sm">
-              <a
-                href="#anlaesse"
-                className="px-2.5 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
+              <a href="#anlaesse" className="px-3 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors">
                 Anlässe
               </a>
-              <a
-                href="/catering/menus"
-                className="px-2.5 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
+              <Link to="/catering/menus" className="px-3 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors">
                 Menüs
-              </a>
-              <button
-                onClick={scrollToForm}
-                className="px-2.5 py-1.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
-              >
+              </Link>
+              <button onClick={scrollToForm} className="px-3 py-1.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium">
                 Anfrage senden
               </button>
             </div>
           </div>
         </section>
 
-        {/* 2) Anlässe + Trust Badges - Simplified for mobile */}
-        <section className="py-8 md:py-20 scroll-mt-24" id="anlaesse">
+        {/* Anlässe - Cleaner layout */}
+        <section className="py-8 md:py-16 scroll-mt-24" id="anlaesse">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-6 md:mb-12">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
+            <div className="text-center mb-6 md:mb-10">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
                 Für welche Anlässe?
               </h2>
-              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-sm md:text-base text-muted-foreground">
                 Arabisches Buffet für Unternehmen und private Feiern.
               </p>
             </div>
 
-            {/* Mobile: Compact list instead of two large cards */}
-            <div className={`max-w-4xl mx-auto ${isMobile ? 'space-y-3' : 'grid md:grid-cols-2 gap-6 md:gap-8'}`}>
+            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6">
               {/* B2B */}
-              <Card className="group hover:shadow-lg transition-shadow">
-                <CardContent className={`${isMobile ? 'p-4' : 'p-6 md:p-8'} space-y-3`}>
-                  <div className="flex items-center gap-3">
-                    <div className={`${isMobile ? 'w-10 h-10' : 'w-16 h-16'} bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0`}>
-                      <Building2 className={`${isMobile ? 'w-5 h-5' : 'w-8 h-8'} text-primary`} />
+              <Card className="group hover:shadow-lg transition-shadow border-l-4 border-l-primary">
+                <CardContent className="p-5 md:p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Building2 className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-base md:text-2xl font-bold text-foreground">
+                      <h3 className="text-base md:text-xl font-bold text-foreground">
                         Unternehmen & Teams
                       </h3>
                       <p className="text-xs md:text-sm text-muted-foreground">
@@ -291,46 +269,35 @@ const Catering = () => {
                     </div>
                   </div>
                   
-                  {/* Hidden on mobile - keep it lean */}
-                  <ul className="hidden md:block text-muted-foreground space-y-2 text-left">
+                  <ul className="hidden md:block text-muted-foreground space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>
-                        <Link to="/catering/blog/buero-lunch-ideen" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Office Lunch</Link> & Team-Events
-                      </span>
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span><Link to="/catering/blog/buero-lunch-ideen" className="hover:text-primary hover:underline">Office Lunch</Link> & Team-Events</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>
-                        <Link to="/catering/blog/workshop-catering" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Meetings & Workshops</Link>
-                      </span>
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span><Link to="/catering/blog/workshop-catering" className="hover:text-primary hover:underline">Meetings & Workshops</Link></span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span>
-                        <Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Firmenfeiern</Link> & <Link to="/catering/blog/kundenbesuch-catering-abwechslung" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Kundenempfänge</Link>
-                      </span>
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span><Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary hover:underline">Firmenfeiern</Link> & Kundenempfänge</span>
                     </li>
                   </ul>
-                  <div className="hidden md:block space-y-2 mt-4">
-                    <p className="text-xs text-muted-foreground">
-                      Immer wiederkehrende Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">
-                        Catering Partner Modell kennenlernen →
-                      </Link>
-                    </p>
-                  </div>
+                  <p className="hidden md:block text-xs text-muted-foreground mt-3">
+                    Regelmäßig Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">Partner Modell →</Link>
+                  </p>
                 </CardContent>
               </Card>
 
               {/* B2C */}
-              <Card className="group hover:shadow-lg transition-shadow">
-                <CardContent className={`${isMobile ? 'p-4' : 'p-6 md:p-8'} space-y-3`}>
-                  <div className="flex items-center gap-3">
-                    <div className={`${isMobile ? 'w-10 h-10' : 'w-16 h-16'} bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0`}>
-                      <Users className={`${isMobile ? 'w-5 h-5' : 'w-8 h-8'} text-primary`} />
+              <Card className="group hover:shadow-lg transition-shadow border-l-4 border-l-accent">
+                <CardContent className="p-5 md:p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Users className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                     </div>
                     <div>
-                      <h3 className="text-base md:text-2xl font-bold text-foreground">
+                      <h3 className="text-base md:text-xl font-bold text-foreground">
                         Private Feiern
                       </h3>
                       <p className="text-xs md:text-sm text-muted-foreground">
@@ -339,17 +306,17 @@ const Catering = () => {
                     </div>
                   </div>
 
-                  <ul className="hidden md:block text-muted-foreground space-y-2 text-left">
+                  <ul className="hidden md:block text-muted-foreground space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                       <span>Geburtstage & Jubiläen</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                       <span>Hochzeiten & Verlobungen</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                       <span>Familienfeiern & Gartenpartys</span>
                     </li>
                   </ul>
@@ -357,55 +324,50 @@ const Catering = () => {
               </Card>
             </div>
 
-            {/* Trust Badges - Inline on mobile */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6 md:mt-8 max-w-3xl mx-auto">
+            {/* Trust Badges - Compact */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-6 max-w-3xl mx-auto">
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
-                <Leaf className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm text-foreground font-medium">Frisch zubereitet</span>
+                <Leaf className="w-3 h-3 text-primary" />
+                <span className="text-xs text-foreground font-medium">Frisch zubereitet</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
-                <Star className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm text-foreground font-medium">200+ Caterings</span>
+                <Star className="w-3 h-3 text-primary" />
+                <span className="text-xs text-foreground font-medium">200+ Caterings</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
-                <Users className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm text-foreground font-medium">Ab 20 Personen</span>
+                <Users className="w-3 h-3 text-primary" />
+                <span className="text-xs text-foreground font-medium">Ab 20 Personen</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3) So läuft euer Catering ab - Compact on mobile */}
-        <section className="py-8 md:py-20 scroll-mt-24" id="ablauf">
+        {/* Process Steps - Clean & tight */}
+        <section className="py-6 md:py-16 bg-muted/30 scroll-mt-24" id="ablauf">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-6 md:mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-3 md:mb-4">
-                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm font-medium text-primary">In 4 Schritten</span>
+            <div className="text-center mb-5 md:mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full mb-2">
+                <Clock className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-medium text-primary">In 4 Schritten</span>
               </div>
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground">
+              <h2 className="text-lg md:text-3xl font-bold text-foreground">
                 So läuft euer Catering ab
               </h2>
             </div>
 
-            {/* Mobile: Horizontal scroll or 2x2 grid instead of 4 vertical cards */}
-            <div className={`${isMobile ? 'grid grid-cols-2 gap-3' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'}`}>
+            <div className="grid grid-cols-4 gap-2 md:gap-6 max-w-4xl mx-auto">
               {processSteps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
-                  <div key={index} className="relative">
-                    <Card className="h-full">
-                      <CardContent className={`${isMobile ? 'p-3' : 'p-5'} text-center space-y-2`}>
-                        <div className="flex justify-center">
-                          <div className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} bg-primary/10 rounded-full flex items-center justify-center`}>
-                            <IconComponent className={`${isMobile ? 'w-5 h-5' : 'w-7 h-7'} text-primary`} />
-                          </div>
-                        </div>
-                        <div className="text-xs font-medium text-primary">Schritt {index + 1}</div>
-                        <h3 className={`${isMobile ? 'text-sm' : 'text-base md:text-lg'} font-semibold text-foreground`}>{step.title}</h3>
-                        <p className={`${isMobile ? 'text-xs leading-relaxed' : 'text-sm'} text-muted-foreground`}>{step.description}</p>
-                      </CardContent>
-                    </Card>
+                  <div key={index} className="text-center space-y-2">
+                    <div className="flex justify-center">
+                      <div className="w-10 h-10 md:w-14 md:h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                        <IconComponent className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+                      </div>
+                    </div>
+                    <div className="text-[10px] md:text-xs font-medium text-primary">{index + 1}</div>
+                    <h3 className="text-xs md:text-base font-semibold text-foreground leading-tight">{step.title}</h3>
+                    <p className="text-[10px] md:text-sm text-muted-foreground leading-snug hidden md:block">{step.description}</p>
                   </div>
                 );
               })}
@@ -413,22 +375,22 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* 4) Beispiele aus der Praxis */}
+        {/* Praxis Beispiele */}
         <PraxisBeispiele />
 
-        {/* 5) Gallery Teaser */}
+        {/* Gallery Teaser */}
         <CateringGalleryTeaser />
 
-        {/* 6) Customer Reviews */}
+        {/* Customer Reviews */}
         <CustomerReviews />
 
-        {/* 8) Catering Booking Form */}
+        {/* Booking Form */}
         <CateringBookingForm />
 
-        {/* 9) FAQ Section */}
+        {/* FAQ */}
         <FAQSection />
 
-        {/* Mobile CTA Button - Fixed at bottom */}
+        {/* Mobile CTA - Fixed bottom */}
         <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t shadow-lg p-3">
           <Button
             size="lg"
@@ -439,11 +401,11 @@ const Catering = () => {
           </Button>
         </div>
 
-        {/* Scroll to Top Button */}
+        {/* Scroll to Top */}
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="fixed bottom-20 md:bottom-6 right-4 z-50 w-10 h-10 md:w-12 md:h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110"
             aria-label="Nach oben scrollen"
           >
             <ArrowUp className="w-4 h-4 md:w-5 md:h-5 mx-auto" />
