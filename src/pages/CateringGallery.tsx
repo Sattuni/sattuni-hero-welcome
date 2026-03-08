@@ -381,7 +381,7 @@ const CateringGallery = () => {
               <div
                 key={`${image.src}-${index}`}
                 className={`
-                  break-inside-avoid relative group cursor-pointer overflow-hidden rounded-xl
+                  break-inside-avoid relative group ${isMobile ? '' : 'cursor-pointer'} overflow-hidden rounded-xl
                   transition-all duration-500 ease-out
                   ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                 `}
