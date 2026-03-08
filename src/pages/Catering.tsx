@@ -5,7 +5,6 @@ import CateringBookingForm from "@/components/features/catering/CateringBookingF
 import CustomerReviews from "@/components/features/about/CustomerReviews";
 import FAQSection from "@/components/features/catering/FAQSection";
 import PraxisBeispiele from "@/components/features/catering/PraxisBeispiele";
-import FreeDeliveryBanner from "@/components/features/marketing/FreeDeliveryBanner";
 import CateringGalleryTeaser from "@/components/features/catering/CateringGalleryTeaser";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import Footer from "@/components/layout/Footer";
@@ -19,33 +18,30 @@ import {
   CheckCircle, 
   ChevronRight, 
   Clock, 
-  Heart, 
   Mail, 
-  PartyPopper, 
   Phone, 
   Users, 
   Utensils,
   Leaf,
   Star,
-  CalendarCheck
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAnalytics } from "@/contexts";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { useSiteMode } from "@/contexts/SiteModeContext";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 
 const Catering = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { trackCateringInquiryEnhanced, trackImageInteraction } = useAnalytics();
   const { addEngagementFactor } = useScrollTracking();
   const { setMode } = useSiteMode();
+  const isMobile = useMobileDetection();
 
-  // Set catering mode on page load
   useEffect(() => {
     setMode('catering');
   }, [setMode]);
 
-  // SEO Structured Data
   useEffect(() => {
     const structuredData = {
       "@context": "https://schema.org",
@@ -110,7 +106,6 @@ const Catering = () => {
     }
   };
 
-  // Scroll to contact form if URL parameter is present
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const scrollTo = urlParams.get('scrollTo');
@@ -122,7 +117,6 @@ const Catering = () => {
     }
   }, []);
 
-  // Shortened process steps
   const processSteps = [
     {
       icon: Mail,
@@ -131,17 +125,17 @@ const Catering = () => {
     },
     {
       icon: Phone,
-      title: "Persönliche Beratung",
+      title: "Beratung",
       description: "Menüoptionen besprechen, Angebot erhalten.",
     },
     {
       icon: CheckCircle,
       title: "Bestätigung",
-      description: "Angebot bestätigen – wir übernehmen die Planung.",
+      description: "Angebot bestätigen – wir planen alles.",
     },
     {
       icon: Utensils,
-      title: "Lieferung & Genuss",
+      title: "Lieferung",
       description: "Pünktlich geliefert, optional mit Aufbau.",
     },
   ];
@@ -158,7 +152,6 @@ const Catering = () => {
       
       <div className="min-h-screen bg-background overflow-x-hidden">
         <ModeHeader />
-        <FreeDeliveryBanner />
 
         {/* Breadcrumb Navigation */}
         <div className="pt-20">
@@ -170,8 +163,8 @@ const Catering = () => {
           />
         </div>
 
-        {/* 1) Hero Section */}
-        <section className="relative pt-8 pb-16 md:pb-24 overflow-hidden">
+        {/* 1) Hero Section - Compact on mobile */}
+        <section className="relative pt-6 md:pt-8 pb-10 md:pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
               src={heroCatering}
@@ -187,19 +180,20 @@ const Catering = () => {
           </div>
 
           <div className="relative container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
-                Arabisches Catering für Events & Feiern in Düsseldorf
+            <div className="max-w-4xl mx-auto space-y-3 md:space-y-6">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight px-2">
+                Arabisches Catering für Events & Feiern
               </h1>
 
-              <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
-                Buffets ab 24,50&nbsp;€ pro Person – für Firmenfeiern, Events und private Feiern.
+              <p className="text-base md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
+                Buffets ab 24,50€/Person – für Firmen & private Feiern.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              {/* Single primary CTA on mobile */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4 md:pt-8">
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg px-8"
                   onClick={() => {
                     trackCateringInquiryEnhanced('hero-section', {
                       estimatedValue: 500,
@@ -217,7 +211,7 @@ const Catering = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8"
+                  className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-base md:text-lg px-8 hidden sm:flex"
                 >
                   <Link to="/catering/menus">
                     Menüs & Preise ansehen
@@ -225,12 +219,12 @@ const Catering = () => {
                 </Button>
               </div>
 
-              {/* Google Review Trust Badge + Phone */}
-              <div className="pt-6 flex flex-col items-center gap-3">
+              {/* Trust Badge - Compact on mobile */}
+              <div className="pt-4 md:pt-6 flex flex-col items-center gap-2">
                 <GoogleReviewBadge variant="hero" />
                 <a 
                   href="tel:+492113618115" 
-                  className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm md:text-base"
+                  className="hidden md:inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Oder direkt anrufen: 0211 36180115</span>
@@ -240,31 +234,25 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* Quick Navigation */}
-        <section className="sticky top-16 md:top-20 z-40 py-3 md:py-4 bg-background/95 backdrop-blur-sm border-b shadow-sm">
+        {/* Quick Navigation - Compact on mobile */}
+        <section className="sticky top-16 md:top-20 z-40 py-2 md:py-4 bg-background/95 backdrop-blur-sm border-b shadow-sm">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap gap-2 md:gap-4 justify-center text-xs md:text-sm">
+            <div className="flex gap-2 md:gap-4 justify-center text-xs md:text-sm">
               <a
                 href="#anlaesse"
-                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="px-2.5 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Anlässe
               </a>
               <a
                 href="/catering/menus"
-                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="px-2.5 py-1.5 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Menüs
               </a>
-              <a
-                href="#ablauf"
-                className="px-2 md:px-3 py-1.5 md:py-1 bg-background border border-border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                Ablauf
-              </a>
               <button
                 onClick={scrollToForm}
-                className="px-2 md:px-3 py-1.5 md:py-1 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+                className="px-2.5 py-1.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
               >
                 Anfrage senden
               </button>
@@ -272,32 +260,39 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* 2) Anlässe + Trust Badges */}
-        <section className="py-12 md:py-20 scroll-mt-24" id="anlaesse">
+        {/* 2) Anlässe + Trust Badges - Simplified for mobile */}
+        <section className="py-8 md:py-20 scroll-mt-24" id="anlaesse">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Für welche Anlässe eignet sich unser Catering?
+            <div className="text-center mb-6 md:mb-12">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 md:mb-4">
+                Für welche Anlässe?
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Arabisches Buffet Catering für Unternehmen und private Feiern in Düsseldorf.
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+                Arabisches Buffet für Unternehmen und private Feiern.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-              {/* B2B Box */}
+            {/* Mobile: Compact list instead of two large cards */}
+            <div className={`max-w-4xl mx-auto ${isMobile ? 'space-y-3' : 'grid md:grid-cols-2 gap-6 md:gap-8'}`}>
+              {/* B2B */}
               <Card className="group hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 md:p-8 text-center space-y-4">
-                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Building2 className="w-8 h-8 text-primary" />
+                <CardContent className={`${isMobile ? 'p-4' : 'p-6 md:p-8'} space-y-3`}>
+                  <div className="flex items-center gap-3">
+                    <div className={`${isMobile ? 'w-10 h-10' : 'w-16 h-16'} bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <Building2 className={`${isMobile ? 'w-5 h-5' : 'w-8 h-8'} text-primary`} />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-2xl font-bold text-foreground">
+                        Unternehmen & Teams
+                      </h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">
+                        Office Lunch, Meetings, Firmenfeiern
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                    Unternehmen & Teams
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Firmen Catering in Düsseldorf – von der Konferenz bis zum Sommerfest.
-                  </p>
-                  <ul className="text-muted-foreground space-y-2 text-left">
+                  
+                  {/* Hidden on mobile - keep it lean */}
+                  <ul className="hidden md:block text-muted-foreground space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                       <span>
@@ -316,40 +311,35 @@ const Catering = () => {
                         <Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Firmenfeiern</Link> & <Link to="/catering/blog/kundenbesuch-catering-abwechslung" className="hover:text-primary transition-colors underline-offset-2 hover:underline">Kundenempfänge</Link>
                       </span>
                     </li>
-                   </ul>
-                   <div className="space-y-2 mt-4">
-                     <p className="text-xs text-muted-foreground">
-                       Immer wiederkehrende Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">
-                         Catering Partner Modell kennenlernen →
-                       </Link>
-                     </p>
-                   </div>
-                   <Button
-                     variant="outline"
-                     className="w-full mt-4"
-                     onClick={() => {
-                       document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                     }}
-                   >
-                     Mehr erfahren
-                     <ChevronRight className="w-4 h-4 ml-1" />
-                   </Button>
+                  </ul>
+                  <div className="hidden md:block space-y-2 mt-4">
+                    <p className="text-xs text-muted-foreground">
+                      Immer wiederkehrende Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">
+                        Catering Partner Modell kennenlernen →
+                      </Link>
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
 
-              {/* B2C Box */}
+              {/* B2C */}
               <Card className="group hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 md:p-8 text-center space-y-4">
-                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <PartyPopper className="w-8 h-8 text-primary" />
+                <CardContent className={`${isMobile ? 'p-4' : 'p-6 md:p-8'} space-y-3`}>
+                  <div className="flex items-center gap-3">
+                    <div className={`${isMobile ? 'w-10 h-10' : 'w-16 h-16'} bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <Users className={`${isMobile ? 'w-5 h-5' : 'w-8 h-8'} text-primary`} />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-2xl font-bold text-foreground">
+                        Private Feiern
+                      </h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">
+                        Geburtstage, Hochzeiten, Familienfeiern
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                    Private Feiern
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Catering für private Feiern in Düsseldorf – von der Hochzeit bis zum Geburtstag.
-                  </p>
-                  <ul className="text-muted-foreground space-y-2 text-left">
+
+                  <ul className="hidden md:block text-muted-foreground space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                       <span>Geburtstage & Jubiläen</span>
@@ -363,73 +353,59 @@ const Catering = () => {
                       <span>Familienfeiern & Gartenpartys</span>
                     </li>
                   </ul>
-                  <Button
-                    variant="outline"
-                    className="w-full mt-4"
-                    onClick={() => {
-                      document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }}
-                  >
-                    Mehr erfahren
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </Button>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-8 max-w-3xl mx-auto">
-              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                <Leaf className="w-4 h-4 text-primary" />
-                <span className="text-sm text-foreground font-medium">Frisch am Tag zubereitet</span>
+            {/* Trust Badges - Inline on mobile */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6 md:mt-8 max-w-3xl mx-auto">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
+                <Leaf className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm text-foreground font-medium">Frisch zubereitet</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                <Star className="w-4 h-4 text-primary" />
-                <span className="text-sm text-foreground font-medium">200+ erfolgreiche Caterings</span>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
+                <Star className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm text-foreground font-medium">200+ Caterings</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                <Users className="w-4 h-4 text-primary" />
-                <span className="text-sm text-foreground font-medium">Ab 20 Personen</span>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10">
+                <Users className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm text-foreground font-medium">Ab 20 Personen</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3) So läuft euer Catering ab */}
-        <section className="py-12 md:py-20 scroll-mt-24" id="ablauf">
+        {/* 3) So läuft euer Catering ab - Compact on mobile */}
+        <section className="py-8 md:py-20 scroll-mt-24" id="ablauf">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-                <Clock className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">In 4 einfachen Schritten</span>
+            <div className="text-center mb-6 md:mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-3 md:mb-4">
+                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm font-medium text-primary">In 4 Schritten</span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground">
                 So läuft euer Catering ab
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Mobile: Horizontal scroll or 2x2 grid instead of 4 vertical cards */}
+            <div className={`${isMobile ? 'grid grid-cols-2 gap-3' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'}`}>
               {processSteps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
                   <div key={index} className="relative">
                     <Card className="h-full">
-                      <CardContent className="p-5 text-center space-y-3">
+                      <CardContent className={`${isMobile ? 'p-3' : 'p-5'} text-center space-y-2`}>
                         <div className="flex justify-center">
-                          <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
-                            <IconComponent className="w-7 h-7 text-primary" />
+                          <div className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} bg-primary/10 rounded-full flex items-center justify-center`}>
+                            <IconComponent className={`${isMobile ? 'w-5 h-5' : 'w-7 h-7'} text-primary`} />
                           </div>
                         </div>
-                        <div className="text-sm font-medium text-primary">Schritt {index + 1}</div>
-                        <h3 className="text-base md:text-lg font-semibold text-foreground">{step.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                        <div className="text-xs font-medium text-primary">Schritt {index + 1}</div>
+                        <h3 className={`${isMobile ? 'text-sm' : 'text-base md:text-lg'} font-semibold text-foreground`}>{step.title}</h3>
+                        <p className={`${isMobile ? 'text-xs leading-relaxed' : 'text-sm'} text-muted-foreground`}>{step.description}</p>
                       </CardContent>
                     </Card>
-                    {index < processSteps.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                        <ChevronRight className="w-6 h-6 text-muted-foreground/30" />
-                      </div>
-                    )}
                   </div>
                 );
               })}
@@ -446,7 +422,6 @@ const Catering = () => {
         {/* 6) Customer Reviews */}
         <CustomerReviews />
 
-
         {/* 8) Catering Booking Form */}
         <CateringBookingForm />
 
@@ -454,7 +429,7 @@ const Catering = () => {
         <FAQSection />
 
         {/* Mobile CTA Button - Fixed at bottom */}
-        <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t shadow-lg p-4">
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t shadow-lg p-3">
           <Button
             size="lg"
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
@@ -468,10 +443,10 @@ const Catering = () => {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
             aria-label="Nach oben scrollen"
           >
-            <ArrowUp className="w-5 h-5 mx-auto" />
+            <ArrowUp className="w-4 h-4 md:w-5 md:h-5 mx-auto" />
           </button>
         )}
 
