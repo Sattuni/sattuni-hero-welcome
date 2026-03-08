@@ -2,132 +2,83 @@ import { useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { useMobileDetection } from "@/hooks/useMobileDetection";
 
 const faqs = [
   {
     value: "ablauf",
-    question: "Wie läuft so eine Anfrage ab?",
-    answer: (
-      <>
-        <p className="mb-3">
-          Ziemlich unkompliziert: Ihr schickt uns eine Anfrage, wir melden uns innerhalb von einem Tag. 
-          Dann quatschen wir kurz über die Details – Termin, wie viele Leute, ob's was Besonderes gibt.
-        </p>
-        <p>
-          Danach kriegt ihr ein Angebot mit allem drin. Wenn's passt, läuft's.
-        </p>
-      </>
-    )
+    question: "Wie läuft eine Anfrage ab?",
+    answer: "Anfrage senden → wir melden uns in 24h → Details besprechen → Angebot erhalten → bestätigen → fertig."
   },
   {
     value: "lieferung",
-    question: "Und wie ist das mit der Lieferung?",
-    answer: (
-      <>
-        <p className="mb-3">
-          Wir machen vorher ein Zeitfenster aus – damit das Essen da ist, bevor euer Meeting oder Event losgeht. 
-          Nicht zu früh, nicht zu spät.
-        </p>
-        <p>
-          Wenn ihr wollt, bauen wir auch auf. Dann ist alles fertig, wenn ihr's braucht.
-        </p>
-      </>
-    )
+    question: "Wie ist das mit der Lieferung?",
+    answer: "Wir machen vorher ein Zeitfenster aus. Wenn ihr wollt, bauen wir auch auf. Dann ist alles fertig, wenn ihr's braucht."
   },
   {
     value: "mindestpersonen",
-    question: "Ab wie vielen Leuten macht ihr das?",
-    answer: (
-      <>
-        <p className="mb-3">
-          Ab 20 Personen. Das ist die Größe, ab der sich's für uns lohnt und ihr auch was davon habt.
-        </p>
-        <p>
-          <strong>Weniger Leute?</strong> Kein Problem – dann bestellt einfach über unseren normalen Lieferservice.
-        </p>
-      </>
-    )
+    question: "Ab wie vielen Leuten?",
+    answer: "Ab 20 Personen. Weniger? Kein Problem – dann bestellt einfach über unseren normalen Lieferservice."
   },
   {
     value: "anpassungen",
-    question: "Kann man noch was ändern, wenn's schon gebucht ist?",
-    answer: (
-      <p className="mb-3">
-        Klar, Anzahl anpassen geht noch bis eine Woche vorher. Wir sagen euch Bescheid, welche Fristen gelten.
-      </p>
-    )
+    question: "Kann man noch was ändern?",
+    answer: "Klar, Anzahl anpassen geht noch bis eine Woche vorher. Wir sagen euch Bescheid, welche Fristen gelten."
   },
   {
     value: "ausstattung",
     question: "Bringt ihr auch Geschirr mit?",
-    answer: (
-      <p className="mb-3">
-        Wenn ihr wollt, ja. Teller, Besteck, Wärmebehälter – alles kein Thema. Sagt einfach Bescheid.
-      </p>
-    )
+    answer: "Wenn ihr wollt, ja. Teller, Besteck, Wärmebehälter – alles kein Thema."
   },
   {
     value: "ernaehrung",
     question: "Gibt's auch was Veganes?",
-    answer: (
-      <p className="mb-3">
-        Jede Menge. Falafel, Hummus, die ganzen Salate – vieles ist bei uns von Natur aus vegan oder vegetarisch. 
-        Schreibt uns einfach, was ihr braucht.
-      </p>
-    )
+    answer: "Jede Menge. Falafel, Hummus, Salate – vieles ist bei uns von Natur aus vegan oder vegetarisch."
   },
   {
     value: "liefergebiet",
     question: "Wie weit liefert ihr?",
-    answer: (
-      <p className="mb-3">
-        Düsseldorf und drumherum – so etwa 50 km. In Düsseldorf selbst ist die Lieferung meistens inklusive.
-      </p>
-    )
+    answer: "Düsseldorf und drumherum – circa 50 km. In Düsseldorf selbst ist die Lieferung meistens inklusive."
   },
   {
     value: "kontakt",
-    question: "Mit wem rede ich eigentlich?",
-    answer: (
-      <p className="mb-3">
-        Ihr kriegt einen festen Ansprechpartner. Der bleibt auch dran – von der ersten Nachricht bis zum fertigen Buffet. 
-        Kein ständiges Weiterleiten.
-      </p>
-    )
+    question: "Mit wem rede ich?",
+    answer: "Ihr kriegt einen festen Ansprechpartner. Der bleibt dran – von der ersten Nachricht bis zum fertigen Buffet."
   }
 ];
 
 const FAQSection = () => {
   const [showAll, setShowAll] = useState(false);
-  const initialCount = 3;
+  const isMobile = useMobileDetection();
+  const initialCount = isMobile ? 3 : 4;
   
   const visibleFaqs = showAll ? faqs : faqs.slice(0, initialCount);
   const hiddenCount = faqs.length - initialCount;
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-subtle scroll-mt-24" id="faq">
+    <section className="py-8 md:py-16 bg-gradient-subtle scroll-mt-24" id="faq">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 mb-2 md:mb-4">
-            <HelpCircle className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
+        <div className="text-center mb-6 md:mb-10">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <HelpCircle className="w-5 h-5 text-primary" />
+            <h2 className="text-lg md:text-3xl font-bold text-foreground">
               Häufige Fragen
             </h2>
           </div>
         </div>
         
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
             {visibleFaqs.map((faq) => (
               <AccordionItem 
                 key={faq.value}
                 value={faq.value} 
-                className="bg-background border border-border rounded-lg px-6"
+                className="bg-background border border-border rounded-lg px-4 md:px-5"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-6">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-4 text-sm md:text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                <AccordionContent className="text-muted-foreground pb-4 text-sm leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -135,23 +86,9 @@ const FAQSection = () => {
           </Accordion>
           
           {hiddenCount > 0 && (
-            <div className="text-center mt-6">
-              <Button
-                variant="ghost"
-                onClick={() => setShowAll(!showAll)}
-                className="gap-2 text-primary hover:text-primary/80"
-              >
-                {showAll ? (
-                  <>
-                    <ChevronUp className="w-4 h-4" />
-                    Weniger anzeigen
-                  </>
-                ) : (
-                  <>
-                    <ChevronDown className="w-4 h-4" />
-                    {hiddenCount} weitere Fragen anzeigen
-                  </>
-                )}
+            <div className="text-center mt-4">
+              <Button variant="ghost" size="sm" onClick={() => setShowAll(!showAll)} className="gap-1 text-primary text-xs">
+                {showAll ? <><ChevronUp className="w-3 h-3" /> Weniger</> : <><ChevronDown className="w-3 h-3" /> {hiddenCount} weitere Fragen</>}
               </Button>
             </div>
           )}
