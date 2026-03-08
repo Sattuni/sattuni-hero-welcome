@@ -386,7 +386,7 @@ const CateringGallery = () => {
                   ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                 `}
                 style={{ transitionDelay: `${index * 50}ms` }}
-                onClick={() => openLightbox(index)}
+                onClick={() => !isMobile && openLightbox(index)}
               >
                 {/* Image Container with dynamic height based on size */}
                 <div className={`
