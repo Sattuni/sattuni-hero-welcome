@@ -2,7 +2,7 @@ import { useSiteMode } from '@/contexts/SiteModeContext';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { GoogleReviewBadge } from '@/components/common';
-import { Building2, UtensilsCrossed, Users, Truck, ChefHat, Clock, MapPin, ShoppingBag, Star } from 'lucide-react';
+import { Building2, UtensilsCrossed, ShoppingBag } from 'lucide-react';
 import { triggerGLFWidget } from '@/utils/glfHelper';
 import { useMobileDetection } from '@/hooks/useMobileDetection';
 import sattunLogo from '@/assets/icons/sattuni-header-icon.png';
@@ -69,7 +69,7 @@ const ModeSplitHero = () => {
             
             <div className="relative p-4 md:p-8">
               {/* Mobile: Compact horizontal layout */}
-              <div className="flex items-start gap-3 md:block">
+              <div className="flex items-center gap-3 md:block">
                 {/* Icon */}
                 <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 md:mb-5 group-hover:bg-accent/20 transition-colors">
                   <UtensilsCrossed className="w-5 h-5 md:w-8 md:h-8 text-accent-foreground" />
@@ -89,21 +89,21 @@ const ModeSplitHero = () => {
               {/* Features - Hidden on mobile */}
               <div className="hidden md:block space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Truck className="w-4 h-4 text-accent-foreground/70" />
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                   <span>Lieferung in 30-45 Min</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-accent-foreground/70" />
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                   <span>Johannstraße 40, Düsseldorf</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 text-accent-foreground/70" />
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                   <span>Mo-Fr 11-22 Uhr • Sa-So 12-23 Uhr</span>
                 </div>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col gap-2 mt-3 md:mt-0">
+              {/* Single CTA on mobile, two on desktop */}
+              <div className="mt-3 md:mt-0">
                 <Button 
                   size="default"
                   variant="hero"
@@ -116,7 +116,7 @@ const ModeSplitHero = () => {
                 <Button 
                   size="default"
                   variant="secondary"
-                  className="w-full font-semibold group-hover:shadow-md transition-all text-sm md:text-base md:h-11"
+                  className="w-full font-semibold group-hover:shadow-md transition-all text-sm md:text-base md:h-11 mt-2 hidden md:flex"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleRestaurantSelect();
@@ -138,7 +138,7 @@ const ModeSplitHero = () => {
             
             <div className="relative p-4 md:p-8">
               {/* Mobile: Compact horizontal layout */}
-              <div className="flex items-start gap-3 md:block">
+              <div className="flex items-center gap-3 md:block">
                 {/* Icon */}
                 <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 md:mb-5 group-hover:bg-primary/20 transition-colors">
                   <Building2 className="w-5 h-5 md:w-8 md:h-8 text-primary" />
@@ -158,15 +158,15 @@ const ModeSplitHero = () => {
               {/* Features - Hidden on mobile */}
               <div className="hidden md:block space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Users className="w-4 h-4 text-primary/70" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                   <span>Firmenfeiern & Meetings</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <ChefHat className="w-4 h-4 text-primary/70" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                   <span>Buffet-Service & Full-Service</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Star className="w-4 h-4 text-primary/70" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                   <span>200+ Events erfolgreich beliefert</span>
                 </div>
               </div>
@@ -187,7 +187,7 @@ const ModeSplitHero = () => {
           </Card>
         </div>
 
-        {/* Trust Indicators */}
+        {/* Trust Indicators - Compact */}
         <div className="mt-4 md:mt-12 text-center">
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-8 text-xs md:text-sm text-muted-foreground">
             <GoogleReviewBadge variant="compact" />
@@ -198,8 +198,8 @@ const ModeSplitHero = () => {
           </div>
         </div>
 
-        {/* SEO Introductory Text */}
-        <div className="mt-6 md:mt-10 max-w-3xl mx-auto text-center px-4">
+        {/* SEO Introductory Text - Hidden on mobile */}
+        <div className="hidden md:block mt-6 md:mt-10 max-w-3xl mx-auto text-center px-4">
           <p className="text-xs md:text-sm text-muted-foreground/70 leading-relaxed">
             Sattuni ist euer arabisches Restaurant in Düsseldorf – mit Lieferservice und authentischer 
             orientalischer Küche. Ob Catering für Firmen, Buffets für Meetings und Workshops oder 
