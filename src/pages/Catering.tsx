@@ -1,4 +1,4 @@
-import heroCatering from "@/assets/hero/hero-catering-alt.jpg";
+import heroCatering from "@/assets/hero/hero-catering-bowls.jpg";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/seo/SEOHead";
 import CateringBookingForm from "@/components/features/catering/CateringBookingForm";
