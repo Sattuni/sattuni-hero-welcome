@@ -7,8 +7,8 @@ const ChatbotPositioner = () => {
   useEffect(() => {
     if (!isMobile) return;
 
-    let showTimer: NodeJS.Timeout;
-    let hideTimer: NodeJS.Timeout;
+    let showTimer: ReturnType<typeof setTimeout>;
+    let hideTimer: ReturnType<typeof setTimeout>;
     let hasUserInteracted = false;
 
     const adjustChatbotPosition = () => {

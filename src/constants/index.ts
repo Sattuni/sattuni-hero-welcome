@@ -163,7 +163,7 @@ export const API_CONSTANTS = {
 // ===== FEATURE FLAGS =====
 export const FEATURE_FLAGS = {
   autoSave: true,
-  analytics: process.env.NODE_ENV === 'production',
+  analytics: import.meta.env.PROD,
   emailConfirmations: true,
   smsNotifications: false,
   christmasPromo: false,

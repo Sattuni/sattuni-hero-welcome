@@ -16,7 +16,7 @@ export interface ContactSubmissionResponse {
 
 // API Configuration
 export const API_CONFIG = {
-  baseUrl: process.env.NODE_ENV === 'production' 
+  baseUrl: import.meta.env.PROD 
     ? 'https://your-domain.com/api' 
     : 'http://localhost:3000/api',
   endpoints: {
