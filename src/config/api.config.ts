@@ -3,18 +3,18 @@ export const API_CONFIG = {
   // Base URLs for different environments
   development: {
     baseUrl: 'http://localhost:3000/api',
-    supabaseUrl: process.env.VITE_SUPABASE_URL || '',
-    supabaseAnonKey: process.env.VITE_SUPABASE_ANON_KEY || '',
+    supabaseUrl: import.meta.env.VITE_SUPABASE_URL || '',
+    supabaseAnonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
   },
   
   production: {
     baseUrl: 'https://your-domain.com/api',
-    supabaseUrl: process.env.VITE_SUPABASE_URL || '',
-    supabaseAnonKey: process.env.VITE_SUPABASE_ANON_KEY || '',
+    supabaseUrl: import.meta.env.VITE_SUPABASE_URL || '',
+    supabaseAnonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
   },
   
   // Current environment configuration
-  current: process.env.NODE_ENV === 'production' ? 'production' as const : 'development' as const,
+  current: import.meta.env.PROD ? 'production' as const : 'development' as const,
   
   // API Endpoints
   endpoints: {
