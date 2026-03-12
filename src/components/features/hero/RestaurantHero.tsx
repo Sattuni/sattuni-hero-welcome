@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-food.jpg";
+import heroImage from "@/assets/hero/hero-catering-bowls.jpg";
 import sattunLogo from "@/assets/icons/sattuni-header-icon.png";
 import SmartCTA from "@/components/mobile/SmartCTA";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
