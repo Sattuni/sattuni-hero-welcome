@@ -3,18 +3,18 @@ export const API_CONFIG = {
   // Base URLs for different environments
   development: {
     baseUrl: 'http://localhost:3000/api',
-    supabaseUrl: process.env.VITE_SUPABASE_URL || '',
-    supabaseAnonKey: process.env.VITE_SUPABASE_ANON_KEY || '',
+    supabaseUrl: import.meta.env.VITE_SUPABASE_URL || '',
+    supabaseAnonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
   },
   
   production: {
     baseUrl: 'https://your-domain.com/api',
-    supabaseUrl: process.env.VITE_SUPABASE_URL || '',
-    supabaseAnonKey: process.env.VITE_SUPABASE_ANON_KEY || '',
+    supabaseUrl: import.meta.env.VITE_SUPABASE_URL || '',
+    supabaseAnonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
   },
   
   // Current environment configuration
-  current: process.env.NODE_ENV === 'production' ? 'production' as const : 'development' as const,
+  current: import.meta.env.PROD ? 'production' as const : 'development' as const,
   
   // API Endpoints
   endpoints: {
@@ -43,7 +43,7 @@ export const API_CONFIG = {
   // Feature flags
   features: {
     enableAutoSave: true,
-    enableAnalytics: process.env.NODE_ENV === 'production',
+    enableAnalytics: import.meta.env.PROD,
     enableEmailConfirmations: true,
     enableSMSNotifications: false,
   },
@@ -101,8 +101,8 @@ export const buildApiUrl = (endpoint: string) => {
 };
 
 // Environment-specific settings
-export const isDevelopment = () => process.env.NODE_ENV === 'development';
-export const isProduction = () => process.env.NODE_ENV === 'production';
+export const isDevelopment = () => import.meta.env.DEV;
+export const isProduction = () => import.meta.env.PROD;
 
 // Feature flag helpers
 export const isFeatureEnabled = (feature: keyof typeof API_CONFIG.features) => {
