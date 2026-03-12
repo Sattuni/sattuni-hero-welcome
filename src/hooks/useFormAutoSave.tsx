@@ -17,7 +17,7 @@ export const useFormAutoSave = ({
   onRestore,
 }: UseFormAutoSaveOptions) => {
   const { toast } = useToast();
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const previousDataRef = useRef<string>('');
 
   // Save data to localStorage with debouncing
