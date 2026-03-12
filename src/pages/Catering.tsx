@@ -375,8 +375,8 @@ const Catering = () => {
           </div>
         </section>
 
-        {/* Praxis Beispiele */}
-        <PraxisBeispiele />
+        {/* Praxis Beispiele - ausgeblendet */}
+        {/* <PraxisBeispiele /> */}
 
         {/* Gallery Teaser */}
         <CateringGalleryTeaser />
