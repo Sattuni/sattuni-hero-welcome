@@ -43,7 +43,7 @@ export const API_CONFIG = {
   // Feature flags
   features: {
     enableAutoSave: true,
-    enableAnalytics: process.env.NODE_ENV === 'production',
+    enableAnalytics: import.meta.env.PROD,
     enableEmailConfirmations: true,
     enableSMSNotifications: false,
   },
