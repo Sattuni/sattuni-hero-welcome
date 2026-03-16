@@ -74,7 +74,7 @@ const AppRoutes = () => {
       <Route path="/spezialitaeten" element={<Specialties />} />
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/menus" element={<Menus />} />
-      <Route path="/ueber-uns" element={<AboutUs />} />
+      {/* <Route path="/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
