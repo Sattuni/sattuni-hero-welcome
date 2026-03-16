@@ -40,12 +40,6 @@ const ModeHeader = () => {
       title: "Catering für Unternehmen"
     },
     { 
-      name: "Über uns", 
-      href: "/catering/ueber-uns", 
-      current: location.pathname === "/catering/ueber-uns",
-      title: "Das Team hinter Sattuni"
-    },
-    { 
       name: "Blog", 
       href: "/catering/blog", 
       current: location.pathname.startsWith("/catering/blog"),
