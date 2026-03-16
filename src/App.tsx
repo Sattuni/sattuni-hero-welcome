@@ -55,7 +55,7 @@ const AppRoutes = () => {
       <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/catering/menus" element={<Menus />} />
       <Route path="/catering/partner" element={<CateringPartner />} />
-      <Route path="/catering/ueber-uns" element={<AboutUs />} />
+      {/* <Route path="/catering/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
       <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/catering/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
