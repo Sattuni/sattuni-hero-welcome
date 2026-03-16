@@ -11,7 +11,7 @@ const Footer = () => {
   const quickLinks = [
     { name: "Spezialitäten", href: "/restaurant/spezialitaeten" },
     { name: "Catering", href: "/catering" },
-    { name: "Über uns", href: "/catering/ueber-uns" },
+    
     { name: "Kontakt", href: "/catering?scrollTo=contact" },
   ];
 
