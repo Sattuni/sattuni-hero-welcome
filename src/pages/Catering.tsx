@@ -283,9 +283,11 @@ const Catering = () => {
                       <span><Link to="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" className="hover:text-primary hover:underline">Firmenfeiern</Link> & Kundenempfänge</span>
                     </li>
                   </ul>
+                  {/* Partner Modell link -- temporarily offline
                   <p className="hidden md:block text-xs text-muted-foreground mt-3">
                     Regelmäßig Events? <Link to="/catering/partner" className="font-medium text-primary hover:underline">Partner Modell →</Link>
                   </p>
+                  */}
                 </CardContent>
               </Card>
 
