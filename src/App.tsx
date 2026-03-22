@@ -56,7 +56,8 @@ const AppRoutes = () => {
       <Route path="/catering/menus" element={<Menus />} />
       {/* <Route path="/catering/partner" element={<CateringPartner />} /> -- temporarily offline */}
       {/* <Route path="/catering/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
-      {/* <Route path="/catering/blog" element={<Blog />} />
+      {/* Blog routes -- temporarily offline
+      <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/catering/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/catering/blog/workshop-catering" element={<BlogPost3 />} />
@@ -64,7 +65,8 @@ const AppRoutes = () => {
       <Route path="/catering/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/catering/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
-      <Route path="/catering/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} /> -- temporarily offline */
+      <Route path="/catering/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
+      */}
       
       {/* ===== SHARED / LEGAL ROUTES ===== */}
       <Route path="/impressum" element={<Impressum />} />
