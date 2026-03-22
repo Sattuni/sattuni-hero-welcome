@@ -77,7 +77,8 @@ const AppRoutes = () => {
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/menus" element={<Menus />} />
       {/* <Route path="/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
-      {/* <Route path="/blog" element={<Blog />} />
+      {/* Legacy blog routes -- temporarily offline
+      <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
       <Route path="/blog/workshop-catering" element={<BlogPost3 />} />
@@ -85,7 +86,8 @@ const AppRoutes = () => {
       <Route path="/blog/veganes-office-buffet-veganuary" element={<BlogPost5 />} />
       <Route path="/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
-      <Route path="/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} /> -- temporarily offline */
+      <Route path="/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
+      */}
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
