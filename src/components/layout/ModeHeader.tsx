@@ -39,12 +39,12 @@ const ModeHeader = () => {
       current: location.pathname === "/catering/partner",
       title: "Catering für Unternehmen"
     }, -- temporarily offline */
-    { 
+    /* { 
       name: "Blog", 
       href: "/catering/blog", 
       current: location.pathname.startsWith("/catering/blog"),
       title: "Blog & Einblicke"
-    },
+    }, -- temporarily offline */
   ];
 
   const restaurantNavigation = [
