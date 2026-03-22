@@ -56,6 +56,7 @@ const AppRoutes = () => {
       <Route path="/catering/menus" element={<Menus />} />
       {/* <Route path="/catering/partner" element={<CateringPartner />} /> -- temporarily offline */}
       {/* <Route path="/catering/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
+      {/* Blog routes -- temporarily offline
       <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/catering/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
@@ -65,6 +66,7 @@ const AppRoutes = () => {
       <Route path="/catering/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/catering/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
       <Route path="/catering/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
+      */}
       
       {/* ===== SHARED / LEGAL ROUTES ===== */}
       <Route path="/impressum" element={<Impressum />} />
@@ -75,6 +77,7 @@ const AppRoutes = () => {
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/menus" element={<Menus />} />
       {/* <Route path="/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
+      {/* Legacy blog routes -- temporarily offline
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
@@ -84,6 +87,7 @@ const AppRoutes = () => {
       <Route path="/blog/kundenbesuch-catering-abwechslung" element={<BlogPost6 />} />
       <Route path="/blog/catering-fuer-firmenfeiern-in-duesseldorf" element={<BlogPost7 />} />
       <Route path="/blog/catering-fuer-workshops-und-meetings" element={<BlogPost8 />} />
+      */}
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
