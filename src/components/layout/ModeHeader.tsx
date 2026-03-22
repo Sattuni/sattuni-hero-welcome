@@ -33,12 +33,12 @@ const ModeHeader = () => {
       current: location.pathname === "/catering/galerie",
       title: "Buffet Galerie"
     },
-    { 
+    /* { 
       name: "Partner Modell", 
       href: "/catering/partner", 
       current: location.pathname === "/catering/partner",
       title: "Catering für Unternehmen"
-    },
+    }, -- temporarily offline */
     { 
       name: "Blog", 
       href: "/catering/blog", 
