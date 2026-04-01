@@ -186,9 +186,6 @@ const ModeSplitHero = () => {
             Sattuni ist euer arabisches Restaurant in Düsseldorf – mit Lieferservice und authentischer 
             orientalischer Küche. Ob Catering für Firmen, Buffets für Meetings oder private Feiern: 
             Wir liefern frisch und hausgemacht direkt zu euch.
-            {' '}<a href="/catering/partner" className="text-primary hover:underline font-medium">
-              Catering Partner Modell für Unternehmen →
-            </a>
           </p>
         </div>
       </div>
