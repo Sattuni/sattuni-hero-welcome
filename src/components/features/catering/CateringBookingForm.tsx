@@ -993,9 +993,6 @@ const CateringBookingForm = () => {
                         min={getMinDate()}
                         className={validationErrors.date ? "border-destructive" : ""}
                       />
-                      <p className="text-xs text-muted-foreground">
-                        ⚠️ Hinweis: Vom 10.04. – 21.04.2026 nehmen wir keine Anfragen an.
-                      </p>
                       {validationErrors.date && (
                         <p className="text-sm text-destructive">{validationErrors.date}</p>
                       )}
