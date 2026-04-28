@@ -39,6 +39,16 @@ const RestaurantHero = () => {
       <div className="container relative z-10 px-4 py-6 md:py-8">
         <div className="max-w-3xl mx-auto text-center lg:text-left">
           <div className="space-y-3">
+            {/* Schließungsmitteilung */}
+            <div className="p-3 md:p-4 bg-destructive/10 border border-destructive/30 rounded-lg max-w-2xl mx-auto lg:mx-0">
+              <p className="text-sm md:text-base font-semibold text-destructive">
+                📅 Geschlossen bis 03.05.2026
+              </p>
+              <p className="text-xs md:text-sm text-destructive/80 mt-1">
+                Ab dem 04.05. sind wir wieder da.
+              </p>
+            </div>
+
             {/* Logo */}
             <div className="flex justify-center lg:justify-start">
               <img 
