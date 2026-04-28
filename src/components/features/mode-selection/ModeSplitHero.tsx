@@ -43,16 +43,6 @@ const ModeSplitHero = () => {
       <div className="container relative z-10 max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-5 md:mb-12">
-          {/* Schließungsmitteilung */}
-          <div className="mb-4 md:mb-6 p-3 md:p-4 bg-destructive/10 border border-destructive/30 rounded-lg max-w-2xl mx-auto">
-            <p className="text-sm md:text-base font-semibold text-destructive">
-              📅 Geschlossen bis 03.05.2026
-            </p>
-            <p className="text-xs md:text-sm text-destructive/80 mt-1">
-              Ab dem 04.05. sind wir wieder da.
-            </p>
-          </div>
-
           <div className="flex justify-center mb-3 md:mb-4">
             <img 
               src={sattunLogo} 
