@@ -221,7 +221,14 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
                           "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
                           isHighlighted(item.highlight) && "bg-primary/15"
                         )}>
-                          <span className="font-medium text-sm text-foreground">{item.name}</span>
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="font-medium text-sm text-foreground">{item.name}</span>
+                            {item.surcharge && (
+                              <Badge className="bg-amber-500 hover:bg-amber-500 text-white text-[10px] font-semibold px-1.5 py-0">
+                                +{formatPrice(item.surcharge)} p. P.
+                              </Badge>
+                            )}
+                          </div>
                           {item.description && (
                             <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
                               {item.description}
@@ -241,7 +248,14 @@ const MenuCard = ({ pkg, occasions, hint, dishCounts }: MenuCardProps) => {
                     "flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 py-1.5 border-b border-border/30 last:border-0 rounded px-2 -mx-2",
                     isHighlighted(item.highlight) && "bg-primary/15"
                   )}>
-                    <span className="font-medium text-sm text-foreground">{item.name}</span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-medium text-sm text-foreground">{item.name}</span>
+                      {item.surcharge && (
+                        <Badge className="bg-amber-500 hover:bg-amber-500 text-white text-[10px] font-semibold px-1.5 py-0">
+                          +{formatPrice(item.surcharge)} p. P.
+                        </Badge>
+                      )}
+                    </div>
                     {item.description && (
                       <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right max-w-xs">
                         {item.description}
