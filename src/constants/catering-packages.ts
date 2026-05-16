@@ -252,7 +252,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
         ],
       },
     ],
-    pricePerPerson: 35,
+    pricePerPerson: 38,
     minGuests: 50,
     includesDessert: true,
   },
