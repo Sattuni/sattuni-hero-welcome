@@ -50,6 +50,8 @@ export interface PackageDishItem {
   description?: string;
   /** Highlights differences between packages: 'neu' = new in this tier, 'upgrade' = improved version, 'premium' = exclusive to premium */
   highlight?: 'neu' | 'upgrade' | 'premium';
+  /** Optional surcharge per person in EUR, shown as a badge */
+  surcharge?: number;
 }
 
 // ===== PAKETE/MENÜS =====
@@ -114,7 +116,7 @@ export const CATERING_PACKAGES: CateringPackage[] = [
           { name: 'Baba Ghanoush', description: 'Geröstete Aubergine, fein püriert mit Tahini.' },
           { name: 'Mini-Fatayer', description: 'Goldbraun gebackene, gefüllte Teigtaschen (Spinat & Käse).' },
           { name: 'Kibbeh', description: 'Knusprige Grießbällchen mit herzhafter Kartoffelfüllung.' },
-          { name: 'Gefüllte Gemüserollen / Wraps', description: 'Leicht gefüllte Rollen mit aromatischer Gemüsefüllung. Aufpreis: +1,50 € p. P.' },
+          { name: 'Gefüllte Gemüserollen / Wraps', description: 'Leicht gefüllte Rollen mit aromatischer Gemüsefüllung.', surcharge: 1.5 },
         ],
       },
     ],
