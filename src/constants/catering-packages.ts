@@ -50,6 +50,8 @@ export interface PackageDishItem {
   description?: string;
   /** Highlights differences between packages: 'neu' = new in this tier, 'upgrade' = improved version, 'premium' = exclusive to premium */
   highlight?: 'neu' | 'upgrade' | 'premium';
+  /** Optional surcharge per person in EUR, shown as a badge */
+  surcharge?: number;
 }
 
 // ===== PAKETE/MENÜS =====
