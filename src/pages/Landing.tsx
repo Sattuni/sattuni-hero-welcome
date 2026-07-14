@@ -75,20 +75,20 @@ const Landing = () => {
       />
 
       {/* Betriebsferien-Hinweis */}
-      <div className="bg-primary text-primary-foreground py-4 px-4 shadow-soft border-b border-primary-foreground/20">
+      <div className="bg-destructive text-destructive-foreground py-4 px-4 shadow-soft border-b border-destructive-foreground/20">
         <div className="container max-w-5xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
             <div className="flex items-center gap-2.5">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-60"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-foreground"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive-foreground opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-destructive-foreground"></span>
               </span>
               <CalendarX className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
               <p className="text-sm md:text-base font-bold">
                 Betriebsferien bis zum 30.07.
               </p>
             </div>
-            <span className="hidden sm:block w-px h-4 bg-primary-foreground/40"></span>
+            <span className="hidden sm:block w-px h-4 bg-destructive-foreground/40"></span>
             <p className="text-xs md:text-sm font-medium opacity-95">
               Catering-Anfragen werden trotzdem bearbeitet.
             </p>
