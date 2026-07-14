@@ -74,6 +74,13 @@ const Landing = () => {
       />
       
       <main className="min-h-screen">
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-3 md:py-4">
+          <div className="container max-w-5xl mx-auto text-center">
+            <p className="text-sm md:text-base font-medium text-amber-900">
+              Betriebsferien: Wir sind bis zum 30.07. im Urlaub. Bestellungen und Anfragen werden danach wieder wie gewohnt bearbeitet.
+            </p>
+          </div>
+        </div>
         <ModeSplitHero />
       </main>
       <Footer />
