@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ModeSplitHero from "@/components/features/mode-selection/ModeSplitHero";
 import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/seo/SEOHead";
-import { CalendarX } from "lucide-react";
+
 
 const Landing = () => {
   // SEO Meta Tags and Structured Data
