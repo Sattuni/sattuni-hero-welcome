@@ -54,8 +54,8 @@ const AppRoutes = () => {
       <Route path="/catering/galerie" element={<CateringGallery />} />
       <Route path="/catering/danke" element={<CateringDanke />} />
       <Route path="/catering/menus" element={<Menus />} />
+      <Route path="/catering/ueber-uns" element={<AboutUs />} />
       {/* <Route path="/catering/partner" element={<CateringPartner />} /> -- temporarily offline */}
-      {/* <Route path="/catering/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
       {/* Blog routes -- temporarily offline
       <Route path="/catering/blog" element={<Blog />} />
       <Route path="/catering/blog/buero-lunch-ideen" element={<BlogPost1 />} />
@@ -76,8 +76,8 @@ const AppRoutes = () => {
       <Route path="/spezialitaeten" element={<Specialties />} />
       <Route path="/speisekarte" element={<Speisekarte />} />
       <Route path="/menus" element={<Menus />} />
-      {/* <Route path="/ueber-uns" element={<AboutUs />} /> -- temporarily offline */}
-      {/* Legacy blog routes -- temporarily offline
+      <Route path="/ueber-uns" element={<AboutUs />} />
+      {/* <Route path="/about" element={<AboutUs />} /> */}
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/buero-lunch-ideen" element={<BlogPost1 />} />
       <Route path="/blog/was-bedeutet-mezze" element={<BlogPost2 />} />
