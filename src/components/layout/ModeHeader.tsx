@@ -27,11 +27,17 @@ const ModeHeader = () => {
       current: location.pathname === "/catering/menus",
       title: "Menüs & Preise ansehen"
     },
-    { 
-      name: "Galerie", 
-      href: "/catering/galerie", 
+    {
+      name: "Galerie",
+      href: "/catering/galerie",
       current: location.pathname === "/catering/galerie",
       title: "Buffet Galerie"
+    },
+    { 
+      name: "Über uns", 
+      href: "/catering/ueber-uns", 
+      current: location.pathname === "/catering/ueber-uns",
+      title: "Das Team hinter Sattuni"
     },
     /* { 
       name: "Partner Modell", 
