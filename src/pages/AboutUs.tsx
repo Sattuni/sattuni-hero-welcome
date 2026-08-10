@@ -29,8 +29,8 @@ const AboutUs = () => {
       "@graph": [
         {
           "@type": "AboutPage",
-          "@id": "https://sattuni.de/ueber-uns#about",
-          "url": "https://sattuni.de/ueber-uns",
+          "@id": "https://sattuni.de/catering/ueber-uns#about",
+          "url": "https://sattuni.de/catering/ueber-uns",
           "name": "Über Sattuni - Die Brüder hinter der Küche",
           "description": "Feras und Hamudi - zwei Brüder, die arabische Küche in Düsseldorf neu interpretieren."
         },
